@@ -1,0 +1,188 @@
+/* Sanskaar Digital School ERP - Core Stylesheet */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
+
+:root {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --brand-primary: #E8752F;
+  --brand-primary-hover: #D46320;
+  --brand-primary-50: #FFF7ED;
+  --brand-primary-100: #FFEDD5;
+  --brand-primary-200: #FED7AA;
+  --brand-primary-500: #E8752F;
+  --brand-primary-600: #D46320;
+  --brand-primary-700: #C2410C;
+  --sidebar-width: 280px;
+  --sidebar-collapsed-width: 80px;
+  --topbar-height: 64px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #F8FAFC;
+  color: #0F172A;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Glass & Soft Shadows */
+.soft-shadow {
+  box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.05), 0 1px 2px -1px rgba(15, 23, 42, 0.05);
+}
+.card-shadow {
+  box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.04), 0 2px 4px -2px rgba(15, 23, 42, 0.03);
+}
+.modal-shadow {
+  box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.08);
+}
+.glow-primary {
+  box-shadow: 0 0 15px -3px rgba(232, 117, 47, 0.25);
+}
+
+/* Nav Item Transitions */
+.nav-transition {
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseSubtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.03); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.25s ease-out forwards;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.2s ease-out forwards;
+}
+
+.animate-pulse-subtle {
+  animation: pulseSubtle 2.5s infinite ease-in-out;
+}
+
+/* Table styling helpers */
+.table-sticky-header th {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: #F8FAFC;
+}
+
+/* Print Stylesheet for Official Documents (Receipts, Marksheets, Certificates, ID Cards) */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  
+  #printable-document, #printable-document * {
+    visibility: visible;
+  }
+  
+  #printable-document {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    background: white;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  @page {
+    margin: 1cm;
+    size: auto;
+  }
+}
+
+/* Ornamental Certificate Border */
+.certificate-border {
+  border: 12px double #B45309;
+  outline: 2px solid #E8752F;
+  outline-offset: -6px;
+  background: radial-gradient(circle at center, #FFFDF8 0%, #FFFBEB 100%);
+  position: relative;
+}
+
+.certificate-border::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+  border: 1px dashed #D97706;
+  pointer-events: none;
+}
+
+/* Physical ID Card Simulation */
+.id-card-front, .id-card-back {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  background: white;
+}
+
+.id-card-lanyard-hole {
+  width: 32px;
+  height: 8px;
+  background: #E2E8F0;
+  border: 1px solid #CBD5E1;
+  border-radius: 9999px;
+  margin: 0 auto;
+}
+
+.hologram-seal {
+  background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,215,0,0.4) 25%, rgba(0,255,255,0.4) 50%, rgba(255,0,128,0.4) 75%, rgba(255,255,255,0.4) 100%);
+  background-size: 200% 200%;
+  animation: shimmer 4s infinite linear;
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Tooltip on collapsed sidebar */
+.sidebar-tooltip {
+  display: none;
+}
+.sidebar-collapsed .group:hover .sidebar-tooltip {
+  display: block;
+}

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Financial Reports & P&L - Sanskaar ERP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <div id="app-shell">
+    <div id="page-content">
+      
+      <!-- Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div>
+          <h1 class="text-2xl font-black text-slate-900 tracking-tight" data-i18n="nav_financial_reports">Financial Statements & Audit (P&L)</h1>
+          <p class="text-xs text-slate-500 mt-1">Kathmandu Valley Secondary School • Fiscal Year 2083/84 (All figures in NPR / रू)</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="window.print()" class="px-3.5 py-2 text-xs font-bold bg-white border border-slate-200 text-slate-700 rounded-xl hover:bg-slate-50 transition-colors shadow-2xs flex items-center gap-1.5">
+            <i data-lucide="printer" class="w-4 h-4 text-slate-400"></i>
+            <span>Print Financial Audit</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Financial Performance Summary -->
+      <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 mb-6">
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <span class="text-xs font-semibold text-slate-400">Gross Fee Income</span>
+          <div class="text-2xl font-black text-emerald-600 mt-1">रू 3,42,80,000</div>
+          <span class="text-[11px] text-slate-500">Session to Date</span>
+        </div>
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <span class="text-xs font-semibold text-slate-400">Payroll Expenditure</span>
+          <div class="text-2xl font-black text-slate-900 mt-1">रू 1,85,00,000</div>
+          <span class="text-[11px] text-slate-500">Faculty & Support Staff</span>
+        </div>
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <span class="text-xs font-semibold text-slate-400">Operating Expenses</span>
+          <div class="text-2xl font-black text-slate-900 mt-1">रू 38,60,000</div>
+          <span class="text-[11px] text-slate-500">Utilities, NEA, Fuel, Printing</span>
+        </div>
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <span class="text-xs font-semibold text-slate-400">Net Operating Surplus</span>
+          <div class="text-2xl font-black text-emerald-600 mt-1">रू 1,19,20,000</div>
+          <span class="text-[11px] text-emerald-600 font-bold">Surplus Reinvested</span>
+        </div>
+      </div>
+
+      <!-- P&L Comparison Chart -->
+      <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs mb-6">
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <h3 class="text-sm font-bold text-slate-900">Monthly Revenue vs Expenditure Cash Flow</h3>
+            <p class="text-xs text-slate-400">Baisakh to Mangsir 2083 (NPR Lakhs)</p>
+          </div>
+          <span class="text-xs font-bold text-[#E8752F] bg-orange-50 px-2 py-0.5 rounded">FY 2083/84</span>
+        </div>
+        <div class="h-64 relative">
+          <canvas id="plCashflowChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Audited Profit & Loss Statement Table -->
+      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-2xs overflow-hidden">
+        <div class="p-4 border-b border-slate-100 flex items-center justify-between">
+          <h3 class="font-bold text-slate-900 text-sm">Statement of Comprehensive Income</h3>
+          <span class="text-xs text-slate-400">Audited by R.K. Joshi & Associates, Chartered Accountants</span>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-slate-50 text-slate-500 border-b border-slate-200/80">
+              <tr>
+                <th class="py-3 px-4 font-semibold">Accounting Particulars</th>
+                <th class="py-3 px-3 font-semibold text-right">Mangsir 2083</th>
+                <th class="py-3 px-4 font-semibold text-right">Year-to-Date (FY 2083/84)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 font-mono">
+              <tr class="bg-slate-50/60 font-sans font-bold text-slate-900">
+                <td colspan="3" class="py-2.5 px-4">REVENUE FROM OPERATIONS</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 px-4 font-sans text-slate-700">Tuition Fees Received</td>
+                <td class="py-2.5 px-3 text-right text-emerald-600">रू 38,50,000</td>
+                <td class="py-2.5 px-4 text-right font-bold text-slate-900">रू 2,82,00,000</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 px-4 font-sans text-slate-700">Laboratory & Computer Lab Charges</td>
+                <td class="py-2.5 px-3 text-right text-emerald-600">रू 4,80,000</td>
+                <td class="py-2.5 px-4 text-right font-bold text-slate-900">रू 32,40,000</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 px-4 font-sans text-slate-700">Transportation Bus Fees</td>
+                <td class="py-2.5 px-3 text-right text-emerald-600">रू 3,45,000</td>
+                <td class="py-2.5 px-4 text-right font-bold text-slate-900">रू 28,40,000</td>
+              </tr>
+              <tr class="bg-emerald-50/50 font-bold">
+                <td class="py-2.5 px-4 font-sans text-emerald-800">TOTAL REVENUE (A)</td>
+                <td class="py-2.5 px-3 text-right text-emerald-700">रू 46,75,000</td>
+                <td class="py-2.5 px-4 text-right text-emerald-700 text-sm">रू 3,42,80,000</td>
+              </tr>
+
+              <tr class="bg-slate-50/60 font-sans font-bold text-slate-900">
+                <td colspan="3" class="py-2.5 px-4">OPERATING EXPENDITURES</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 px-4 font-sans text-slate-700">Faculty & Staff Payroll, PF & CIT</td>
+                <td class="py-2.5 px-3 text-right text-rose-600">रू 23,12,500</td>
+                <td class="py-2.5 px-4 text-right font-bold text-slate-900">रू 1,85,00,000</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 px-4 font-sans text-slate-700">NEA Electricity & Municipal Utilities</td>
+                <td class="py-2.5 px-3 text-right text-rose-600">रू 78,400</td>
+                <td class="py-2.5 px-4 text-right font-bold text-slate-900">रू 6,20,000</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 px-4 font-sans text-slate-700">School Bus Fuel & Maintenance</td>
+                <td class="py-2.5 px-3 text-right text-rose-600">रू 1,42,000</td>
+                <td class="py-2.5 px-4 text-right font-bold text-slate-900">रू 11,36,000</td>
+              </tr>
+              <tr class="bg-rose-50/50 font-bold">
+                <td class="py-2.5 px-4 font-sans text-rose-800">TOTAL EXPENDITURES (B)</td>
+                <td class="py-2.5 px-3 text-right text-rose-700">रू 25,32,900</td>
+                <td class="py-2.5 px-4 text-right text-rose-700 text-sm">रू 2,02,56,000</td>
+              </tr>
+
+              <tr class="bg-emerald-100/50 font-black text-slate-900 text-sm">
+                <td class="py-3 px-4 font-sans">NET OPERATING SURPLUS (A - B)</td>
+                <td class="py-3 px-3 text-right text-emerald-700">रू 21,42,100</td>
+                <td class="py-3 px-4 text-right text-emerald-700 text-base">रू 1,40,24,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/charts.js"></script>
+  <script src="../assets/js/components.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'school',
+        activeNav: 'financial-reports',
+        pageTitle: 'Financial Statements (P&L)',
+        breadcrumb: 'Reports',
+        rootPrefix: '../'
+      });
+
+      if (window.SanskaarCharts) {
+        SanskaarCharts.createBarChart('plCashflowChart',
+          ['Baisakh', 'Jestha', 'Ashadh', 'Shrawan', 'Bhadra', 'Ashwin', 'Kartik', 'Mangsir'],
+          [
+            {
+              label: 'Fee Income (NPR)',
+              data: [42, 44, 43, 41, 45, 43, 42, 46],
+              backgroundColor: '#10B981',
+              borderRadius: 6
+            },
+            {
+              label: 'Expenses & Payroll (NPR)',
+              data: [25, 25, 26, 25, 26, 25, 25, 25],
+              backgroundColor: '#CBD5E1',
+              borderRadius: 6
+            }
+          ]
+        );
+      }
+    });
+  </script>
+</body>
+</html>

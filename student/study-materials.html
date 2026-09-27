@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-50">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanskaar ERP - Student Study Materials</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="h-full text-slate-800 antialiased font-['Plus_Jakarta_Sans',sans-serif]">
+  <div id="app-shell">
+    <div id="page-content" class="p-6 space-y-6">
+      
+      <!-- Page Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <h1 class="text-2xl font-bold text-slate-900" data-i18n="student_materials">Study Materials & Notes</h1>
+          <p class="text-sm text-slate-500 mt-1">Curriculum Development Centre (CDC) e-textbooks, formula cheat-sheets, and SEE model solutions.</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <button onclick="downloadAllNotes()" class="inline-flex items-center gap-2 px-4 py-2 bg-[#E8752F] hover:bg-[#d66521] text-white rounded-xl text-sm font-semibold transition-all shadow-sm">
+            <i data-lucide="folder-down" class="w-4 h-4"></i>
+            <span>Download All Class 10 Pack</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Subject Filters -->
+      <div class="flex items-center gap-2 overflow-x-auto pb-1">
+        <button onclick="filterMaterials('all')" class="mat-tab px-4 py-2 rounded-xl text-xs font-bold bg-[#E8752F] text-white shadow-sm transition-all shrink-0">All Subjects (6)</button>
+        <button onclick="filterMaterials('math')" class="mat-tab px-4 py-2 rounded-xl text-xs font-semibold text-slate-600 bg-white hover:bg-slate-100 border border-slate-200 transition-all shrink-0">Mathematics (2)</button>
+        <button onclick="filterMaterials('science')" class="mat-tab px-4 py-2 rounded-xl text-xs font-semibold text-slate-600 bg-white hover:bg-slate-100 border border-slate-200 transition-all shrink-0">Science (1)</button>
+        <button onclick="filterMaterials('nepali')" class="mat-tab px-4 py-2 rounded-xl text-xs font-semibold text-slate-600 bg-white hover:bg-slate-100 border border-slate-200 transition-all shrink-0">Nepali (1)</button>
+        <button onclick="filterMaterials('english')" class="mat-tab px-4 py-2 rounded-xl text-xs font-semibold text-slate-600 bg-white hover:bg-slate-100 border border-slate-200 transition-all shrink-0">English (1)</button>
+        <button onclick="filterMaterials('computer')" class="mat-tab px-4 py-2 rounded-xl text-xs font-semibold text-slate-600 bg-white hover:bg-slate-100 border border-slate-200 transition-all shrink-0">Computer Science (1)</button>
+      </div>
+
+      <!-- Materials Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Mat 1: Math Solution -->
+        <div class="mat-card math bg-white rounded-2xl border border-slate-200/80 shadow-sm p-5 hover:border-[#E8752F]/40 transition-all flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-blue-50 text-blue-700">Compulsory Math</span>
+              <span class="text-xs text-slate-400 font-semibold">4.8 MB PDF</span>
+            </div>
+            <h3 class="font-bold text-slate-900 text-base">CDC Class 10 Math Complete Solution & Formula Sheet</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">Includes Coordinate Geometry, Circle Theorems, Quadratic Equations, and SEE model exam question solutions.</p>
+          </div>
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="text-slate-400">Mrs. Sunita Shrestha</span>
+            <button onclick="downloadFile('Class 10 Math Formula Sheet.pdf')" class="px-3 py-1.5 bg-slate-100 hover:bg-[#E8752F] hover:text-white text-slate-700 font-bold rounded-lg transition-colors flex items-center gap-1.5">
+              <i data-lucide="download" class="w-3.5 h-3.5"></i> Download
+            </button>
+          </div>
+        </div>
+
+        <!-- Mat 2: Science Lab Manual -->
+        <div class="mat-card science bg-white rounded-2xl border border-slate-200/80 shadow-sm p-5 hover:border-[#E8752F]/40 transition-all flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700">Science & Tech</span>
+              <span class="text-xs text-slate-400 font-semibold">6.2 MB PDF</span>
+            </div>
+            <h3 class="font-bold text-slate-900 text-base">Class 10 Physics & Chemistry Lab Manual 2083</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">Circuit diagrams, ray optics lens experiments, and chemical reaction observation logs for 25 Marks practical.</p>
+          </div>
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="text-slate-400">Prof. Dr. Ram Thapa</span>
+            <button onclick="downloadFile('Science Lab Manual 2083.pdf')" class="px-3 py-1.5 bg-slate-100 hover:bg-[#E8752F] hover:text-white text-slate-700 font-bold rounded-lg transition-colors flex items-center gap-1.5">
+              <i data-lucide="download" class="w-3.5 h-3.5"></i> Download
+            </button>
+          </div>
+        </div>
+
+        <!-- Mat 3: Nepali Grammar -->
+        <div class="mat-card nepali bg-white rounded-2xl border border-slate-200/80 shadow-sm p-5 hover:border-[#E8752F]/40 transition-all flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-50 text-amber-700">अनिवार्य नेपाली</span>
+              <span class="text-xs text-slate-400 font-semibold">3.1 MB PDF</span>
+            </div>
+            <h3 class="font-bold text-slate-900 text-base">SEE नेपाली व्याकरण सम्पूर्ण मार्गदर्शन (२०८३)</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">पदवर्ग पहिचान, कारक र विभक्ति, काल र पक्ष, वाच्य, वाक्य संश्लेषण तथा विपरितार्थक/पर्यायवाची शब्द सङ्ग्रह।</p>
+          </div>
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="text-slate-400">Pt. Dilli Dahal</span>
+            <button onclick="downloadFile('Nepali Byakaran Margadarshan.pdf')" class="px-3 py-1.5 bg-slate-100 hover:bg-[#E8752F] hover:text-white text-slate-700 font-bold rounded-lg transition-colors flex items-center gap-1.5">
+              <i data-lucide="download" class="w-3.5 h-3.5"></i> Download
+            </button>
+          </div>
+        </div>
+
+        <!-- Mat 4: English Writing -->
+        <div class="mat-card english bg-white rounded-2xl border border-slate-200/80 shadow-sm p-5 hover:border-[#E8752F]/40 transition-all flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-purple-50 text-purple-700">Compulsory English</span>
+              <span class="text-xs text-slate-400 font-semibold">2.9 MB PDF</span>
+            </div>
+            <h3 class="font-bold text-slate-900 text-base">CDC SEE Model Essays, Letters & Grammar Blueprint</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">Curated essays on environmental conservation, technology in Nepal, formal editorial letters, and unseen comprehension passages.</p>
+          </div>
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="text-slate-400">Mrs. Ananya Bhattarai</span>
+            <button onclick="downloadFile('SEE English Model Essays.pdf')" class="px-3 py-1.5 bg-slate-100 hover:bg-[#E8752F] hover:text-white text-slate-700 font-bold rounded-lg transition-colors flex items-center gap-1.5">
+              <i data-lucide="download" class="w-3.5 h-3.5"></i> Download
+            </button>
+          </div>
+        </div>
+
+        <!-- Mat 5: Computer Science -->
+        <div class="mat-card computer bg-white rounded-2xl border border-slate-200/80 shadow-sm p-5 hover:border-[#E8752F]/40 transition-all flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-[#E8752F]/10 text-[#E8752F]">Computer Science & AI</span>
+              <span class="text-xs text-slate-400 font-semibold">5.4 MB PDF</span>
+            </div>
+            <h3 class="font-bold text-slate-900 text-base">Python 3 Core Concepts & Practical Programming Syllabus</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">Object oriented programming, conditional algorithms, database connections with SQLite, and sample board exam code snippets.</p>
+          </div>
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="text-slate-400">Mr. Bikram Gurung</span>
+            <button onclick="downloadFile('Python 3 Class 10 Guide.pdf')" class="px-3 py-1.5 bg-slate-100 hover:bg-[#E8752F] hover:text-white text-slate-700 font-bold rounded-lg transition-colors flex items-center gap-1.5">
+              <i data-lucide="download" class="w-3.5 h-3.5"></i> Download
+            </button>
+          </div>
+        </div>
+
+        <!-- Mat 6: Opt Math -->
+        <div class="mat-card math bg-white rounded-2xl border border-slate-200/80 shadow-sm p-5 hover:border-[#E8752F]/40 transition-all flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-blue-50 text-blue-700">Optional Math</span>
+              <span class="text-xs text-slate-400 font-semibold">3.7 MB PDF</span>
+            </div>
+            <h3 class="font-bold text-slate-900 text-base">Vectors, Matrix Transformations & Calculus Cheat-Sheet</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">Trigonometric compound angles, transformation matrices, and derivative limit rules with step-by-step CDC proofs.</p>
+          </div>
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="text-slate-400">Mrs. Sunita Shrestha</span>
+            <button onclick="downloadFile('Optional Math Cheat Sheet.pdf')" class="px-3 py-1.5 bg-slate-100 hover:bg-[#E8752F] hover:text-white text-slate-700 font-bold rounded-lg transition-colors flex items-center gap-1.5">
+              <i data-lucide="download" class="w-3.5 h-3.5"></i> Download
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+  <script>
+    function downloadFile(name) {
+      SanskaarToast.show(`Downloading "${name}"...`, 'info');
+      setTimeout(() => {
+        SanskaarToast.show(`"${name}" saved to your downloads folder!`, 'success');
+      }, 700);
+    }
+
+    function downloadAllNotes() {
+      SanskaarToast.show('Bundling all Class 10 study materials (ZIP archive: 26.2 MB)...', 'info');
+      setTimeout(() => {
+        SanskaarToast.show('Class 10 complete study bundle downloaded!', 'success');
+      }, 1200);
+    }
+
+    function filterMaterials(subject) {
+      document.querySelectorAll('.mat-tab').forEach(b => {
+        b.className = 'mat-tab px-4 py-2 rounded-xl text-xs font-semibold text-slate-600 bg-white hover:bg-slate-100 border border-slate-200 transition-all shrink-0';
+      });
+      event.target.className = 'mat-tab px-4 py-2 rounded-xl text-xs font-bold bg-[#E8752F] text-white shadow-sm transition-all shrink-0';
+
+      document.querySelectorAll('.mat-card').forEach(card => {
+        if (subject === 'all' || card.classList.contains(subject)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'student',
+        activeNav: 'study-materials',
+        pageTitle: 'Study Materials',
+        breadcrumb: 'Student / Materials',
+        rootPrefix: '../'
+      });
+    });
+  </script>
+</body>
+</html>

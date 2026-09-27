@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-50">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanskaar ERP - Student Notices</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="h-full text-slate-800 antialiased font-['Plus_Jakarta_Sans',sans-serif]">
+  <div id="app-shell">
+    <div id="page-content" class="p-6 space-y-6">
+      
+      <!-- Page Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <h1 class="text-2xl font-bold text-slate-900" data-i18n="student_notices">Notice Board</h1>
+          <p class="text-sm text-slate-500 mt-1">Official circulars, exam schedules, ECA conclaves, and administrative notices from KVSS administration.</p>
+        </div>
+      </div>
+
+      <!-- Notices Feed -->
+      <div class="space-y-4">
+        
+        <!-- Notice 1 -->
+        <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 space-y-3 hover:border-[#E8752F]/40 transition-all">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-orange-50 text-[#E8752F]">Academic / Examination</span>
+            <span class="text-xs text-slate-400 font-semibold">20 Bhadra 2083 (05 Sep 2026)</span>
+          </div>
+          <h3 class="font-bold text-slate-900 text-lg">Schedule for First Terminal Examination & SEE Model Test 2083</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            The First Terminal Examination for Classes 1 to 12 commences on 28th Ashwin 2083. Class 10 candidates will appear for SEE mock blueprint papers under full National Examination Board protocol. Full marks: 75 Theory + 25 Practical. Admit cards are available in the student portal.
+          </p>
+          <div class="pt-2 flex items-center justify-between text-xs">
+            <span class="text-slate-400">Published by: <strong class="text-slate-700">Examination Controller</strong></span>
+            <button onclick="readNotice('Schedule for Terminal Examination', 'The First Terminal Examination for Classes 1 to 12 commences on 28th Ashwin 2083. Class 10 candidates will appear for SEE mock blueprint papers under full National Examination Board protocol. Full marks: 75 Theory + 25 Practical.')" class="font-bold text-[#E8752F] hover:underline flex items-center gap-1">
+              <span>Read Full Circular</span>
+              <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Notice 2 -->
+        <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 space-y-3 hover:border-[#E8752F]/40 transition-all">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-purple-50 text-purple-700">Events & Innovation</span>
+            <span class="text-xs text-slate-400 font-semibold">10 Bhadra 2083</span>
+          </div>
+          <h3 class="font-bold text-slate-900 text-lg">Inter-School Science, Robotics & AI Conclave 'Valley Innovate 2083'</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            KVSS is proud to host 28 Valley schools for the Drone Simulator, Line Follower Robotics, and AI Innovation Arena on 12th Ashwin 2083. Students interested in entering technical prototypes should register with Mr. Bikram Gurung by 25th Bhadra.
+          </p>
+          <div class="pt-2 flex items-center justify-between text-xs">
+            <span class="text-slate-400">Published by: <strong class="text-slate-700">IT & Robotics Club</strong></span>
+            <button onclick="readNotice('Inter-School Science & AI Conclave', 'KVSS is proud to host 28 Valley schools for the Drone Simulator and AI Innovation Arena on 12th Ashwin 2083. Register with Mr. Bikram Gurung.')" class="font-bold text-[#E8752F] hover:underline flex items-center gap-1">
+              <span>Read Full Circular</span>
+              <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Notice 3 -->
+        <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 space-y-3 hover:border-[#E8752F]/40 transition-all">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-blue-50 text-blue-700">Finance & Administration</span>
+            <span class="text-xs text-slate-400 font-semibold">15 Bhadra 2083</span>
+          </div>
+          <h3 class="font-bold text-slate-900 text-lg">Quarter 2 Fee Settlement Notice & eSewa/Khalti Online Clearance</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Parents who have pending fee dues for Quarter 2 are kindly requested to clear them before 30th Bhadra. Online payments via eSewa, Khalti, and ConnectIPS are available with instant digital receipt generation.
+          </p>
+          <div class="pt-2 flex items-center justify-between text-xs">
+            <span class="text-slate-400">Published by: <strong class="text-slate-700">Accounts Department</strong></span>
+            <button onclick="readNotice('Fee Settlement Notice', 'Quarter 2 fee clearance requested before 30th Bhadra via eSewa, Khalti, or ConnectIPS.')" class="font-bold text-[#E8752F] hover:underline flex items-center gap-1">
+              <span>Read Full Circular</span>
+              <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Notice 4 -->
+        <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 space-y-3 hover:border-[#E8752F]/40 transition-all">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700">Holiday Notification</span>
+            <span class="text-xs text-slate-400 font-semibold">05 Bhadra 2083</span>
+          </div>
+          <h3 class="font-bold text-slate-900 text-lg">Dashain & Tihar Autumn Vacation Notification 2083</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            The school will remain closed for the auspicious festivals of Bada Dashain, Tihar, and Chhath from Ashwin 29 to Kartik 18, 2083. Regular classes resume on Kartik 19 (Sunday). Holiday homework has been dispatched.
+          </p>
+          <div class="pt-2 flex items-center justify-between text-xs">
+            <span class="text-slate-400">Published by: <strong class="text-slate-700">Office of the Principal</strong></span>
+            <button onclick="readNotice('Dashain & Tihar Vacation', 'School remains closed from Ashwin 29 to Kartik 18, 2083 for festival holidays.')" class="font-bold text-[#E8752F] hover:underline flex items-center gap-1">
+              <span>Read Full Circular</span>
+              <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Notice Reader Modal -->
+  <div id="noticeModal" class="hidden fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl border border-slate-200 shadow-xl w-full max-w-lg overflow-hidden">
+      <div class="p-5 border-b border-slate-100 flex items-center justify-between">
+        <h3 class="font-bold text-slate-900 text-base" id="modal-notice-title">Circular Details</h3>
+        <button onclick="SanskaarModal.close('noticeModal')" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+      <div class="p-6 space-y-4">
+        <div class="text-xs text-slate-400">Kathmandu Valley Secondary School • Official Notice</div>
+        <p class="text-sm text-slate-700 leading-relaxed" id="modal-notice-content"></p>
+        <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs">
+          <span class="font-bold text-slate-700">Official Letter Circular.pdf</span>
+          <button onclick="SanskaarToast.show('Circular downloaded.', 'info')" class="text-[#E8752F] font-bold hover:underline">Download PDF</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+  <script>
+    function readNotice(title, text) {
+      document.getElementById('modal-notice-title').textContent = title;
+      document.getElementById('modal-notice-content').textContent = text;
+      SanskaarModal.open('noticeModal');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'student',
+        activeNav: 'notices',
+        pageTitle: 'Notice Board',
+        breadcrumb: 'Student / Notices',
+        rootPrefix: '../'
+      });
+    });
+  </script>
+</body>
+</html>

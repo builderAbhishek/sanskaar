@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Student Diagnostics - Sanskaar ERP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <div id="app-shell">
+    <div id="page-content">
+      
+      <!-- Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-2xl font-black text-slate-900 tracking-tight" data-i18n="nav_ai_insights">AI Student Diagnostic Copilot</h1>
+            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-orange-50 text-[#E8752F] border border-orange-200 uppercase">
+              Sanskaar Intelligence
+            </span>
+          </div>
+          <p class="text-xs text-slate-500 mt-1">Autonomous academic anomaly detection, attendance-correlation signals & predictive SEE trajectory</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="Toast.success('Diagnostics Recomputed', 'Scanned 1,482 student test marks and roll call logs')" class="px-3.5 py-2 text-xs font-bold bg-[#E8752F] text-white rounded-xl hover:bg-[#D46320] transition-colors shadow-sm flex items-center gap-2">
+            <i data-lucide="sparkles" class="w-4 h-4"></i>
+            <span>Run Neural Diagnostic Scan</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- AI Insights Cards Grid -->
+      <div class="space-y-6">
+        
+        <!-- Insight 1: Aarav Shrestha Profile Diagnostic -->
+        <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-48 h-48 bg-orange-100/40 rounded-full blur-3xl pointer-events-none"></div>
+
+          <div class="flex items-start justify-between mb-4">
+            <div class="flex items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=100&auto=format&fit=crop&q=80" class="w-12 h-12 rounded-2xl object-cover ring-2 ring-orange-200">
+              <div>
+                <h3 class="font-black text-slate-900 text-base">Aarav Shrestha (Class 10-A • Roll #01)</h3>
+                <span class="text-xs text-slate-400 font-medium">NEB Symbol: 27014001A • Projected SEE GPA: <strong class="text-emerald-600 font-bold">3.92 - 4.00</strong></span>
+              </div>
+            </div>
+            <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+              High-Flyer Trajectory
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+            <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-100">
+              <span class="text-slate-400 font-semibold block text-[11px]">Core Subject Mastery</span>
+              <p class="font-bold text-slate-800 mt-1">Mathematics & Physics (96th percentile)</p>
+              <p class="text-[11px] text-slate-500 mt-1">Shows complete command over 3D mensuration & vectors. Ideal for advanced calculus workshops.</p>
+            </div>
+
+            <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-100">
+              <span class="text-slate-400 font-semibold block text-[11px]">Identified Opportunity</span>
+              <p class="font-bold text-amber-700 mt-1">Nepali Grammar & Byakaran</p>
+              <p class="text-[11px] text-slate-500 mt-1">Term 1 score dipped by 4 marks on Samas & Bigraha. Suggest reviewing CDC chapter 6 exercises.</p>
+            </div>
+
+            <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-100">
+              <span class="text-slate-400 font-semibold block text-[11px]">Punctuality Correlation</span>
+              <p class="font-bold text-emerald-700 mt-1">96.8% Attendance Rate</p>
+              <p class="text-[11px] text-slate-500 mt-1">Directly correlates with top tier class participation and lab experiment completion.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Insight 2: At-Risk Intervention Batch -->
+        <div class="bg-white p-6 rounded-3xl border border-rose-200 shadow-sm">
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-2.5">
+              <div class="w-9 h-9 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center">
+                <i data-lucide="alert-triangle" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-slate-900 text-sm">Class 10-C Mathematics Remedial Group Detected</h3>
+                <p class="text-xs text-slate-400">4 students identified with common struggles in Compound Interest & Geometry theorems</p>
+              </div>
+            </div>
+            <button onclick="Toast.info('Remedial Sheet', 'AI generated custom practice worksheet for Class 10-C group')" class="px-3 py-1.5 bg-[#E8752F] text-white rounded-lg text-xs font-bold hover:bg-[#D46320]">
+              Generate Remedial Worksheet
+            </button>
+          </div>
+
+          <div class="p-3 rounded-2xl bg-rose-50/50 border border-rose-100 text-xs text-rose-950">
+            <strong>AI Recommendation:</strong> Schedule 20-minute daily concept reinforcement during Friday ECA club hours with Mr. Keshav Nepal. Historical data indicates a 14% grade leap within 3 weeks of targeted geometry proof practice.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'school',
+        activeNav: 'ai-insights',
+        pageTitle: 'AI Student Diagnostics',
+        breadcrumb: 'Smart Innovation',
+        rootPrefix: '../'
+      });
+    });
+  </script>
+</body>
+</html>

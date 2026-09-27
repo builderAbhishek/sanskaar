@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing Plans - Sanskaar ERP Platform</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <div id="app-shell">
+    <div id="page-content">
+      
+      <!-- Header -->
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs font-bold text-[#E8752F] uppercase tracking-wider bg-orange-50 px-3 py-1 rounded-full border border-orange-200">
+          Nepal Multi-Tenant ERP Tiers
+        </span>
+        <h1 class="text-3xl font-black text-slate-900 tracking-tight mt-3">SaaS Subscription Plans</h1>
+        <p class="text-xs sm:text-sm text-slate-500 mt-2">
+          Tailored for Nepali schools — from progressive primary academies to large secondary institutions with over 2,000 students.
+        </p>
+      </div>
+
+      <!-- Pricing Cards (NPR) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        
+        <!-- Basic Plan -->
+        <div class="bg-white rounded-3xl border border-slate-200 p-6 flex flex-col justify-between shadow-2xs">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Basic Tier</span>
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 text-slate-700">Up to 400 Students</span>
+            </div>
+            <div class="mt-4 flex items-baseline gap-1">
+              <span class="text-3xl font-black text-slate-900">रू 15,000</span>
+              <span class="text-xs text-slate-400 font-medium">/ month</span>
+            </div>
+            <p class="text-xs text-slate-500 mt-2">Essential school records, attendance, and basic fee collection for small community schools.</p>
+
+            <div class="mt-6 pt-6 border-t border-slate-100 space-y-3 text-xs">
+              <div class="flex items-center gap-2.5 text-slate-700">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+                <span>Student Admissions & Bio Data</span>
+              </div>
+              <div class="flex items-center gap-2.5 text-slate-700">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+                <span>Daily Roll Call Attendance</span>
+              </div>
+              <div class="flex items-center gap-2.5 text-slate-700">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+                <span>Offline Fee Receipts (NPR)</span>
+              </div>
+              <div class="flex items-center gap-2.5 text-slate-700">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+                <span>Basic Terminal Report Cards</span>
+              </div>
+              <div class="flex items-center gap-2.5 text-slate-400">
+                <i data-lucide="x" class="w-4 h-4 text-slate-300 shrink-0"></i>
+                <span>Online eSewa / Khalti Payments</span>
+              </div>
+              <div class="flex items-center gap-2.5 text-slate-400">
+                <i data-lucide="x" class="w-4 h-4 text-slate-300 shrink-0"></i>
+                <span>AI Question Paper Generator</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8">
+            <button onclick="Toast.info('Basic Tier', 'Currently 8 schools active on Basic Plan')" class="w-full py-2.5 px-4 rounded-xl border border-slate-200 text-xs font-bold text-slate-700 hover:bg-slate-50 transition-colors">
+              Manage Basic (8 Active)
+            </button>
+          </div>
+        </div>
+
+        <!-- Professional Plan (Featured) -->
+        <div class="bg-white rounded-3xl border-2 border-[#E8752F] p-6 flex flex-col justify-between shadow-xl relative">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#E8752F] to-[#F97316] text-white text-[10px] font-black uppercase tracking-wider px-3.5 py-1 rounded-full shadow-xs">
+            Most Popular in Nepal
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-[#E8752F] uppercase tracking-wider">Professional Tier</span>
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-orange-50 text-[#E8752F] border border-orange-200">Up to 1,200 Students</span>
+            </div>
+            <div class="mt-4 flex items-baseline gap-1">
+              <span class="text-3xl font-black text-slate-900">रू 35,000</span>
+              <span class="text-xs text-slate-400 font-medium">/ month</span>
+            </div>
+            <p class="text-xs text-slate-500 mt-2">Comprehensive operations with online fees, NEB grading, and automated parent SMS.</p>
+
+            <div class="mt-6 pt-6 border-t border-slate-100 space-y-3 text-xs">
+              <div class="flex items-center gap-2.5 text-slate-700">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+                <span>Everything in Basic Plan</span>
+              </div>
+              <div class="flex items-center gap-2.5 text-slate-700 font-semibold">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+                <span>eSewa & Khalti Online Fee Gateway</span>
+              </div>
+              <div class="flex items-center gap-2.5 text-slate-700 font-semibold">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+                <span>NEB-Compliant SEE Grade Sheets & GPA</span>
+              </div>
+              <div class="flex items-center gap-2.5 text-slate-700">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+                <span>10,000 Bulk Nepal SMS Credits / month</span>
+              </div>
+              <div class="flex items-center gap-2.5 text-slate-700">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+                <span>Mobile Student & Parent Web App</span>
+              </div>
+              <div class="flex items-center gap-2.5 text-slate-400">
+                <i data-lucide="x" class="w-4 h-4 text-slate-300 shrink-0"></i>
+                <span>AI Student Diagnostic Copilot</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8">
+            <button onclick="Toast.info('Professional Tier', 'Currently 22 schools active on Pro Plan')" class="w-full py-2.5 px-4 rounded-xl bg-[#E8752F] text-xs font-bold text-white hover:bg-[#D46320] transition-colors shadow-sm">
+              Manage Professional (22 Active)
+            </button>
+          </div>
+        </div>
+
+        <!-- Enterprise Plan -->
+        <div class="bg-white rounded-3xl border border-slate-200 p-6 flex flex-col justify-between shadow-2xs">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-purple-600 uppercase tracking-wider">Enterprise Tier</span>
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-purple-50 text-purple-700 border border-purple-200">Unlimited Students</span>
+            </div>
+            <div class="mt-4 flex items-baseline gap-1">
+              <span class="text-3xl font-black text-slate-900">रू 65,000</span>
+              <span class="text-xs text-slate-400 font-medium">/ month</span>
+            </div>
+            <p class="text-xs text-slate-500 mt-2">Full AI features, biometric device sync, multi-branch support, and 24/7 dedicated engineer.</p>
+
+            <div class="mt-6 pt-6 border-t border-slate-100 space-y-3 text-xs">
+              <div class="flex items-center gap-2.5 text-slate-700">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+                <span>Everything in Professional Plan</span>
+              </div>
+              <div class="flex items-center gap-2.5 text-slate-700 font-semibold">
+                <i data-lucide="check" class="w-4 h-4 text-purple-600 shrink-0"></i>
+                <span>AI Question Paper & Worksheet Studio</span>
+              </div>
+              <div class="flex items-center gap-2.5 text-slate-700 font-semibold">
+                <i data-lucide="check" class="w-4 h-4 text-purple-600 shrink-0"></i>
+                <span>Biometric Hardware Live Sync API</span>
+              </div>
+              <div class="flex items-center gap-2.5 text-slate-700 font-semibold">
+                <i data-lucide="check" class="w-4 h-4 text-purple-600 shrink-0"></i>
+                <span>ConnectIPS Direct Interbank Clearing</span>
+              </div>
+              <div class="flex items-center gap-2.5 text-slate-700">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+                <span>Unlimited SMS & WhatsApp Notifications</span>
+              </div>
+              <div class="flex items-center gap-2.5 text-slate-700">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+                <span>Custom Domain & Dedicated Database</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8">
+            <button onclick="Toast.info('Enterprise Tier', 'Currently 12 schools active on Enterprise Plan')" class="w-full py-2.5 px-4 rounded-xl border border-slate-200 text-xs font-bold text-slate-700 hover:bg-slate-50 transition-colors">
+              Manage Enterprise (12 Active)
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'admin',
+        activeNav: 'plans',
+        pageTitle: 'Pricing Plans',
+        breadcrumb: 'Finance',
+        rootPrefix: '../'
+      });
+    });
+  </script>
+</body>
+</html>

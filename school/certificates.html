@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certificate Studio - Sanskaar ERP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <div id="app-shell">
+    <div id="page-content">
+      
+      <!-- Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 no-print">
+        <div>
+          <h1 class="text-2xl font-black text-slate-900 tracking-tight" data-i18n="nav_certificates">Certificate Generation Studio</h1>
+          <p class="text-xs text-slate-500 mt-1">Kathmandu Valley Secondary School • Character, Transfer (TC) & Bonafide Certificates</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="window.print()" class="px-4 py-2 text-xs font-bold bg-[#E8752F] text-white rounded-xl hover:bg-[#D46320] transition-colors shadow-sm flex items-center gap-2">
+            <i data-lucide="printer" class="w-4 h-4"></i>
+            <span>Print Certificate</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Generator Options (No Print) -->
+      <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs mb-6 flex flex-wrap items-center justify-between gap-3 text-xs no-print">
+        <div class="flex items-center gap-2">
+          <span class="font-bold text-slate-700">Certificate Type:</span>
+          <select class="px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-xl font-bold text-[#E8752F]">
+            <option selected>Character Certificate (चारित्रिक प्रमाणपत्र)</option>
+            <option>School Leaving Transfer Certificate (TC)</option>
+            <option>Bonafide Student Certificate</option>
+          </select>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="font-bold text-slate-700">Student:</span>
+          <select class="px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-xl font-bold text-slate-800">
+            <option selected>Aarav Shrestha (Class 10-A, Symbol 27014001A)</option>
+            <option>Bimlesh Adhikari (Class 10-A)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Printable Certificate with Ornate Border -->
+      <div class="max-w-3xl mx-auto bg-amber-50/20 p-10 md:p-14 rounded-3xl border-8 border-double border-amber-800/60 shadow-2xl printable-area text-slate-900 relative">
+        
+        <!-- Header -->
+        <div class="text-center border-b-2 border-amber-900/40 pb-5 mb-8">
+          <div class="w-16 h-16 rounded-2xl bg-[#E8752F] text-white font-black text-2xl flex items-center justify-center mx-auto shadow-md mb-2">
+            KV
+          </div>
+          <h2 class="text-2xl font-black text-slate-900 tracking-tight">KATHMANDU VALLEY SECONDARY SCHOOL</h2>
+          <p class="text-xs font-bold text-slate-700">काठमाडौं भ्याली माध्यमिक विद्यालय</p>
+          <p class="text-xs text-slate-500">Maharajgunj-3, Kathmandu, Nepal • NEB Code: 27014</p>
+          <div class="mt-4 inline-block px-6 py-1 border-y-2 border-amber-900 font-serif font-black text-lg text-amber-950 uppercase tracking-widest">
+            Character Certificate
+          </div>
+        </div>
+
+        <!-- Serial Info -->
+        <div class="flex justify-between text-xs font-mono text-slate-600 mb-8">
+          <span>Certificate Ref: <strong>CC-2083-0941</strong></span>
+          <span>Date of Issue: <strong>2083-08-15 BS</strong></span>
+        </div>
+
+        <!-- Certificate Body Statement -->
+        <div class="font-serif text-sm leading-loose text-slate-800 text-justify mb-12 space-y-4">
+          <p>
+            This is to certify that <strong>Master AARAV SHRESTHA</strong>, son of <strong>Mr. Bikram Shrestha</strong> and <strong>Mrs. Sunita Shrestha</strong>, permanent resident of Ward No. 3, Maharajgunj, Kathmandu Metropolitan City, was a bona fide regular student of this institution studying in <strong>Class 10 (Secondary SEE Wing)</strong> during the academic session <strong>2083-84 BS (2026-27 AD)</strong>.
+          </p>
+          <p>
+            According to the official school records, his date of birth is <strong>2067-05-14 B.S.</strong> (30 August 2010 A.D.). His NEB Examination Symbol Number is <strong>27014001A</strong>.
+          </p>
+          <p>
+            To the best of our institutional knowledge, he bears a <strong>Good Moral Character</strong>. He has maintained an exceptional attendance of <strong>96.8%</strong> and demonstrated active participation in co-curricular scientific clubs. We wish him all success in his future academic endeavors.
+          </p>
+        </div>
+
+        <!-- Signatures & Official Stamp -->
+        <div class="grid grid-cols-2 gap-12 pt-8 border-t border-amber-900/30 text-center text-xs font-sans">
+          <div>
+            <div class="w-16 h-16 rounded-full border-2 border-dashed border-[#E8752F] text-[#E8752F] font-bold text-[9px] flex items-center justify-center mx-auto opacity-70 uppercase leading-tight">
+              School Seal<br>2083
+            </div>
+            <span class="block text-[10px] text-slate-400 mt-1">Official Institutional Seal</span>
+          </div>
+
+          <div class="space-y-1 text-right">
+            <div class="h-10"></div>
+            <div class="w-48 ml-auto border-b-2 border-slate-900"></div>
+            <div class="font-bold text-slate-900">Dr. Ram Bahadur Thapa</div>
+            <div class="text-[10px] text-slate-500">Head of Institution / Principal</div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'school',
+        activeNav: 'certificates',
+        pageTitle: 'Certificate Studio',
+        breadcrumb: 'Documents',
+        rootPrefix: '../'
+      });
+    });
+  </script>
+</body>
+</html>

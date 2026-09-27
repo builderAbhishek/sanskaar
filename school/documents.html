@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document Repository - Sanskaar ERP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <div id="app-shell">
+    <div id="page-content">
+      
+      <!-- Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div>
+          <h1 class="text-2xl font-black text-slate-900 tracking-tight" data-i18n="nav_doc_repo">Institutional Document Repository</h1>
+          <p class="text-xs text-slate-500 mt-1">Kathmandu Valley Secondary School • Statutory Affiliations, Government Approvals & Syllabi</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="Toast.info('Upload', 'Select file to archive in cloud storage')" class="px-3.5 py-2 text-xs font-bold bg-[#E8752F] text-white rounded-xl hover:bg-[#D46320] transition-colors shadow-sm flex items-center gap-2">
+            <i data-lucide="upload" class="w-4 h-4"></i>
+            <span>Upload Document</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Document Categories Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Category 1: Government & Affiliations -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs space-y-3">
+          <div class="flex items-center gap-2 pb-2 border-b border-slate-100">
+            <i data-lucide="landmark" class="w-5 h-5 text-[#E8752F]"></i>
+            <h3 class="font-bold text-slate-900 text-sm">Statutory & NEB Affiliations</h3>
+          </div>
+          
+          <div class="space-y-2 text-xs">
+            <div class="p-3 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between hover:bg-orange-50/50 transition-colors">
+              <div class="flex items-center gap-2.5">
+                <i data-lucide="file-text" class="w-4 h-4 text-slate-400"></i>
+                <div>
+                  <div class="font-bold text-slate-900">NEB Secondary Affiliation 2080-85</div>
+                  <div class="text-[10px] text-slate-400">Code: 27014 • PDF (2.4 MB)</div>
+                </div>
+              </div>
+              <button onclick="Toast.info('Download', 'Downloading statutory document')" class="text-[#E8752F] font-bold">Download</button>
+            </div>
+
+            <div class="p-3 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between hover:bg-orange-50/50 transition-colors">
+              <div class="flex items-center gap-2.5">
+                <i data-lucide="file-text" class="w-4 h-4 text-slate-400"></i>
+                <div>
+                  <div class="font-bold text-slate-900">Ministry of Education Registration</div>
+                  <div class="text-[10px] text-slate-400">Govt Reg No: 8819/2056 • PDF (1.8 MB)</div>
+                </div>
+              </div>
+              <button onclick="Toast.info('Download', 'Downloading statutory document')" class="text-[#E8752F] font-bold">Download</button>
+            </div>
+
+            <div class="p-3 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between hover:bg-orange-50/50 transition-colors">
+              <div class="flex items-center gap-2.5">
+                <i data-lucide="file-text" class="w-4 h-4 text-slate-400"></i>
+                <div>
+                  <div class="font-bold text-slate-900">Inland Revenue Tax Clearance 2082/83</div>
+                  <div class="text-[10px] text-slate-400">PAN: 301928410 • PDF (850 KB)</div>
+                </div>
+              </div>
+              <button onclick="Toast.info('Download', 'Downloading statutory document')" class="text-[#E8752F] font-bold">Download</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 2: Academic Curriculum (CDC) -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs space-y-3">
+          <div class="flex items-center gap-2 pb-2 border-b border-slate-100">
+            <i data-lucide="book-open" class="w-5 h-5 text-blue-600"></i>
+            <h3 class="font-bold text-slate-900 text-sm">CDC National Syllabi</h3>
+          </div>
+          
+          <div class="space-y-2 text-xs">
+            <div class="p-3 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between hover:bg-blue-50/50 transition-colors">
+              <div class="flex items-center gap-2.5">
+                <i data-lucide="file-text" class="w-4 h-4 text-slate-400"></i>
+                <div>
+                  <div class="font-bold text-slate-900">Class 10 (SEE) Curriculum Specification</div>
+                  <div class="text-[10px] text-slate-400">CDC Sanothimi • PDF (4.2 MB)</div>
+                </div>
+              </div>
+              <button onclick="Toast.info('Download', 'Downloading syllabus')" class="text-blue-600 font-bold">Download</button>
+            </div>
+
+            <div class="p-3 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between hover:bg-blue-50/50 transition-colors">
+              <div class="flex items-center gap-2.5">
+                <i data-lucide="file-text" class="w-4 h-4 text-slate-400"></i>
+                <div>
+                  <div class="font-bold text-slate-900">Class 8 BLE Municipal Framework</div>
+                  <div class="text-[10px] text-slate-400">Kathmandu Metropolis • PDF (3.1 MB)</div>
+                </div>
+              </div>
+              <button onclick="Toast.info('Download', 'Downloading syllabus')" class="text-blue-600 font-bold">Download</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 3: Institutional Manuals & Policies -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs space-y-3">
+          <div class="flex items-center gap-2 pb-2 border-b border-slate-100">
+            <i data-lucide="shield" class="w-5 h-5 text-emerald-600"></i>
+            <h3 class="font-bold text-slate-900 text-sm">Institutional Policies</h3>
+          </div>
+          
+          <div class="space-y-2 text-xs">
+            <div class="p-3 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between hover:bg-emerald-50/50 transition-colors">
+              <div class="flex items-center gap-2.5">
+                <i data-lucide="file-text" class="w-4 h-4 text-slate-400"></i>
+                <div>
+                  <div class="font-bold text-slate-900">Faculty Code of Conduct & Leave Rules</div>
+                  <div class="text-[10px] text-slate-400">Edition 2083 • PDF (1.1 MB)</div>
+                </div>
+              </div>
+              <button onclick="Toast.info('Download', 'Downloading document')" class="text-emerald-600 font-bold">Download</button>
+            </div>
+
+            <div class="p-3 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between hover:bg-emerald-50/50 transition-colors">
+              <div class="flex items-center gap-2.5">
+                <i data-lucide="file-text" class="w-4 h-4 text-slate-400"></i>
+                <div>
+                  <div class="font-bold text-slate-900">School Bus Transport Safety Protocol</div>
+                  <div class="text-[10px] text-slate-400">Fleet Operations • PDF (820 KB)</div>
+                </div>
+              </div>
+              <button onclick="Toast.info('Download', 'Downloading document')" class="text-emerald-600 font-bold">Download</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'school',
+        activeNav: 'documents',
+        pageTitle: 'Document Repository',
+        breadcrumb: 'Documents',
+        rootPrefix: '../'
+      });
+    });
+  </script>
+</body>
+</html>

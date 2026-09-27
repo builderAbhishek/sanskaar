@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-50">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanskaar ERP - Student Examinations</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="h-full text-slate-800 antialiased font-['Plus_Jakarta_Sans',sans-serif]">
+  <div id="app-shell">
+    <div id="page-content" class="p-6 space-y-6">
+      
+      <!-- Page Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <h1 class="text-2xl font-bold text-slate-900" data-i18n="student_exams">Examinations & Routines</h1>
+          <p class="text-sm text-slate-500 mt-1">National Examination Board (NEB) SEE Pre-Board time-table, syllabus blueprint, and seat allocations.</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <button onclick="downloadRoutine()" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-sm font-semibold transition-all">
+            <i data-lucide="download" class="w-4 h-4"></i>
+            <span>Download Routine</span>
+          </button>
+          <a href="results.html" class="inline-flex items-center gap-2 px-4 py-2 bg-[#E8752F] hover:bg-[#d66521] text-white rounded-xl text-sm font-semibold transition-all shadow-sm">
+            <i data-lucide="award" class="w-4 h-4"></i>
+            <span>View Terminal Results</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Exam Banner -->
+      <div class="bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-2xl p-6 shadow-md relative overflow-hidden">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
+          <div class="space-y-2">
+            <span class="px-3 py-1 bg-white/20 rounded-full text-xs font-bold uppercase tracking-wider">Secondary Education Examination (SEE) Pre-Board 2083</span>
+            <h2 class="text-2xl md:text-3xl font-black">Class 10 Comprehensive Pre-Board Examination</h2>
+            <p class="text-amber-100 text-sm">Full CDC Nepal Blueprint: 75 Marks Theory + 25 Marks Practical / Continuous Assessment</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/20 text-center shrink-0">
+            <div class="text-xs uppercase text-amber-200 font-bold">Exam Starts On</div>
+            <div class="text-2xl font-black mt-0.5">14 Magh 2083</div>
+            <div class="text-xs text-amber-100 mt-1">Reporting Time: 10:30 AM</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exam Routine Table -->
+      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
+        <div class="p-5 border-b border-slate-100 flex items-center justify-between">
+          <h3 class="font-bold text-slate-900">Official Pre-Board Date Sheet</h3>
+          <span class="text-xs font-semibold text-slate-500">Hall: Senior Wing Examination Hall A (Desk #01)</span>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-sm">
+            <thead class="bg-slate-50/80 text-xs font-semibold text-slate-500 uppercase tracking-wider border-b border-slate-200/60">
+              <tr>
+                <th class="px-6 py-3.5">Date (B.S.)</th>
+                <th class="px-6 py-3.5">Day</th>
+                <th class="px-6 py-3.5">Subject</th>
+                <th class="px-6 py-3.5">Time</th>
+                <th class="px-6 py-3.5 text-center">Marks Scheme</th>
+                <th class="px-6 py-3.5 text-right">Syllabus</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 font-medium">
+              <tr>
+                <td class="px-6 py-4 font-bold text-slate-900">14 Magh 2083</td>
+                <td class="px-6 py-4 text-slate-600">Wednesday</td>
+                <td class="px-6 py-4">
+                  <div class="font-bold text-slate-900">Compulsory English</div>
+                  <div class="text-xs text-slate-400">Code: ENG-102</div>
+                </td>
+                <td class="px-6 py-4 text-slate-600 text-xs font-semibold">11:00 AM – 02:00 PM</td>
+                <td class="px-6 py-4 text-center">
+                  <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-blue-50 text-blue-700">75 TH + 25 PR</span>
+                </td>
+                <td class="px-6 py-4 text-right">
+                  <button onclick="SanskaarToast.show('English CDC syllabus downloaded.', 'info')" class="text-xs font-semibold text-[#E8752F] hover:underline">Syllabus</button>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="px-6 py-4 font-bold text-slate-900">15 Magh 2083</td>
+                <td class="px-6 py-4 text-slate-600">Thursday</td>
+                <td class="px-6 py-4">
+                  <div class="font-bold text-slate-900">अनिवार्य नेपाली (Compulsory Nepali)</div>
+                  <div class="text-xs text-slate-400">Code: NEP-101</div>
+                </td>
+                <td class="px-6 py-4 text-slate-600 text-xs font-semibold">11:00 AM – 02:00 PM</td>
+                <td class="px-6 py-4 text-center">
+                  <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-blue-50 text-blue-700">75 TH + 25 PR</span>
+                </td>
+                <td class="px-6 py-4 text-right">
+                  <button onclick="SanskaarToast.show('Nepali syllabus downloaded.', 'info')" class="text-xs font-semibold text-[#E8752F] hover:underline">Syllabus</button>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="px-6 py-4 font-bold text-slate-900">17 Magh 2083</td>
+                <td class="px-6 py-4 text-slate-600">Saturday</td>
+                <td class="px-6 py-4">
+                  <div class="font-bold text-slate-900">Compulsory Mathematics</div>
+                  <div class="text-xs text-slate-400">Code: MTH-103</div>
+                </td>
+                <td class="px-6 py-4 text-slate-600 text-xs font-semibold">11:00 AM – 02:00 PM</td>
+                <td class="px-6 py-4 text-center">
+                  <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-blue-50 text-blue-700">75 TH + 25 PR</span>
+                </td>
+                <td class="px-6 py-4 text-right">
+                  <button onclick="SanskaarToast.show('Mathematics syllabus downloaded.', 'info')" class="text-xs font-semibold text-[#E8752F] hover:underline">Syllabus</button>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="px-6 py-4 font-bold text-slate-900">18 Magh 2083</td>
+                <td class="px-6 py-4 text-slate-600">Sunday</td>
+                <td class="px-6 py-4">
+                  <div class="font-bold text-slate-900">Science & Technology (विज्ञान)</div>
+                  <div class="text-xs text-slate-400">Code: SCI-104</div>
+                </td>
+                <td class="px-6 py-4 text-slate-600 text-xs font-semibold">11:00 AM – 02:00 PM</td>
+                <td class="px-6 py-4 text-center">
+                  <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-blue-50 text-blue-700">75 TH + 25 PR</span>
+                </td>
+                <td class="px-6 py-4 text-right">
+                  <button onclick="SanskaarToast.show('Science syllabus downloaded.', 'info')" class="text-xs font-semibold text-[#E8752F] hover:underline">Syllabus</button>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="px-6 py-4 font-bold text-slate-900">20 Magh 2083</td>
+                <td class="px-6 py-4 text-slate-600">Tuesday</td>
+                <td class="px-6 py-4">
+                  <div class="font-bold text-slate-900">Social Studies & Human Values</div>
+                  <div class="text-xs text-slate-400">Code: SOC-105</div>
+                </td>
+                <td class="px-6 py-4 text-slate-600 text-xs font-semibold">11:00 AM – 02:00 PM</td>
+                <td class="px-6 py-4 text-center">
+                  <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-blue-50 text-blue-700">75 TH + 25 PR</span>
+                </td>
+                <td class="px-6 py-4 text-right">
+                  <button onclick="SanskaarToast.show('Social studies syllabus downloaded.', 'info')" class="text-xs font-semibold text-[#E8752F] hover:underline">Syllabus</button>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="px-6 py-4 font-bold text-slate-900">21 Magh 2083</td>
+                <td class="px-6 py-4 text-slate-600">Wednesday</td>
+                <td class="px-6 py-4">
+                  <div class="font-bold text-slate-900">Optional I: Additional Mathematics</div>
+                  <div class="text-xs text-slate-400">Code: OPM-106</div>
+                </td>
+                <td class="px-6 py-4 text-slate-600 text-xs font-semibold">11:00 AM – 02:00 PM</td>
+                <td class="px-6 py-4 text-center">
+                  <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-blue-50 text-blue-700">75 TH + 25 PR</span>
+                </td>
+                <td class="px-6 py-4 text-right">
+                  <button onclick="SanskaarToast.show('Optional Math syllabus downloaded.', 'info')" class="text-xs font-semibold text-[#E8752F] hover:underline">Syllabus</button>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="px-6 py-4 font-bold text-slate-900">23 Magh 2083</td>
+                <td class="px-6 py-4 text-slate-600">Friday</td>
+                <td class="px-6 py-4">
+                  <div class="font-bold text-slate-900">Optional II: Computer Science & AI</div>
+                  <div class="text-xs text-slate-400">Code: CSC-107</div>
+                </td>
+                <td class="px-6 py-4 text-slate-600 text-xs font-semibold">11:00 AM – 01:00 PM</td>
+                <td class="px-6 py-4 text-center">
+                  <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-purple-50 text-purple-700">50 TH + 50 PR</span>
+                </td>
+                <td class="px-6 py-4 text-right">
+                  <button onclick="SanskaarToast.show('Computer science syllabus downloaded.', 'info')" class="text-xs font-semibold text-[#E8752F] hover:underline">Syllabus</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Exam Instructions & Rules -->
+      <div class="bg-amber-50/60 border border-amber-200/80 rounded-2xl p-6 space-y-3">
+        <h4 class="font-bold text-amber-900 text-sm flex items-center gap-2">
+          <i data-lucide="alert-circle" class="w-4 h-4 text-amber-600"></i>
+          <span>Official Candidate Instructions (NEB Code of Conduct)</span>
+        </h4>
+        <ul class="text-xs text-amber-900/80 space-y-1.5 list-disc pl-5">
+          <li>Candidates must produce their signed Examination Admit Card at the entrance of the examination hall.</li>
+          <li>Entry will close precisely 15 minutes after paper commencement (11:15 AM). No extra time will be allotted for late arrival.</li>
+          <li>Electronic devices including smartwatches, cellular phones, and programmable calculators are strictly prohibited. Non-programmable scientific calculators are permitted for Mathematics & Science papers.</li>
+          <li>Pass marks threshold: A minimum of 35% (27 out of 75 marks) in theory is mandatory to prevent Non-Graded (NG) classification under CDC letter grading regulations.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+  <script>
+    function downloadRoutine() {
+      SanskaarToast.show('Downloading Class 10 Pre-Board Routine (PDF)...', 'info');
+      setTimeout(() => {
+        SanskaarToast.show('Routine saved to downloads!', 'success');
+      }, 700);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'student',
+        activeNav: 'exams',
+        pageTitle: 'Examinations',
+        breadcrumb: 'Student / Exams',
+        rootPrefix: '../'
+      });
+    });
+  </script>
+</body>
+</html>

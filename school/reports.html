@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>School Reports - Sanskaar ERP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <div id="app-shell">
+    <div id="page-content">
+      
+      <!-- Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div>
+          <h1 class="text-2xl font-black text-slate-900 tracking-tight" data-i18n="nav_reports">Institutional Reports Hub</h1>
+          <p class="text-xs text-slate-500 mt-1">Kathmandu Valley Secondary School • Statutory EMIS, Academic & Financial Audit Documents</p>
+        </div>
+      </div>
+
+      <!-- Report Cards Hub Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Report 1: Student EMIS Demographic Report -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-orange-50 text-[#E8752F] flex items-center justify-center mb-3">
+              <i data-lucide="users" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-bold text-slate-900 text-sm">Government EMIS Student Enrollment Report</h3>
+            <p class="text-xs text-slate-500 mt-1 leading-relaxed">
+              Standard format required by Ministry of Education Nepal with gender, age, ethnicity, and district breakdown for 1,482 students.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="text-slate-400">Format: XLS / PDF</span>
+            <button onclick="Toast.success('Generating', 'EMIS annual census report generated')" class="font-bold text-[#E8752F] hover:underline">Generate</button>
+          </div>
+        </div>
+
+        <!-- Report 2: Fee Collection & Defaulter Ledger -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-3">
+              <i data-lucide="receipt" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-bold text-slate-900 text-sm">Quarterly Fee Collection & Defaulters Audit</h3>
+            <p class="text-xs text-slate-500 mt-1 leading-relaxed">
+              Comprehensive ledger of fees collected across eSewa, Khalti, ConnectIPS and cash counters, with list of 112 pending student accounts.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="text-slate-400">Total: रू 3.42 Crore</span>
+            <a href="financial-reports.html" class="font-bold text-emerald-600 hover:underline">View P&L</a>
+          </div>
+        </div>
+
+        <!-- Report 3: NEB SEE Board Readiness Analysis -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center mb-3">
+              <i data-lucide="award" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-bold text-slate-900 text-sm">SEE Examination Performance Broadsheet</h3>
+            <p class="text-xs text-slate-500 mt-1 leading-relaxed">
+              Terminal examination performance curves, subject failure analysis, and GPA distributions for Class 10 candidates.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="text-slate-400">Avg GPA: 3.64 (A)</span>
+            <a href="exam-analytics.html" class="font-bold text-purple-600 hover:underline">View Analytics</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'school',
+        activeNav: 'reports',
+        pageTitle: 'Reporting Hub',
+        breadcrumb: 'Reports',
+        rootPrefix: '../'
+      });
+    });
+  </script>
+</body>
+</html>

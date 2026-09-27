@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-50">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanskaar ERP - Roles & Permissions</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="h-full text-slate-800 antialiased font-['Plus_Jakarta_Sans',sans-serif]">
+  <div id="app-shell">
+    <div id="page-content" class="p-6 space-y-6">
+      
+      <!-- Top Action Bar -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <h1 class="text-2xl font-bold text-slate-900" data-i18n="roles_permissions">Roles & Permissions</h1>
+          <p class="text-sm text-slate-500 mt-1">Manage Role-Based Access Control (RBAC) across KVSS administration modules.</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <button onclick="SanskaarModal.open('newRoleModal')" class="inline-flex items-center gap-2 px-4 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-sm font-semibold transition-all">
+            <i data-lucide="plus" class="w-4 h-4"></i>
+            <span>Create Custom Role</span>
+          </button>
+          <button onclick="savePermissions()" class="inline-flex items-center gap-2 px-4 py-2.5 bg-[#E8752F] hover:bg-[#d66521] text-white rounded-xl text-sm font-semibold transition-all shadow-sm">
+            <i data-lucide="save" class="w-4 h-4"></i>
+            <span>Save Changes</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Role Selector Tabs -->
+      <div class="bg-white p-2 rounded-2xl border border-slate-200/80 shadow-sm flex items-center gap-2 overflow-x-auto">
+        <button onclick="switchRole('admin')" id="role-tab-admin" class="role-tab px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-[#E8752F] text-white shadow-sm flex items-center gap-2 shrink-0">
+          <i data-lucide="shield" class="w-4 h-4"></i>
+          <span>Principal / Admin</span>
+          <span class="text-xs bg-white/20 px-2 py-0.5 rounded-full">Full</span>
+        </button>
+        <button onclick="switchRole('teacher')" id="role-tab-teacher" class="role-tab px-4 py-2 rounded-xl text-sm font-semibold transition-all text-slate-600 hover:bg-slate-100 flex items-center gap-2 shrink-0">
+          <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+          <span>Faculty / Teacher</span>
+          <span class="text-xs bg-slate-100 px-2 py-0.5 rounded-full text-slate-600">Academic</span>
+        </button>
+        <button onclick="switchRole('accountant')" id="role-tab-accountant" class="role-tab px-4 py-2 rounded-xl text-sm font-semibold transition-all text-slate-600 hover:bg-slate-100 flex items-center gap-2 shrink-0">
+          <i data-lucide="wallet" class="w-4 h-4"></i>
+          <span>Accountant</span>
+          <span class="text-xs bg-slate-100 px-2 py-0.5 rounded-full text-slate-600">Finance</span>
+        </button>
+        <button onclick="switchRole('receptionist')" id="role-tab-receptionist" class="role-tab px-4 py-2 rounded-xl text-sm font-semibold transition-all text-slate-600 hover:bg-slate-100 flex items-center gap-2 shrink-0">
+          <i data-lucide="phone-call" class="w-4 h-4"></i>
+          <span>Receptionist</span>
+          <span class="text-xs bg-slate-100 px-2 py-0.5 rounded-full text-slate-600">Front Desk</span>
+        </button>
+        <button onclick="switchRole('librarian')" id="role-tab-librarian" class="role-tab px-4 py-2 rounded-xl text-sm font-semibold transition-all text-slate-600 hover:bg-slate-100 flex items-center gap-2 shrink-0">
+          <i data-lucide="book-open" class="w-4 h-4"></i>
+          <span>Librarian</span>
+          <span class="text-xs bg-slate-100 px-2 py-0.5 rounded-full text-slate-600">Library</span>
+        </button>
+      </div>
+
+      <!-- Role Overview Banner -->
+      <div class="bg-gradient-to-r from-orange-50 to-amber-50 border border-orange-200/60 p-5 rounded-2xl flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div class="flex items-start gap-3">
+          <div class="w-10 h-10 rounded-xl bg-[#E8752F]/10 flex items-center justify-center text-[#E8752F] shrink-0 mt-0.5">
+            <i data-lucide="info" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 id="role-title" class="font-bold text-slate-900">Principal / Administrator (Default System Role)</h3>
+            <p id="role-desc" class="text-sm text-slate-600 mt-0.5">Has unrestricted access to academic, financial, HR, examination, and core infrastructure management.</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 shrink-0 text-xs font-semibold text-slate-500 bg-white/80 px-3 py-1.5 rounded-xl border border-orange-200/60">
+          <span>Active Users in KVSS: <strong id="role-user-count" class="text-slate-900">4 Accounts</strong></span>
+        </div>
+      </div>
+
+      <!-- Permissions Matrix Table -->
+      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
+        <div class="p-5 border-b border-slate-100 flex items-center justify-between">
+          <h3 class="font-bold text-slate-900">Module Permissions Matrix</h3>
+          <div class="flex items-center gap-3">
+            <button onclick="toggleAllCheckboxes(true)" class="text-xs font-semibold text-[#E8752F] hover:underline">Select All</button>
+            <span class="text-slate-300">|</span>
+            <button onclick="toggleAllCheckboxes(false)" class="text-xs font-semibold text-slate-500 hover:underline">Deselect All</button>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-sm">
+            <thead class="bg-slate-50/80 text-xs font-semibold text-slate-500 uppercase tracking-wider border-b border-slate-200/60">
+              <tr>
+                <th class="px-6 py-4">Module Name</th>
+                <th class="px-6 py-4 text-center">View / Read</th>
+                <th class="px-6 py-4 text-center">Create / Add</th>
+                <th class="px-6 py-4 text-center">Edit / Update</th>
+                <th class="px-6 py-4 text-center">Delete / Purge</th>
+                <th class="px-6 py-4 text-center">Export / Print</th>
+              </tr>
+            </thead>
+            <tbody id="permissions-body" class="divide-y divide-slate-100 font-medium">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Create Role Modal -->
+  <div id="newRoleModal" class="hidden fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl border border-slate-200 shadow-xl w-full max-w-md overflow-hidden">
+      <div class="p-5 border-b border-slate-100 flex items-center justify-between">
+        <h3 class="font-bold text-slate-900">Create New Custom Role</h3>
+        <button onclick="SanskaarModal.close('newRoleModal')" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+      <form onsubmit="handleCreateRole(event)" class="p-5 space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-600 uppercase mb-1.5">Role Name</label>
+          <input type="text" required placeholder="e.g., Hostel Warden" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8752F]/20 focus:border-[#E8752F]">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-600 uppercase mb-1.5">Inherit Permissions From</label>
+          <select class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8752F]/20 focus:border-[#E8752F]">
+            <option value="receptionist">Receptionist (Front Desk)</option>
+            <option value="teacher">Faculty / Teacher</option>
+            <option value="accountant">Accountant</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-600 uppercase mb-1.5">Description</label>
+          <textarea rows="3" placeholder="Define role boundaries and scope..." class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8752F]/20 focus:border-[#E8752F]"></textarea>
+        </div>
+        <div class="pt-2 flex items-center justify-end gap-3">
+          <button type="button" onclick="SanskaarModal.close('newRoleModal')" class="px-4 py-2 text-sm font-semibold text-slate-600 hover:bg-slate-100 rounded-xl">Cancel</button>
+          <button type="submit" class="px-5 py-2 bg-[#E8752F] hover:bg-[#d66521] text-white text-sm font-semibold rounded-xl">Create Role</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+  <script>
+    const modules = [
+      { id: 'students', name: 'Student Information & Admissions', desc: 'Profiles, enrollments, parents, ID card issuance' },
+      { id: 'teachers', name: 'Faculty & HR Management', desc: 'Teacher profiles, biometric sync, salary slips' },
+      { id: 'attendance', name: 'Attendance System', desc: 'Daily roll call, NEB 75% attendance rule, Sparrow SMS triggers' },
+      { id: 'fees', name: 'Fees & Accounting', desc: 'Fee structures, eSewa/Khalti billing, receipt issuance, ledger' },
+      { id: 'exams', name: 'Examinations & Grading', desc: 'SEE routine, marks entry, CDC letter grading, report cards' },
+      { id: 'timetable', name: 'Timetable & Scheduling', desc: 'Sunday-Friday period allocations and substitutions' },
+      { id: 'notices', name: 'Communications & Notices', desc: 'Circulars, Sparrow SMS broadcasts, emergency alerts' },
+      { id: 'homework', name: 'Homework & LMS Content', desc: 'Assignment posting, study materials, project reviews' },
+      { id: 'ai', name: 'AI Generation & Automation', desc: 'CDC question papers, lesson plans, study worksheets' },
+      { id: 'settings', name: 'System Settings & Security', desc: 'School profile, academic session, audit logs, backup' }
+    ];
+
+    const rolePresets = {
+      admin: {
+        title: 'Principal / Administrator (Default System Role)',
+        desc: 'Has unrestricted access to academic, financial, HR, examination, and core infrastructure management.',
+        users: '4 Accounts',
+        rules: modules.map(m => ({ id: m.id, view: true, create: true, edit: true, delete: true, export: true }))
+      },
+      teacher: {
+        title: 'Faculty / Secondary Teacher',
+        desc: 'Academic access to assigned classes, marks entry, attendance marking, and homework creation.',
+        users: '38 Accounts',
+        rules: modules.map(m => {
+          if (m.id === 'students' || m.id === 'timetable' || m.id === 'notices') return { id: m.id, view: true, create: false, edit: false, delete: false, export: true };
+          if (m.id === 'attendance' || m.id === 'exams' || m.id === 'homework' || m.id === 'ai') return { id: m.id, view: true, create: true, edit: true, delete: false, export: true };
+          return { id: m.id, view: false, create: false, edit: false, delete: false, export: false };
+        })
+      },
+      accountant: {
+        title: 'Bursar / School Accountant',
+        desc: 'Dedicated financial administration, fee collection POS, expense ledger, and salary disbursements.',
+        users: '2 Accounts',
+        rules: modules.map(m => {
+          if (m.id === 'fees') return { id: m.id, view: true, create: true, edit: true, delete: false, export: true };
+          if (m.id === 'students') return { id: m.id, view: true, create: false, edit: false, delete: false, export: true };
+          return { id: m.id, view: false, create: false, edit: false, delete: false, export: false };
+        })
+      },
+      receptionist: {
+        title: 'Front Desk / Receptionist',
+        desc: 'Visitor logs, basic student directory lookup, public circular posting, and SMS inquiry helpdesk.',
+        users: '2 Accounts',
+        rules: modules.map(m => {
+          if (m.id === 'students' || m.id === 'notices') return { id: m.id, view: true, create: true, edit: false, delete: false, export: false };
+          return { id: m.id, view: false, create: false, edit: false, delete: false, export: false };
+        })
+      },
+      librarian: {
+        title: 'Head Librarian',
+        desc: 'Book inventory, student checkout records, library fine collection.',
+        users: '1 Account',
+        rules: modules.map(m => {
+          if (m.id === 'students') return { id: m.id, view: true, create: false, edit: false, delete: false, export: false };
+          return { id: m.id, view: false, create: false, edit: false, delete: false, export: false };
+        })
+      }
+    };
+
+    let currentRole = 'admin';
+
+    function renderMatrix() {
+      const preset = rolePresets[currentRole];
+      document.getElementById('role-title').textContent = preset.title;
+      document.getElementById('role-desc').textContent = preset.desc;
+      document.getElementById('role-user-count').textContent = preset.users;
+
+      const tbody = document.getElementById('permissions-body');
+      tbody.innerHTML = modules.map(mod => {
+        const rule = preset.rules.find(r => r.id === mod.id) || { view: false, create: false, edit: false, delete: false, export: false };
+        const isAdmin = currentRole === 'admin';
+        return `
+          <tr class="hover:bg-slate-50/60 transition-colors">
+            <td class="px-6 py-4">
+              <div class="font-semibold text-slate-800">${mod.name}</div>
+              <div class="text-xs text-slate-400 mt-0.5">${mod.desc}</div>
+            </td>
+            <td class="px-6 py-4 text-center">
+              <input type="checkbox" ${rule.view ? 'checked' : ''} ${isAdmin ? 'disabled' : ''} class="perm-check w-4 h-4 rounded text-[#E8752F] border-slate-300 focus:ring-[#E8752F]">
+            </td>
+            <td class="px-6 py-4 text-center">
+              <input type="checkbox" ${rule.create ? 'checked' : ''} ${isAdmin ? 'disabled' : ''} class="perm-check w-4 h-4 rounded text-[#E8752F] border-slate-300 focus:ring-[#E8752F]">
+            </td>
+            <td class="px-6 py-4 text-center">
+              <input type="checkbox" ${rule.edit ? 'checked' : ''} ${isAdmin ? 'disabled' : ''} class="perm-check w-4 h-4 rounded text-[#E8752F] border-slate-300 focus:ring-[#E8752F]">
+            </td>
+            <td class="px-6 py-4 text-center">
+              <input type="checkbox" ${rule.delete ? 'checked' : ''} ${isAdmin ? 'disabled' : ''} class="perm-check w-4 h-4 rounded text-red-500 border-slate-300 focus:ring-red-500">
+            </td>
+            <td class="px-6 py-4 text-center">
+              <input type="checkbox" ${rule.export ? 'checked' : ''} ${isAdmin ? 'disabled' : ''} class="perm-check w-4 h-4 rounded text-[#E8752F] border-slate-300 focus:ring-[#E8752F]">
+            </td>
+          </tr>
+        `;
+      }).join('');
+      lucide.createIcons();
+    }
+
+    function switchRole(roleKey) {
+      currentRole = roleKey;
+      document.querySelectorAll('.role-tab').forEach(btn => {
+        btn.classList.remove('bg-[#E8752F]', 'text-white', 'shadow-sm');
+        btn.classList.add('text-slate-600', 'hover:bg-slate-100');
+      });
+      const activeBtn = document.getElementById(`role-tab-${roleKey}`);
+      if (activeBtn) {
+        activeBtn.classList.remove('text-slate-600', 'hover:bg-slate-100');
+        activeBtn.classList.add('bg-[#E8752F]', 'text-white', 'shadow-sm');
+      }
+      renderMatrix();
+    }
+
+    function toggleAllCheckboxes(checked) {
+      if (currentRole === 'admin') {
+        SanskaarToast.show('Administrator permissions cannot be modified.', 'warning');
+        return;
+      }
+      document.querySelectorAll('.perm-check').forEach(cb => cb.checked = checked);
+    }
+
+    function savePermissions() {
+      SanskaarToast.show(`Permissions for ${rolePresets[currentRole].title} saved successfully!`, 'success');
+    }
+
+    function handleCreateRole(e) {
+      e.preventDefault();
+      SanskaarModal.close('newRoleModal');
+      SanskaarToast.show('Custom role created successfully!', 'success');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'school',
+        activeNav: 'settings',
+        pageTitle: 'Roles & Permissions',
+        breadcrumb: 'Settings / Roles',
+        rootPrefix: '../'
+      });
+      renderMatrix();
+    });
+  </script>
+</body>
+</html>

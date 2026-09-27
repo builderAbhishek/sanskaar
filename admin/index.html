@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Sanskaar ERP Platform</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <div id="app-shell">
+    <div id="page-content">
+      
+      <!-- Top Action Bar -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div>
+          <h1 class="text-2xl font-black text-slate-900 tracking-tight" data-i18n="admin_dashboard">SaaS Platform Overview</h1>
+          <p class="text-xs text-slate-500 mt-1">Nepal Educational Network Performance & Multi-Tenant Operations</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="window.location.href='schools.html'" class="px-3.5 py-2 text-xs font-bold bg-[#E8752F] text-white rounded-xl hover:bg-[#D46320] transition-colors shadow-sm flex items-center gap-2">
+            <i data-lucide="plus-circle" class="w-4 h-4"></i>
+            <span data-i18n="admin_onboard_school">Onboard School</span>
+          </button>
+          <button onclick="Toast.success('Exporting Report', 'Generating Nepal National ERP audit summary...')" class="px-3 py-2 text-xs font-semibold bg-white border border-slate-200 text-slate-700 rounded-xl hover:bg-slate-50 transition-colors flex items-center gap-1.5 shadow-2xs">
+            <i data-lucide="download" class="w-4 h-4 text-slate-400"></i>
+            <span>Export Analytics</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- SaaS Platform KPI Grid (NPR) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+        <!-- KPI 1: Active Schools -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-semibold text-slate-500" data-i18n="admin_total_schools">Affiliated Schools</span>
+            <span class="p-2 rounded-xl bg-orange-50 text-[#E8752F]">
+              <i data-lucide="building-2" class="w-5 h-5"></i>
+            </span>
+          </div>
+          <div class="mt-3 flex items-baseline gap-2">
+            <span class="text-3xl font-black text-slate-900">42</span>
+            <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded-full border border-emerald-200">+3 this month</span>
+          </div>
+          <p class="text-[11px] text-slate-400 mt-1.5">39 Active • 3 Free Trials</p>
+        </div>
+
+        <!-- KPI 2: Total Students on Platform -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-semibold text-slate-500" data-i18n="admin_total_students_platform">Total Students Enrolled</span>
+            <span class="p-2 rounded-xl bg-blue-50 text-blue-600">
+              <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+            </span>
+          </div>
+          <div class="mt-3 flex items-baseline gap-2">
+            <span class="text-3xl font-black text-slate-900">48,250</span>
+            <span class="text-xs font-bold text-blue-600 bg-blue-50 px-1.5 py-0.5 rounded-full border border-blue-200">Across 7 Provinces</span>
+          </div>
+          <p class="text-[11px] text-slate-400 mt-1.5">Kathmandu, Gandaki, Koshi, Lumbini</p>
+        </div>
+
+        <!-- KPI 3: Monthly Recurring Revenue (NPR) -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-semibold text-slate-500" data-i18n="admin_mrr">Monthly Recurring Revenue</span>
+            <span class="p-2 rounded-xl bg-emerald-50 text-emerald-600">
+              <i data-lucide="credit-card" class="w-5 h-5"></i>
+            </span>
+          </div>
+          <div class="mt-3 flex items-baseline gap-2">
+            <span class="text-3xl font-black text-slate-900">रू 14.85L</span>
+            <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded-full border border-emerald-200">+18.4% YoY</span>
+          </div>
+          <p class="text-[11px] text-slate-400 mt-1.5">Annual Run Rate: रू 1.78 Crore</p>
+        </div>
+
+        <!-- KPI 4: System Health & Uptime -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-semibold text-slate-500" data-i18n="admin_platform_health">Platform Uptime</span>
+            <span class="p-2 rounded-xl bg-purple-50 text-purple-600">
+              <i data-lucide="activity" class="w-5 h-5"></i>
+            </span>
+          </div>
+          <div class="mt-3 flex items-baseline gap-2">
+            <span class="text-3xl font-black text-slate-900">99.98%</span>
+            <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded-full border border-emerald-200">Optimal</span>
+          </div>
+          <p class="text-[11px] text-slate-400 mt-1.5">Nepal Datacenter Latency: 14ms</p>
+        </div>
+      </div>
+
+      <!-- Charts Row: MRR Trend & Subscription Distribution -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+        <!-- Revenue Growth Line Chart -->
+        <div class="lg:col-span-2 bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs flex flex-col">
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <h3 class="text-sm font-bold text-slate-900" data-i18n="admin_revenue_trend">SaaS Revenue Growth (NPR)</h3>
+              <p class="text-xs text-slate-400">Monthly billing collections from Nepali private & community schools</p>
+            </div>
+            <span class="text-xs font-bold text-[#E8752F] bg-orange-50 px-2.5 py-1 rounded-lg border border-orange-200/60">
+              FY 2083/84
+            </span>
+          </div>
+          <div class="h-64 relative">
+            <canvas id="mrrChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Subscription Plan Donut Chart -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs flex flex-col">
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <h3 class="text-sm font-bold text-slate-900">Subscription Tiers</h3>
+              <p class="text-xs text-slate-400">Distribution across 42 schools</p>
+            </div>
+          </div>
+          <div class="h-48 relative flex items-center justify-center">
+            <canvas id="planDonutChart"></canvas>
+          </div>
+          <div class="mt-4 pt-4 border-t border-slate-100 grid grid-cols-3 text-center gap-2">
+            <div>
+              <div class="text-[10px] text-slate-400">Enterprise</div>
+              <div class="text-xs font-bold text-slate-800">12 Schools</div>
+            </div>
+            <div>
+              <div class="text-[10px] text-slate-400">Professional</div>
+              <div class="text-xs font-bold text-slate-800">22 Schools</div>
+            </div>
+            <div>
+              <div class="text-[10px] text-slate-400">Basic</div>
+              <div class="text-xs font-bold text-slate-800">8 Schools</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Schools Table & Platform Activity -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Schools Directory Preview -->
+        <div class="lg:col-span-2 bg-white rounded-2xl border border-slate-200/80 shadow-2xs overflow-hidden">
+          <div class="p-4 border-b border-slate-100 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <i data-lucide="building" class="w-4 h-4 text-[#E8752F]"></i>
+              <h3 class="text-sm font-bold text-slate-900" data-i18n="admin_active_schools">Top Affiliated Schools</h3>
+            </div>
+            <a href="schools.html" class="text-xs font-semibold text-[#E8752F] hover:underline flex items-center gap-1">
+              <span>View All 42</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-slate-50 text-slate-500 border-b border-slate-200/80">
+                <tr>
+                  <th class="py-3 px-4 font-semibold">School Name & Location</th>
+                  <th class="py-3 px-3 font-semibold">Students</th>
+                  <th class="py-3 px-3 font-semibold">Plan</th>
+                  <th class="py-3 px-3 font-semibold">Monthly (NPR)</th>
+                  <th class="py-3 px-3 font-semibold">Status</th>
+                  <th class="py-3 px-4 font-semibold text-right">Action</th>
+                </tr>
+              </thead>
+              <tbody id="schools-table-body" class="divide-y divide-slate-100">
+                <!-- Injected via JavaScript from SANSKAAR_DATA -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Quick Platform Alerts & Gateway Status -->
+        <div class="space-y-6">
+          <!-- Payment Gateway Status -->
+          <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs">
+            <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wider mb-3 flex items-center gap-2">
+              <i data-lucide="wallet" class="w-4 h-4 text-emerald-600"></i>
+              <span>Nepal Payment Integrations</span>
+            </h4>
+            <div class="space-y-3">
+              <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs">eS</div>
+                  <div>
+                    <div class="text-xs font-bold text-slate-800">eSewa Merchant API</div>
+                    <div class="text-[10px] text-slate-400">SDK v2.4 • Live Processing</div>
+                  </div>
+                </div>
+                <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">Online</span>
+              </div>
+
+              <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-8 h-8 rounded-lg bg-purple-100 text-purple-700 flex items-center justify-center font-bold text-xs">Kh</div>
+                  <div>
+                    <div class="text-xs font-bold text-slate-800">Khalti Payment Gateway</div>
+                    <div class="text-[10px] text-slate-400">Payment Gateway v3.1</div>
+                  </div>
+                </div>
+                <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">Online</span>
+              </div>
+
+              <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-8 h-8 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-xs">IPS</div>
+                  <div>
+                    <div class="text-xs font-bold text-slate-800">NCHL ConnectIPS</div>
+                    <div class="text-[10px] text-slate-400">Interbank Clearing Direct</div>
+                  </div>
+                </div>
+                <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">Active</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Action Card -->
+          <div class="p-5 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 text-white shadow-lg relative overflow-hidden">
+            <div class="relative z-10">
+              <span class="text-[10px] font-bold tracking-wider uppercase text-orange-400">Multi-Tenant School ERP</span>
+              <h4 class="text-base font-bold mt-1">Kathmandu Valley Sec. School</h4>
+              <p class="text-xs text-slate-300 mt-1">Our flagship pilot school with 1,482 students and full biometric attendance.</p>
+              <div class="mt-4 flex gap-2">
+                <a href="../school/index.html" class="px-3 py-1.5 bg-[#E8752F] text-white text-xs font-bold rounded-lg hover:bg-[#D46320] transition-colors inline-flex items-center gap-1.5">
+                  <span>Enter School Panel</span>
+                  <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                </a>
+                <a href="school-details.html" class="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-white text-xs font-semibold rounded-lg transition-colors">
+                  View Specs
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Central Scripts -->
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/charts.js"></script>
+  <script src="../assets/js/components.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Render Admin Panel Shell
+      Sanskaar.renderShell({
+        panel: 'admin',
+        activeNav: 'dashboard',
+        pageTitle: 'Platform Overview',
+        breadcrumb: 'Admin SaaS',
+        rootPrefix: '../'
+      });
+
+      // 2. Populate Schools Table
+      const schools = SANSKAAR_DATA.platform.schools.slice(0, 5);
+      const tbody = document.getElementById('schools-table-body');
+      if (tbody) {
+        tbody.innerHTML = schools.map(s => `
+          <tr class="hover:bg-slate-50 transition-colors">
+            <td class="py-3 px-4">
+              <div class="font-bold text-slate-900">${s.name}</div>
+              <div class="text-[11px] text-slate-400">${s.city} • Code: ${s.code}</div>
+            </td>
+            <td class="py-3 px-3 font-semibold text-slate-700">${s.students.toLocaleString()}</td>
+            <td class="py-3 px-3">
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">
+                ${s.plan}
+              </span>
+            </td>
+            <td class="py-3 px-3 font-bold text-slate-900">रू ${s.monthlyBilling.toLocaleString()}</td>
+            <td class="py-3 px-3">
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                ${s.status}
+              </span>
+            </td>
+            <td class="py-3 px-4 text-right">
+              <a href="school-details.html?id=${s.id}" class="text-xs font-semibold text-[#E8752F] hover:underline">Manage</a>
+            </td>
+          </tr>
+        `).join('');
+      }
+
+      // 3. Render Charts
+      if (window.SanskaarCharts) {
+        SanskaarCharts.createRevenueChart('mrrChart', 
+          ['Baisakh', 'Jestha', 'Ashadh', 'Shrawan', 'Bhadra', 'Ashwin', 'Kartik', 'Mangsir'],
+          [1150000, 1210000, 1260000, 1320000, 1370000, 1420000, 1450000, 1485000]
+        );
+
+        SanskaarCharts.createDonutChart('planDonutChart',
+          ['Enterprise', 'Professional', 'Basic'],
+          [12, 22, 8],
+          ['#E8752F', '#3B82F6', '#10B981']
+        );
+      }
+    });
+  </script>
+</body>
+</html>

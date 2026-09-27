@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support Tickets - Sanskaar ERP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <div id="app-shell">
+    <div id="page-content">
+      
+      <!-- Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div>
+          <h1 class="text-2xl font-black text-slate-900 tracking-tight" data-i18n="admin_support">Tenant Support & Helpdesk</h1>
+          <p class="text-xs text-slate-500 mt-1">Direct support requests and technical escalation from school administrators</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="Toast.info('Ticket Filter', 'Viewing priority queue')" class="px-3.5 py-2 text-xs font-bold bg-[#E8752F] text-white rounded-xl hover:bg-[#D46320] transition-colors shadow-sm flex items-center gap-2">
+            <i data-lucide="plus-circle" class="w-4 h-4"></i>
+            <span>Create Support Incident</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Support Metrics -->
+      <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 mb-6">
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <span class="text-xs font-semibold text-slate-400">Open Tickets</span>
+          <div class="text-2xl font-black text-rose-600 mt-1">3 Tickets</div>
+          <span class="text-[11px] text-slate-500">1 Critical • 2 Normal</span>
+        </div>
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <span class="text-xs font-semibold text-slate-400">Avg First Response</span>
+          <div class="text-2xl font-black text-slate-900 mt-1">11 Mins</div>
+          <span class="text-[11px] text-emerald-600 font-bold">Target &lt; 30 Mins</span>
+        </div>
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <span class="text-xs font-semibold text-slate-400">Resolved This Month</span>
+          <div class="text-2xl font-black text-emerald-600 mt-1">28 Resolved</div>
+          <span class="text-[11px] text-slate-500">98.2% Satisfaction</span>
+        </div>
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <span class="text-xs font-semibold text-slate-400">Escalation Status</span>
+          <div class="text-2xl font-black text-slate-900 mt-1">Normal</div>
+          <span class="text-[11px] text-emerald-600 font-bold">All SLA thresholds met</span>
+        </div>
+      </div>
+
+      <!-- Tickets List -->
+      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-2xs overflow-hidden">
+        <div class="p-4 border-b border-slate-100 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+          <h3 class="font-bold text-slate-900 text-sm">Active School Inquiries</h3>
+          <div class="flex items-center gap-2">
+            <select class="px-3 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-xl text-slate-700">
+              <option>All Statuses</option>
+              <option>Open</option>
+              <option>In Progress</option>
+              <option>Resolved</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="divide-y divide-slate-100 text-xs">
+          <!-- Ticket 1 -->
+          <div class="p-4 hover:bg-slate-50/80 transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-3 cursor-pointer" onclick="openTicketModal('TKT-8802')">
+            <div class="flex items-start gap-3">
+              <span class="p-2 rounded-xl bg-rose-50 text-rose-600 mt-0.5">
+                <i data-lucide="alert-circle" class="w-4 h-4"></i>
+              </span>
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="font-mono font-bold text-slate-500 text-[11px]">#TKT-8802</span>
+                  <span class="font-bold text-slate-900 text-sm">Biometric device sync delayed after power restoration</span>
+                  <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-rose-50 text-rose-600 border border-rose-200">Critical</span>
+                </div>
+                <div class="text-slate-500 mt-1">Kathmandu Valley Secondary School • Reported by Dr. Ram Bahadur Thapa</div>
+                <div class="text-[11px] text-slate-400 mt-0.5">Opened 22 mins ago • Assigned to: Anil KC (Nepal Hardware Ops)</div>
+              </div>
+            </div>
+            <div class="sm:text-right shrink-0">
+              <span class="px-2.5 py-1 rounded-lg font-bold text-[11px] bg-rose-50 text-rose-700 border border-rose-200">Open</span>
+            </div>
+          </div>
+
+          <!-- Ticket 2 -->
+          <div class="p-4 hover:bg-slate-50/80 transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-3 cursor-pointer" onclick="openTicketModal('TKT-8798')">
+            <div class="flex items-start gap-3">
+              <span class="p-2 rounded-xl bg-amber-50 text-amber-600 mt-0.5">
+                <i data-lucide="help-circle" class="w-4 h-4"></i>
+              </span>
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="font-mono font-bold text-slate-500 text-[11px]">#TKT-8798</span>
+                  <span class="font-bold text-slate-900 text-sm">SEE Exam GPA rounding rule adjustment for Optional Math</span>
+                  <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-50 text-amber-600 border border-amber-200">Medium</span>
+                </div>
+                <div class="text-slate-500 mt-1">Pokhara Modern Academy • Reported by Mrs. Meena Gurung</div>
+                <div class="text-[11px] text-slate-400 mt-0.5">Opened 2 hours ago • Assigned to: Pooja Sharma</div>
+              </div>
+            </div>
+            <div class="sm:text-right shrink-0">
+              <span class="px-2.5 py-1 rounded-lg font-bold text-[11px] bg-amber-50 text-amber-700 border border-amber-200">In Progress</span>
+            </div>
+          </div>
+
+          <!-- Ticket 3 -->
+          <div class="p-4 hover:bg-slate-50/80 transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-3 cursor-pointer" onclick="openTicketModal('TKT-8795')">
+            <div class="flex items-start gap-3">
+              <span class="p-2 rounded-xl bg-blue-50 text-blue-600 mt-0.5">
+                <i data-lucide="message-square" class="w-4 h-4"></i>
+              </span>
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="font-mono font-bold text-slate-500 text-[11px]">#TKT-8795</span>
+                  <span class="font-bold text-slate-900 text-sm">Sparrow SMS sender ID registration verification</span>
+                  <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-blue-50 text-blue-600 border border-blue-200">Normal</span>
+                </div>
+                <div class="text-slate-500 mt-1">Biratnagar Public Model Higher Secondary • Reported by Narayan Prasad Karki</div>
+                <div class="text-[11px] text-slate-400 mt-0.5">Opened 5 hours ago • Assigned to: Anil KC</div>
+              </div>
+            </div>
+            <div class="sm:text-right shrink-0">
+              <span class="px-2.5 py-1 rounded-lg font-bold text-[11px] bg-blue-50 text-blue-700 border border-blue-200">Investigating</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'admin',
+        activeNav: 'support',
+        pageTitle: 'Support Helpdesk',
+        breadcrumb: 'Admin SaaS',
+        rootPrefix: '../'
+      });
+    });
+
+    function openTicketModal(ticketId) {
+      Toast.info('Support Desk', `Viewing resolution thread for ${ticketId}`);
+    }
+  </script>
+</body>
+</html>

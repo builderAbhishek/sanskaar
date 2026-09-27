@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payroll & Salary - Sanskaar ERP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <div id="app-shell">
+    <div id="page-content">
+      
+      <!-- Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div>
+          <h1 class="text-2xl font-black text-slate-900 tracking-tight" data-i18n="nav_salary">Faculty & Staff Payroll</h1>
+          <p class="text-xs text-slate-500 mt-1">Kathmandu Valley Secondary School • Monthly Payroll Disbursement (NPR / रू)</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="disbursePayroll()" class="px-4 py-2 text-xs font-bold bg-[#E8752F] text-white rounded-xl hover:bg-[#D46320] transition-colors shadow-sm flex items-center gap-2">
+            <i data-lucide="send" class="w-4 h-4"></i>
+            <span>Disburse Monthly Payroll via Nabil Bank</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Payroll Summary Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 mb-6">
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <span class="text-xs font-semibold text-slate-400">Total Monthly Payroll</span>
+          <div class="text-2xl font-black text-slate-900 mt-1">रू 46,25,000</div>
+          <span class="text-[11px] text-slate-500">78 Teachers • 18 Staff</span>
+        </div>
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <span class="text-xs font-semibold text-slate-400">Provident Fund (EPF 10%)</span>
+          <div class="text-2xl font-black text-blue-600 mt-1">रू 4,62,500</div>
+          <span class="text-[11px] text-slate-500">Karmachari Sanchaya Kosh</span>
+        </div>
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <span class="text-xs font-semibold text-slate-400">Citizen Investment Trust (CIT)</span>
+          <div class="text-2xl font-black text-purple-600 mt-1">रू 2,31,250</div>
+          <span class="text-[11px] text-slate-500">Nagarik Lagani Kosh</span>
+        </div>
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <span class="text-xs font-semibold text-slate-400">Disbursement Status</span>
+          <div class="text-2xl font-black text-emerald-600 mt-1">Mangsir Ready</div>
+          <span class="text-[11px] text-emerald-600 font-bold">Bank batch generated</span>
+        </div>
+      </div>
+
+      <!-- Payroll Table -->
+      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-2xs overflow-hidden">
+        <div class="p-4 border-b border-slate-100 flex items-center justify-between">
+          <h3 class="font-bold text-slate-900 text-sm">Staff Payroll Register (Mangsir 2083)</h3>
+          <span class="text-xs text-slate-400">Amounts in Nepalese Rupees (रू)</span>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-slate-50 text-slate-500 border-b border-slate-200/80">
+              <tr>
+                <th class="py-3 px-4 font-semibold">Employee Name & Role</th>
+                <th class="py-3 px-3 font-semibold">Basic Pay</th>
+                <th class="py-3 px-3 font-semibold">Dearness & Allow.</th>
+                <th class="py-3 px-3 font-semibold">PF (10%)</th>
+                <th class="py-3 px-3 font-semibold">CIT & TDS</th>
+                <th class="py-3 px-3 font-semibold">Net Payable (NPR)</th>
+                <th class="py-3 px-3 font-semibold">Bank Account (Nabil)</th>
+                <th class="py-3 px-4 font-semibold text-right">Payslip</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 font-mono text-slate-700">
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4 font-sans">
+                  <div class="font-bold text-slate-900">Dr. Ram Bahadur Thapa</div>
+                  <div class="text-[11px] text-slate-400 font-normal">Head of Institution / Principal</div>
+                </td>
+                <td class="py-3 px-3 font-bold text-slate-900">रू 65,000</td>
+                <td class="py-3 px-3 text-emerald-600 font-bold">+ रू 20,000</td>
+                <td class="py-3 px-3 text-rose-600 font-semibold">- रू 6,500</td>
+                <td class="py-3 px-3 text-rose-600 font-semibold">- रू 4,500</td>
+                <td class="py-3 px-3 font-bold text-emerald-600 font-sans text-sm">रू 74,000</td>
+                <td class="py-3 px-3 text-slate-500">019284102910</td>
+                <td class="py-3 px-4 text-right font-sans">
+                  <button onclick="openPayslip('Dr. Ram Bahadur Thapa', '74,000')" class="text-xs font-bold text-[#E8752F] hover:underline">Payslip</button>
+                </td>
+              </tr>
+
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4 font-sans">
+                  <div class="font-bold text-slate-900">Mr. Keshav Nepal</div>
+                  <div class="text-[11px] text-slate-400 font-normal">Senior Math Faculty (Class 10-A Incharge)</div>
+                </td>
+                <td class="py-3 px-3 font-bold text-slate-900">रू 48,000</td>
+                <td class="py-3 px-3 text-emerald-600 font-bold">+ रू 10,500</td>
+                <td class="py-3 px-3 text-rose-600 font-semibold">- रू 4,800</td>
+                <td class="py-3 px-3 text-rose-600 font-semibold">- रू 2,700</td>
+                <td class="py-3 px-3 font-bold text-emerald-600 font-sans text-sm">रू 51,000</td>
+                <td class="py-3 px-3 text-slate-500">019284102944</td>
+                <td class="py-3 px-4 text-right font-sans">
+                  <button onclick="openPayslip('Mr. Keshav Nepal', '51,000')" class="text-xs font-bold text-[#E8752F] hover:underline">Payslip</button>
+                </td>
+              </tr>
+
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4 font-sans">
+                  <div class="font-bold text-slate-900">Ms. Anjana Sharma</div>
+                  <div class="text-[11px] text-slate-400 font-normal">English Literature Faculty Head</div>
+                </td>
+                <td class="py-3 px-3 font-bold text-slate-900">रू 46,000</td>
+                <td class="py-3 px-3 text-emerald-600 font-bold">+ रू 10,000</td>
+                <td class="py-3 px-3 text-rose-600 font-semibold">- रू 4,600</td>
+                <td class="py-3 px-3 text-rose-600 font-semibold">- रू 2,400</td>
+                <td class="py-3 px-3 font-bold text-emerald-600 font-sans text-sm">रू 49,000</td>
+                <td class="py-3 px-3 text-slate-500">019284103112</td>
+                <td class="py-3 px-4 text-right font-sans">
+                  <button onclick="openPayslip('Ms. Anjana Sharma', '49,000')" class="text-xs font-bold text-[#E8752F] hover:underline">Payslip</button>
+                </td>
+              </tr>
+
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4 font-sans">
+                  <div class="font-bold text-slate-900">Mr. Bishnu Sharma</div>
+                  <div class="text-[11px] text-slate-400 font-normal">Finance & Accounts Officer</div>
+                </td>
+                <td class="py-3 px-3 font-bold text-slate-900">रू 42,000</td>
+                <td class="py-3 px-3 text-emerald-600 font-bold">+ रू 8,000</td>
+                <td class="py-3 px-3 text-rose-600 font-semibold">- रू 4,200</td>
+                <td class="py-3 px-3 text-rose-600 font-semibold">- रू 1,800</td>
+                <td class="py-3 px-3 font-bold text-emerald-600 font-sans text-sm">रू 44,000</td>
+                <td class="py-3 px-3 text-slate-500">019284104590</td>
+                <td class="py-3 px-4 text-right font-sans">
+                  <button onclick="openPayslip('Mr. Bishnu Sharma', '44,000')" class="text-xs font-bold text-[#E8752F] hover:underline">Payslip</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'school',
+        activeNav: 'salary',
+        pageTitle: 'Payroll & Salary',
+        breadcrumb: 'Finance',
+        rootPrefix: '../'
+      });
+    });
+
+    function disbursePayroll() {
+      Toast.success('Payroll Disbursed!', 'Transferred रू 46,25,000 to Nabil Bank corporate batch for 96 employees.');
+    }
+
+    function openPayslip(name, amount) {
+      Toast.info('Payslip Generated', `Monthly salary slip for ${name} (Net: रू ${amount}) ready to print.`);
+    }
+  </script>
+</body>
+</html>

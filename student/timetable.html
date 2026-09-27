@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-50">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanskaar ERP - Student Timetable</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="h-full text-slate-800 antialiased font-['Plus_Jakarta_Sans',sans-serif]">
+  <div id="app-shell">
+    <div id="page-content" class="p-6 space-y-6">
+      
+      <!-- Page Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <h1 class="text-2xl font-bold text-slate-900" data-i18n="student_timetable">Class Routine & Timetable</h1>
+          <p class="text-sm text-slate-500 mt-1">Weekly Sunday–Friday period allocations for Class 10-A (Room 304, Senior Wing).</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <button onclick="window.print()" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-sm font-semibold transition-all">
+            <i data-lucide="printer" class="w-4 h-4"></i>
+            <span>Print Routine</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Summary Card -->
+      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-5 flex flex-wrap items-center justify-between gap-4">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-xl bg-orange-50 text-[#E8752F] flex items-center justify-center font-bold">
+            <i data-lucide="calendar" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-slate-900">Class 10-A Master Schedule</h3>
+            <p class="text-xs text-slate-500">Class Teacher: Mrs. Sunita Shrestha • 7 Teaching Periods + 2 Breaks</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 text-xs font-semibold text-slate-600 bg-slate-50 px-3 py-2 rounded-xl border border-slate-200">
+          <span>Assembly: 11:30 AM</span>
+          <span class="text-slate-300">|</span>
+          <span>Tiffin Break: 01:15 PM</span>
+          <span class="text-slate-300">|</span>
+          <span>School Dispersal: 04:00 PM</span>
+        </div>
+      </div>
+
+      <!-- Weekly Schedule Grid -->
+      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs border-collapse min-w-[900px]">
+            <thead class="bg-slate-50 text-slate-600 font-bold uppercase border-b border-slate-200">
+              <tr>
+                <th class="p-3.5 w-28 bg-slate-100/70 border-r border-slate-200">Day</th>
+                <th class="p-3 text-center border-r border-slate-200">P1 (10:00-10:45)</th>
+                <th class="p-3 text-center border-r border-slate-200">P2 (10:45-11:30)</th>
+                <th class="p-2 text-center bg-amber-50/60 text-amber-800 border-r border-slate-200 w-20">Assembly</th>
+                <th class="p-3 text-center border-r border-slate-200">P3 (11:45-12:30)</th>
+                <th class="p-3 text-center border-r border-slate-200">P4 (12:30-01:15)</th>
+                <th class="p-2 text-center bg-orange-50/60 text-orange-800 border-r border-slate-200 w-20">Lunch</th>
+                <th class="p-3 text-center border-r border-slate-200">P5 (01:50-02:35)</th>
+                <th class="p-3 text-center border-r border-slate-200">P6 (02:35-03:20)</th>
+                <th class="p-3 text-center">P7 (03:20-04:00)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 font-medium">
+              <!-- Sunday -->
+              <tr class="hover:bg-slate-50/50">
+                <td class="p-3.5 font-bold text-slate-900 bg-slate-50/60 border-r border-slate-200">Sunday</td>
+                <td class="p-2 text-center border-r border-slate-100">
+                  <div class="font-bold text-blue-700">Comp. Math</div>
+                  <div class="text-[10px] text-slate-400">Mrs. Sunita</div>
+                </td>
+                <td class="p-2 text-center border-r border-slate-100">
+                  <div class="font-bold text-emerald-700">Physics</div>
+                  <div class="text-[10px] text-slate-400">Lab 1</div>
+                </td>
+                <td rowspan="6" class="p-2 text-center bg-amber-50/30 text-amber-700 font-bold border-r border-slate-200 [writing-mode:vertical-lr] rotate-180">
+                  Daily Assembly
+                </td>
+                <td class="p-2 text-center border-r border-slate-100">
+                  <div class="font-bold text-purple-700">English</div>
+                  <div class="text-[10px] text-slate-400">Mrs. Ananya</div>
+                </td>
+                <td class="p-2 text-center border-r border-slate-100">
+                  <div class="font-bold text-slate-800">नेपाली</div>
+                  <div class="text-[10px] text-slate-400">Pt. Dilli</div>
+                </td>
+                <td rowspan="6" class="p-2 text-center bg-orange-50/30 text-orange-700 font-bold border-r border-slate-200 [writing-mode:vertical-lr] rotate-180">
+                  Tiffin Break
+                </td>
+                <td class="p-2 text-center border-r border-slate-100">
+                  <div class="font-bold text-blue-700">Opt. Math</div>
+                  <div class="text-[10px] text-slate-400">Mrs. Sunita</div>
+                </td>
+                <td class="p-2 text-center border-r border-slate-100">
+                  <div class="font-bold text-[#E8752F]">Computer / AI</div>
+                  <div class="text-[10px] text-slate-400">IT Lab</div>
+                </td>
+                <td class="p-2 text-center">
+                  <div class="font-bold text-slate-800">Social Studies</div>
+                  <div class="text-[10px] text-slate-400">Mr. Deepak</div>
+                </td>
+              </tr>
+
+              <!-- Monday -->
+              <tr class="hover:bg-slate-50/50">
+                <td class="p-3.5 font-bold text-slate-900 bg-slate-50/60 border-r border-slate-200">Monday</td>
+                <td class="p-2 text-center border-r border-slate-100">
+                  <div class="font-bold text-emerald-700">Chemistry</div>
+                  <div class="text-[10px] text-slate-400">Chem Lab</div>
+                </td>
+                <td class="p-2 text-center border-r border-slate-100">
+                  <div class="font-bold text-blue-700">Comp. Math</div>
+                  <div class="text-[10px] text-slate-400">Mrs. Sunita</div>
+                </td>
+                <td class="p-2 text-center border-r border-slate-100">
+                  <div class="font-bold text-slate-800">नेपाली</div>
+                  <div class="text-[10px] text-slate-400">Pt. Dilli</div>
+                </td>
+                <td class="p-2 text-center border-r border-slate-100">
+                  <div class="font-bold text-purple-700">English</div>
+                  <div class="text-[10px] text-slate-400">Mrs. Ananya</div>
+                </td>
+                <td class="p-2 text-center border-r border-slate-100">
+                  <div class="font-bold text-slate-800">Social Studies</div>
+                  <div class="text-[10px] text-slate-400">Mr. Deepak</div>
+                </td>
+                <td class="p-2 text-center border-r border-slate-100">
+                  <div class="font-bold text-blue-700">Opt. Math</div>
+                  <div class="text-[10px] text-slate-400">Mrs. Sunita</div>
+                </td>
+                <td class="p-2 text-center">
+                  <div class="font-bold text-teal-700">Library Research</div>
+                  <div class="text-[10px] text-slate-400">Library</div>
+                </td>
+              </tr>
+
+              <!-- Tuesday -->
+              <tr class="hover:bg-slate-50/50">
+                <td class="p-3.5 font-bold text-slate-900 bg-slate-50/60 border-r border-slate-200">Tuesday</td>
+                <td class="p-2 text-center border-r border-slate-100">
+                  <div class="font-bold text-blue-700">Comp. Math</div>
+                  <div class="text-[10px] text-slate-400">Mrs. Sunita</div>
+                </td>
+                <td class="p-2 text-center border-r border-slate-100">
+                  <div class="font-bold text-emerald-700">Biology</div>
+                  <div class="text-[10px] text-slate-400">Bio Lab</div>
+                </td>
+                <td class="p-2 text-center border-r border-slate-100">
+                  <div class="font-bold text-purple-700">English</div>
+                  <div class="text-[10px] text-slate-400">Mrs. Ananya</div>
+                </td>
+                <td class="p-2 text-center border-r border-slate-100">
+                  <div class="font-bold text-[#E8752F]">Computer / AI</div>
+                  <div class="text-[10px] text-slate-400">IT Lab</div>
+                </td>
+                <td class="p-2 text-center border-r border-slate-100">
+                  <div class="font-bold text-slate-800">Social Studies</div>
+                  <div class="text-[10px] text-slate-400">Mr. Deepak</div>
+                </td>
+                <td class="p-2 text-center border-r border-slate-100">
+                  <div class="font-bold text-slate-800">नेपाली</div>
+                  <div class="text-[10px] text-slate-400">Pt. Dilli</div>
+                </td>
+                <td class="p-2 text-center">
+                  <div class="font-bold text-rose-700">Physical Ed / Games</div>
+                  <div class="text-[10px] text-slate-400">Ground</div>
+                </td>
+              </tr>
+
+              <!-- Wednesday -->
+              <tr class="hover:bg-slate-50/50">
+                <td class="p-3.5 font-bold text-slate-900 bg-slate-50/60 border-r border-slate-200">Wednesday</td>
+                <td class="p-2 text-center border-r border-slate-100">
+                  <div class="font-bold text-emerald-700">Physics</div>
+                  <div class="text-[10px] text-slate-400">Lab 1</div>
+                </td>
+                <td class="p-2 text-center border-r border-slate-100">
+                  <div class="font-bold text-blue-700">Comp. Math</div>
+                  <div class="text-[10px] text-slate-400">Mrs. Sunita</div>
+                </td>
+                <td class="p-2 text-center border-r border-slate-100">
+                  <div class="font-bold text-blue-700">Opt. Math</div>
+                  <div class="text-[10px] text-slate-400">Mrs. Sunita</div>
+                </td>
+                <td class="p-2 text-center border-r border-slate-100">
+                  <div class="font-bold text-purple-700">English</div>
+                  <div class="text-[10px] text-slate-400">Mrs. Ananya</div>
+                </td>
+                <td class="p-2 text-center border-r border-slate-100">
+                  <div class="font-bold text-slate-800">Social Studies</div>
+                  <div class="text-[10px] text-slate-400">Mr. Deepak</div>
+                </td>
+                <td class="p-2 text-center border-r border-slate-100">
+                  <div class="font-bold text-emerald-700">Chemistry</div>
+                  <div class="text-[10px] text-slate-400">Room 304</div>
+                </td>
+                <td class="p-2 text-center">
+                  <div class="font-bold text-amber-700">Debate & Club</div>
+                  <div class="text-[10px] text-slate-400">Hall</div>
+                </td>
+              </tr>
+
+              <!-- Thursday -->
+              <tr class="hover:bg-slate-50/50">
+                <td class="p-3.5 font-bold text-slate-900 bg-slate-50/60 border-r border-slate-200">Thursday</td>
+                <td class="p-2 text-center border-r border-slate-100">
+                  <div class="font-bold text-blue-700">Comp. Math</div>
+                  <div class="text-[10px] text-slate-400">Mrs. Sunita</div>
+                </td>
+                <td class="p-2 text-center border-r border-slate-100">
+                  <div class="font-bold text-emerald-700">Biology</div>
+                  <div class="text-[10px] text-slate-400">Bio Lab</div>
+                </td>
+                <td class="p-2 text-center border-r border-slate-100">
+                  <div class="font-bold text-[#E8752F]">Computer / AI</div>
+                  <div class="text-[10px] text-slate-400">IT Lab</div>
+                </td>
+                <td class="p-2 text-center border-r border-slate-100">
+                  <div class="font-bold text-slate-800">नेपाली</div>
+                  <div class="text-[10px] text-slate-400">Pt. Dilli</div>
+                </td>
+                <td class="p-2 text-center border-r border-slate-100">
+                  <div class="font-bold text-blue-700">Opt. Math</div>
+                  <div class="text-[10px] text-slate-400">Mrs. Sunita</div>
+                </td>
+                <td class="p-2 text-center border-r border-slate-100">
+                  <div class="font-bold text-purple-700">English</div>
+                  <div class="text-[10px] text-slate-400">Mrs. Ananya</div>
+                </td>
+                <td class="p-2 text-center">
+                  <div class="font-bold text-indigo-700">SEE Revision</div>
+                  <div class="text-[10px] text-slate-400">Room 304</div>
+                </td>
+              </tr>
+
+              <!-- Friday -->
+              <tr class="hover:bg-slate-50/50">
+                <td class="p-3.5 font-bold text-slate-900 bg-slate-50/60 border-r border-slate-200">Friday</td>
+                <td class="p-2 text-center border-r border-slate-100">
+                  <div class="font-bold text-amber-700">SEE Mock Test</div>
+                  <div class="text-[10px] text-slate-400">Math / Eng</div>
+                </td>
+                <td class="p-2 text-center border-r border-slate-100">
+                  <div class="font-bold text-emerald-700">Science Mock</div>
+                  <div class="text-[10px] text-slate-400">Lab Practice</div>
+                </td>
+                <td class="p-2 text-center border-r border-slate-100">
+                  <div class="font-bold text-purple-700">ECA Arts</div>
+                  <div class="text-[10px] text-slate-400">Auditorium</div>
+                </td>
+                <td class="p-2 text-center border-r border-slate-100">
+                  <div class="font-bold text-rose-700">Music & Vocal</div>
+                  <div class="text-[10px] text-slate-400">Mr. Subash</div>
+                </td>
+                <td class="p-2 text-center border-r border-slate-100">
+                  <div class="font-bold text-slate-700">Clean Campus</div>
+                  <div class="text-[10px] text-slate-400">House Captains</div>
+                </td>
+                <td colspan="2" class="p-2 text-center bg-slate-100 text-slate-500 font-bold">
+                  Early Dispersal (02:30 PM)
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'student',
+        activeNav: 'timetable',
+        pageTitle: 'Class Timetable',
+        breadcrumb: 'Student / Timetable',
+        rootPrefix: '../'
+      });
+    });
+  </script>
+</body>
+</html>

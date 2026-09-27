@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-50">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanskaar ERP - Student Attendance</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="h-full text-slate-800 antialiased font-['Plus_Jakarta_Sans',sans-serif]">
+  <div id="app-shell">
+    <div id="page-content" class="p-6 space-y-6">
+      
+      <!-- Page Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <h1 class="text-2xl font-bold text-slate-900" data-i18n="student_attendance">My Attendance</h1>
+          <p class="text-sm text-slate-500 mt-1">Daily roll-call records, Sunday–Friday calendar view, and NEB 75% SEE board threshold monitoring.</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <button onclick="SanskaarModal.open('leaveModal')" class="inline-flex items-center gap-2 px-4 py-2 bg-[#E8752F] hover:bg-[#d66521] text-white rounded-xl text-sm font-semibold transition-all shadow-sm">
+            <i data-lucide="calendar-plus" class="w-4 h-4"></i>
+            <span>Apply for Leave</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Attendance Metrics -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm">
+          <div class="text-xs font-semibold uppercase text-slate-400">Current Session Attendance</div>
+          <div class="text-3xl font-black text-emerald-600 mt-1">96.8%</div>
+          <div class="text-xs text-slate-500 mt-1">118 Present of 122 Teaching Days</div>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm">
+          <div class="text-xs font-semibold uppercase text-slate-400">Total Absences</div>
+          <div class="text-3xl font-black text-slate-800 mt-1">3 <span class="text-xs font-normal text-slate-400">Days</span></div>
+          <div class="text-xs text-slate-500 mt-1">All verified with guardian notes</div>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm">
+          <div class="text-xs font-semibold uppercase text-slate-400">Approved Leaves</div>
+          <div class="text-3xl font-black text-slate-800 mt-1">1 <span class="text-xs font-normal text-slate-400">Day</span></div>
+          <div class="text-xs text-slate-500 mt-1">Medical leave on 14 Shrawan</div>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm">
+          <div class="text-xs font-semibold uppercase text-slate-400">NEB Eligibility Status</div>
+          <div class="text-xl font-bold text-emerald-600 mt-1 flex items-center gap-1.5">
+            <i data-lucide="check-circle" class="w-5 h-5"></i> Eligible for SEE
+          </div>
+          <div class="text-xs text-slate-400 mt-1">+21.8% above 75% requirement</div>
+        </div>
+      </div>
+
+      <!-- Month Selector & Attendance Calendar -->
+      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <button onclick="changeMonth(-1)" class="p-2 border border-slate-200 rounded-xl hover:bg-slate-50"><i data-lucide="chevron-left" class="w-4 h-4"></i></button>
+            <h3 class="font-bold text-slate-900 text-lg" id="current-month-display">Bhadra 2083 B.S. (Aug – Sep 2026)</h3>
+            <button onclick="changeMonth(1)" class="p-2 border border-slate-200 rounded-xl hover:bg-slate-50"><i data-lucide="chevron-right" class="w-4 h-4"></i></button>
+          </div>
+
+          <!-- Legend -->
+          <div class="flex flex-wrap items-center gap-3 text-xs font-semibold text-slate-600">
+            <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-emerald-500"></span> Present (P)</span>
+            <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-rose-500"></span> Absent (A)</span>
+            <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-amber-500"></span> Approved Leave (L)</span>
+            <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-slate-300"></span> Saturday / Holiday</span>
+          </div>
+        </div>
+
+        <!-- Sunday-Saturday 7-column Calendar Grid -->
+        <div class="grid grid-cols-7 gap-2 text-center text-xs font-semibold text-slate-500 uppercase pb-2 border-b border-slate-100">
+          <div>Sun (आइत)</div>
+          <div>Mon (सोम)</div>
+          <div>Tue (मङ्गल)</div>
+          <div>Wed (बुध)</div>
+          <div>Thu (बिही)</div>
+          <div>Fri (शुक्र)</div>
+          <div class="text-rose-500">Sat (शनि)</div>
+        </div>
+
+        <div id="calendar-days" class="grid grid-cols-7 gap-2">
+          <!-- Calendar Days dynamically generated -->
+        </div>
+      </div>
+
+      <!-- Recent Attendance Activity Logs -->
+      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 space-y-4">
+        <h3 class="font-bold text-slate-900 text-base">Recent Check-in Timestamps (Biometric RFID)</h3>
+
+        <div class="space-y-2.5">
+          <div class="p-3.5 rounded-xl bg-slate-50 flex items-center justify-between text-xs">
+            <div class="flex items-center gap-3">
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <span class="font-bold text-slate-800">22 Bhadra 2083 (Sunday)</span>
+              <span class="text-slate-400">• Check-in: 09:48 AM NPT</span>
+            </div>
+            <span class="px-2.5 py-0.5 rounded-full font-bold bg-emerald-100 text-emerald-800">Present (On Time)</span>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-slate-50 flex items-center justify-between text-xs">
+            <div class="flex items-center gap-3">
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <span class="font-bold text-slate-800">20 Bhadra 2083 (Friday)</span>
+              <span class="text-slate-400">• Check-in: 09:51 AM NPT</span>
+            </div>
+            <span class="px-2.5 py-0.5 rounded-full font-bold bg-emerald-100 text-emerald-800">Present (On Time)</span>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-slate-50 flex items-center justify-between text-xs">
+            <div class="flex items-center gap-3">
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <span class="font-bold text-slate-800">19 Bhadra 2083 (Thursday)</span>
+              <span class="text-slate-400">• Check-in: 09:45 AM NPT</span>
+            </div>
+            <span class="px-2.5 py-0.5 rounded-full font-bold bg-emerald-100 text-emerald-800">Present (On Time)</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Apply for Leave Modal -->
+  <div id="leaveModal" class="hidden fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl border border-slate-200 shadow-xl w-full max-w-md overflow-hidden">
+      <div class="p-5 border-b border-slate-100 flex items-center justify-between">
+        <h3 class="font-bold text-slate-900">Student Leave Application</h3>
+        <button onclick="SanskaarModal.close('leaveModal')" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+      <form onsubmit="handleLeaveSubmit(event)" class="p-5 space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-600 uppercase mb-1.5">Leave Type</label>
+          <select class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8752F]/20">
+            <option>Medical / Sick Leave</option>
+            <option>Family Emergency</option>
+            <option>Academic Olympiad / Competition</option>
+          </select>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-semibold text-slate-600 uppercase mb-1.5">From Date</label>
+            <input type="date" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-600 uppercase mb-1.5">To Date</label>
+            <input type="date" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm">
+          </div>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-600 uppercase mb-1.5">Reason for Absence</label>
+          <textarea rows="3" required placeholder="Please provide specific details..." class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none"></textarea>
+        </div>
+        <div class="text-xs text-slate-400">
+          A confirmation SMS will be triggered to registered guardian number: +977 9851023456.
+        </div>
+        <div class="pt-2 flex items-center justify-end gap-3">
+          <button type="button" onclick="SanskaarModal.close('leaveModal')" class="px-4 py-2 text-sm font-semibold text-slate-600 hover:bg-slate-100 rounded-xl">Cancel</button>
+          <button type="submit" class="px-5 py-2 bg-[#E8752F] hover:bg-[#d66521] text-white text-sm font-semibold rounded-xl">Submit to Class Teacher</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+  <script>
+    function renderCalendar() {
+      const container = document.getElementById('calendar-days');
+      let html = '';
+      
+      // Empty days before Bhadra 1 (Starts on Tuesday in mock calendar)
+      html += `<div class="p-2 border border-slate-100 rounded-xl bg-slate-50/50"></div>`;
+      html += `<div class="p-2 border border-slate-100 rounded-xl bg-slate-50/50"></div>`;
+
+      // Days 1 to 31
+      for (let day = 1; day <= 31; day++) {
+        const col = (day + 2) % 7; // Saturday is col 0
+        const isSaturday = col === 0;
+        const isAbsent = day === 8;
+        const isLeave = day === 15;
+        const isFuture = day > 23;
+
+        let bgClass = "bg-emerald-50 border-emerald-200 text-emerald-800";
+        let statusBadge = `<span class="text-[9px] font-bold text-emerald-600 block mt-1">P (09:48)</span>`;
+
+        if (isSaturday) {
+          bgClass = "bg-slate-100 border-slate-200 text-slate-400";
+          statusBadge = `<span class="text-[9px] font-bold text-slate-400 block mt-1">Holiday</span>`;
+        } else if (isAbsent) {
+          bgClass = "bg-rose-50 border-rose-200 text-rose-800";
+          statusBadge = `<span class="text-[9px] font-bold text-rose-600 block mt-1">Absent</span>`;
+        } else if (isLeave) {
+          bgClass = "bg-amber-50 border-amber-200 text-amber-800";
+          statusBadge = `<span class="text-[9px] font-bold text-amber-600 block mt-1">Leave</span>`;
+        } else if (isFuture) {
+          bgClass = "bg-white border-slate-200 text-slate-600";
+          statusBadge = `<span class="text-[9px] font-medium text-slate-400 block mt-1">—</span>`;
+        }
+
+        html += `
+          <div class="p-2.5 rounded-xl border ${bgClass} cursor-pointer hover:shadow-sm transition-all" onclick="showDayDetail(${day})">
+            <div class="font-bold text-sm">${day}</div>
+            ${statusBadge}
+          </div>
+        `;
+      }
+
+      container.innerHTML = html;
+    }
+
+    function showDayDetail(day) {
+      SanskaarToast.show(`Bhadra ${day}, 2083: Verified attendance record logged.`, 'info');
+    }
+
+    function changeMonth(delta) {
+      SanskaarToast.show('Attendance data re-rendered for selected Bikram Sambat month.', 'info');
+    }
+
+    function handleLeaveSubmit(e) {
+      e.preventDefault();
+      SanskaarModal.close('leaveModal');
+      SanskaarToast.show('Leave application submitted to Mrs. Sunita Shrestha!', 'success');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'student',
+        activeNav: 'attendance',
+        pageTitle: 'My Attendance',
+        breadcrumb: 'Student / Attendance',
+        rootPrefix: '../'
+      });
+      renderCalendar();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automation & Triggers - Sanskaar ERP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <div id="app-shell">
+    <div id="page-content">
+      
+      <!-- Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div>
+          <h1 class="text-2xl font-black text-slate-900 tracking-tight" data-i18n="nav_automation">Automation & Event Triggers</h1>
+          <p class="text-xs text-slate-500 mt-1">Kathmandu Valley Secondary School • Real-time SMS Triggers, Nightly Crons & Scheduled Dispatches</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="Toast.success('Saved', 'Automated event triggers updated')" class="px-4 py-2 text-xs font-bold bg-[#E8752F] text-white rounded-xl hover:bg-[#D46320] transition-colors shadow-sm flex items-center gap-2">
+            <i data-lucide="save" class="w-4 h-4"></i>
+            <span>Save Rules</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Automation Workflows Grid -->
+      <div class="space-y-4 text-xs">
+        
+        <!-- Workflow 1: Biometric Absent Notification -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div class="flex items-start gap-3">
+            <div class="w-9 h-9 rounded-xl bg-orange-100 text-[#E8752F] flex items-center justify-center shrink-0 mt-0.5">
+              <i data-lucide="user-x" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h3 class="font-bold text-slate-900 text-sm">Automated Absent Parent SMS (Daily Roll Call)</h3>
+                <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700">Active Trigger</span>
+              </div>
+              <p class="text-slate-500 mt-1 leading-relaxed">
+                When a student is marked Absent in the 09:30 AM roll call, an instant SMS alert is dispatched to the guardian's verified phone via Sparrow SMS (Sender ID: KVSS_EDU).
+              </p>
+            </div>
+          </div>
+          <label class="relative inline-flex items-center cursor-pointer shrink-0">
+            <input type="checkbox" checked class="sr-only peer">
+            <div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#E8752F]"></div>
+          </label>
+        </div>
+
+        <!-- Workflow 2: Fee Overdue Reminder -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div class="flex items-start gap-3">
+            <div class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5">
+              <i data-lucide="wallet" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h3 class="font-bold text-slate-900 text-sm">Monthly Fee Due Reminder Scheduler (12th of Month)</h3>
+                <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700">Active Trigger</span>
+              </div>
+              <p class="text-slate-500 mt-1 leading-relaxed">
+                Sends a friendly payment link with eSewa and Khalti integration on the 12th of each Nepali month before the 15th due date to avoid 5% late fee surcharge.
+              </p>
+            </div>
+          </div>
+          <label class="relative inline-flex items-center cursor-pointer shrink-0">
+            <input type="checkbox" checked class="sr-only peer">
+            <div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#E8752F]"></div>
+          </label>
+        </div>
+
+        <!-- Workflow 3: Birthday Wishes -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div class="flex items-start gap-3">
+            <div class="w-9 h-9 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center shrink-0 mt-0.5">
+              <i data-lucide="gift" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h3 class="font-bold text-slate-900 text-sm">Student & Staff Birthday Greetings</h3>
+                <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700">Active Trigger</span>
+              </div>
+              <p class="text-slate-500 mt-1 leading-relaxed">
+                Dispatches a personalized celebratory greeting in Nepali/English to student and parents at 08:00 AM on their recorded birthday.
+              </p>
+            </div>
+          </div>
+          <label class="relative inline-flex items-center cursor-pointer shrink-0">
+            <input type="checkbox" checked class="sr-only peer">
+            <div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#E8752F]"></div>
+          </label>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'school',
+        activeNav: 'automation',
+        pageTitle: 'Automation & Triggers',
+        breadcrumb: 'Smart Innovation',
+        rootPrefix: '../'
+      });
+    });
+  </script>
+</body>
+</html>

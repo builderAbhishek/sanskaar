@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ID Card Studio - Sanskaar ERP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <div id="app-shell">
+    <div id="page-content">
+      
+      <!-- Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 no-print">
+        <div>
+          <h1 class="text-2xl font-black text-slate-900 tracking-tight" data-i18n="nav_id_cards">Student & Staff ID Card Studio</h1>
+          <p class="text-xs text-slate-500 mt-1">Kathmandu Valley Secondary School • Standard PVC Format with QR Code & Hologram</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="window.print()" class="px-4 py-2 text-xs font-bold bg-[#E8752F] text-white rounded-xl hover:bg-[#D46320] transition-colors shadow-sm flex items-center gap-2">
+            <i data-lucide="printer" class="w-4 h-4"></i>
+            <span>Print ID Cards Sheet</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ID Cards Grid (Printable Layout) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 printable-area">
+        
+        <!-- Card 1: Aarav Shrestha -->
+        <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-lg flex flex-col justify-between h-[360px] max-w-[280px] mx-auto w-full relative">
+          <!-- Card Header Band -->
+          <div class="bg-gradient-to-r from-[#E8752F] to-[#F97316] text-white p-3 text-center shrink-0">
+            <div class="text-[9px] font-black uppercase tracking-wider text-orange-100">Sanskaar Digital Identity</div>
+            <div class="text-xs font-black tracking-tight leading-tight mt-0.5">KATHMANDU VALLEY SEC. SCHOOL</div>
+            <div class="text-[8px] text-orange-100">Maharajgunj-3, Kathmandu • NEB: 27014</div>
+          </div>
+
+          <!-- Card Body -->
+          <div class="p-4 text-center flex-1 flex flex-col items-center justify-center">
+            <div class="relative mb-2">
+              <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=200&auto=format&fit=crop&q=80" class="w-20 h-20 rounded-2xl object-cover ring-2 ring-orange-200 shadow-sm">
+              <span class="absolute -bottom-1 -right-1 px-1.5 py-0.5 rounded bg-emerald-600 text-white font-black text-[9px]">A+</span>
+            </div>
+
+            <h3 class="font-black text-slate-900 text-sm">AARAV SHRESTHA</h3>
+            <span class="px-2 py-0.5 rounded-full bg-orange-50 text-[#E8752F] font-bold text-[10px] border border-orange-200 mt-0.5">
+              Class 10 - Section A
+            </span>
+
+            <div class="mt-3 w-full grid grid-cols-2 gap-1 text-[10px] text-left border-t border-slate-100 pt-2 text-slate-600">
+              <div>Roll No: <strong class="text-slate-900">#01</strong></div>
+              <div>Blood: <strong class="text-rose-600">B+</strong></div>
+              <div class="col-span-2">NEB Symbol: <strong class="font-mono text-slate-900">27014001A</strong></div>
+              <div class="col-span-2">Emergency: <strong class="font-mono text-slate-900">+977 9851048291</strong></div>
+            </div>
+          </div>
+
+          <!-- Card Footer Bar with QR -->
+          <div class="bg-slate-50 border-t border-slate-200 p-2.5 flex items-center justify-between shrink-0 text-[9px] text-slate-500">
+            <div class="flex items-center gap-1.5">
+              <div class="w-6 h-6 rounded bg-slate-900 text-white flex items-center justify-center font-mono font-bold text-[8px]">QR</div>
+              <span>Session: <strong>2083-84</strong></span>
+            </div>
+            <span class="font-bold text-slate-800">Principal Signature</span>
+          </div>
+        </div>
+
+        <!-- Card 2: Bimlesh Adhikari -->
+        <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-lg flex flex-col justify-between h-[360px] max-w-[280px] mx-auto w-full relative">
+          <div class="bg-gradient-to-r from-[#E8752F] to-[#F97316] text-white p-3 text-center shrink-0">
+            <div class="text-[9px] font-black uppercase tracking-wider text-orange-100">Sanskaar Digital Identity</div>
+            <div class="text-xs font-black tracking-tight leading-tight mt-0.5">KATHMANDU VALLEY SEC. SCHOOL</div>
+            <div class="text-[8px] text-orange-100">Maharajgunj-3, Kathmandu • NEB: 27014</div>
+          </div>
+
+          <div class="p-4 text-center flex-1 flex flex-col items-center justify-center">
+            <div class="relative mb-2">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80" class="w-20 h-20 rounded-2xl object-cover ring-2 ring-orange-200 shadow-sm">
+              <span class="absolute -bottom-1 -right-1 px-1.5 py-0.5 rounded bg-emerald-600 text-white font-black text-[9px]">O+</span>
+            </div>
+
+            <h3 class="font-black text-slate-900 text-sm">BIMLESH ADHIKARI</h3>
+            <span class="px-2 py-0.5 rounded-full bg-orange-50 text-[#E8752F] font-bold text-[10px] border border-orange-200 mt-0.5">
+              Class 10 - Section A
+            </span>
+
+            <div class="mt-3 w-full grid grid-cols-2 gap-1 text-[10px] text-left border-t border-slate-100 pt-2 text-slate-600">
+              <div>Roll No: <strong class="text-slate-900">#02</strong></div>
+              <div>Blood: <strong class="text-rose-600">O+</strong></div>
+              <div class="col-span-2">NEB Symbol: <strong class="font-mono text-slate-900">27014002A</strong></div>
+              <div class="col-span-2">Emergency: <strong class="font-mono text-slate-900">+977 9841334455</strong></div>
+            </div>
+          </div>
+
+          <div class="bg-slate-50 border-t border-slate-200 p-2.5 flex items-center justify-between shrink-0 text-[9px] text-slate-500">
+            <div class="flex items-center gap-1.5">
+              <div class="w-6 h-6 rounded bg-slate-900 text-white flex items-center justify-center font-mono font-bold text-[8px]">QR</div>
+              <span>Session: <strong>2083-84</strong></span>
+            </div>
+            <span class="font-bold text-slate-800">Principal Signature</span>
+          </div>
+        </div>
+
+        <!-- Card 3: Mr. Keshav Nepal (Faculty ID) -->
+        <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-lg flex flex-col justify-between h-[360px] max-w-[280px] mx-auto w-full relative">
+          <div class="bg-gradient-to-r from-slate-900 to-slate-800 text-white p-3 text-center shrink-0">
+            <div class="text-[9px] font-black uppercase tracking-wider text-orange-400">Faculty Identification</div>
+            <div class="text-xs font-black tracking-tight leading-tight mt-0.5">KATHMANDU VALLEY SEC. SCHOOL</div>
+            <div class="text-[8px] text-slate-300">Teaching Staff • Maharajgunj-3</div>
+          </div>
+
+          <div class="p-4 text-center flex-1 flex flex-col items-center justify-center">
+            <div class="relative mb-2">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80" class="w-20 h-20 rounded-2xl object-cover ring-2 ring-slate-300 shadow-sm">
+              <span class="absolute -bottom-1 -right-1 px-1.5 py-0.5 rounded bg-blue-600 text-white font-black text-[9px]">STAFF</span>
+            </div>
+
+            <h3 class="font-black text-slate-900 text-sm">MR. KESHAV NEPAL</h3>
+            <span class="px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 font-bold text-[10px] mt-0.5">
+              Senior Mathematics Faculty
+            </span>
+
+            <div class="mt-3 w-full grid grid-cols-2 gap-1 text-[10px] text-left border-t border-slate-100 pt-2 text-slate-600">
+              <div>Faculty ID: <strong class="text-slate-900">TCH-012</strong></div>
+              <div>Blood: <strong class="text-rose-600">A+</strong></div>
+              <div class="col-span-2">Department: <strong class="text-slate-900">Mathematics Dept</strong></div>
+              <div class="col-span-2">Emergency: <strong class="font-mono text-slate-900">+977 9851029441</strong></div>
+            </div>
+          </div>
+
+          <div class="bg-slate-50 border-t border-slate-200 p-2.5 flex items-center justify-between shrink-0 text-[9px] text-slate-500">
+            <div class="flex items-center gap-1.5">
+              <div class="w-6 h-6 rounded bg-slate-900 text-white flex items-center justify-center font-mono font-bold text-[8px]">QR</div>
+              <span>Valid till: <strong>2085 BS</strong></span>
+            </div>
+            <span class="font-bold text-slate-800">Principal Signature</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'school',
+        activeNav: 'id-cards',
+        pageTitle: 'ID Card Studio',
+        breadcrumb: 'Documents',
+        rootPrefix: '../'
+      });
+    });
+  </script>
+</body>
+</html>

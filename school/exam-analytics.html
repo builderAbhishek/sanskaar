@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exam Analytics & SEE Trends - Sanskaar ERP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <div id="app-shell">
+    <div id="page-content">
+      
+      <!-- Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div>
+          <h1 class="text-2xl font-black text-slate-900 tracking-tight" data-i18n="nav_exam_analytics">SEE Examination Analytics & Trends</h1>
+          <p class="text-xs text-slate-500 mt-1">Kathmandu Valley Secondary School • Predictive National Board Projections & Subject Strengths</p>
+        </div>
+      </div>
+
+      <!-- Performance Badges -->
+      <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 mb-6">
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <span class="text-xs font-semibold text-slate-400">Class 10 Average GPA</span>
+          <div class="text-2xl font-black text-[#E8752F] mt-1">3.64 (A)</div>
+          <span class="text-[11px] text-emerald-600 font-bold">+0.18 over 2082 SEE</span>
+        </div>
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <span class="text-xs font-semibold text-slate-400">Distinction Projection (A+)</span>
+          <div class="text-2xl font-black text-emerald-600 mt-1">68.2%</div>
+          <span class="text-[11px] text-slate-500">87 Candidates Projected</span>
+        </div>
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <span class="text-xs font-semibold text-slate-400">Predicted SEE Pass Rate</span>
+          <div class="text-2xl font-black text-slate-900 mt-1">100%</div>
+          <span class="text-[11px] text-emerald-600 font-bold">Zero Non-Graded (NG)</span>
+        </div>
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <span class="text-xs font-semibold text-slate-400">Top Scoring Department</span>
+          <div class="text-2xl font-black text-purple-600 mt-1">Science</div>
+          <span class="text-[11px] text-slate-500">Avg Score: 88.4 / 100</span>
+        </div>
+      </div>
+
+      <!-- Analytics Charts -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+        <!-- Chart 1: GPA Distribution Histogram -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <h3 class="text-sm font-bold text-slate-900">GPA Distribution Curve (Class 10 SEE)</h3>
+              <p class="text-xs text-slate-400">Bell curve across 128 registered candidates</p>
+            </div>
+          </div>
+          <div class="h-64 relative">
+            <canvas id="gpaDistChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Chart 2: Subject-wise Mastery Comparison -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <h3 class="text-sm font-bold text-slate-900">Subject Average Mastery %</h3>
+              <p class="text-xs text-slate-400">Theory + Practical Combined Averages</p>
+            </div>
+          </div>
+          <div class="h-64 relative">
+            <canvas id="subjectMasteryChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/charts.js"></script>
+  <script src="../assets/js/components.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'school',
+        activeNav: 'exam-analytics',
+        pageTitle: 'Exam Analytics',
+        breadcrumb: 'Reports',
+        rootPrefix: '../'
+      });
+
+      if (window.SanskaarCharts) {
+        SanskaarCharts.createBarChart('gpaDistChart',
+          ['3.80 - 4.00 (A+)', '3.60 - 3.79 (A+)', '3.20 - 3.59 (A)', '2.80 - 3.19 (B+)', '2.40 - 2.79 (B)', '< 2.40 (C+)'],
+          [{
+            label: 'Students Count',
+            data: [42, 45, 26, 11, 4, 0],
+            backgroundColor: '#E8752F',
+            borderRadius: 6
+          }]
+        );
+
+        SanskaarCharts.createBarChart('subjectMasteryChart',
+          ['English (001)', 'Nepali (002)', 'Math (003)', 'Science (004)', 'Social (005)', 'Opt. Math (101)', 'Computer (201)'],
+          [{
+            label: 'Average Score (%)',
+            data: [86.2, 82.4, 85.8, 88.4, 84.1, 87.5, 94.2],
+            backgroundColor: '#10B981',
+            borderRadius: 6
+          }]
+        );
+      }
+    });
+  </script>
+</body>
+</html>

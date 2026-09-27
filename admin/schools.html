@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schools Directory - Sanskaar ERP Platform</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <div id="app-shell">
+    <div id="page-content">
+      
+      <!-- Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div>
+          <h1 class="text-2xl font-black text-slate-900 tracking-tight" data-i18n="admin_schools">Affiliated Schools Directory</h1>
+          <p class="text-xs text-slate-500 mt-1">Manage tenant institutions across Nepal's 7 provinces</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="ModalManager.open('onboard-school-modal')" class="px-3.5 py-2 text-xs font-bold bg-[#E8752F] text-white rounded-xl hover:bg-[#D46320] transition-colors shadow-sm flex items-center gap-2">
+            <i data-lucide="plus-circle" class="w-4 h-4"></i>
+            <span data-i18n="admin_onboard_school">Onboard New School</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Filters & Search Bar -->
+      <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs mb-6 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
+        <div class="flex-1 relative">
+          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+          <input 
+            type="text" 
+            id="school-search-input"
+            oninput="filterSchools()"
+            placeholder="Search school by name, code, or city (e.g. Kathmandu, KVSS, Pokhara)..."
+            class="w-full pl-10 pr-4 py-2 text-xs bg-slate-50 rounded-xl border border-slate-200 focus:outline-none focus:border-[#E8752F] text-slate-900"
+          >
+        </div>
+        <div class="flex items-center gap-2">
+          <select id="province-filter" onchange="filterSchools()" class="px-3 py-2 text-xs bg-slate-50 rounded-xl border border-slate-200 text-slate-700 font-medium focus:outline-none">
+            <option value="ALL">All Provinces</option>
+            <option value="Bagmati">Bagmati Province</option>
+            <option value="Gandaki">Gandaki Province</option>
+            <option value="Koshi">Koshi Province</option>
+            <option value="Lumbini">Lumbini Province</option>
+          </select>
+          <select id="plan-filter" onchange="filterSchools()" class="px-3 py-2 text-xs bg-slate-50 rounded-xl border border-slate-200 text-slate-700 font-medium focus:outline-none">
+            <option value="ALL">All Plans</option>
+            <option value="Enterprise">Enterprise</option>
+            <option value="Professional">Professional</option>
+            <option value="Basic">Basic</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Schools Directory Table -->
+      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-2xs overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-slate-50 text-slate-500 border-b border-slate-200/80">
+              <tr>
+                <th class="py-3.5 px-4 font-semibold">School Name & Code</th>
+                <th class="py-3.5 px-4 font-semibold">Location</th>
+                <th class="py-3.5 px-3 font-semibold">Principal / Contact</th>
+                <th class="py-3.5 px-3 font-semibold">Students</th>
+                <th class="py-3.5 px-3 font-semibold">Teachers</th>
+                <th class="py-3.5 px-3 font-semibold">Subscription Plan</th>
+                <th class="py-3.5 px-3 font-semibold">Monthly (NPR)</th>
+                <th class="py-3.5 px-3 font-semibold">Status</th>
+                <th class="py-3.5 px-4 font-semibold text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="schools-list-body" class="divide-y divide-slate-100">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+        <div class="p-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+          <span id="schools-count-label">Showing 42 schools</span>
+          <div class="flex gap-1">
+            <button class="px-2.5 py-1 rounded border border-slate-200 hover:bg-slate-50 text-slate-600 disabled:opacity-50">Prev</button>
+            <button class="px-2.5 py-1 rounded bg-[#E8752F] text-white font-bold">1</button>
+            <button class="px-2.5 py-1 rounded border border-slate-200 hover:bg-slate-50 text-slate-600">2</button>
+            <button class="px-2.5 py-1 rounded border border-slate-200 hover:bg-slate-50 text-slate-600">Next</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Onboard School Modal -->
+      <div id="onboard-school-modal" class="modal-container fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+        <div class="modal-backdrop fixed inset-0 bg-slate-900/50 backdrop-blur-xs opacity-0 transition-opacity" onclick="ModalManager.close('onboard-school-modal')"></div>
+        <div class="modal-dialog relative w-full max-w-lg bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden transform scale-95 opacity-0 transition-all z-10">
+          <div class="p-5 border-b border-slate-100 flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-lg bg-orange-50 text-[#E8752F] flex items-center justify-center">
+                <i data-lucide="building-2" class="w-4 h-4"></i>
+              </div>
+              <h3 class="font-bold text-slate-900 text-sm">Onboard New Educational Institution</h3>
+            </div>
+            <button onclick="ModalManager.close('onboard-school-modal')" class="text-slate-400 hover:text-slate-600">
+              <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+          </div>
+          <form onsubmit="handleOnboard(event)" class="p-5 space-y-4 text-xs">
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Institution Name</label>
+              <input type="text" required placeholder="e.g. Pokhara Valley Secondary School" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#E8752F]">
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block font-semibold text-slate-700 mb-1">NEB / EMIS Code</label>
+                <input type="text" required placeholder="e.g. PVSS-31002" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#E8752F]">
+              </div>
+              <div>
+                <label class="block font-semibold text-slate-700 mb-1">Province</label>
+                <select class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#E8752F]">
+                  <option>Bagmati Province</option>
+                  <option>Gandaki Province</option>
+                  <option>Koshi Province</option>
+                  <option>Lumbini Province</option>
+                  <option>Madhesh Province</option>
+                  <option>Karnali Province</option>
+                  <option>Sudurpashchim Province</option>
+                </select>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block font-semibold text-slate-700 mb-1">Principal / Administrator</label>
+                <input type="text" required placeholder="e.g. Dr. Krishna Adhikari" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#E8752F]">
+              </div>
+              <div>
+                <label class="block font-semibold text-slate-700 mb-1">Contact Phone</label>
+                <input type="text" required placeholder="+977 98XXXXXXXX" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#E8752F]">
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block font-semibold text-slate-700 mb-1">Subscription Tier</label>
+                <select class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#E8752F]">
+                  <option>Enterprise (रू 65,000/mo)</option>
+                  <option>Professional (रू 35,000/mo)</option>
+                  <option>Basic (रू 15,000/mo)</option>
+                </select>
+              </div>
+              <div>
+                <label class="block font-semibold text-slate-700 mb-1">Estimated Students</label>
+                <input type="number" placeholder="1200" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#E8752F]">
+              </div>
+            </div>
+            <div class="pt-3 border-t border-slate-100 flex justify-end gap-2">
+              <button type="button" onclick="ModalManager.close('onboard-school-modal')" class="px-4 py-2 border border-slate-200 rounded-xl text-slate-600 font-semibold hover:bg-slate-50">Cancel</button>
+              <button type="submit" class="px-4 py-2 bg-[#E8752F] text-white rounded-xl font-bold hover:bg-[#D46320]">Complete Onboarding</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+
+  <script>
+    let allSchools = [];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'admin',
+        activeNav: 'schools',
+        pageTitle: 'Affiliated Schools',
+        breadcrumb: 'Admin SaaS',
+        rootPrefix: '../'
+      });
+
+      allSchools = SANSKAAR_DATA.platform.schools;
+      renderSchoolsList(allSchools);
+    });
+
+    function renderSchoolsList(schools) {
+      const tbody = document.getElementById('schools-list-body');
+      const countLabel = document.getElementById('schools-count-label');
+      if (countLabel) countLabel.textContent = `Showing ${schools.length} schools`;
+
+      if (!tbody) return;
+      if (schools.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="9" class="py-8 text-center text-slate-400">
+              No matching schools found.
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      tbody.innerHTML = schools.map(s => `
+        <tr class="hover:bg-slate-50 transition-colors">
+          <td class="py-3 px-4">
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-lg bg-orange-100 text-[#E8752F] font-black flex items-center justify-center text-xs shrink-0">
+                ${s.logo || s.name.charAt(0)}
+              </div>
+              <div>
+                <a href="school-details.html?id=${s.id}" class="font-bold text-slate-900 hover:text-[#E8752F] transition-colors">${s.name}</a>
+                <div class="text-[11px] text-slate-400">EMIS: ${s.code}</div>
+              </div>
+            </div>
+          </td>
+          <td class="py-3 px-4">
+            <div class="font-medium text-slate-800">${s.city}</div>
+            <div class="text-[11px] text-slate-400">${s.province}</div>
+          </td>
+          <td class="py-3 px-3">
+            <div class="font-medium text-slate-800">${s.contactPerson}</div>
+            <div class="text-[11px] text-slate-400">${s.phone}</div>
+          </td>
+          <td class="py-3 px-3 font-semibold text-slate-700">${s.students.toLocaleString()}</td>
+          <td class="py-3 px-3 font-medium text-slate-600">${s.teachers}</td>
+          <td class="py-3 px-3">
+            <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200">
+              ${s.plan}
+            </span>
+          </td>
+          <td class="py-3 px-3 font-bold text-slate-900">रू ${s.monthlyBilling.toLocaleString()}</td>
+          <td class="py-3 px-3">
+            <span class="px-2 py-0.5 rounded-full text-[10px] font-bold ${s.status === 'Active' ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' : 'bg-amber-50 text-amber-700 border border-amber-200'}">
+              ${s.status}
+            </span>
+          </td>
+          <td class="py-3 px-4 text-right">
+            <div class="flex items-center justify-end gap-1.5">
+              <a href="school-details.html?id=${s.id}" class="p-1.5 rounded-lg text-slate-500 hover:text-[#E8752F] hover:bg-slate-100" title="View 360 Specs">
+                <i data-lucide="eye" class="w-4 h-4"></i>
+              </a>
+              <a href="../school/index.html" class="p-1.5 rounded-lg text-slate-500 hover:text-emerald-600 hover:bg-slate-100" title="Open School ERP">
+                <i data-lucide="external-link" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </td>
+        </tr>
+      `).join('');
+
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function filterSchools() {
+      const q = document.getElementById('school-search-input').value.toLowerCase().trim();
+      const prov = document.getElementById('province-filter').value;
+      const plan = document.getElementById('plan-filter').value;
+
+      const filtered = allSchools.filter(s => {
+        const matchesQuery = s.name.toLowerCase().includes(q) || s.code.toLowerCase().includes(q) || s.city.toLowerCase().includes(q);
+        const matchesProv = prov === 'ALL' || s.province.includes(prov);
+        const matchesPlan = plan === 'ALL' || s.plan.includes(plan);
+        return matchesQuery && matchesProv && matchesPlan;
+      });
+
+      renderSchoolsList(filtered);
+    }
+
+    function handleOnboard(e) {
+      e.preventDefault();
+      ModalManager.close('onboard-school-modal');
+      Toast.success('School Onboarded!', 'Provisioned dedicated tenant environment and generated admin credentials.');
+    }
+  </script>
+</body>
+</html>

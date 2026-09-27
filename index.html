@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-950">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanskaar ERP - Complete School Operating System (Nepal)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body class="min-h-full text-slate-100 antialiased font-['Plus_Jakarta_Sans',sans-serif] bg-slate-950 relative overflow-x-hidden selection:bg-[#E8752F] selection:text-white">
+
+  <!-- Ambient Glow Effects -->
+  <div class="fixed top-0 left-1/4 w-[600px] h-[400px] bg-[#E8752F]/15 rounded-full blur-[140px] pointer-events-none"></div>
+  <div class="fixed bottom-0 right-1/4 w-[500px] h-[400px] bg-amber-500/10 rounded-full blur-[140px] pointer-events-none"></div>
+
+  <!-- Header Navigation -->
+  <header class="border-b border-slate-800/80 bg-slate-950/70 backdrop-blur-xl sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-[#E8752F] to-amber-500 text-white font-black text-xl flex items-center justify-center shadow-lg shadow-orange-500/20">
+          S
+        </div>
+        <div>
+          <span class="text-xl font-black tracking-tight text-white flex items-center gap-1.5">
+            SANSKAAR <span class="text-[#E8752F] text-xs uppercase px-2 py-0.5 rounded-full bg-[#E8752F]/10 border border-[#E8752F]/20">ERP</span>
+          </span>
+          <span class="text-[10px] text-slate-400 tracking-wider uppercase font-semibold block">Nepal Edition • v2.4 Multi-Panel</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <!-- Language Switcher -->
+        <button onclick="toggleLang()" class="px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 text-xs font-semibold text-slate-300 transition-colors flex items-center gap-2">
+          <i data-lucide="globe" class="w-3.5 h-3.5 text-[#E8752F]"></i>
+          <span id="lang-label">English (नेपाली)</span>
+        </button>
+
+        <a href="login/school.html" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-slate-900 hover:bg-slate-850 border border-slate-800 text-slate-200 text-xs font-bold rounded-xl transition-all">
+          <i data-lucide="log-in" class="w-3.5 h-3.5"></i>
+          <span>Staff Login</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="max-w-7xl mx-auto px-6 py-16 space-y-16 relative z-10">
+    
+    <div class="text-center max-w-3xl mx-auto space-y-5">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E8752F]/10 border border-[#E8752F]/30 text-[#E8752F] text-xs font-bold">
+        <span class="w-2 h-2 rounded-full bg-[#E8752F] animate-ping"></span>
+        <span>Dedicated Multi-Panel SaaS Architecture</span>
+      </div>
+
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-white leading-tight">
+        The Cloud Operating System for Schools in <span class="bg-gradient-to-r from-[#E8752F] to-amber-400 bg-clip-text text-transparent">Nepal</span>
+      </h1>
+
+      <p class="text-base sm:text-lg text-slate-400 leading-relaxed font-normal">
+        Engineered specifically for the Nepalese educational framework. Featuring official National Examination Board (NEB) SEE grading, Sunday–Friday weekly scheduling, Bikram Sambat (वि.सं.) academic calendar, NPR (रू) billing, eSewa/Khalti digital gateways, and automated Sparrow SMS alerts.
+      </p>
+    </div>
+
+    <!-- 3 Core Panels Cards -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      
+      <!-- Panel 1: Platform Admin -->
+      <div class="bg-slate-900/90 border border-slate-800 hover:border-[#E8752F]/50 rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-orange-500/10 group relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-[#E8752F]/10 rounded-full blur-2xl pointer-events-none group-hover:bg-[#E8752F]/20 transition-all"></div>
+        
+        <div class="space-y-5">
+          <div class="flex items-center justify-between">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-500 to-amber-600 text-white flex items-center justify-center font-bold shadow-lg shadow-orange-500/20">
+              <i data-lucide="shield" class="w-7 h-7"></i>
+            </div>
+            <span class="px-3 py-1 rounded-full text-xs font-bold bg-[#E8752F]/10 text-[#E8752F] border border-[#E8752F]/20">
+              SaaS Superadmin
+            </span>
+          </div>
+
+          <div>
+            <h2 class="text-2xl font-black text-white">Platform Admin Panel</h2>
+            <p class="text-xs text-slate-400 mt-1">Multi-tenant SaaS control center</p>
+          </div>
+
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Manage 42 onboarded schools across 7 provinces of Nepal. Oversee MRR (रू 14.85 Lakhs), ARR, subscription plan upgrades, support tickets, and system audit logs.
+          </p>
+
+          <div class="space-y-2 pt-2 border-t border-slate-800/80 text-xs text-slate-300 font-medium">
+            <div class="flex items-center gap-2">
+              <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i>
+              <span>42 School Tenants Directory</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i>
+              <span>Subscription & MRR Analytics (रू 14.85L)</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i>
+              <span>Platform Gateways & Sparrow SMS Config</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-8 space-y-2.5">
+          <a href="admin/index.html" class="w-full py-3.5 bg-[#E8752F] hover:bg-[#d66521] text-white font-bold rounded-2xl text-xs transition-all shadow-lg shadow-orange-500/20 flex items-center justify-center gap-2">
+            <span>Launch Admin Dashboard</span>
+            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+          </a>
+          <a href="login/admin.html" class="w-full py-2.5 bg-slate-800/80 hover:bg-slate-800 text-slate-300 hover:text-white rounded-xl text-xs font-semibold transition-colors flex items-center justify-center gap-1.5">
+            <i data-lucide="log-in" class="w-3.5 h-3.5"></i>
+            <span>Admin Sign In</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Panel 2: School ERP -->
+      <div class="bg-gradient-to-b from-slate-900 to-slate-925 border-2 border-[#E8752F] rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 shadow-2xl shadow-orange-500/10 group relative overflow-hidden">
+        <div class="absolute -top-12 -right-12 w-40 h-40 bg-[#E8752F]/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="space-y-5">
+          <div class="flex items-center justify-between">
+            <div class="w-14 h-14 rounded-2xl bg-[#E8752F] text-white flex items-center justify-center font-black text-xl shadow-lg shadow-orange-500/30">
+              KV
+            </div>
+            <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+              Kathmandu Valley Secondary
+            </span>
+          </div>
+
+          <div>
+            <h2 class="text-2xl font-black text-white">School ERP Panel</h2>
+            <p class="text-xs text-orange-200 mt-1">Full operational school management (NEB: 27014)</p>
+          </div>
+
+          <p class="text-xs text-slate-300 leading-relaxed">
+            105+ students, admissions, faculty biometric sync, fee collection POS counter, Sunday-Friday timetable, 75 TH + 25 PR CDC grading, printable report cards, and AI question papers.
+          </p>
+
+          <div class="space-y-2 pt-2 border-t border-slate-800 text-xs text-slate-200 font-medium">
+            <div class="flex items-center gap-2">
+              <i data-lucide="check" class="w-3.5 h-3.5 text-[#E8752F]"></i>
+              <span>45 Complete Modular ERP Modules</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="check" class="w-3.5 h-3.5 text-[#E8752F]"></i>
+              <span>Official NEB CDC Report Cards & Certificates</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="check" class="w-3.5 h-3.5 text-[#E8752F]"></i>
+              <span>Fee POS Counter with eSewa / Khalti / Cash</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-8 space-y-2.5">
+          <a href="school/index.html" class="w-full py-3.5 bg-gradient-to-r from-[#E8752F] to-amber-500 hover:from-[#d66521] hover:to-amber-600 text-white font-black rounded-2xl text-xs transition-all shadow-xl shadow-orange-500/25 flex items-center justify-center gap-2">
+            <span>Launch School ERP</span>
+            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+          </a>
+          <a href="login/school.html" class="w-full py-2.5 bg-slate-800 hover:bg-slate-750 text-slate-200 hover:text-white rounded-xl text-xs font-semibold transition-colors flex items-center justify-center gap-1.5">
+            <i data-lucide="log-in" class="w-3.5 h-3.5"></i>
+            <span>Staff / Principal Sign In</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Panel 3: Student Portal -->
+      <div class="bg-slate-900/90 border border-slate-800 hover:border-emerald-500/50 rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-500/10 group relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none group-hover:bg-emerald-500/20 transition-all"></div>
+
+        <div class="space-y-5">
+          <div class="flex items-center justify-between">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white flex items-center justify-center font-bold shadow-lg shadow-emerald-500/20">
+              <i data-lucide="graduation-cap" class="w-7 h-7"></i>
+            </div>
+            <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+              Aarav Shrestha (10-A)
+            </span>
+          </div>
+
+          <div>
+            <h2 class="text-2xl font-black text-white">Student / Parent Portal</h2>
+            <p class="text-xs text-slate-400 mt-1">Mobile-first guardian & learner experience</p>
+          </div>
+
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Monitor daily attendance (96.8%), pay term fees instantly with eSewa or Khalti, download SEE exam routines, view GPA 3.92 report card, homework, and study materials.
+          </p>
+
+          <div class="space-y-2 pt-2 border-t border-slate-800/80 text-xs text-slate-300 font-medium">
+            <div class="flex items-center gap-2">
+              <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i>
+              <span>NEB 75% Attendance Compliance Check</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i>
+              <span>Online Fee Clearance & Printable Receipts</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i>
+              <span>SEE Routine, Syllabus & Printable Grade-Sheet</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-8 space-y-2.5">
+          <a href="student/index.html" class="w-full py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-2xl text-xs transition-all shadow-lg shadow-emerald-500/20 flex items-center justify-center gap-2">
+            <span>Launch Student Portal</span>
+            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+          </a>
+          <a href="login/student.html" class="w-full py-2.5 bg-slate-800/80 hover:bg-slate-800 text-slate-300 hover:text-white rounded-xl text-xs font-semibold transition-colors flex items-center justify-center gap-1.5">
+            <i data-lucide="log-in" class="w-3.5 h-3.5"></i>
+            <span>Student Sign In</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Nepal Context Specifications Grid -->
+    <div class="bg-slate-900/60 border border-slate-800 rounded-3xl p-8 space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-slate-800 pb-4">
+        <div>
+          <h3 class="text-xl font-bold text-white">Nepal National Educational Standard Standards</h3>
+          <p class="text-xs text-slate-400 mt-0.5">Strict compliance with Curriculum Development Centre (CDC) & NEB mandates</p>
+        </div>
+        <span class="px-3 py-1 bg-[#E8752F]/10 text-[#E8752F] text-xs font-bold rounded-full border border-[#E8752F]/20">
+          Strict NPR (रू) Currency
+        </span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-xs text-slate-400">
+        <div class="space-y-1.5">
+          <div class="font-bold text-slate-200 text-sm flex items-center gap-2">
+            <i data-lucide="award" class="w-4 h-4 text-[#E8752F]"></i>
+            <span>CDC Letter Grading</span>
+          </div>
+          <p>Official 8-point grading scale (A+ to NG) with 35% theory cutoff requirement (27/75) for Class 8, 10 (SEE), and 12.</p>
+        </div>
+
+        <div class="space-y-1.5">
+          <div class="font-bold text-slate-200 text-sm flex items-center gap-2">
+            <i data-lucide="calendar" class="w-4 h-4 text-emerald-400"></i>
+            <span>Bikram Sambat (वि.सं.)</span>
+          </div>
+          <p>Native academic calendar support from Baishakh to Chaitra (2083-84 B.S.) with Sunday–Friday school week.</p>
+        </div>
+
+        <div class="space-y-1.5">
+          <div class="font-bold text-slate-200 text-sm flex items-center gap-2">
+            <i data-lucide="wallet" class="w-4 h-4 text-purple-400"></i>
+            <span>eSewa, Khalti & IPS</span>
+          </div>
+          <p>Direct simulated integration for Nepal's prominent fintech digital wallets and bank clearing mechanisms.</p>
+        </div>
+
+        <div class="space-y-1.5">
+          <div class="font-bold text-slate-200 text-sm flex items-center gap-2">
+            <i data-lucide="send" class="w-4 h-4 text-blue-400"></i>
+            <span>Sparrow SMS Gateway</span>
+          </div>
+          <p>Automated SMS dispatch for morning absence alerts at 10:15 AM, fee invoices, and emergency closure circulars.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Complete Directory Index -->
+    <div class="bg-slate-900/40 border border-slate-800/80 rounded-3xl p-8 space-y-6">
+      <h3 class="text-base font-bold text-slate-200">Complete Multi-Page Module Index</h3>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-xs">
+        
+        <!-- Admin Panel Links -->
+        <div class="space-y-2">
+          <div class="font-bold text-[#E8752F] uppercase tracking-wider text-[11px]">Admin Panel (11 Pages)</div>
+          <ul class="space-y-1 text-slate-400">
+            <li><a href="admin/index.html" class="hover:text-white hover:underline">Overview & KPIs</a></li>
+            <li><a href="admin/schools.html" class="hover:text-white hover:underline">Schools Directory (42 Tenants)</a></li>
+            <li><a href="admin/school-details.html" class="hover:text-white hover:underline">School Details 360</a></li>
+            <li><a href="admin/users.html" class="hover:text-white hover:underline">Platform Admins & RBAC</a></li>
+            <li><a href="admin/subscriptions.html" class="hover:text-white hover:underline">Subscriptions & MRR</a></li>
+            <li><a href="admin/plans.html" class="hover:text-white hover:underline">Pricing Plans (Basic, Pro, Ent)</a></li>
+            <li><a href="admin/payments.html" class="hover:text-white hover:underline">Platform Payments</a></li>
+            <li><a href="admin/support.html" class="hover:text-white hover:underline">Support Ticket Queue</a></li>
+            <li><a href="admin/reports.html" class="hover:text-white hover:underline">SaaS Reports & Analytics</a></li>
+            <li><a href="admin/activity-logs.html" class="hover:text-white hover:underline">Audit Logs (NPT Time)</a></li>
+            <li><a href="admin/system-settings.html" class="hover:text-white hover:underline">Platform System Settings</a></li>
+          </ul>
+        </div>
+
+        <!-- School Panel Links -->
+        <div class="space-y-2">
+          <div class="font-bold text-[#E8752F] uppercase tracking-wider text-[11px]">School Panel (45 Pages)</div>
+          <ul class="space-y-1 text-slate-400">
+            <li><a href="school/index.html" class="hover:text-white hover:underline">KVSS Dashboard</a></li>
+            <li><a href="school/students.html" class="hover:text-white hover:underline">Students Roster (105+)</a></li>
+            <li><a href="school/student-profile.html" class="hover:text-white hover:underline">Student 360 Profile</a></li>
+            <li><a href="school/admissions.html" class="hover:text-white hover:underline">Admissions Desk</a></li>
+            <li><a href="school/teachers.html" class="hover:text-white hover:underline">Faculty & Teachers</a></li>
+            <li><a href="school/attendance.html" class="hover:text-white hover:underline">Daily Roll Call (Sparrow SMS)</a></li>
+            <li><a href="school/fee-collection.html" class="hover:text-white hover:underline">Fee Collection POS</a></li>
+            <li><a href="school/marks-entry.html" class="hover:text-white hover:underline">Marks Entry (75 TH + 25 PR)</a></li>
+            <li><a href="school/report-card.html" class="hover:text-white hover:underline">Printable NEB Report Cards</a></li>
+            <li><a href="school/timetable.html" class="hover:text-white hover:underline">Sunday–Friday Master Routine</a></li>
+            <li><a href="school/ai-insights.html" class="hover:text-white hover:underline">AI Predictive Insights & Automation</a></li>
+            <li><a href="school/school-settings.html" class="hover:text-white hover:underline">School Configuration</a></li>
+          </ul>
+        </div>
+
+        <!-- Student Panel Links -->
+        <div class="space-y-2">
+          <div class="font-bold text-[#E8752F] uppercase tracking-wider text-[11px]">Student Panel (14 Pages)</div>
+          <ul class="space-y-1 text-slate-400">
+            <li><a href="student/index.html" class="hover:text-white hover:underline">Student Dashboard (Aarav Shrestha)</a></li>
+            <li><a href="student/profile.html" class="hover:text-white hover:underline">Student Biodata & Documents</a></li>
+            <li><a href="student/attendance.html" class="hover:text-white hover:underline">Attendance Calendar & Leave</a></li>
+            <li><a href="student/fees.html" class="hover:text-white hover:underline">Fee Ledger (eSewa / Khalti)</a></li>
+            <li><a href="student/fee-receipts.html" class="hover:text-white hover:underline">Printable Fee Tax Invoices</a></li>
+            <li><a href="student/exams.html" class="hover:text-white hover:underline">SEE Pre-Board Date Sheet</a></li>
+            <li><a href="student/results.html" class="hover:text-white hover:underline">Terminal GPA 3.92 Grade-Sheet</a></li>
+            <li><a href="student/timetable.html" class="hover:text-white hover:underline">Class 10-A Period Routine</a></li>
+            <li><a href="student/homework.html" class="hover:text-white hover:underline">Daily Homework Checklist</a></li>
+            <li><a href="student/assignments.html" class="hover:text-white hover:underline">Project Work & Submissions</a></li>
+            <li><a href="student/study-materials.html" class="hover:text-white hover:underline">CDC Notes & Past Papers</a></li>
+            <li><a href="student/certificates.html" class="hover:text-white hover:underline">Printable Honors & Bonafide</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800/80 bg-slate-950 py-8 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+        <span class="font-bold text-slate-300">Sanskaar ERP Platform</span>
+        <span>•</span>
+        <span>Target Market: Nepal (NEB / SEE Standard)</span>
+      </div>
+      <div>
+        Designed with saffron brand identity (#E8752F), Plus Jakarta Sans typography, and Tailwind CSS.
+      </div>
+    </div>
+  </footer>
+
+  <script src="data/translations.js"></script>
+  <script src="data/mock-data.js"></script>
+  <script src="assets/js/language.js"></script>
+  <script src="assets/js/toast.js"></script>
+  <script>
+    function toggleLang() {
+      const current = localStorage.getItem('sanskaar_language') || 'en';
+      const next = current === 'en' ? 'ne' : 'en';
+      localStorage.setItem('sanskaar_language', next);
+      document.getElementById('lang-label').textContent = next === 'en' ? 'English (नेपाली)' : 'नेपाली (English)';
+      SanskaarToast.show(`Language switched to ${next === 'en' ? 'English' : 'नेपाली'}`, 'info');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      const current = localStorage.getItem('sanskaar_language') || 'en';
+      document.getElementById('lang-label').textContent = current === 'en' ? 'English (नेपाली)' : 'नेपाली (English)';
+    });
+  </script>
+</body>
+</html>

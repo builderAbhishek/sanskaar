@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Pedagogy Assistant - Sanskaar ERP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <div id="app-shell">
+    <div id="page-content">
+      
+      <!-- Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-2xl font-black text-slate-900 tracking-tight" data-i18n="nav_ai_assistant">AI Pedagogy & Lesson Assistant</h1>
+            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-orange-50 text-[#E8752F] border border-orange-200 uppercase">
+              Teacher Copilot
+            </span>
+          </div>
+          <p class="text-xs text-slate-500 mt-1">Smart curriculum assistant for Nepali educators — lesson planning, rubrics, and conceptual explainers</p>
+        </div>
+      </div>
+
+      <!-- Main Assistant Console Container -->
+      <div class="bg-white rounded-3xl border border-slate-200/80 shadow-md flex flex-col h-[650px] overflow-hidden">
+        
+        <!-- Conversation Header -->
+        <div class="p-4 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
+          <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-xl bg-orange-100 text-[#E8752F] flex items-center justify-center">
+              <i data-lucide="bot" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-slate-900 text-xs">Sanskaar Pedagogy Assistant (Nepal CDC Engine)</h3>
+              <p class="text-[10px] text-emerald-600 font-semibold">Trained on CDC syllabus grids, NEB marking rubrics & Nepali bilingual vocabulary</p>
+            </div>
+          </div>
+          <button onclick="clearChat()" class="text-xs text-slate-400 hover:text-slate-600 font-semibold">Clear</button>
+        </div>
+
+        <!-- Chat Stream Area -->
+        <div id="chat-messages-container" class="flex-1 p-5 overflow-y-auto space-y-4 text-xs">
+          <!-- Assistant Welcome -->
+          <div class="flex items-start gap-3">
+            <div class="w-7 h-7 rounded-lg bg-orange-100 text-[#E8752F] flex items-center justify-center shrink-0 mt-0.5">
+              <i data-lucide="bot" class="w-4 h-4"></i>
+            </div>
+            <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-4 max-w-2xl text-slate-800 space-y-2 leading-relaxed">
+              <p>
+                <strong>नमस्ते शिक्षक साथीहरू!</strong> I am your Sanskaar AI Lesson & Pedagogy Copilot. How can I support your classroom instruction today?
+              </p>
+              <div class="pt-2 flex flex-wrap gap-2">
+                <button onclick="sendPrompt('Draft a 45-minute lesson plan for Class 10 Compulsory Mathematics on Compound Interest')" class="px-2.5 py-1 bg-white border border-slate-200 rounded-lg text-slate-700 hover:bg-orange-50 hover:border-orange-200 text-[11px] font-medium transition-colors">
+                  Lesson Plan: Compound Interest (45m)
+                </button>
+                <button onclick="sendPrompt('Generate 5 viva-voce questions for Class 10 Ohm\'s Law laboratory practical')" class="px-2.5 py-1 bg-white border border-slate-200 rounded-lg text-slate-700 hover:bg-orange-50 hover:border-orange-200 text-[11px] font-medium transition-colors">
+                  Viva Questions: Ohm's Law Experiment
+                </button>
+                <button onclick="sendPrompt('Explain the SEE letter grading system in simple terms for a parent meeting in Nepali')" class="px-2.5 py-1 bg-white border border-slate-200 rounded-lg text-slate-700 hover:bg-orange-50 hover:border-orange-200 text-[11px] font-medium transition-colors">
+                  नेपालीमा SEE ग्रेडिङ व्याख्या (PTM)
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chat Input Bar -->
+        <div class="p-3.5 border-t border-slate-100 bg-white">
+          <form onsubmit="handleSend(event)" class="flex items-center gap-2">
+            <input 
+              type="text" 
+              id="assistant-input"
+              placeholder="Ask for lesson plans, viva questions, rubrics or bilingual problem translations..." 
+              class="flex-1 px-4 py-2.5 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#E8752F] text-slate-900"
+            >
+            <button type="submit" class="px-4 py-2.5 bg-[#E8752F] hover:bg-[#D46320] text-white rounded-xl font-bold text-xs transition-colors shadow-sm flex items-center gap-1.5 shrink-0">
+              <span>Send</span>
+              <i data-lucide="send" class="w-3.5 h-3.5"></i>
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'school',
+        activeNav: 'ai-study-assistant',
+        pageTitle: 'AI Pedagogy Assistant',
+        breadcrumb: 'Smart Innovation',
+        rootPrefix: '../'
+      });
+    });
+
+    function sendPrompt(text) {
+      document.getElementById('assistant-input').value = text;
+      handleSend(new Event('submit'));
+    }
+
+    function handleSend(e) {
+      e.preventDefault();
+      const input = document.getElementById('assistant-input');
+      const q = input.value.trim();
+      if (!q) return;
+
+      const container = document.getElementById('chat-messages-container');
+      
+      // User message
+      const userBubble = document.createElement('div');
+      userBubble.className = 'flex items-start justify-end gap-2';
+      userBubble.innerHTML = `
+        <div class="bg-[#E8752F] text-white rounded-2xl p-3.5 max-w-xl text-xs font-medium leading-relaxed shadow-sm">
+          ${q}
+        </div>
+      `;
+      container.appendChild(userBubble);
+      input.value = '';
+
+      // AI Response simulator
+      setTimeout(() => {
+        const aiBubble = document.createElement('div');
+        aiBubble.className = 'flex items-start gap-3';
+        aiBubble.innerHTML = `
+          <div class="w-7 h-7 rounded-lg bg-orange-100 text-[#E8752F] flex items-center justify-center shrink-0 mt-0.5">
+            <i data-lucide="bot" class="w-4 h-4"></i>
+          </div>
+          <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-4 max-w-2xl text-slate-800 text-xs leading-relaxed space-y-2">
+            <p class="font-bold text-slate-900">Here is the pedagogical lesson outline tailored for Nepal CDC standards:</p>
+            <div class="p-3 bg-white rounded-xl border border-slate-200 space-y-1.5 font-mono text-[11px]">
+              <div><strong>Subject:</strong> Compulsory Mathematics (Class 10)</div>
+              <div><strong>Topic:</strong> Compound Interest vs Simple Interest Real-World Comparison</div>
+              <div><strong>Time Allocation:</strong> 45 Minutes (P1 or P2)</div>
+              <div><strong>Behavioral Objectives:</strong> Students will be able to deduce the annual vs semi-annual compounding formula \(A = P(1 + R/100)^T\).</div>
+              <div><strong>Local Context:</strong> Use commercial bank deposit rates in Nepal (e.g. Nabil Bank 8.5% p.a.) as calculation examples.</div>
+            </div>
+            <p class="text-slate-600">Would you like me to generate 4 homework practice problems with step-by-step solutions for tomorrow?</p>
+          </div>
+        `;
+        container.appendChild(aiBubble);
+        if (window.lucide) lucide.createIcons();
+        container.scrollTop = container.scrollHeight;
+      }, 700);
+    }
+
+    function clearChat() {
+      Toast.info('Cleared', 'Chat history refreshed');
+    }
+  </script>
+</body>
+</html>

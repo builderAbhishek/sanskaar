@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-50">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanskaar ERP - Student Notifications</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="h-full text-slate-800 antialiased font-['Plus_Jakarta_Sans',sans-serif]">
+  <div id="app-shell">
+    <div id="page-content" class="p-6 space-y-6">
+      
+      <!-- Page Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <h1 class="text-2xl font-bold text-slate-900" data-i18n="nav_notifications">Notifications & SMS Feed</h1>
+          <p class="text-sm text-slate-500 mt-1">Real-time alerts, biometric gate clock-ins, fee clearances, and Sparrow SMS archive.</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <button onclick="markAllRead()" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-sm font-semibold transition-all">
+            <i data-lucide="check-check" class="w-4 h-4"></i>
+            <span>Mark All as Read</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Notifications List -->
+      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm divide-y divide-slate-100 overflow-hidden" id="notification-list">
+        
+        <!-- Notif 1 -->
+        <div class="p-5 flex items-start gap-4 hover:bg-slate-50/70 transition-colors">
+          <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5">
+            <i data-lucide="receipt" class="w-5 h-5"></i>
+          </div>
+          <div class="flex-1 space-y-1">
+            <div class="flex items-center justify-between">
+              <h4 class="font-bold text-slate-900 text-sm">Quarter 3 Fee Settlement Confirmed</h4>
+              <span class="text-xs text-slate-400">2 hours ago</span>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Payment of <strong>रू 22,000 (NPR)</strong> received via ConnectIPS. Official receipt <strong>REC-2083-4414</strong> issued. Sparrow SMS dispatched to father's phone (+977 9851023456).
+            </p>
+          </div>
+        </div>
+
+        <!-- Notif 2 -->
+        <div class="p-5 flex items-start gap-4 hover:bg-slate-50/70 transition-colors">
+          <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 mt-0.5">
+            <i data-lucide="book-open" class="w-5 h-5"></i>
+          </div>
+          <div class="flex-1 space-y-1">
+            <div class="flex items-center justify-between">
+              <h4 class="font-bold text-slate-900 text-sm">New Math Homework Assigned</h4>
+              <span class="text-xs text-slate-400">Yesterday, 03:45 PM</span>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Mrs. Sunita Shrestha posted: <em>"SEE Model Problems: Quadratic Equations & Circle Theorems"</em>. Due on 26 Bhadra.
+            </p>
+          </div>
+        </div>
+
+        <!-- Notif 3 -->
+        <div class="p-5 flex items-start gap-4 hover:bg-slate-50/70 transition-colors">
+          <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5">
+            <i data-lucide="calendar-check" class="w-5 h-5"></i>
+          </div>
+          <div class="flex-1 space-y-1">
+            <div class="flex items-center justify-between">
+              <h4 class="font-bold text-slate-900 text-sm">Biometric Gate Check-in Verified</h4>
+              <span class="text-xs text-slate-400">22 Bhadra, 09:48 AM</span>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Student RFID tag scanned at Main Gate Turnstile #2. Attendance recorded as <strong>Present (On Time)</strong>.
+            </p>
+          </div>
+        </div>
+
+        <!-- Notif 4 -->
+        <div class="p-5 flex items-start gap-4 hover:bg-slate-50/70 transition-colors">
+          <div class="w-10 h-10 rounded-xl bg-orange-50 text-[#E8752F] flex items-center justify-center shrink-0 mt-0.5">
+            <i data-lucide="award" class="w-5 h-5"></i>
+          </div>
+          <div class="flex-1 space-y-1">
+            <div class="flex items-center justify-between">
+              <h4 class="font-bold text-slate-900 text-sm">Terminal Examination Results Published</h4>
+              <span class="text-xs text-slate-400">30 Bhadra 2083</span>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Term II report card published. Congratulations Aarav on achieving <strong>GPA 3.92 (A+)</strong> and Rank #1 in Class 10-A!
+            </p>
+          </div>
+        </div>
+
+        <!-- Notif 5 -->
+        <div class="p-5 flex items-start gap-4 hover:bg-slate-50/70 transition-colors">
+          <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0 mt-0.5">
+            <i data-lucide="book" class="w-5 h-5"></i>
+          </div>
+          <div class="flex-1 space-y-1">
+            <div class="flex items-center justify-between">
+              <h4 class="font-bold text-slate-900 text-sm">Library Book Due Date Reminder</h4>
+              <span class="text-xs text-slate-400">3 days ago</span>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Borrowed title <em>"A Brief History of Time"</em> by Stephen Hawking is due for return by 25 Bhadra. Please visit the library counter to renew.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+  <script>
+    function markAllRead() {
+      SanskaarToast.show('All notifications marked as read!', 'success');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'student',
+        activeNav: 'notifications',
+        pageTitle: 'Notifications',
+        breadcrumb: 'Student / Alerts',
+        rootPrefix: '../'
+      });
+    });
+  </script>
+</body>
+</html>

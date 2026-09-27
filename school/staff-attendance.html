@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Staff Attendance - Sanskaar ERP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <div id="app-shell">
+    <div id="page-content">
+      
+      <!-- Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div>
+          <h1 class="text-2xl font-black text-slate-900 tracking-tight" data-i18n="nav_staff_attendance">Support Staff Attendance</h1>
+          <p class="text-xs text-slate-500 mt-1">Kathmandu Valley Secondary School • Operations, Security, Transport & Accounts</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="Toast.success('Refreshed', 'Staff punch records synced with main entrance gate')" class="px-3.5 py-2 text-xs font-bold bg-[#E8752F] text-white rounded-xl hover:bg-[#D46320] transition-colors shadow-sm flex items-center gap-2">
+            <i data-lucide="refresh-cw" class="w-4 h-4"></i>
+            <span>Refresh Punch Log</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Staff Attendance Table -->
+      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-2xs overflow-hidden">
+        <div class="p-4 border-b border-slate-100 flex items-center justify-between">
+          <h3 class="font-bold text-slate-900 text-sm">Operational Staff Roll Call (15 Mangsir 2083)</h3>
+          <span class="text-xs text-slate-500 font-medium">18 of 18 Staff Reported</span>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-slate-50 text-slate-500 border-b border-slate-200/80">
+              <tr>
+                <th class="py-3 px-4 font-semibold">Staff Name</th>
+                <th class="py-3 px-3 font-semibold">Department</th>
+                <th class="py-3 px-3 font-semibold">Shift Schedule</th>
+                <th class="py-3 px-3 font-semibold">In Time</th>
+                <th class="py-3 px-3 font-semibold">Out Time</th>
+                <th class="py-3 px-3 font-semibold">Biometric Status</th>
+                <th class="py-3 px-4 font-semibold text-right">Remarks</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4 font-bold text-slate-900">Mr. Bishnu Sharma</td>
+                <td class="py-3 px-3 text-slate-600 font-medium">Accounts / Finance</td>
+                <td class="py-3 px-3 text-slate-500">08:00 AM - 04:30 PM</td>
+                <td class="py-3 px-3 font-mono font-bold text-emerald-600">08:28 AM</td>
+                <td class="py-3 px-3 font-mono text-slate-400">-- : --</td>
+                <td class="py-3 px-3"><span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700">Present</span></td>
+                <td class="py-3 px-4 text-right text-slate-500">Normal Shift</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4 font-bold text-slate-900">Mrs. Nirmala Rai</td>
+                <td class="py-3 px-3 text-slate-600 font-medium">Central Library</td>
+                <td class="py-3 px-3 text-slate-500">08:30 AM - 04:00 PM</td>
+                <td class="py-3 px-3 font-mono font-bold text-emerald-600">08:40 AM</td>
+                <td class="py-3 px-3 font-mono text-slate-400">-- : --</td>
+                <td class="py-3 px-3"><span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700">Present</span></td>
+                <td class="py-3 px-4 text-right text-slate-500">Normal Shift</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4 font-bold text-slate-900">Mr. Som Tamang</td>
+                <td class="py-3 px-3 text-slate-600 font-medium">Transport Fleet</td>
+                <td class="py-3 px-3 text-slate-500">06:30 AM - 05:00 PM</td>
+                <td class="py-3 px-3 font-mono font-bold text-emerald-600">07:15 AM</td>
+                <td class="py-3 px-3 font-mono text-slate-400">-- : --</td>
+                <td class="py-3 px-3"><span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700">Present</span></td>
+                <td class="py-3 px-4 text-right text-slate-500">Bus Route 4 Completed</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4 font-bold text-slate-900">Mr. Dhan Bahadur Thapa</td>
+                <td class="py-3 px-3 text-slate-600 font-medium">Security Gate 1</td>
+                <td class="py-3 px-3 text-slate-500">06:00 AM - 06:00 PM</td>
+                <td class="py-3 px-3 font-mono font-bold text-emerald-600">05:50 AM</td>
+                <td class="py-3 px-3 font-mono text-slate-400">-- : --</td>
+                <td class="py-3 px-3"><span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700">Present</span></td>
+                <td class="py-3 px-4 text-right text-slate-500">Morning Shift Incharge</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'school',
+        activeNav: 'staff-attendance',
+        pageTitle: 'Staff Attendance',
+        breadcrumb: 'Attendance',
+        rootPrefix: '../'
+      });
+    });
+  </script>
+</body>
+</html>

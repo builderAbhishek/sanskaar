@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-50">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanskaar ERP - Student Fees</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="h-full text-slate-800 antialiased font-['Plus_Jakarta_Sans',sans-serif]">
+  <div id="app-shell">
+    <div id="page-content" class="p-6 space-y-6">
+      
+      <!-- Page Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <h1 class="text-2xl font-bold text-slate-900" data-i18n="student_fees">My Fee Ledger</h1>
+          <p class="text-sm text-slate-500 mt-1">Class 10 fee installment schedule, digital payment gateways (eSewa / Khalti), and official receipt repository.</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="fee-receipts.html" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-sm font-semibold transition-all">
+            <i data-lucide="printer" class="w-4 h-4"></i>
+            <span>View All Receipts</span>
+          </a>
+          <button onclick="openPaymentModal()" class="inline-flex items-center gap-2 px-4 py-2 bg-[#E8752F] hover:bg-[#d66521] text-white rounded-xl text-sm font-semibold transition-all shadow-sm">
+            <i data-lucide="wallet" class="w-4 h-4"></i>
+            <span>Pay Fee Online</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Financial Status Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm">
+          <div class="text-xs font-semibold uppercase text-slate-400">Total Annual Fee (2083)</div>
+          <div class="text-2xl font-black text-slate-900 mt-1">रू 88,000</div>
+          <div class="text-xs text-slate-500 mt-1">Class 10 Standard Billing</div>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm">
+          <div class="text-xs font-semibold uppercase text-slate-400">Total Paid to Date</div>
+          <div class="text-2xl font-black text-emerald-600 mt-1">रू 66,000</div>
+          <div class="text-xs text-emerald-600 font-semibold mt-1 flex items-center gap-1">
+            <i data-lucide="check-circle" class="w-3.5 h-3.5"></i> Q1, Q2, Q3 Cleared
+          </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm">
+          <div class="text-xs font-semibold uppercase text-slate-400">Current Outstanding / Next Due</div>
+          <div class="text-2xl font-black text-[#E8752F] mt-1">रू 22,000</div>
+          <div class="text-xs text-amber-600 font-semibold mt-1 flex items-center gap-1">
+            <i data-lucide="clock" class="w-3.5 h-3.5"></i> Q4 Due: 15 Kartik 2083
+          </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm">
+          <div class="text-xs font-semibold uppercase text-slate-400">Late Payment Fine</div>
+          <div class="text-2xl font-black text-slate-400 mt-1">रू 0</div>
+          <div class="text-xs text-emerald-600 font-semibold mt-1">Timely Payer Rebate Applied</div>
+        </div>
+      </div>
+
+      <!-- Active Quarter Invoice Breakdown -->
+      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 space-y-6">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-4">
+          <div>
+            <span class="text-xs font-bold uppercase text-[#E8752F] tracking-wide">Upcoming Installment</span>
+            <h3 class="text-lg font-bold text-slate-900 mt-0.5">Quarter 4 Fee Invoice (Kartik – Poush 2083)</h3>
+            <p class="text-xs text-slate-500">Student: Aarav Shrestha (Class 10-A) • Invoice ID: INV-2083-Q4-1001</p>
+          </div>
+          <button onclick="openPaymentModal()" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-sm font-bold shadow-sm flex items-center gap-2">
+            <i data-lucide="shield-check" class="w-4 h-4"></i>
+            <span>Pay Now: रू 22,000</span>
+          </button>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-sm">
+            <thead class="bg-slate-50 text-xs font-semibold text-slate-500 uppercase">
+              <tr>
+                <th class="px-4 py-3">Fee Particular / Component</th>
+                <th class="px-4 py-3">Billing Frequency</th>
+                <th class="px-4 py-3 text-right">Amount (NPR)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 font-medium">
+              <tr>
+                <td class="px-4 py-3 text-slate-800">Tuition Fee (3 Months @ रू 5,000/month)</td>
+                <td class="px-4 py-3 text-slate-500 text-xs">Quarterly</td>
+                <td class="px-4 py-3 text-right font-bold text-slate-900">रू 15,000</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 text-slate-800">Senior Science & Computer Lab Fee</td>
+                <td class="px-4 py-3 text-slate-500 text-xs">Quarterly</td>
+                <td class="px-4 py-3 text-right font-bold text-slate-900">रू 4,000</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 text-slate-800">Pre-Board Examination & SEE Practice Papers</td>
+                <td class="px-4 py-3 text-slate-500 text-xs">One-Time (Term III)</td>
+                <td class="px-4 py-3 text-right font-bold text-slate-900">रू 2,000</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 text-slate-800">ECA, Sports & Digital Library Access</td>
+                <td class="px-4 py-3 text-slate-500 text-xs">Quarterly</td>
+                <td class="px-4 py-3 text-right font-bold text-slate-900">रू 1,000</td>
+              </tr>
+              <tr class="bg-slate-50/70 text-slate-900 font-bold border-t-2 border-slate-200">
+                <td class="px-4 py-3.5" colspan="2">Net Total Amount Payable</td>
+                <td class="px-4 py-3.5 text-right text-base text-[#E8752F]">रू 22,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Payment History Registry -->
+      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
+        <div class="p-5 border-b border-slate-100 flex items-center justify-between">
+          <h3 class="font-bold text-slate-900">Past Payment Transactions</h3>
+          <span class="text-xs font-semibold text-slate-500">Official digital verification enabled</span>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-sm">
+            <thead class="bg-slate-50/80 text-xs font-semibold text-slate-500 uppercase tracking-wider border-b border-slate-200/60">
+              <tr>
+                <th class="px-6 py-3.5">Receipt No</th>
+                <th class="px-6 py-3.5">Term Description</th>
+                <th class="px-6 py-3.5">Payment Date</th>
+                <th class="px-6 py-3.5">Gateway / Mode</th>
+                <th class="px-6 py-3.5 text-right">Amount (NPR)</th>
+                <th class="px-6 py-3.5 text-center">Status</th>
+                <th class="px-6 py-3.5 text-right">Receipt</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 font-medium">
+              <tr>
+                <td class="px-6 py-4 font-mono text-xs font-bold text-slate-800">REC-2083-4414</td>
+                <td class="px-6 py-4 text-slate-800">Quarter 3 Fee Clearance</td>
+                <td class="px-6 py-4 text-slate-500 text-xs">2083-04-26 (10 Aug 2026)</td>
+                <td class="px-6 py-4">
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> ConnectIPS
+                  </span>
+                </td>
+                <td class="px-6 py-4 text-right font-bold text-slate-900">रू 22,000</td>
+                <td class="px-6 py-4 text-center">
+                  <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">Paid</span>
+                </td>
+                <td class="px-6 py-4 text-right">
+                  <a href="fee-receipts.html" class="text-xs font-semibold text-[#E8752F] hover:underline">Download</a>
+                </td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-mono text-xs font-bold text-slate-800">REC-2083-2190</td>
+                <td class="px-6 py-4 text-slate-800">Quarter 2 Fee Clearance</td>
+                <td class="px-6 py-4 text-slate-500 text-xs">2083-02-15 (29 May 2026)</td>
+                <td class="px-6 py-4">
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> eSewa Digital
+                  </span>
+                </td>
+                <td class="px-6 py-4 text-right font-bold text-slate-900">रू 22,000</td>
+                <td class="px-6 py-4 text-center">
+                  <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">Paid</span>
+                </td>
+                <td class="px-6 py-4 text-right">
+                  <a href="fee-receipts.html" class="text-xs font-semibold text-[#E8752F] hover:underline">Download</a>
+                </td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-mono text-xs font-bold text-slate-800">REC-2083-0104</td>
+                <td class="px-6 py-4 text-slate-800">Quarter 1 & Session Admission</td>
+                <td class="px-6 py-4 text-slate-500 text-xs">2083-01-08 (20 Apr 2026)</td>
+                <td class="px-6 py-4">
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-purple-50 text-purple-700">
+                    <span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span> Khalti Wallet
+                  </span>
+                </td>
+                <td class="px-6 py-4 text-right font-bold text-slate-900">रू 22,000</td>
+                <td class="px-6 py-4 text-center">
+                  <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">Paid</span>
+                </td>
+                <td class="px-6 py-4 text-right">
+                  <a href="fee-receipts.html" class="text-xs font-semibold text-[#E8752F] hover:underline">Download</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Online Payment Gateway Simulator Modal -->
+  <div id="paymentModal" class="hidden fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl border border-slate-200 shadow-xl w-full max-w-md overflow-hidden">
+      <div class="p-5 border-b border-slate-100 flex items-center justify-between">
+        <h3 class="font-bold text-slate-900 flex items-center gap-2">
+          <i data-lucide="shield" class="w-5 h-5 text-emerald-600"></i>
+          <span>Nepal Payment Gateway</span>
+        </h3>
+        <button onclick="SanskaarModal.close('paymentModal')" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+
+      <div class="p-6 space-y-4">
+        <div class="bg-slate-50 p-4 rounded-xl space-y-1">
+          <div class="text-xs text-slate-500">Total Fee Settlement</div>
+          <div class="text-2xl font-black text-slate-900">रू 22,000 <span class="text-xs font-normal text-slate-500">(NPR)</span></div>
+          <div class="text-xs text-slate-500">Invoice: INV-2083-Q4-1001 • Class 10-A</div>
+        </div>
+
+        <div class="space-y-2.5">
+          <label class="block text-xs font-bold text-slate-600 uppercase">Select Payment Mode</label>
+          
+          <!-- eSewa Option -->
+          <div onclick="selectGateway('esewa')" id="gw-esewa" class="p-3.5 rounded-xl border-2 border-emerald-500 bg-emerald-50/50 cursor-pointer flex items-center justify-between transition-all">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg bg-emerald-600 text-white font-black text-xs flex items-center justify-center">eS</div>
+              <div>
+                <div class="font-bold text-xs text-slate-900">eSewa Mobile Wallet</div>
+                <div class="text-[11px] text-slate-500">Instant digital clearance & receipt</div>
+              </div>
+            </div>
+            <i data-lucide="check-circle" class="w-5 h-5 text-emerald-600"></i>
+          </div>
+
+          <!-- Khalti Option -->
+          <div onclick="selectGateway('khalti')" id="gw-khalti" class="p-3.5 rounded-xl border border-slate-200 hover:border-purple-300 cursor-pointer flex items-center justify-between transition-all">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg bg-purple-600 text-white font-black text-xs flex items-center justify-center">Kh</div>
+              <div>
+                <div class="font-bold text-xs text-slate-900">Khalti Digital Wallet</div>
+                <div class="text-[11px] text-slate-500">Pay via Khalti balance or SCT Card</div>
+              </div>
+            </div>
+            <i data-lucide="circle" class="w-5 h-5 text-slate-300"></i>
+          </div>
+
+          <!-- ConnectIPS Option -->
+          <div onclick="selectGateway('connectips')" id="gw-connectips" class="p-3.5 rounded-xl border border-slate-200 hover:border-blue-300 cursor-pointer flex items-center justify-between transition-all">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg bg-blue-600 text-white font-black text-xs flex items-center justify-center">IPS</div>
+              <div>
+                <div class="font-bold text-xs text-slate-900">ConnectIPS Bank Transfer</div>
+                <div class="text-[11px] text-slate-500">Direct Nabil Bank clearing</div>
+              </div>
+            </div>
+            <i data-lucide="circle" class="w-5 h-5 text-slate-300"></i>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <button onclick="processSimulatedPayment()" class="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-sm shadow-md transition-colors flex items-center justify-center gap-2">
+            <i data-lucide="lock" class="w-4 h-4"></i>
+            <span>Proceed to Pay रू 22,000</span>
+          </button>
+          <span class="text-[10px] text-slate-400 text-center block mt-2">256-bit encrypted simulated transaction • No real currency charged</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+  <script>
+    let selectedGW = 'esewa';
+
+    function openPaymentModal() {
+      SanskaarModal.open('paymentModal');
+    }
+
+    function selectGateway(gw) {
+      selectedGW = gw;
+      ['esewa', 'khalti', 'connectips'].forEach(g => {
+        const el = document.getElementById(`gw-${g}`);
+        if (el) {
+          el.className = g === gw 
+            ? 'p-3.5 rounded-xl border-2 border-emerald-500 bg-emerald-50/50 cursor-pointer flex items-center justify-between transition-all'
+            : 'p-3.5 rounded-xl border border-slate-200 hover:border-slate-300 cursor-pointer flex items-center justify-between transition-all';
+        }
+      });
+    }
+
+    function processSimulatedPayment() {
+      SanskaarModal.close('paymentModal');
+      SanskaarToast.show(`Connecting to ${selectedGW.toUpperCase()} gateway...`, 'info');
+      setTimeout(() => {
+        SanskaarToast.show('Payment of रू 22,000 successful! Receipt REC-2083-5591 generated.', 'success');
+      }, 1200);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'student',
+        activeNav: 'fees',
+        pageTitle: 'My Fees',
+        breadcrumb: 'Student / Fees',
+        rootPrefix: '../'
+      });
+    });
+  </script>
+</body>
+</html>

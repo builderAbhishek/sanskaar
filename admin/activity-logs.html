@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activity Logs - Sanskaar ERP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <div id="app-shell">
+    <div id="page-content">
+      
+      <!-- Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div>
+          <h1 class="text-2xl font-black text-slate-900 tracking-tight" data-i18n="admin_activity_logs">Platform Audit Trail & Security Logs</h1>
+          <p class="text-xs text-slate-500 mt-1">Real-time immutable security logs, administrative events, and tenant access</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="Toast.info('Log Export', 'Downloading audit trail archive (.csv)')" class="px-3.5 py-2 text-xs font-bold bg-white border border-slate-200 text-slate-700 rounded-xl hover:bg-slate-50 transition-colors shadow-2xs flex items-center gap-1.5">
+            <i data-lucide="download" class="w-4 h-4 text-slate-400"></i>
+            <span>Export CSV</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Logs Filter Bar -->
+      <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs mb-6 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+        <div class="relative flex-1">
+          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2"></i>
+          <input type="text" placeholder="Filter by user, action or IP address (e.g. 103.104.x.x, Login, eSewa)..." class="w-full pl-9 pr-3 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#E8752F]">
+        </div>
+        <div class="flex items-center gap-2">
+          <select class="px-3 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-xl text-slate-700">
+            <option>All Event Types</option>
+            <option>Authentication</option>
+            <option>Subscription Change</option>
+            <option>Payment Settlement</option>
+            <option>System Config</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Logs Table -->
+      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-2xs overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-slate-50 text-slate-500 border-b border-slate-200/80">
+              <tr>
+                <th class="py-3 px-4 font-semibold">Timestamp (NPT)</th>
+                <th class="py-3 px-3 font-semibold">Actor / User</th>
+                <th class="py-3 px-3 font-semibold">Action Performed</th>
+                <th class="py-3 px-3 font-semibold">Target Tenant</th>
+                <th class="py-3 px-3 font-semibold">Client IP & ISP</th>
+                <th class="py-3 px-3 font-semibold">Security State</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 font-mono text-[11px]">
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4 text-slate-500">2083-08-01 10:14:22</td>
+                <td class="py-3 px-3 font-sans font-bold text-slate-900">ConnectIPS Gateway</td>
+                <td class="py-3 px-3 font-sans font-medium text-slate-800">Settled monthly SaaS fee रू 65,000</td>
+                <td class="py-3 px-3 font-sans text-slate-700">Kathmandu Valley Sec. School</td>
+                <td class="py-3 px-3 text-slate-500">103.94.188.12 (Nepal Telecom)</td>
+                <td class="py-3 px-3 font-sans"><span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700">SUCCESS</span></td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4 text-slate-500">2083-08-01 09:45:10</td>
+                <td class="py-3 px-3 font-sans font-bold text-slate-900">Dr. Ram Bahadur Thapa</td>
+                <td class="py-3 px-3 font-sans font-medium text-slate-800">Principal Portal 2FA Login Approved</td>
+                <td class="py-3 px-3 font-sans text-slate-700">Kathmandu Valley Sec. School</td>
+                <td class="py-3 px-3 text-slate-500">27.34.48.91 (WorldLink KTM)</td>
+                <td class="py-3 px-3 font-sans"><span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700">VERIFIED</span></td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4 text-slate-500">2083-08-01 08:30:19</td>
+                <td class="py-3 px-3 font-sans font-bold text-slate-900">Pooja Sharma</td>
+                <td class="py-3 px-3 font-sans font-medium text-slate-800">Updated Sparrow SMS API Key credentials</td>
+                <td class="py-3 px-3 font-sans text-slate-700">Platform Global Config</td>
+                <td class="py-3 px-3 text-slate-500">103.111.45.2 (Vianet KTM)</td>
+                <td class="py-3 px-3 font-sans"><span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-purple-50 text-purple-700">ADMIN OPS</span></td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4 text-slate-500">2083-07-30 18:22:04</td>
+                <td class="py-3 px-3 font-sans font-bold text-slate-900">System Scheduler</td>
+                <td class="py-3 px-3 font-sans font-medium text-slate-800">Automated Daily Database Snapshot to GCS</td>
+                <td class="py-3 px-3 font-sans text-slate-700">All 42 School Tenants</td>
+                <td class="py-3 px-3 text-slate-500">127.0.0.1 (Internal Cron)</td>
+                <td class="py-3 px-3 font-sans"><span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700">BACKUP OK</span></td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4 text-slate-500">2083-07-30 16:22:48</td>
+                <td class="py-3 px-3 font-sans font-bold text-slate-900">Mrs. Meena Gurung</td>
+                <td class="py-3 px-3 font-sans font-medium text-slate-800">Generated Terminal Report Cards Batch</td>
+                <td class="py-3 px-3 font-sans text-slate-700">Pokhara Modern Academy</td>
+                <td class="py-3 px-3 text-slate-500">103.240.201.5 (ClassicTech PKR)</td>
+                <td class="py-3 px-3 font-sans"><span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-blue-50 text-blue-700">BATCH RUN</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'admin',
+        activeNav: 'activity-logs',
+        pageTitle: 'Activity Logs',
+        breadcrumb: 'Admin SaaS',
+        rootPrefix: '../'
+      });
+    });
+  </script>
+</body>
+</html>

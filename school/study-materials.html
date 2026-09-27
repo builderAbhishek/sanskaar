@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Materials - Sanskaar ERP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <div id="app-shell">
+    <div id="page-content">
+      
+      <!-- Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div>
+          <h1 class="text-2xl font-black text-slate-900 tracking-tight" data-i18n="nav_study_materials">Digital Curriculum & Study Library</h1>
+          <p class="text-xs text-slate-500 mt-1">Kathmandu Valley Secondary School • CDC Textbooks, Chapter Notes & SEE Model Papers</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="Toast.info('Upload Material', 'Upload PDF study notes to repository')" class="px-3.5 py-2 text-xs font-bold bg-[#E8752F] text-white rounded-xl hover:bg-[#D46320] transition-colors shadow-sm flex items-center gap-2">
+            <i data-lucide="upload" class="w-4 h-4"></i>
+            <span>Upload Notes / PDF</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Materials Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Material 1: Compulsory Math Formula Book -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-orange-50 text-[#E8752F] border border-orange-200">
+                Class 10 (SEE)
+              </span>
+              <span class="text-[11px] text-slate-400 font-mono">PDF • 3.2 MB</span>
+            </div>
+            <h3 class="font-bold text-slate-900 text-sm">Compulsory Mathematics Quick Formula Handbook</h3>
+            <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">
+              Complete formula sheet covering Mensuration (Sphere, Cone, Cylinder), Compound Interest, Trigonometry, and Vectors with solved SEE examples.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="text-slate-400">By: Mr. Keshav Nepal</span>
+            <button onclick="Toast.success('Downloaded', 'Math formula sheet downloaded (.pdf)')" class="font-bold text-[#E8752F] hover:underline flex items-center gap-1">
+              <i data-lucide="download" class="w-3.5 h-3.5"></i>
+              <span>Download</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Material 2: Science Lab Practical Handbook -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-purple-50 text-purple-700 border border-purple-200">
+                Class 10 (SEE)
+              </span>
+              <span class="text-[11px] text-slate-400 font-mono">PDF • 5.8 MB</span>
+            </div>
+            <h3 class="font-bold text-slate-900 text-sm">Science & Technology Practical Lab Manual 2083</h3>
+            <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">
+              Detailed lab experiments, apparatus requirements, chemical precautions, and viva-voce question sets for Physics, Chemistry, and Biology.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="text-slate-400">By: Mr. Dipendra Khatiwada</span>
+            <button onclick="Toast.success('Downloaded', 'Science practical manual downloaded (.pdf)')" class="font-bold text-[#E8752F] hover:underline flex items-center gap-1">
+              <i data-lucide="download" class="w-3.5 h-3.5"></i>
+              <span>Download</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Material 3: Past 5 Years SEE Solved Papers -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-blue-50 text-blue-700 border border-blue-200">
+                NEB SEE Question Bank
+              </span>
+              <span class="text-[11px] text-slate-400 font-mono">ZIP • 14.5 MB</span>
+            </div>
+            <h3 class="font-bold text-slate-900 text-sm">Past 5 Years SEE Model Questions with Marking Schemes</h3>
+            <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">
+              Official CDC question papers from 2078 to 2082 with model answers for English, Nepali, Mathematics, and Science.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="text-slate-400">By: Academic Exam Cell</span>
+            <button onclick="Toast.success('Downloaded', 'SEE Question Bank archive downloaded (.zip)')" class="font-bold text-[#E8752F] hover:underline flex items-center gap-1">
+              <i data-lucide="download" class="w-3.5 h-3.5"></i>
+              <span>Download</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'school',
+        activeNav: 'study-materials',
+        pageTitle: 'Study Materials Library',
+        breadcrumb: 'Academics',
+        rootPrefix: '../'
+      });
+    });
+  </script>
+</body>
+</html>

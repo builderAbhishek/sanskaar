@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>School 360 View - Sanskaar ERP Platform</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <div id="app-shell">
+    <div id="page-content">
+      
+      <!-- Back Navigation & Actions -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div class="flex items-center gap-3">
+          <a href="schools.html" class="p-2 rounded-xl bg-white border border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors shadow-2xs">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+          </a>
+          <div>
+            <div class="flex items-center gap-2">
+              <h1 class="text-xl font-black text-slate-900 tracking-tight">Kathmandu Valley Secondary School</h1>
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">Active Tenant</span>
+            </div>
+            <p class="text-xs text-slate-500 mt-0.5">EMIS / NEB Code: KVSS-27014 • Maharajgunj, Kathmandu, Bagmati Province</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <a href="../school/index.html" class="px-3.5 py-2 text-xs font-bold bg-[#E8752F] text-white rounded-xl hover:bg-[#D46320] transition-colors shadow-sm flex items-center gap-2">
+            <span>Log in as School Admin</span>
+            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+          </a>
+          <button onclick="Toast.info('Settings Updated', 'School tenant parameters synced.')" class="px-3 py-2 text-xs font-semibold bg-white border border-slate-200 text-slate-700 rounded-xl hover:bg-slate-50 transition-colors">
+            Tenant Settings
+          </button>
+        </div>
+      </div>
+
+      <!-- Overview Header Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <span class="text-xs font-semibold text-slate-400">Total Enrolled Students</span>
+          <div class="text-2xl font-black text-slate-900 mt-1">1,482</div>
+          <span class="text-[11px] text-emerald-600 font-bold">100% Student Data Digitized</span>
+        </div>
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <span class="text-xs font-semibold text-slate-400">Faculty & Staff Members</span>
+          <div class="text-2xl font-black text-slate-900 mt-1">78 Teachers • 18 Staff</div>
+          <span class="text-[11px] text-slate-500">Biometric Devices Active</span>
+        </div>
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <span class="text-xs font-semibold text-slate-400">SaaS Plan & Billing</span>
+          <div class="text-2xl font-black text-[#E8752F] mt-1">रू 65,000 / mo</div>
+          <span class="text-[11px] text-slate-500 font-medium">Enterprise Tier (Annual Renewal: 2027)</span>
+        </div>
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <span class="text-xs font-semibold text-slate-400">Storage & API Usage</span>
+          <div class="text-2xl font-black text-slate-900 mt-1">18.4 GB / 100 GB</div>
+          <span class="text-[11px] text-slate-500 font-medium">Daily Cloud Backup Healthy</span>
+        </div>
+      </div>
+
+      <!-- Main Columns -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <!-- Left 2 Cols: Institutional Details & Modules -->
+        <div class="lg:col-span-2 space-y-6">
+          
+          <!-- Module Licenses -->
+          <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs">
+            <h3 class="text-sm font-bold text-slate-900 mb-4 flex items-center gap-2">
+              <i data-lucide="layers" class="w-4 h-4 text-[#E8752F]"></i>
+              <span>Active ERP Modules & Feature Entitlements</span>
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-between">
+                <div>
+                  <div class="font-bold text-slate-900 text-xs">Student Admissions & EMIS</div>
+                  <div class="text-[11px] text-slate-400">NEB-compliant profiles & documents</div>
+                </div>
+                <span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-[10px] font-bold border border-emerald-200">Enabled</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-between">
+                <div>
+                  <div class="font-bold text-slate-900 text-xs">Fee Collection & Online Gateways</div>
+                  <div class="text-[11px] text-slate-400">eSewa, Khalti, ConnectIPS live</div>
+                </div>
+                <span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-[10px] font-bold border border-emerald-200">Enabled</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-between">
+                <div>
+                  <div class="font-bold text-slate-900 text-xs">Examination & NEB Grading</div>
+                  <div class="text-[11px] text-slate-400">SEE GPA calculation & Grade Sheets</div>
+                </div>
+                <span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-[10px] font-bold border border-emerald-200">Enabled</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-between">
+                <div>
+                  <div class="font-bold text-slate-900 text-xs">AI Pedagogy & Question Paper</div>
+                  <div class="text-[11px] text-slate-400">AI worksheet & question generator</div>
+                </div>
+                <span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-[10px] font-bold border border-emerald-200">Enabled</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-between">
+                <div>
+                  <div class="font-bold text-slate-900 text-xs">Bulk Nepal SMS & WhatsApp</div>
+                  <div class="text-[11px] text-slate-400">Sparrow SMS integration (25k credits)</div>
+                </div>
+                <span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-[10px] font-bold border border-emerald-200">Enabled</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-between">
+                <div>
+                  <div class="font-bold text-slate-900 text-xs">Mobile Student/Parent Portal</div>
+                  <div class="text-[11px] text-slate-400">PWA & mobile-optimized dashboard</div>
+                </div>
+                <span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-[10px] font-bold border border-emerald-200">Enabled</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Billing Invoices History -->
+          <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+                <i data-lucide="receipt" class="w-4 h-4 text-emerald-600"></i>
+                <span>SaaS Subscription Payment History (NPR)</span>
+              </h3>
+              <span class="text-xs text-slate-400 font-medium">All invoices cleared</span>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="w-full text-left text-xs">
+                <thead class="bg-slate-50 text-slate-500 border-b border-slate-100">
+                  <tr>
+                    <th class="py-2.5 px-3">Invoice #</th>
+                    <th class="py-2.5 px-3">Billing Period</th>
+                    <th class="py-2.5 px-3">Amount (NPR)</th>
+                    <th class="py-2.5 px-3">Payment Mode</th>
+                    <th class="py-2.5 px-3">Status</th>
+                    <th class="py-2.5 px-3 text-right">Receipt</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                  <tr>
+                    <td class="py-2.5 px-3 font-mono font-bold text-slate-800">INV-2083-08</td>
+                    <td class="py-2.5 px-3">Mangsir 2083</td>
+                    <td class="py-2.5 px-3 font-bold text-slate-900">रू 65,000</td>
+                    <td class="py-2.5 px-3">NCHL ConnectIPS</td>
+                    <td class="py-2.5 px-3"><span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700">Paid</span></td>
+                    <td class="py-2.5 px-3 text-right"><button onclick="Toast.info('Downloading', 'SaaS invoice downloaded')" class="text-[#E8752F] font-bold hover:underline">Download</button></td>
+                  </tr>
+                  <tr>
+                    <td class="py-2.5 px-3 font-mono font-bold text-slate-800">INV-2083-07</td>
+                    <td class="py-2.5 px-3">Kartik 2083</td>
+                    <td class="py-2.5 px-3 font-bold text-slate-900">रू 65,000</td>
+                    <td class="py-2.5 px-3">eSewa Merchant</td>
+                    <td class="py-2.5 px-3"><span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700">Paid</span></td>
+                    <td class="py-2.5 px-3 text-right"><button onclick="Toast.info('Downloading', 'SaaS invoice downloaded')" class="text-[#E8752F] font-bold hover:underline">Download</button></td>
+                  </tr>
+                  <tr>
+                    <td class="py-2.5 px-3 font-mono font-bold text-slate-800">INV-2083-06</td>
+                    <td class="py-2.5 px-3">Ashwin 2083</td>
+                    <td class="py-2.5 px-3 font-bold text-slate-900">रू 65,000</td>
+                    <td class="py-2.5 px-3">Bank Transfer (Nabil)</td>
+                    <td class="py-2.5 px-3"><span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700">Paid</span></td>
+                    <td class="py-2.5 px-3 text-right"><button onclick="Toast.info('Downloading', 'SaaS invoice downloaded')" class="text-[#E8752F] font-bold hover:underline">Download</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Col: Primary Contacts & System Architecture -->
+        <div class="space-y-6">
+          <!-- Administrator Profile -->
+          <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs">
+            <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wider mb-4 flex items-center gap-2">
+              <i data-lucide="user" class="w-4 h-4 text-[#E8752F]"></i>
+              <span>Institution Key Contacts</span>
+            </h4>
+            <div class="space-y-3.5 text-xs">
+              <div>
+                <div class="text-[11px] text-slate-400">Head of Institution / Principal</div>
+                <div class="font-bold text-slate-900">Dr. Ram Bahadur Thapa</div>
+                <div class="text-slate-500">+977 1 4720911 • principal@kvss.edu.np</div>
+              </div>
+              <div class="pt-2 border-t border-slate-100">
+                <div class="text-[11px] text-slate-400">Finance Director / Bursar</div>
+                <div class="font-bold text-slate-900">Mr. Bishnu Sharma</div>
+                <div class="text-slate-500">+977 9851023941 • accounts@kvss.edu.np</div>
+              </div>
+              <div class="pt-2 border-t border-slate-100">
+                <div class="text-[11px] text-slate-400">IT Administrator</div>
+                <div class="font-bold text-slate-900">Er. Bikash Maharjan</div>
+                <div class="text-slate-500">+977 9841889922 • it@kvss.edu.np</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tenant Infrastructure Card -->
+          <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs text-xs">
+            <h4 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+              <i data-lucide="database" class="w-4 h-4 text-purple-600"></i>
+              <span>Tenant Infrastructure Info</span>
+            </h4>
+            <div class="space-y-2 text-slate-600">
+              <div class="flex justify-between py-1 border-b border-slate-100">
+                <span class="text-slate-400">Tenant ID</span>
+                <span class="font-mono font-bold text-slate-800">ten_kvss_27014</span>
+              </div>
+              <div class="flex justify-between py-1 border-b border-slate-100">
+                <span class="text-slate-400">Database Schema</span>
+                <span class="font-mono text-slate-800">isolated_v3</span>
+              </div>
+              <div class="flex justify-between py-1 border-b border-slate-100">
+                <span class="text-slate-400">Assigned Domain</span>
+                <span class="font-bold text-slate-800">kvss.sanskaar.edu.np</span>
+              </div>
+              <div class="flex justify-between py-1">
+                <span class="text-slate-400">SSL Certificate</span>
+                <span class="font-bold text-emerald-600">Valid (Let's Encrypt)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'admin',
+        activeNav: 'school-details',
+        pageTitle: 'School 360 Overview',
+        breadcrumb: 'Schools',
+        rootPrefix: '../'
+      });
+    });
+  </script>
+</body>
+</html>

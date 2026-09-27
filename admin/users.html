@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Platform Users - Sanskaar ERP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <div id="app-shell">
+    <div id="page-content">
+      
+      <!-- Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div>
+          <h1 class="text-2xl font-black text-slate-900 tracking-tight" data-i18n="admin_users">Platform Administrators & Staff</h1>
+          <p class="text-xs text-slate-500 mt-1">Manage global SaaS administrators and institution principal accounts</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="ModalManager.open('add-user-modal')" class="px-3.5 py-2 text-xs font-bold bg-[#E8752F] text-white rounded-xl hover:bg-[#D46320] transition-colors shadow-sm flex items-center gap-2">
+            <i data-lucide="user-plus" class="w-4 h-4"></i>
+            <span>Add Platform User</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Stats -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <div class="text-xs font-semibold text-slate-400">Total System Admins</div>
+          <div class="text-2xl font-black text-slate-900 mt-1">12 Users</div>
+          <p class="text-[11px] text-slate-500">6 Super Admins • 6 Support Ops</p>
+        </div>
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <div class="text-xs font-semibold text-slate-400">School Principal Accounts</div>
+          <div class="text-2xl font-black text-slate-900 mt-1">42 Principals</div>
+          <p class="text-[11px] text-emerald-600 font-semibold">100% 2FA Enabled</p>
+        </div>
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <div class="text-xs font-semibold text-slate-400">Active Sessions Right Now</div>
+          <div class="text-2xl font-black text-emerald-600 mt-1">38 Live</div>
+          <p class="text-[11px] text-slate-500">Nepal Timezone (NPT / GMT+5:45)</p>
+        </div>
+      </div>
+
+      <!-- Users Table -->
+      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-2xs overflow-hidden">
+        <div class="p-4 border-b border-slate-100 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+          <div class="relative flex-1 max-w-sm">
+            <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2"></i>
+            <input type="text" placeholder="Search user by name, email or role..." class="w-full pl-9 pr-3 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#E8752F]">
+          </div>
+          <div class="flex items-center gap-2">
+            <select class="px-3 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-xl text-slate-700">
+              <option>All Roles</option>
+              <option>Super Admin</option>
+              <option>School Principal</option>
+              <option>Support Specialist</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-slate-50 text-slate-500 border-b border-slate-200/80">
+              <tr>
+                <th class="py-3 px-4 font-semibold">User</th>
+                <th class="py-3 px-3 font-semibold">Role</th>
+                <th class="py-3 px-3 font-semibold">Organization / School</th>
+                <th class="py-3 px-3 font-semibold">Phone</th>
+                <th class="py-3 px-3 font-semibold">2FA Security</th>
+                <th class="py-3 px-3 font-semibold">Last Active</th>
+                <th class="py-3 px-4 font-semibold text-right">Action</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4">
+                  <div class="flex items-center gap-2.5">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" class="w-8 h-8 rounded-full object-cover">
+                    <div>
+                      <div class="font-bold text-slate-900">Pooja Sharma</div>
+                      <div class="text-[11px] text-slate-400">pooja.admin@sanskaar.edu.np</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="py-3 px-3">
+                  <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-purple-50 text-purple-700 border border-purple-200">SaaS Super Admin</span>
+                </td>
+                <td class="py-3 px-3 font-medium text-slate-800">Sanskaar ERP Platform</td>
+                <td class="py-3 px-3 text-slate-600">+977 9801234567</td>
+                <td class="py-3 px-3"><span class="text-emerald-600 font-bold flex items-center gap-1"><i data-lucide="shield-check" class="w-3.5 h-3.5"></i> Authenticator</span></td>
+                <td class="py-3 px-3 text-slate-500">Just now</td>
+                <td class="py-3 px-4 text-right">
+                  <button onclick="Toast.info('User Profile', 'Viewing Pooja Sharma security logs')" class="text-xs font-semibold text-[#E8752F] hover:underline">Edit</button>
+                </td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4">
+                  <div class="flex items-center gap-2.5">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&auto=format&fit=crop&q=80" class="w-8 h-8 rounded-full object-cover">
+                    <div>
+                      <div class="font-bold text-slate-900">Dr. Ram Bahadur Thapa</div>
+                      <div class="text-[11px] text-slate-400">principal@kvss.edu.np</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="py-3 px-3">
+                  <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-orange-50 text-[#E8752F] border border-orange-200">School Principal</span>
+                </td>
+                <td class="py-3 px-3 font-medium text-slate-800">Kathmandu Valley Sec. School</td>
+                <td class="py-3 px-3 text-slate-600">+977 1 4720911</td>
+                <td class="py-3 px-3"><span class="text-emerald-600 font-bold flex items-center gap-1"><i data-lucide="shield-check" class="w-3.5 h-3.5"></i> SMS OTP</span></td>
+                <td class="py-3 px-3 text-slate-500">14 mins ago</td>
+                <td class="py-3 px-4 text-right">
+                  <button onclick="Toast.info('User Profile', 'Viewing Dr. Thapa account')" class="text-xs font-semibold text-[#E8752F] hover:underline">Edit</button>
+                </td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4">
+                  <div class="flex items-center gap-2.5">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&auto=format&fit=crop&q=80" class="w-8 h-8 rounded-full object-cover">
+                    <div>
+                      <div class="font-bold text-slate-900">Mrs. Meena Gurung</div>
+                      <div class="text-[11px] text-slate-400">info@pokharamodern.edu.np</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="py-3 px-3">
+                  <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-orange-50 text-[#E8752F] border border-orange-200">School Principal</span>
+                </td>
+                <td class="py-3 px-3 font-medium text-slate-800">Pokhara Modern Academy</td>
+                <td class="py-3 px-3 text-slate-600">+977 61 520441</td>
+                <td class="py-3 px-3"><span class="text-emerald-600 font-bold flex items-center gap-1"><i data-lucide="shield-check" class="w-3.5 h-3.5"></i> SMS OTP</span></td>
+                <td class="py-3 px-3 text-slate-500">2 hours ago</td>
+                <td class="py-3 px-4 text-right">
+                  <button onclick="Toast.info('User Profile', 'Viewing Mrs. Meena Gurung account')" class="text-xs font-semibold text-[#E8752F] hover:underline">Edit</button>
+                </td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4">
+                  <div class="flex items-center gap-2.5">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" class="w-8 h-8 rounded-full object-cover">
+                    <div>
+                      <div class="font-bold text-slate-900">Anil KC</div>
+                      <div class="text-[11px] text-slate-400">anil.support@sanskaar.edu.np</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="py-3 px-3">
+                  <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-blue-50 text-blue-700 border border-blue-200">Support Specialist</span>
+                </td>
+                <td class="py-3 px-3 font-medium text-slate-800">Sanskaar ERP Platform</td>
+                <td class="py-3 px-3 text-slate-600">+977 9811223344</td>
+                <td class="py-3 px-3"><span class="text-emerald-600 font-bold flex items-center gap-1"><i data-lucide="shield-check" class="w-3.5 h-3.5"></i> Authenticator</span></td>
+                <td class="py-3 px-3 text-slate-500">45 mins ago</td>
+                <td class="py-3 px-4 text-right">
+                  <button onclick="Toast.info('User Profile', 'Viewing Anil KC account')" class="text-xs font-semibold text-[#E8752F] hover:underline">Edit</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Add User Modal -->
+      <div id="add-user-modal" class="modal-container fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+        <div class="modal-backdrop fixed inset-0 bg-slate-900/50 backdrop-blur-xs opacity-0 transition-opacity" onclick="ModalManager.close('add-user-modal')"></div>
+        <div class="modal-dialog relative w-full max-w-md bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden transform scale-95 opacity-0 transition-all z-10">
+          <div class="p-5 border-b border-slate-100 flex items-center justify-between">
+            <h3 class="font-bold text-slate-900 text-sm">Create New Platform User</h3>
+            <button onclick="ModalManager.close('add-user-modal')" class="text-slate-400 hover:text-slate-600">
+              <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+          </div>
+          <form onsubmit="event.preventDefault(); ModalManager.close('add-user-modal'); Toast.success('User Created', 'Verification link sent to user email.');" class="p-5 space-y-4 text-xs">
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Full Name</label>
+              <input type="text" required placeholder="e.g. Saroj Shrestha" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#E8752F]">
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Official Email</label>
+              <input type="email" required placeholder="saroj@sanskaar.edu.np" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#E8752F]">
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Platform Role</label>
+              <select class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#E8752F]">
+                <option>SaaS Super Admin</option>
+                <option>Support Specialist</option>
+                <option>Billing Manager</option>
+                <option>Security Auditor</option>
+              </select>
+            </div>
+            <div class="pt-2 flex justify-end gap-2">
+              <button type="button" onclick="ModalManager.close('add-user-modal')" class="px-4 py-2 border border-slate-200 rounded-xl text-slate-600 font-semibold">Cancel</button>
+              <button type="submit" class="px-4 py-2 bg-[#E8752F] text-white rounded-xl font-bold hover:bg-[#D46320]">Create User</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'admin',
+        activeNav: 'users',
+        pageTitle: 'Platform Users',
+        breadcrumb: 'Admin SaaS',
+        rootPrefix: '../'
+      });
+    });
+  </script>
+</body>
+</html>

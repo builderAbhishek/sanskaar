@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homework Management - Sanskaar ERP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <div id="app-shell">
+    <div id="page-content">
+      
+      <!-- Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div>
+          <h1 class="text-2xl font-black text-slate-900 tracking-tight" data-i18n="nav_homework">Homework & Daily Tasks</h1>
+          <p class="text-xs text-slate-500 mt-1">Kathmandu Valley Secondary School • Class 10 (SEE) Daily Assignment Tracker</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="Toast.info('Assign Homework', 'Opening task creation modal')" class="px-3.5 py-2 text-xs font-bold bg-[#E8752F] text-white rounded-xl hover:bg-[#D46320] transition-colors shadow-sm flex items-center gap-2">
+            <i data-lucide="plus-circle" class="w-4 h-4"></i>
+            <span>Assign Homework</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Homework Tasks List -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- Task 1: Mathematics -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-orange-50 text-[#E8752F] border border-orange-200">
+              Compulsory Mathematics
+            </span>
+            <span class="text-xs font-bold text-rose-600">Due Tomorrow (16 Mangsir)</span>
+          </div>
+
+          <h3 class="text-sm font-bold text-slate-900">Compound Interest & Population Growth Exercise 3.2</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Solve questions 1 through 12 from CDC Mathematics textbook page 48. Show step-by-step compound interest formula derivations.
+          </p>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="text-slate-500">Teacher: <strong>Mr. Keshav Nepal</strong></span>
+            <span class="text-emerald-600 font-bold">38 / 42 Submitted</span>
+          </div>
+        </div>
+
+        <!-- Task 2: Science & Tech -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-purple-50 text-purple-700 border border-purple-200">
+              Science & Technology
+            </span>
+            <span class="text-xs font-bold text-slate-500">Due in 2 Days (17 Mangsir)</span>
+          </div>
+
+          <h3 class="text-sm font-bold text-slate-900">Electromagnetic Induction Lab Report & Circuit Diagram</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Draw neat labeled diagrams of AC Generator and Transformer. Describe Faraday's laws of electromagnetic induction.
+          </p>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="text-slate-500">Teacher: <strong>Mr. Dipendra Khatiwada</strong></span>
+            <span class="text-blue-600 font-bold">29 / 42 Submitted</span>
+          </div>
+        </div>
+
+        <!-- Task 3: English -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-blue-50 text-blue-700 border border-blue-200">
+              Compulsory English
+            </span>
+            <span class="text-xs font-bold text-slate-500">Due in 3 Days (18 Mangsir)</span>
+          </div>
+
+          <h3 class="text-sm font-bold text-slate-900">Formal Editorial Letter on Sustainable Tourism in Nepal</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Write an editorial letter to the editor of The Kathmandu Post highlighting community-based eco-tourism opportunities in Annapurna region (180-200 words).
+          </p>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="text-slate-500">Teacher: <strong>Ms. Anjana Sharma</strong></span>
+            <span class="text-emerald-600 font-bold">40 / 42 Submitted</span>
+          </div>
+        </div>
+
+        <!-- Task 4: Nepali -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 text-slate-700">
+              अनिवार्य नेपाली
+            </span>
+            <span class="text-xs font-bold text-slate-500">Due 19 Mangsir</span>
+          </div>
+
+          <h3 class="text-sm font-bold text-slate-900">‘उज्यालो नेपाल’ शीर्षकमा समसामयिक निबन्ध लेखन</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            नेपालमा जलविद्युत् विकास र ऊर्जा आत्मनिर्भरता विषयमा करिब २५० शब्दमा तार्किक निबन्ध तयार गर्नुहोस्।
+          </p>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="text-slate-500">Teacher: <strong>Mr. Bhola Nath Dahal</strong></span>
+            <span class="text-slate-500 font-bold">Pending Review</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'school',
+        activeNav: 'homework',
+        pageTitle: 'Homework Management',
+        breadcrumb: 'Academics',
+        rootPrefix: '../'
+      });
+    });
+  </script>
+</body>
+</html>

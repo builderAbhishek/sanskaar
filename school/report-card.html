@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Official NEB Grade Sheet - Sanskaar ERP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <div id="app-shell">
+    <div id="page-content">
+      
+      <!-- Top Action Bar (No Print) -->
+      <div class="flex items-center justify-between gap-4 mb-6 no-print">
+        <div class="flex items-center gap-3">
+          <a href="results.html" class="p-2 rounded-xl bg-white border border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors shadow-2xs">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+          </a>
+          <div>
+            <h1 class="text-xl font-black text-slate-900 tracking-tight" data-i18n="nav_report_cards">Official Grade Sheet (NEB Format)</h1>
+            <p class="text-xs text-slate-500">Student: Aarav Shrestha • NEB Symbol No: 27014001A • Class 10 (SEE)</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button onclick="window.print()" class="px-4 py-2 text-xs font-bold bg-[#E8752F] text-white rounded-xl hover:bg-[#D46320] transition-colors shadow-sm flex items-center gap-2">
+            <i data-lucide="printer" class="w-4 h-4"></i>
+            <span>Print Official Grade Sheet</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Printable NEB Report Card Document Container -->
+      <div class="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-3xl border-2 border-slate-900 shadow-2xl printable-area text-slate-900 relative">
+        
+        <!-- Institutional Header -->
+        <div class="text-center border-b-2 border-slate-900 pb-6 mb-6">
+          <div class="flex items-center justify-center gap-3 mb-2">
+            <div class="w-14 h-14 rounded-2xl bg-[#E8752F] text-white font-black text-xl flex items-center justify-center shadow-md">
+              KV
+            </div>
+            <div>
+              <h2 class="text-2xl font-black text-slate-900 tracking-tight">KATHMANDU VALLEY SECONDARY SCHOOL</h2>
+              <p class="text-xs font-bold text-slate-700">काठमाडौं भ्याली माध्यमिक विद्यालय</p>
+            </div>
+          </div>
+          <p class="text-xs text-slate-500">Maharajgunj-3, Kathmandu, Bagmati Province, Nepal • Tel: +977 1 4720911</p>
+          <div class="text-[11px] text-slate-500 mt-1 font-semibold">
+            <span>NEB / EMIS Center Code: <strong>27014</strong></span>
+            <span> • </span>
+            <span>Affiliated with National Examinations Board (NEB), Sanothimi, Bhaktapur</span>
+          </div>
+          
+          <div class="mt-4 inline-block px-5 py-1 rounded-full bg-slate-900 text-white font-black text-xs uppercase tracking-wider">
+            Academic Performance Grade-Sheet (Terminal Evaluation 2083)
+          </div>
+        </div>
+
+        <!-- Student Particulars Sub-header -->
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs mb-6">
+          <div>
+            <span class="text-slate-400 block text-[10px] font-bold uppercase">Student Name</span>
+            <span class="font-black text-slate-900 text-sm mt-0.5 block">AARAV SHRESTHA</span>
+          </div>
+          <div>
+            <span class="text-slate-400 block text-[10px] font-bold uppercase">Class & Roll</span>
+            <span class="font-bold text-slate-800 mt-0.5 block">Class 10 - Section A (Roll: #01)</span>
+          </div>
+          <div>
+            <span class="text-slate-400 block text-[10px] font-bold uppercase">NEB Symbol No.</span>
+            <span class="font-mono font-bold text-slate-900 mt-0.5 block">27014001A</span>
+          </div>
+          <div>
+            <span class="text-slate-400 block text-[10px] font-bold uppercase">Date of Birth (BS / AD)</span>
+            <span class="font-bold text-slate-800 mt-0.5 block">2067-05-14 (2010-08-30)</span>
+          </div>
+        </div>
+
+        <!-- Grade-Sheet Table (NEB Standard) -->
+        <div class="border border-slate-300 rounded-2xl overflow-hidden mb-6">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-slate-100 text-slate-800 font-bold border-b border-slate-300">
+              <tr>
+                <th class="py-2.5 px-3 w-12 text-center">Code</th>
+                <th class="py-2.5 px-3">Subject Name</th>
+                <th class="py-2.5 px-2 text-center w-16">Credit</th>
+                <th class="py-2.5 px-2 text-center w-24">Theory (TH)</th>
+                <th class="py-2.5 px-2 text-center w-24">Practical (PR)</th>
+                <th class="py-2.5 px-2 text-center w-24">Final Grade</th>
+                <th class="py-2.5 px-3 text-right w-24">Grade Point</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200 font-mono">
+              <tr>
+                <td class="py-2 px-3 text-center text-slate-500">001</td>
+                <td class="py-2 px-3 font-sans font-bold text-slate-900">Compulsory English</td>
+                <td class="py-2 px-2 text-center text-slate-700">4.0</td>
+                <td class="py-2 px-2 text-center font-bold text-slate-800">A (68)</td>
+                <td class="py-2 px-2 text-center font-bold text-emerald-600">A+ (24)</td>
+                <td class="py-2 px-2 text-center font-black text-emerald-600">A+</td>
+                <td class="py-2 px-3 text-right font-bold text-slate-900">3.85</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 text-center text-slate-500">002</td>
+                <td class="py-2 px-3 font-sans font-bold text-slate-900">Compulsory Nepali</td>
+                <td class="py-2 px-2 text-center text-slate-700">4.0</td>
+                <td class="py-2 px-2 text-center font-bold text-slate-800">A (64)</td>
+                <td class="py-2 px-2 text-center font-bold text-emerald-600">A+ (23)</td>
+                <td class="py-2 px-2 text-center font-black text-emerald-600">A</td>
+                <td class="py-2 px-3 text-right font-bold text-slate-900">3.60</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 text-center text-slate-500">003</td>
+                <td class="py-2 px-3 font-sans font-bold text-slate-900">Compulsory Mathematics</td>
+                <td class="py-2 px-2 text-center text-slate-700">4.0</td>
+                <td class="py-2 px-2 text-center font-bold text-emerald-600">A+ (72)</td>
+                <td class="py-2 px-2 text-center font-bold text-emerald-600">A+ (25)</td>
+                <td class="py-2 px-2 text-center font-black text-emerald-600">A+</td>
+                <td class="py-2 px-3 text-right font-bold text-slate-900">4.00</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 text-center text-slate-500">004</td>
+                <td class="py-2 px-3 font-sans font-bold text-slate-900">Science & Technology</td>
+                <td class="py-2 px-2 text-center text-slate-700">4.0</td>
+                <td class="py-2 px-2 text-center font-bold text-emerald-600">A+ (70)</td>
+                <td class="py-2 px-2 text-center font-bold text-emerald-600">A+ (25)</td>
+                <td class="py-2 px-2 text-center font-black text-emerald-600">A+</td>
+                <td class="py-2 px-3 text-right font-bold text-slate-900">4.00</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 text-center text-slate-500">005</td>
+                <td class="py-2 px-3 font-sans font-bold text-slate-900">Social Studies & Values</td>
+                <td class="py-2 px-2 text-center text-slate-700">4.0</td>
+                <td class="py-2 px-2 text-center font-bold text-slate-800">A (66)</td>
+                <td class="py-2 px-2 text-center font-bold text-emerald-600">A+ (24)</td>
+                <td class="py-2 px-2 text-center font-black text-emerald-600">A+</td>
+                <td class="py-2 px-3 text-right font-bold text-slate-900">3.80</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 text-center text-slate-500">101</td>
+                <td class="py-2 px-3 font-sans font-bold text-slate-900">Opt. I: Additional Mathematics</td>
+                <td class="py-2 px-2 text-center text-slate-700">4.0</td>
+                <td class="py-2 px-2 text-center font-bold text-emerald-600">A+ (74)</td>
+                <td class="py-2 px-2 text-center font-bold text-emerald-600">A+ (25)</td>
+                <td class="py-2 px-2 text-center font-black text-emerald-600">A+</td>
+                <td class="py-2 px-3 text-right font-bold text-slate-900">4.00</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-3 text-center text-slate-500">201</td>
+                <td class="py-2 px-3 font-sans font-bold text-slate-900">Opt. II: Computer Science</td>
+                <td class="py-2 px-2 text-center text-slate-700">4.0</td>
+                <td class="py-2 px-2 text-center font-bold text-emerald-600">A+ (48/50)</td>
+                <td class="py-2 px-2 text-center font-bold text-emerald-600">A+ (48/50)</td>
+                <td class="py-2 px-2 text-center font-black text-emerald-600">A+</td>
+                <td class="py-2 px-3 text-right font-bold text-slate-900">4.00</td>
+              </tr>
+            </tbody>
+            <tfoot class="bg-slate-50 font-bold border-t-2 border-slate-300">
+              <tr>
+                <td colspan="5" class="py-3 px-4 font-sans font-black text-slate-900 text-sm">GRADE POINT AVERAGE (GPA):</td>
+                <td class="py-3 px-2 text-center font-black text-emerald-600 text-base">A+</td>
+                <td class="py-3 px-3 text-right font-black text-emerald-600 text-base">3.92</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <!-- Remarks & Standing -->
+        <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 text-xs mb-8">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-slate-400 uppercase font-bold text-[10px]">Academic Standing & Principal Remarks</span>
+            <span class="font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded text-[10px]">PROMOTED / PASSED</span>
+          </div>
+          <p class="font-medium text-slate-800 leading-relaxed">
+            "Aarav demonstrates extraordinary analytical problem-solving skills in Mathematics and Physics. Commended for punctuality (96.8% attendance) and peer leadership."
+          </p>
+        </div>
+
+        <!-- Signatures & Official Institutional Stamp -->
+        <div class="grid grid-cols-3 gap-6 pt-6 border-t border-slate-200 text-center text-xs">
+          <div>
+            <div class="h-10"></div>
+            <div class="border-t border-slate-900 w-36 mx-auto mb-1"></div>
+            <span class="font-bold text-slate-900">Mr. Keshav Nepal</span>
+            <span class="block text-[10px] text-slate-400">Class Incharge (10-A)</span>
+          </div>
+
+          <div>
+            <div class="w-16 h-16 rounded-full border-2 border-dashed border-[#E8752F] text-[#E8752F] font-bold text-[9px] flex items-center justify-center mx-auto opacity-80 uppercase leading-tight">
+              School Seal<br>2083
+            </div>
+            <span class="block text-[10px] text-slate-400 mt-1">Date: 2083-08-15</span>
+          </div>
+
+          <div>
+            <div class="h-10"></div>
+            <div class="border-t border-slate-900 w-36 mx-auto mb-1"></div>
+            <span class="font-bold text-slate-900">Dr. Ram Bahadur Thapa</span>
+            <span class="block text-[10px] text-slate-400">Head of Institution / Principal</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'school',
+        activeNav: 'report-card',
+        pageTitle: 'NEB Report Card',
+        breadcrumb: 'Examination',
+        rootPrefix: '../'
+      });
+    });
+  </script>
+</body>
+</html>

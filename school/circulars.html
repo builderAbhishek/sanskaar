@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Official Circulars - Sanskaar ERP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <div id="app-shell">
+    <div id="page-content">
+      
+      <!-- Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div>
+          <h1 class="text-2xl font-black text-slate-900 tracking-tight" data-i18n="nav_circulars">Administrative Circulars & Directives</h1>
+          <p class="text-xs text-slate-500 mt-1">Kathmandu Valley Secondary School • Internal Faculty Memorandums & Operational Directives</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="Toast.info('New Circular', 'Drafting staff directive')" class="px-3.5 py-2 text-xs font-bold bg-[#E8752F] text-white rounded-xl hover:bg-[#D46320] transition-colors shadow-sm flex items-center gap-2">
+            <i data-lucide="plus-circle" class="w-4 h-4"></i>
+            <span>Issue Staff Circular</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Circulars List -->
+      <div class="space-y-4 text-xs">
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <div class="flex items-center justify-between mb-2">
+            <div class="flex items-center gap-2">
+              <span class="font-mono font-bold text-slate-500">CIR-2083-042</span>
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-purple-50 text-purple-700">Faculty Directive</span>
+            </div>
+            <span class="text-slate-400">Date: 10 Mangsir 2083</span>
+          </div>
+          <h3 class="text-sm font-bold text-slate-900">Submission of SEE Model Pre-Board Question Papers & Answer Keys</h3>
+          <p class="text-slate-600 mt-1 leading-relaxed">
+            All subject teachers of Class 10 are required to submit two sets of moderated question papers along with full marking schemes and rubrics to the Exam Cell (Attn: Mr. Keshav Nepal) no later than Friday, 19 Mangsir 2083 at 04:00 PM. Adhere strictly to the CDC curriculum matrix.
+          </p>
+          <div class="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400">
+            <span>Signed: Dr. Ram Bahadur Thapa (Principal)</span>
+            <span class="text-emerald-600 font-bold">Read by 74 / 78 Teachers</span>
+          </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <div class="flex items-center justify-between mb-2">
+            <div class="flex items-center gap-2">
+              <span class="font-mono font-bold text-slate-500">CIR-2083-039</span>
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-blue-50 text-blue-700">Administrative Directive</span>
+            </div>
+            <span class="text-slate-400">Date: 28 Kartik 2083</span>
+          </div>
+          <h3 class="text-sm font-bold text-slate-900">Winter Timetable Revision & Heating Protocol</h3>
+          <p class="text-slate-600 mt-1 leading-relaxed">
+            Due to declining morning temperatures in Kathmandu Valley, morning assembly from 01 Mangsir will commence at 08:45 AM instead of 08:30 AM. Heating units in Pre-Primary and Primary classrooms have been inspected and activated.
+          </p>
+          <div class="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400">
+            <span>Signed: Administration Office</span>
+            <span class="text-emerald-600 font-bold">Acknowledged by All Departments</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'school',
+        activeNav: 'circulars',
+        pageTitle: 'Official Circulars',
+        breadcrumb: 'Communication',
+        rootPrefix: '../'
+      });
+    });
+  </script>
+</body>
+</html>

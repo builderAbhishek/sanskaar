@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-50">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanskaar ERP - Student Fee Receipts</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="h-full text-slate-800 antialiased font-['Plus_Jakarta_Sans',sans-serif]">
+  <div id="app-shell">
+    <div id="page-content" class="p-6 space-y-6">
+      
+      <!-- Page Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <h1 class="text-2xl font-bold text-slate-900" data-i18n="student_fee_receipts">Fee Receipts</h1>
+          <p class="text-sm text-slate-500 mt-1">Official digital tax invoices and payment vouchers with digital signature & QR verification.</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="fees.html" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-sm font-semibold transition-all">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+            <span>Back to Fee Ledger</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Receipts Table -->
+      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
+        <div class="p-5 border-b border-slate-100 flex items-center justify-between">
+          <h3 class="font-bold text-slate-900">Paid Tax Invoices (Academic Session 2083-84 B.S.)</h3>
+          <span class="text-xs text-slate-500">Student: Aarav Shrestha • Roll No: 01</span>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-sm">
+            <thead class="bg-slate-50/80 text-xs font-semibold text-slate-500 uppercase tracking-wider border-b border-slate-200/60">
+              <tr>
+                <th class="px-6 py-3.5">Receipt #</th>
+                <th class="px-6 py-3.5">Billing Period</th>
+                <th class="px-6 py-3.5">Payment Date</th>
+                <th class="px-6 py-3.5">Payment Gateway</th>
+                <th class="px-6 py-3.5 text-right">Amount (NPR)</th>
+                <th class="px-6 py-3.5 text-center">Status</th>
+                <th class="px-6 py-3.5 text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 font-medium">
+              <tr>
+                <td class="px-6 py-4 font-mono font-bold text-[#E8752F]">REC-2083-4414</td>
+                <td class="px-6 py-4 text-slate-800">Quarter 3 Installment (Shrawan – Ashwin)</td>
+                <td class="px-6 py-4 text-slate-500 text-xs">2083-04-26 (10 Aug 2026)</td>
+                <td class="px-6 py-4 text-xs font-semibold text-slate-700">ConnectIPS / Nabil Bank</td>
+                <td class="px-6 py-4 text-right font-bold text-slate-900">रू 22,000</td>
+                <td class="px-6 py-4 text-center">
+                  <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">Cleared</span>
+                </td>
+                <td class="px-6 py-4 text-right">
+                  <button onclick="previewReceipt('REC-2083-4414', 'Quarter 3 Installment', '2083-04-26', 'ConnectIPS', '22,000')" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-xs font-semibold transition-colors">
+                    <i data-lucide="printer" class="w-3.5 h-3.5"></i>
+                    <span>Print</span>
+                  </button>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="px-6 py-4 font-mono font-bold text-[#E8752F]">REC-2083-2190</td>
+                <td class="px-6 py-4 text-slate-800">Quarter 2 Installment (Jestha – Ashadh)</td>
+                <td class="px-6 py-4 text-slate-500 text-xs">2083-02-15 (29 May 2026)</td>
+                <td class="px-6 py-4 text-xs font-semibold text-slate-700">eSewa Mobile Wallet</td>
+                <td class="px-6 py-4 text-right font-bold text-slate-900">रू 22,000</td>
+                <td class="px-6 py-4 text-center">
+                  <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">Cleared</span>
+                </td>
+                <td class="px-6 py-4 text-right">
+                  <button onclick="previewReceipt('REC-2083-2190', 'Quarter 2 Installment', '2083-02-15', 'eSewa', '22,000')" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-xs font-semibold transition-colors">
+                    <i data-lucide="printer" class="w-3.5 h-3.5"></i>
+                    <span>Print</span>
+                  </button>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="px-6 py-4 font-mono font-bold text-[#E8752F]">REC-2083-0104</td>
+                <td class="px-6 py-4 text-slate-800">Quarter 1 & Session Registration</td>
+                <td class="px-6 py-4 text-slate-500 text-xs">2083-01-08 (20 Apr 2026)</td>
+                <td class="px-6 py-4 text-xs font-semibold text-slate-700">Khalti Digital Wallet</td>
+                <td class="px-6 py-4 text-right font-bold text-slate-900">रू 22,000</td>
+                <td class="px-6 py-4 text-center">
+                  <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">Cleared</span>
+                </td>
+                <td class="px-6 py-4 text-right">
+                  <button onclick="previewReceipt('REC-2083-0104', 'Quarter 1 Installment', '2083-01-08', 'Khalti', '22,000')" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-xs font-semibold transition-colors">
+                    <i data-lucide="printer" class="w-3.5 h-3.5"></i>
+                    <span>Print</span>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Printable Fee Receipt Modal -->
+  <div id="receiptModal" class="hidden fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl border border-slate-200 shadow-2xl w-full max-w-2xl overflow-hidden max-h-[90vh] flex flex-col">
+      <div class="p-4 border-b border-slate-100 flex items-center justify-between no-print">
+        <h3 class="font-bold text-slate-900 text-sm">Official Fee Receipt Preview</h3>
+        <div class="flex items-center gap-2">
+          <button onclick="window.print()" class="px-3 py-1.5 bg-[#E8752F] text-white text-xs font-bold rounded-lg flex items-center gap-1.5 shadow-sm">
+            <i data-lucide="printer" class="w-3.5 h-3.5"></i> Print Receipt
+          </button>
+          <button onclick="SanskaarModal.close('receiptModal')" class="text-slate-400 hover:text-slate-600 p-1"><i data-lucide="x" class="w-5 h-5"></i></button>
+        </div>
+      </div>
+
+      <div class="p-8 overflow-y-auto space-y-6 text-slate-800" id="receipt-printable-area">
+        <!-- Receipt Header -->
+        <div class="text-center border-b-2 border-slate-900 pb-4 space-y-1">
+          <h2 class="text-xl font-black text-slate-900 tracking-tight">KATHMANDU VALLEY SECONDARY SCHOOL</h2>
+          <p class="text-xs font-semibold text-slate-600">Maharajgunj, Ward No. 4, Kathmandu, Nepal • Phone: +977-1-4720199</p>
+          <div class="flex justify-center items-center gap-4 text-[11px] text-slate-500 pt-1">
+            <span>NEB School Code: <strong>27014</strong></span>
+            <span>•</span>
+            <span>IRD PAN: <strong>301298412</strong></span>
+            <span>•</span>
+            <span>Estd: <strong>2052 B.S.</strong></span>
+          </div>
+          <div class="inline-block px-3 py-0.5 bg-slate-900 text-white font-bold text-xs rounded uppercase tracking-wider mt-2">
+            OFFICIAL FEE RECEIPT / TAX INVOICE
+          </div>
+        </div>
+
+        <!-- Meta Info Grid -->
+        <div class="grid grid-cols-2 gap-4 text-xs">
+          <div>
+            <div>Receipt No: <strong id="r-no" class="font-mono text-slate-900">REC-2083-4414</strong></div>
+            <div>Payment Date: <strong id="r-date" class="text-slate-900">2083-04-26 B.S.</strong></div>
+            <div>Payment Gateway: <strong id="r-gw" class="text-slate-900">ConnectIPS</strong></div>
+          </div>
+          <div class="text-right">
+            <div>Student Name: <strong class="text-slate-900">Aarav Shrestha</strong></div>
+            <div>Class & Section: <strong class="text-slate-900">Class 10 (SEE) - Sec A</strong></div>
+            <div>Roll No: <strong class="text-slate-900">01</strong> | Reg ID: <strong class="font-mono">ADM-2078-1001</strong></div>
+          </div>
+        </div>
+
+        <!-- Line Items Table -->
+        <table class="w-full text-left text-xs border border-slate-200">
+          <thead class="bg-slate-100 font-bold text-slate-700">
+            <tr>
+              <th class="p-2.5 border-b border-slate-200">#</th>
+              <th class="p-2.5 border-b border-slate-200">Description</th>
+              <th class="p-2.5 border-b border-slate-200 text-right">Amount (NPR)</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100">
+            <tr>
+              <td class="p-2">1</td>
+              <td class="p-2 font-medium">Monthly Tuition Fee (Quarterly Installment)</td>
+              <td class="p-2 text-right font-semibold">रू 15,000</td>
+            </tr>
+            <tr>
+              <td class="p-2">2</td>
+              <td class="p-2 font-medium">Senior Science & Computer Lab Fee</td>
+              <td class="p-2 text-right font-semibold">रू 4,000</td>
+            </tr>
+            <tr>
+              <td class="p-2">3</td>
+              <td class="p-2 font-medium">Terminal Examination / Model Papers</td>
+              <td class="p-2 text-right font-semibold">रू 2,000</td>
+            </tr>
+            <tr>
+              <td class="p-2">4</td>
+              <td class="p-2 font-medium">Sports & Extra-Curricular Activity</td>
+              <td class="p-2 text-right font-semibold">रू 1,000</td>
+            </tr>
+            <tr class="bg-slate-50 font-bold border-t border-slate-300">
+              <td colspan="2" class="p-2.5 text-right">Total Net Paid:</td>
+              <td class="p-2.5 text-right text-sm font-black text-slate-900">रू 22,000</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- In Words -->
+        <div class="text-xs italic bg-slate-50 p-2.5 rounded border border-slate-200">
+          In Words: <strong>Nepalese Rupees Twenty-Two Thousand Only</strong>
+        </div>
+
+        <!-- Signatures & Official Stamp -->
+        <div class="pt-8 flex items-end justify-between text-xs">
+          <div class="text-center">
+            <div class="w-24 h-12 border-2 border-red-500 rounded-full text-red-600 flex items-center justify-center font-black text-[10px] uppercase rotate-[-6deg] mx-auto opacity-70">
+              KVSS SEAL
+            </div>
+            <div class="text-[10px] text-slate-400 mt-1">Authorized Stamp</div>
+          </div>
+          <div class="text-center">
+            <div class="font-serif italic text-slate-800 text-sm">Keshav Sharma</div>
+            <div class="border-t border-slate-400 w-36 pt-1 font-semibold text-slate-600">Accounts Officer</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+  <script>
+    function previewReceipt(no, period, date, gw, amount) {
+      document.getElementById('r-no').textContent = no;
+      document.getElementById('r-date').textContent = date;
+      document.getElementById('r-gw').textContent = gw;
+      SanskaarModal.open('receiptModal');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'student',
+        activeNav: 'fees',
+        pageTitle: 'Fee Receipts',
+        breadcrumb: 'Student / Receipts',
+        rootPrefix: '../'
+      });
+    });
+  </script>
+</body>
+</html>

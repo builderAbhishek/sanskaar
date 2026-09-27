@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sections & Allotment - Sanskaar ERP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <div id="app-shell">
+    <div id="page-content">
+      
+      <!-- Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div>
+          <h1 class="text-2xl font-black text-slate-900 tracking-tight" data-i18n="nav_sections">Sections & Classrooms</h1>
+          <p class="text-xs text-slate-500 mt-1">Classroom allotments, class teacher assignments, and seating capacity</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="Toast.info('Add Section', 'Creating section allotment')" class="px-3.5 py-2 text-xs font-bold bg-[#E8752F] text-white rounded-xl hover:bg-[#D46320] transition-colors shadow-sm flex items-center gap-2">
+            <i data-lucide="plus-circle" class="w-4 h-4"></i>
+            <span>Add New Section</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Sections Table -->
+      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-2xs overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-slate-50 text-slate-500 border-b border-slate-200/80">
+              <tr>
+                <th class="py-3 px-4 font-semibold">Class & Section</th>
+                <th class="py-3 px-3 font-semibold">Wing</th>
+                <th class="py-3 px-3 font-semibold">Room No. & Block</th>
+                <th class="py-3 px-3 font-semibold">Class Teacher</th>
+                <th class="py-3 px-3 font-semibold">Enrolled / Capacity</th>
+                <th class="py-3 px-3 font-semibold">Attendance Today</th>
+                <th class="py-3 px-4 font-semibold text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4">
+                  <div class="font-bold text-slate-900 text-sm">Class 10 - Section A</div>
+                  <div class="text-[11px] text-slate-400">SEE Board Candidate Cohort</div>
+                </td>
+                <td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-orange-50 text-[#E8752F] font-bold text-[10px]">Secondary (SEE)</span></td>
+                <td class="py-3 px-3 font-medium text-slate-800">Room 301 • Main Academic Block</td>
+                <td class="py-3 px-3">
+                  <div class="font-bold text-slate-900">Mr. Keshav Nepal</div>
+                  <div class="text-[10px] text-slate-400">Senior Math Faculty</div>
+                </td>
+                <td class="py-3 px-3">
+                  <div class="flex items-center gap-2">
+                    <span class="font-bold text-slate-900">42 / 45</span>
+                    <span class="text-[10px] text-emerald-600 font-semibold">(3 Seats Left)</span>
+                  </div>
+                </td>
+                <td class="py-3 px-3 font-bold text-emerald-600">97.6% (41 Present)</td>
+                <td class="py-3 px-4 text-right">
+                  <a href="attendance.html?class=10&section=A" class="text-xs font-bold text-[#E8752F] hover:underline">Roll Call</a>
+                </td>
+              </tr>
+
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4">
+                  <div class="font-bold text-slate-900 text-sm">Class 10 - Section B</div>
+                  <div class="text-[11px] text-slate-400">SEE Board Candidate Cohort</div>
+                </td>
+                <td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-orange-50 text-[#E8752F] font-bold text-[10px]">Secondary (SEE)</span></td>
+                <td class="py-3 px-3 font-medium text-slate-800">Room 302 • Main Academic Block</td>
+                <td class="py-3 px-3">
+                  <div class="font-bold text-slate-900">Ms. Anjana Sharma</div>
+                  <div class="text-[10px] text-slate-400">English Literature</div>
+                </td>
+                <td class="py-3 px-3">
+                  <div class="flex items-center gap-2">
+                    <span class="font-bold text-slate-900">44 / 45</span>
+                    <span class="text-[10px] text-amber-600 font-semibold">(1 Seat Left)</span>
+                  </div>
+                </td>
+                <td class="py-3 px-3 font-bold text-emerald-600">95.4% (42 Present)</td>
+                <td class="py-3 px-4 text-right">
+                  <a href="attendance.html?class=10&section=B" class="text-xs font-bold text-[#E8752F] hover:underline">Roll Call</a>
+                </td>
+              </tr>
+
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4">
+                  <div class="font-bold text-slate-900 text-sm">Class 10 - Section C</div>
+                  <div class="text-[11px] text-slate-400">SEE Board Candidate Cohort</div>
+                </td>
+                <td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-orange-50 text-[#E8752F] font-bold text-[10px]">Secondary (SEE)</span></td>
+                <td class="py-3 px-3 font-medium text-slate-800">Room 303 • Main Academic Block</td>
+                <td class="py-3 px-3">
+                  <div class="font-bold text-slate-900">Mr. Dipendra Khatiwada</div>
+                  <div class="text-[10px] text-slate-400">Science & Tech</div>
+                </td>
+                <td class="py-3 px-3">
+                  <div class="flex items-center gap-2">
+                    <span class="font-bold text-slate-900">42 / 45</span>
+                    <span class="text-[10px] text-emerald-600 font-semibold">(3 Seats Left)</span>
+                  </div>
+                </td>
+                <td class="py-3 px-3 font-bold text-emerald-600">97.6% (41 Present)</td>
+                <td class="py-3 px-4 text-right">
+                  <a href="attendance.html?class=10&section=C" class="text-xs font-bold text-[#E8752F] hover:underline">Roll Call</a>
+                </td>
+              </tr>
+
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4">
+                  <div class="font-bold text-slate-900 text-sm">Class 9 - Section A</div>
+                  <div class="text-[11px] text-slate-400">Pre-SEE Foundation</div>
+                </td>
+                <td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-blue-50 text-blue-700 font-bold text-[10px]">Secondary</span></td>
+                <td class="py-3 px-3 font-medium text-slate-800">Room 201 • West Wing</td>
+                <td class="py-3 px-3">
+                  <div class="font-bold text-slate-900">Mrs. Shanti Pokharel</div>
+                  <div class="text-[10px] text-slate-400">Social Studies</div>
+                </td>
+                <td class="py-3 px-3">
+                  <div class="flex items-center gap-2">
+                    <span class="font-bold text-slate-900">46 / 50</span>
+                    <span class="text-[10px] text-emerald-600 font-semibold">(4 Seats Left)</span>
+                  </div>
+                </td>
+                <td class="py-3 px-3 font-bold text-emerald-600">96.0% (44 Present)</td>
+                <td class="py-3 px-4 text-right">
+                  <a href="attendance.html?class=9&section=A" class="text-xs font-bold text-[#E8752F] hover:underline">Roll Call</a>
+                </td>
+              </tr>
+
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4">
+                  <div class="font-bold text-slate-900 text-sm">Class 11 - Science A</div>
+                  <div class="text-[11px] text-slate-400">Physics, Chemistry, Biology, Math</div>
+                </td>
+                <td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 font-bold text-[10px]">NEB +2</span></td>
+                <td class="py-3 px-3 font-medium text-slate-800">Science Lab Wing • Room 401</td>
+                <td class="py-3 px-3">
+                  <div class="font-bold text-slate-900">Prof. Gyanendra Baral</div>
+                  <div class="text-[10px] text-slate-400">Physics Department Head</div>
+                </td>
+                <td class="py-3 px-3">
+                  <div class="flex items-center gap-2">
+                    <span class="font-bold text-slate-900">44 / 45</span>
+                    <span class="text-[10px] text-amber-600 font-semibold">(1 Seat Left)</span>
+                  </div>
+                </td>
+                <td class="py-3 px-3 font-bold text-emerald-600">98.5% (43 Present)</td>
+                <td class="py-3 px-4 text-right">
+                  <a href="attendance.html?class=11&section=A" class="text-xs font-bold text-[#E8752F] hover:underline">Roll Call</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'school',
+        activeNav: 'sections',
+        pageTitle: 'Sections & Allotments',
+        breadcrumb: 'Academics',
+        rootPrefix: '../'
+      });
+    });
+  </script>
+</body>
+</html>

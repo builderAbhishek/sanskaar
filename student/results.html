@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-50">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanskaar ERP - Student Academic Results</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="h-full text-slate-800 antialiased font-['Plus_Jakarta_Sans',sans-serif]">
+  <div id="app-shell">
+    <div id="page-content" class="p-6 space-y-6">
+      
+      <!-- Page Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <h1 class="text-2xl font-bold text-slate-900" data-i18n="student_results">Terminal Results & Grade-Sheet</h1>
+          <p class="text-sm text-slate-500 mt-1">Official National Examination Board (NEB) CDC letter grading, GPA, and subject breakdown.</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <button onclick="window.print()" class="inline-flex items-center gap-2 px-4 py-2 bg-[#E8752F] hover:bg-[#d66521] text-white rounded-xl text-sm font-semibold transition-all shadow-sm">
+            <i data-lucide="printer" class="w-4 h-4"></i>
+            <span>Print Official Grade Sheet</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Result Scorecard Banner -->
+      <div class="bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 text-white rounded-2xl p-6 shadow-md relative overflow-hidden">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
+          <div class="space-y-2">
+            <div class="inline-flex items-center gap-2 px-3 py-1 bg-white/20 rounded-full text-xs font-bold uppercase tracking-wide">
+              <span>Term II Examination 2083 B.S.</span>
+              <span>•</span>
+              <span>Published: 30 Bhadra 2083</span>
+            </div>
+            <h2 class="text-3xl font-black">Aarav Shrestha — Distinction (A+)</h2>
+            <p class="text-emerald-100 text-sm">Class 10-A • Roll No: 01 • NEB Symbol No: 02701429A</p>
+          </div>
+
+          <div class="grid grid-cols-3 gap-3 bg-black/20 backdrop-blur-md p-4 rounded-xl border border-white/20 text-center">
+            <div>
+              <div class="text-[11px] uppercase text-emerald-200 font-bold">Cumulative GPA</div>
+              <div class="text-3xl font-black mt-0.5">3.92</div>
+            </div>
+            <div class="border-x border-white/20 px-4">
+              <div class="text-[11px] uppercase text-emerald-200 font-bold">Total Score</div>
+              <div class="text-2xl font-black mt-1">663<span class="text-xs font-normal">/700</span></div>
+            </div>
+            <div>
+              <div class="text-[11px] uppercase text-emerald-200 font-bold">Class Rank</div>
+              <div class="text-2xl font-black mt-1 text-amber-300">#1 Topper</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CDC Official Grade Sheet Table -->
+      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden" id="report-card-print">
+        <div class="p-6 border-b border-slate-100 space-y-2">
+          <div class="flex items-center justify-between">
+            <h3 class="font-bold text-slate-900 text-lg">Curriculum Development Centre (CDC) Subject Performance</h3>
+            <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700">All Subjects Passed (Theory ≥ 35%)</span>
+          </div>
+          <p class="text-xs text-slate-500">Grading System: 75 Marks Theory (TH) + 25 Marks Practical / Continuous Assessment (PR)</p>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-sm">
+            <thead class="bg-slate-50/80 text-xs font-semibold text-slate-500 uppercase tracking-wider border-b border-slate-200/60">
+              <tr>
+                <th class="px-6 py-4">Code</th>
+                <th class="px-6 py-4">Subject Name</th>
+                <th class="px-4 py-4 text-center">Credit Hr</th>
+                <th class="px-4 py-4 text-center">Theory (75)</th>
+                <th class="px-4 py-4 text-center">Practical (25)</th>
+                <th class="px-4 py-4 text-center">Total (100)</th>
+                <th class="px-4 py-4 text-center">Grade</th>
+                <th class="px-6 py-4 text-right">Grade Point</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 font-medium">
+              <tr class="hover:bg-slate-50/50 transition-colors">
+                <td class="px-6 py-4 font-mono text-xs text-slate-500">NEP-101</td>
+                <td class="px-6 py-4 font-bold text-slate-900">अनिवार्य नेपाली (Compulsory Nepali)</td>
+                <td class="px-4 py-4 text-center text-slate-600">4.0</td>
+                <td class="px-4 py-4 text-center font-bold text-slate-800">68</td>
+                <td class="px-4 py-4 text-center font-bold text-slate-800">24</td>
+                <td class="px-4 py-4 text-center font-black text-slate-900">92</td>
+                <td class="px-4 py-4 text-center"><span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700">A+</span></td>
+                <td class="px-6 py-4 text-right font-bold text-slate-900">4.0</td>
+              </tr>
+
+              <tr class="hover:bg-slate-50/50 transition-colors">
+                <td class="px-6 py-4 font-mono text-xs text-slate-500">ENG-102</td>
+                <td class="px-6 py-4 font-bold text-slate-900">Compulsory English</td>
+                <td class="px-4 py-4 text-center text-slate-600">4.0</td>
+                <td class="px-4 py-4 text-center font-bold text-slate-800">71</td>
+                <td class="px-4 py-4 text-center font-bold text-slate-800">24</td>
+                <td class="px-4 py-4 text-center font-black text-slate-900">95</td>
+                <td class="px-4 py-4 text-center"><span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700">A+</span></td>
+                <td class="px-6 py-4 text-right font-bold text-slate-900">4.0</td>
+              </tr>
+
+              <tr class="hover:bg-slate-50/50 transition-colors">
+                <td class="px-6 py-4 font-mono text-xs text-slate-500">MTH-103</td>
+                <td class="px-6 py-4 font-bold text-slate-900">Compulsory Mathematics</td>
+                <td class="px-4 py-4 text-center text-slate-600">5.0</td>
+                <td class="px-4 py-4 text-center font-bold text-slate-800">74</td>
+                <td class="px-4 py-4 text-center font-bold text-slate-800">25</td>
+                <td class="px-4 py-4 text-center font-black text-slate-900">99</td>
+                <td class="px-4 py-4 text-center"><span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700">A+</span></td>
+                <td class="px-6 py-4 text-right font-bold text-slate-900">4.0</td>
+              </tr>
+
+              <tr class="hover:bg-slate-50/50 transition-colors">
+                <td class="px-6 py-4 font-mono text-xs text-slate-500">SCI-104</td>
+                <td class="px-6 py-4 font-bold text-slate-900">Science & Technology (विज्ञान तथा प्रविधि)</td>
+                <td class="px-4 py-4 text-center text-slate-600">5.0</td>
+                <td class="px-4 py-4 text-center font-bold text-slate-800">72</td>
+                <td class="px-4 py-4 text-center font-bold text-slate-800">24</td>
+                <td class="px-4 py-4 text-center font-black text-slate-900">96</td>
+                <td class="px-4 py-4 text-center"><span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700">A+</span></td>
+                <td class="px-6 py-4 text-right font-bold text-slate-900">4.0</td>
+              </tr>
+
+              <tr class="hover:bg-slate-50/50 transition-colors">
+                <td class="px-6 py-4 font-mono text-xs text-slate-500">SOC-105</td>
+                <td class="px-6 py-4 font-bold text-slate-900">Social Studies & Human Values (सामाजिक अध्ययन)</td>
+                <td class="px-4 py-4 text-center text-slate-600">4.0</td>
+                <td class="px-4 py-4 text-center font-bold text-slate-800">67</td>
+                <td class="px-4 py-4 text-center font-bold text-slate-800">23</td>
+                <td class="px-4 py-4 text-center font-black text-slate-900">90</td>
+                <td class="px-4 py-4 text-center"><span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700">A+</span></td>
+                <td class="px-6 py-4 text-right font-bold text-slate-900">4.0</td>
+              </tr>
+
+              <tr class="hover:bg-slate-50/50 transition-colors">
+                <td class="px-6 py-4 font-mono text-xs text-slate-500">OPM-106</td>
+                <td class="px-6 py-4 font-bold text-slate-900">Optional I: Additional Mathematics</td>
+                <td class="px-4 py-4 text-center text-slate-600">4.0</td>
+                <td class="px-4 py-4 text-center font-bold text-slate-800">70</td>
+                <td class="px-4 py-4 text-center font-bold text-slate-800">24</td>
+                <td class="px-4 py-4 text-center font-black text-slate-900">94</td>
+                <td class="px-4 py-4 text-center"><span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700">A+</span></td>
+                <td class="px-6 py-4 text-right font-bold text-slate-900">4.0</td>
+              </tr>
+
+              <tr class="hover:bg-slate-50/50 transition-colors">
+                <td class="px-6 py-4 font-mono text-xs text-slate-500">CSC-107</td>
+                <td class="px-6 py-4 font-bold text-slate-900">Optional II: Computer Science & AI</td>
+                <td class="px-4 py-4 text-center text-slate-600">4.0</td>
+                <td class="px-4 py-4 text-center font-bold text-slate-800">48</td>
+                <td class="px-4 py-4 text-center font-bold text-slate-800">49</td>
+                <td class="px-4 py-4 text-center font-black text-slate-900">97</td>
+                <td class="px-4 py-4 text-center"><span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700">A+</span></td>
+                <td class="px-6 py-4 text-right font-bold text-slate-900">4.0</td>
+              </tr>
+            </tbody>
+            <tfoot class="bg-slate-50/80 font-bold text-slate-900 border-t-2 border-slate-200">
+              <tr>
+                <td colspan="5" class="px-6 py-4 text-right">Aggregate Total Score & Final GPA:</td>
+                <td class="px-4 py-4 text-center text-base font-black text-[#E8752F]">663 / 700</td>
+                <td class="px-4 py-4 text-center text-emerald-600 text-base">A+</td>
+                <td class="px-6 py-4 text-right text-lg font-black text-emerald-600">3.92</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <!-- Remarks & Signature Block -->
+        <div class="p-6 bg-slate-50/50 border-t border-slate-100 flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div class="max-w-xl space-y-1">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Principal Remarks</span>
+            <p class="text-xs text-slate-700 italic leading-relaxed">
+              "Aarav possesses exceptional intellectual acumen, scientific reasoning, and moral discipline. Outstanding prospect for National SEE Examinations."
+            </p>
+          </div>
+
+          <div class="flex items-center gap-8 text-xs text-center shrink-0">
+            <div>
+              <div class="font-serif italic font-bold text-slate-800">Sunita Shrestha</div>
+              <div class="border-t border-slate-300 w-28 pt-1 text-slate-400">Class Teacher</div>
+            </div>
+            <div>
+              <div class="font-serif italic font-bold text-slate-800">Prof. Dr. Ram Thapa</div>
+              <div class="border-t border-slate-300 w-32 pt-1 text-slate-400">Head of School</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'student',
+        activeNav: 'results',
+        pageTitle: 'Academic Results',
+        breadcrumb: 'Student / Results',
+        rootPrefix: '../'
+      });
+    });
+  </script>
+</body>
+</html>

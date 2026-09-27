@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Master Timetable - Sanskaar ERP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <div id="app-shell">
+    <div id="page-content">
+      
+      <!-- Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div>
+          <h1 class="text-2xl font-black text-slate-900 tracking-tight" data-i18n="nav_timetable">Institutional Master Timetable</h1>
+          <p class="text-xs text-slate-500 mt-1">Kathmandu Valley Secondary School • 6-Day Academic Schedule (Sunday to Friday)</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="window.print()" class="px-3.5 py-2 text-xs font-bold bg-white border border-slate-200 text-slate-700 rounded-xl hover:bg-slate-50 transition-colors shadow-2xs flex items-center gap-1.5">
+            <i data-lucide="printer" class="w-4 h-4 text-slate-400"></i>
+            <span>Print Routine</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Selector Bar -->
+      <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs mb-6 flex flex-wrap items-center justify-between gap-3 text-xs">
+        <div class="flex items-center gap-2">
+          <span class="font-bold text-slate-700">Select Grade Routine:</span>
+          <select id="routine-class-selector" onchange="Toast.info('Schedule Switched', 'Viewing routine for selected class')" class="px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-xl font-bold text-[#E8752F] focus:outline-none">
+            <option selected>Class 10 - Section A (SEE Candidate)</option>
+            <option>Class 10 - Section B</option>
+            <option>Class 9 - Section A</option>
+            <option>Class 8 - Section A (BLE)</option>
+            <option>Class 11 - Science (+2)</option>
+          </select>
+        </div>
+        <div class="flex items-center gap-2 text-slate-500 text-[11px]">
+          <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded bg-orange-100 border border-orange-200"></span> Compulsory</span>
+          <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded bg-purple-100 border border-purple-200"></span> Elective / Lab</span>
+          <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded bg-emerald-100 border border-emerald-200"></span> Break</span>
+        </div>
+      </div>
+
+      <!-- Master Weekly Routine Table -->
+      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-2xs overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-center text-xs border-collapse">
+            <thead>
+              <tr class="bg-slate-50 text-slate-600 border-b border-slate-200">
+                <th class="py-3 px-4 font-bold text-left w-28">Day</th>
+                <th class="py-3 px-2 font-semibold">P1<br><span class="font-normal text-[10px] text-slate-400">09:00 - 09:45</span></th>
+                <th class="py-3 px-2 font-semibold">P2<br><span class="font-normal text-[10px] text-slate-400">09:45 - 10:30</span></th>
+                <th class="py-3 px-2 font-semibold">P3<br><span class="font-normal text-[10px] text-slate-400">10:45 - 11:30</span></th>
+                <th class="py-3 px-2 font-semibold">P4<br><span class="font-normal text-[10px] text-slate-400">11:30 - 12:15</span></th>
+                <th class="py-3 px-2 font-bold bg-emerald-50 text-emerald-700 w-24">Tiffin Break<br><span class="font-normal text-[10px]">12:15 - 01:00</span></th>
+                <th class="py-3 px-2 font-semibold">P5<br><span class="font-normal text-[10px] text-slate-400">01:00 - 01:45</span></th>
+                <th class="py-3 px-2 font-semibold">P6<br><span class="font-normal text-[10px] text-slate-400">01:45 - 02:30</span></th>
+                <th class="py-3 px-2 font-semibold">P7<br><span class="font-normal text-[10px] text-slate-400">02:30 - 03:15</span></th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+              <tr>
+                <td class="py-3 px-4 font-bold text-left bg-slate-50 text-slate-900">Sunday<br><span class="text-[10px] font-normal text-slate-400">आइतबार</span></td>
+                <td class="p-2 bg-orange-50/50"><div class="font-bold text-slate-900">Comp. Math</div><div class="text-[10px] text-slate-400">Mr. Keshav Nepal</div></td>
+                <td class="p-2 bg-blue-50/50"><div class="font-bold text-slate-900">Comp. English</div><div class="text-[10px] text-slate-400">Ms. Anjana Sharma</div></td>
+                <td class="p-2 bg-purple-50/50"><div class="font-bold text-slate-900">Science Lab</div><div class="text-[10px] text-slate-400">Mr. Dipendra K.</div></td>
+                <td class="p-2"><div class="font-bold text-slate-900">Comp. Nepali</div><div class="text-[10px] text-slate-400">Mr. Bhola Nath D.</div></td>
+                <td rowspan="6" class="bg-emerald-50 text-emerald-700 font-bold border-x border-emerald-100 text-center select-none">
+                  LUNCH & RECREATION
+                </td>
+                <td class="p-2 bg-orange-50/50"><div class="font-bold text-slate-900">Social Studies</div><div class="text-[10px] text-slate-400">Mrs. Shanti P.</div></td>
+                <td class="p-2 bg-purple-50/50"><div class="font-bold text-slate-900">Opt. Math</div><div class="text-[10px] text-slate-400">Mr. Keshav Nepal</div></td>
+                <td class="p-2"><div class="font-bold text-slate-900">Computer Lab</div><div class="text-[10px] text-slate-400">Er. Bikash M.</div></td>
+              </tr>
+
+              <tr>
+                <td class="py-3 px-4 font-bold text-left bg-slate-50 text-slate-900">Monday<br><span class="text-[10px] font-normal text-slate-400">सोमबार</span></td>
+                <td class="p-2 bg-blue-50/50"><div class="font-bold text-slate-900">Comp. English</div><div class="text-[10px] text-slate-400">Ms. Anjana Sharma</div></td>
+                <td class="p-2 bg-orange-50/50"><div class="font-bold text-slate-900">Comp. Math</div><div class="text-[10px] text-slate-400">Mr. Keshav Nepal</div></td>
+                <td class="p-2"><div class="font-bold text-slate-900">Social Studies</div><div class="text-[10px] text-slate-400">Mrs. Shanti P.</div></td>
+                <td class="p-2 bg-purple-50/50"><div class="font-bold text-slate-900">Science Theory</div><div class="text-[10px] text-slate-400">Mr. Dipendra K.</div></td>
+                <td class="p-2 bg-purple-50/50"><div class="font-bold text-slate-900">Opt. Math</div><div class="text-[10px] text-slate-400">Mr. Keshav Nepal</div></td>
+                <td class="p-2"><div class="font-bold text-slate-900">Comp. Nepali</div><div class="text-[10px] text-slate-400">Mr. Bhola Nath D.</div></td>
+                <td class="p-2"><div class="font-bold text-slate-900">EPH / Health</div><div class="text-[10px] text-slate-400">Mrs. Rita Gurung</div></td>
+              </tr>
+
+              <tr>
+                <td class="py-3 px-4 font-bold text-left bg-slate-50 text-slate-900">Tuesday<br><span class="text-[10px] font-normal text-slate-400">मंगलबार</span></td>
+                <td class="p-2 bg-orange-50/50"><div class="font-bold text-slate-900">Comp. Math</div><div class="text-[10px] text-slate-400">Mr. Keshav Nepal</div></td>
+                <td class="p-2 bg-purple-50/50"><div class="font-bold text-slate-900">Science Lab</div><div class="text-[10px] text-slate-400">Mr. Dipendra K.</div></td>
+                <td class="p-2 bg-blue-50/50"><div class="font-bold text-slate-900">Comp. English</div><div class="text-[10px] text-slate-400">Ms. Anjana Sharma</div></td>
+                <td class="p-2"><div class="font-bold text-slate-900">Comp. Nepali</div><div class="text-[10px] text-slate-400">Mr. Bhola Nath D.</div></td>
+                <td class="p-2 bg-purple-50/50"><div class="font-bold text-slate-900">Opt. Math</div><div class="text-[10px] text-slate-400">Mr. Keshav Nepal</div></td>
+                <td class="p-2"><div class="font-bold text-slate-900">Social Studies</div><div class="text-[10px] text-slate-400">Mrs. Shanti P.</div></td>
+                <td class="p-2"><div class="font-bold text-slate-900">Moral Science</div><div class="text-[10px] text-slate-400">Mr. Bhola Nath D.</div></td>
+              </tr>
+
+              <tr>
+                <td class="py-3 px-4 font-bold text-left bg-slate-50 text-slate-900">Wednesday<br><span class="text-[10px] font-normal text-slate-400">बुधबार</span></td>
+                <td class="p-2 bg-purple-50/50"><div class="font-bold text-slate-900">Science Theory</div><div class="text-[10px] text-slate-400">Mr. Dipendra K.</div></td>
+                <td class="p-2 bg-orange-50/50"><div class="font-bold text-slate-900">Comp. Math</div><div class="text-[10px] text-slate-400">Mr. Keshav Nepal</div></td>
+                <td class="p-2"><div class="font-bold text-slate-900">Comp. Nepali</div><div class="text-[10px] text-slate-400">Mr. Bhola Nath D.</div></td>
+                <td class="p-2 bg-blue-50/50"><div class="font-bold text-slate-900">Comp. English</div><div class="text-[10px] text-slate-400">Ms. Anjana Sharma</div></td>
+                <td class="p-2"><div class="font-bold text-slate-900">Social Studies</div><div class="text-[10px] text-slate-400">Mrs. Shanti P.</div></td>
+                <td class="p-2"><div class="font-bold text-slate-900">Computer Practical</div><div class="text-[10px] text-slate-400">Er. Bikash M.</div></td>
+                <td class="p-2 bg-purple-50/50"><div class="font-bold text-slate-900">Opt. Math</div><div class="text-[10px] text-slate-400">Mr. Keshav Nepal</div></td>
+              </tr>
+
+              <tr>
+                <td class="py-3 px-4 font-bold text-left bg-slate-50 text-slate-900">Thursday<br><span class="text-[10px] font-normal text-slate-400">बिहीबार</span></td>
+                <td class="p-2 bg-orange-50/50"><div class="font-bold text-slate-900">Comp. Math</div><div class="text-[10px] text-slate-400">Mr. Keshav Nepal</div></td>
+                <td class="p-2 bg-blue-50/50"><div class="font-bold text-slate-900">Comp. English</div><div class="text-[10px] text-slate-400">Ms. Anjana Sharma</div></td>
+                <td class="p-2 bg-purple-50/50"><div class="font-bold text-slate-900">Science Lab</div><div class="text-[10px] text-slate-400">Mr. Dipendra K.</div></td>
+                <td class="p-2"><div class="font-bold text-slate-900">Social Studies</div><div class="text-[10px] text-slate-400">Mrs. Shanti P.</div></td>
+                <td class="p-2 bg-purple-50/50"><div class="font-bold text-slate-900">Opt. Math</div><div class="text-[10px] text-slate-400">Mr. Keshav Nepal</div></td>
+                <td class="p-2"><div class="font-bold text-slate-900">Comp. Nepali</div><div class="text-[10px] text-slate-400">Mr. Bhola Nath D.</div></td>
+                <td class="p-2"><div class="font-bold text-slate-900">Library Period</div><div class="text-[10px] text-slate-400">Mrs. Nirmala Rai</div></td>
+              </tr>
+
+              <tr>
+                <td class="py-3 px-4 font-bold text-left bg-slate-50 text-slate-900">Friday<br><span class="text-[10px] font-normal text-slate-400">शुक्रबार (Half Day)</span></td>
+                <td class="p-2 bg-blue-50/50"><div class="font-bold text-slate-900">Comp. English</div><div class="text-[10px] text-slate-400">Ms. Anjana Sharma</div></td>
+                <td class="p-2 bg-orange-50/50"><div class="font-bold text-slate-900">Comp. Math</div><div class="text-[10px] text-slate-400">Mr. Keshav Nepal</div></td>
+                <td class="p-2 bg-purple-50/50"><div class="font-bold text-slate-900">Science Quiz</div><div class="text-[10px] text-slate-400">Mr. Dipendra K.</div></td>
+                <td class="p-2"><div class="font-bold text-slate-900">Extracurricular</div><div class="text-[10px] text-slate-400">ECA Coordinator</div></td>
+                <td colspan="3" class="bg-slate-100 text-slate-500 font-bold p-2">
+                  FRIDAY ECA / CLUB ACTIVITIES (DISMISSAL 01:30 PM)
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'school',
+        activeNav: 'timetable',
+        pageTitle: 'Master Timetable',
+        breadcrumb: 'Academics',
+        rootPrefix: '../'
+      });
+    });
+  </script>
+</body>
+</html>

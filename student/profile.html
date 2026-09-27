@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-50">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanskaar ERP - Student Profile</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="h-full text-slate-800 antialiased font-['Plus_Jakarta_Sans',sans-serif]">
+  <div id="app-shell">
+    <div id="page-content" class="p-6 space-y-6">
+      
+      <!-- Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <h1 class="text-2xl font-bold text-slate-900" data-i18n="student_my_profile">My Profile</h1>
+          <p class="text-sm text-slate-500 mt-1">Official student bio, parent & guardian credentials, emergency contacts, and admission records.</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <button onclick="window.print()" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-sm font-semibold transition-all">
+            <i data-lucide="printer" class="w-4 h-4"></i>
+            <span>Print Biodata</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Profile Card Header -->
+      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 relative overflow-hidden">
+        <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
+          <div class="relative group">
+            <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=160&auto=format&fit=crop&q=80" alt="Aarav Shrestha" class="w-28 h-28 rounded-2xl object-cover border-4 border-white shadow-md">
+            <span class="absolute -bottom-2 -right-2 bg-emerald-500 text-white p-1.5 rounded-xl border-2 border-white shadow-sm" title="Active">
+              <i data-lucide="check" class="w-3.5 h-3.5"></i>
+            </span>
+          </div>
+
+          <div class="flex-1 space-y-2">
+            <div class="flex flex-wrap items-center gap-3">
+              <h2 class="text-2xl font-bold text-slate-900">Aarav Shrestha</h2>
+              <span class="text-lg font-semibold text-slate-500">(आरव श्रेष्ठ)</span>
+              <span class="px-3 py-1 rounded-full text-xs font-bold bg-[#E8752F]/10 text-[#E8752F]">Class 10-A (SEE)</span>
+              <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700">Roll No: 01</span>
+            </div>
+            <p class="text-sm text-slate-500">Kathmandu Valley Secondary School • Admission ID: ADM-2078-1001 • NEB Symbol: 02701429A</p>
+            <div class="flex flex-wrap items-center gap-4 text-xs font-semibold text-slate-600 pt-1">
+              <span class="flex items-center gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-[#E8752F]"></i> Ward No. 3, Maharajgunj, Kathmandu</span>
+              <span class="flex items-center gap-1.5"><i data-lucide="droplet" class="w-3.5 h-3.5 text-rose-500"></i> Blood Group: B+</span>
+              <span class="flex items-center gap-1.5"><i data-lucide="shield" class="w-3.5 h-3.5 text-amber-500"></i> Sagarmatha House</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Information Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <!-- Left 2 Cols: Detailed Sections -->
+        <div class="lg:col-span-2 space-y-6">
+          
+          <!-- Basic Student Information -->
+          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 space-y-4">
+            <h3 class="text-base font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center gap-2">
+              <i data-lucide="user" class="w-4 h-4 text-[#E8752F]"></i>
+              <span>Personal & Identity Details</span>
+            </h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+              <div class="p-3 rounded-xl bg-slate-50">
+                <span class="text-xs text-slate-400 uppercase font-semibold block">Full Name in Nepali</span>
+                <span class="font-bold text-slate-800">आरव श्रेष्ठ</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-50">
+                <span class="text-xs text-slate-400 uppercase font-semibold block">Date of Birth (B.S. & A.D.)</span>
+                <span class="font-bold text-slate-800">2067-01-12 B.S. (25 Apr 2010 A.D.)</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-50">
+                <span class="text-xs text-slate-400 uppercase font-semibold block">Gender & Nationality</span>
+                <span class="font-bold text-slate-800">Male • Nepali</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-50">
+                <span class="text-xs text-slate-400 uppercase font-semibold block">National Examination Symbol No.</span>
+                <span class="font-mono font-bold text-slate-800">02701429A</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-50">
+                <span class="text-xs text-slate-400 uppercase font-semibold block">Mother Tongue</span>
+                <span class="font-bold text-slate-800">Nepali / Newari</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-50">
+                <span class="text-xs text-slate-400 uppercase font-semibold block">Student Email / ID</span>
+                <span class="font-bold text-slate-800">aarav.1001@kvss.edu.np</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Parents & Guardians Information -->
+          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 space-y-4">
+            <h3 class="text-base font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center gap-2">
+              <i data-lucide="users" class="w-4 h-4 text-[#E8752F]"></i>
+              <span>Parents & Legal Guardian Information</span>
+            </h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <!-- Father -->
+              <div class="border border-slate-200 rounded-xl p-4 space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold uppercase text-slate-400">Father</span>
+                  <span class="px-2 py-0.5 bg-blue-50 text-blue-700 text-[10px] font-bold rounded-full">Primary Guardian</span>
+                </div>
+                <div class="font-bold text-slate-900">Mr. Rajesh Shrestha</div>
+                <div class="text-xs text-slate-500">Civil Engineer, NEA</div>
+                <div class="pt-2 text-xs font-semibold text-slate-700 space-y-1">
+                  <div class="flex items-center gap-2"><i data-lucide="phone" class="w-3.5 h-3.5 text-slate-400"></i> +977 9851023456</div>
+                  <div class="flex items-center gap-2"><i data-lucide="mail" class="w-3.5 h-3.5 text-slate-400"></i> rajesh.shrestha@gmail.com</div>
+                </div>
+              </div>
+
+              <!-- Mother -->
+              <div class="border border-slate-200 rounded-xl p-4 space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold uppercase text-slate-400">Mother</span>
+                  <span class="px-2 py-0.5 bg-purple-50 text-purple-700 text-[10px] font-bold rounded-full">Co-Guardian</span>
+                </div>
+                <div class="font-bold text-slate-900">Dr. Anjali Shrestha</div>
+                <div class="text-xs text-slate-500">Consultant Physician, TUTH</div>
+                <div class="pt-2 text-xs font-semibold text-slate-700 space-y-1">
+                  <div class="flex items-center gap-2"><i data-lucide="phone" class="w-3.5 h-3.5 text-slate-400"></i> +977 9841345678</div>
+                  <div class="flex items-center gap-2"><i data-lucide="mail" class="w-3.5 h-3.5 text-slate-400"></i> anjali.dr@tuth.edu.np</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Academic History in KVSS -->
+          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 space-y-4">
+            <h3 class="text-base font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center gap-2">
+              <i data-lucide="graduation-cap" class="w-4 h-4 text-[#E8752F]"></i>
+              <span>Academic Progression at KVSS</span>
+            </h3>
+
+            <div class="space-y-3">
+              <div class="flex items-center justify-between p-3 rounded-xl bg-slate-50 text-sm">
+                <div>
+                  <div class="font-bold text-slate-800">Class 10 (Current Academic Year 2083-84 B.S.)</div>
+                  <div class="text-xs text-slate-500">Section A • Class Teacher: Mrs. Sunita Shrestha</div>
+                </div>
+                <span class="font-bold text-[#E8752F]">GPA: 3.92 (Rank 1st)</span>
+              </div>
+              <div class="flex items-center justify-between p-3 rounded-xl bg-slate-50 text-sm">
+                <div>
+                  <div class="font-bold text-slate-800">Class 9 (Academic Year 2082-83 B.S.)</div>
+                  <div class="text-xs text-slate-500">Section A • Annual Examination</div>
+                </div>
+                <span class="font-bold text-emerald-600">GPA: 3.88 (Promoted with Honors)</span>
+              </div>
+              <div class="flex items-center justify-between p-3 rounded-xl bg-slate-50 text-sm">
+                <div>
+                  <div class="font-bold text-slate-800">Class 8 BLE Board (Academic Year 2081-82 B.S.)</div>
+                  <div class="text-xs text-slate-500">Kathmandu Metropolitan Municipality Board Exam</div>
+                </div>
+                <span class="font-bold text-emerald-600">GPA: 3.95 (Distinction)</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right 1 Col: Documents & Transport -->
+        <div class="space-y-6">
+          
+          <!-- Verified Documents Registry -->
+          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 space-y-4">
+            <h3 class="text-base font-bold text-slate-900 border-b border-slate-100 pb-3">Official Certificates on File</h3>
+
+            <div class="space-y-3">
+              <div class="p-3 border border-slate-200 rounded-xl flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <i data-lucide="file-check" class="w-4 h-4 text-emerald-600"></i>
+                  <div>
+                    <div class="font-bold text-xs text-slate-800">Birth Certificate</div>
+                    <div class="text-[10px] text-slate-400">Ward 3 Office • Verified</div>
+                  </div>
+                </div>
+                <button onclick="SanskaarToast.show('Viewing birth certificate copy.', 'info')" class="text-xs font-semibold text-[#E8752F] hover:underline">View</button>
+              </div>
+
+              <div class="p-3 border border-slate-200 rounded-xl flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <i data-lucide="file-check" class="w-4 h-4 text-emerald-600"></i>
+                  <div>
+                    <div class="font-bold text-xs text-slate-800">BLE Class 8 Grade-Sheet</div>
+                    <div class="text-[10px] text-slate-400">KMC Education Dept</div>
+                  </div>
+                </div>
+                <button onclick="SanskaarToast.show('Viewing BLE Grade Sheet.', 'info')" class="text-xs font-semibold text-[#E8752F] hover:underline">View</button>
+              </div>
+
+              <div class="p-3 border border-slate-200 rounded-xl flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <i data-lucide="file-check" class="w-4 h-4 text-emerald-600"></i>
+                  <div>
+                    <div class="font-bold text-xs text-slate-800">Medical Fitness Record</div>
+                    <div class="text-[10px] text-slate-400">TUTH Maharajgunj</div>
+                  </div>
+                </div>
+                <button onclick="SanskaarToast.show('Viewing medical record.', 'info')" class="text-xs font-semibold text-[#E8752F] hover:underline">View</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Transport & Route Details -->
+          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 space-y-3">
+            <h3 class="text-base font-bold text-slate-900 border-b border-slate-100 pb-3">School Transport</h3>
+            <div class="space-y-2 text-xs">
+              <div class="flex justify-between py-1 border-b border-slate-100">
+                <span class="text-slate-400">Status</span>
+                <span class="font-bold text-slate-800">Self Commute (Walking)</span>
+              </div>
+              <div class="flex justify-between py-1 border-b border-slate-100">
+                <span class="text-slate-400">Distance from KVSS</span>
+                <span class="font-bold text-slate-800">650 meters</span>
+              </div>
+              <div class="flex justify-between py-1">
+                <span class="text-slate-400">Emergency Pickup</span>
+                <span class="font-bold text-slate-800">Parents Authorized</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'student',
+        activeNav: 'profile',
+        pageTitle: 'My Profile',
+        breadcrumb: 'Student / Profile',
+        rootPrefix: '../'
+      });
+    });
+  </script>
+</body>
+</html>

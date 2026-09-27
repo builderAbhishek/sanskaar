@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teacher Profile & Schedule - Sanskaar ERP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <div id="app-shell">
+    <div id="page-content">
+      
+      <!-- Back Navigation -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div class="flex items-center gap-3">
+          <a href="teachers.html" class="p-2 rounded-xl bg-white border border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors shadow-2xs">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+          </a>
+          <div>
+            <div class="flex items-center gap-2">
+              <h1 class="text-xl font-black text-slate-900 tracking-tight">Mr. Keshav Nepal</h1>
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">Active Faculty</span>
+            </div>
+            <p class="text-xs text-slate-500 mt-0.5">Faculty ID: <strong class="text-slate-700 font-mono">TCH-KVSS-012</strong> • Mathematics Department Head</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button onclick="Toast.info('Biometric Record', 'Viewing Keshav Nepal daily punch log')" class="px-3.5 py-2 text-xs font-semibold bg-white border border-slate-200 text-slate-700 rounded-xl hover:bg-slate-50 transition-colors shadow-2xs">
+            Biometric Logs
+          </button>
+          <a href="salary.html" class="px-3.5 py-2 text-xs font-bold bg-[#E8752F] text-white rounded-xl hover:bg-[#D46320] transition-colors shadow-sm flex items-center gap-1.5">
+            <i data-lucide="banknote" class="w-4 h-4"></i>
+            <span>Payroll & Slip (NPR)</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Teacher Quick Bio Banner -->
+      <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs mb-6 flex flex-col md:flex-row items-center gap-6">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80" class="w-24 h-24 rounded-2xl object-cover ring-4 ring-orange-50 border border-slate-200 shadow-sm">
+        <div class="flex-1 grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs">
+          <div>
+            <span class="text-slate-400 block text-[11px]">Primary Subject</span>
+            <span class="font-bold text-slate-900 mt-0.5 block">Compulsory & Opt. Math</span>
+          </div>
+          <div>
+            <span class="text-slate-400 block text-[11px]">Assigned Class Incharge</span>
+            <span class="font-bold text-[#E8752F] mt-0.5 block">Class 10 - Section A</span>
+          </div>
+          <div>
+            <span class="text-slate-400 block text-[11px]">Monthly Gross Salary</span>
+            <span class="font-bold text-emerald-600 mt-0.5 block">रू 58,500 / month</span>
+          </div>
+          <div>
+            <span class="text-slate-400 block text-[11px]">Punctuality (Biometric)</span>
+            <span class="font-bold text-emerald-600 mt-0.5 block">98.4% (On-Time)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Weekly Schedule Matrix for Teacher -->
+      <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs mb-6">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center gap-2">
+            <i data-lucide="calendar" class="w-4 h-4 text-[#E8752F]"></i>
+            <h3 class="text-sm font-bold text-slate-900">Weekly Teaching Load & Timetable (26 Periods)</h3>
+          </div>
+          <span class="text-xs text-slate-400">Sunday to Friday Schedule</span>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-center text-xs border-collapse">
+            <thead>
+              <tr class="bg-slate-50 text-slate-500 border border-slate-200">
+                <th class="p-2.5 font-semibold text-left">Day</th>
+                <th class="p-2.5 font-semibold">Period 1<br><span class="font-normal text-[10px]">09:00 - 09:45</span></th>
+                <th class="p-2.5 font-semibold">Period 2<br><span class="font-normal text-[10px]">09:45 - 10:30</span></th>
+                <th class="p-2.5 font-semibold">Period 3<br><span class="font-normal text-[10px]">10:45 - 11:30</span></th>
+                <th class="p-2.5 font-semibold">Period 4<br><span class="font-normal text-[10px]">11:30 - 12:15</span></th>
+                <th class="p-2.5 font-semibold">Period 5<br><span class="font-normal text-[10px]">01:00 - 01:45</span></th>
+                <th class="p-2.5 font-semibold">Period 6<br><span class="font-normal text-[10px]">01:45 - 02:30</span></th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 border border-slate-200">
+              <tr>
+                <td class="p-2.5 font-bold text-left bg-slate-50">Sunday (आइतबार)</td>
+                <td class="p-2 bg-orange-50/60 font-bold text-[#E8752F] rounded">Class 10-A<br><span class="text-[10px] font-normal text-slate-600">Comp. Math</span></td>
+                <td class="p-2 bg-blue-50/60 font-bold text-blue-700 rounded">Class 10-B<br><span class="text-[10px] font-normal text-slate-600">Opt. Math</span></td>
+                <td class="p-2 text-slate-400 italic text-[11px]">Free Period</td>
+                <td class="p-2 bg-orange-50/60 font-bold text-[#E8752F] rounded">Class 9-A<br><span class="text-[10px] font-normal text-slate-600">Comp. Math</span></td>
+                <td class="p-2 bg-purple-50/60 font-bold text-purple-700 rounded">Class 10-A<br><span class="text-[10px] font-normal text-slate-600">Opt. Math</span></td>
+                <td class="p-2 text-slate-400 italic text-[11px]">Planning</td>
+              </tr>
+              <tr>
+                <td class="p-2.5 font-bold text-left bg-slate-50">Monday (सोमबार)</td>
+                <td class="p-2 bg-blue-50/60 font-bold text-blue-700 rounded">Class 10-B<br><span class="text-[10px] font-normal text-slate-600">Comp. Math</span></td>
+                <td class="p-2 bg-orange-50/60 font-bold text-[#E8752F] rounded">Class 10-A<br><span class="text-[10px] font-normal text-slate-600">Comp. Math</span></td>
+                <td class="p-2 bg-orange-50/60 font-bold text-[#E8752F] rounded">Class 9-A<br><span class="text-[10px] font-normal text-slate-600">Comp. Math</span></td>
+                <td class="p-2 text-slate-400 italic text-[11px]">Free Period</td>
+                <td class="p-2 bg-purple-50/60 font-bold text-purple-700 rounded">Class 10-A<br><span class="text-[10px] font-normal text-slate-600">Opt. Math</span></td>
+                <td class="p-2 text-slate-400 italic text-[11px]">Doubt Clearing</td>
+              </tr>
+              <tr>
+                <td class="p-2.5 font-bold text-left bg-slate-50">Tuesday (मंगलबार)</td>
+                <td class="p-2 bg-orange-50/60 font-bold text-[#E8752F] rounded">Class 10-A<br><span class="text-[10px] font-normal text-slate-600">Comp. Math</span></td>
+                <td class="p-2 bg-blue-50/60 font-bold text-blue-700 rounded">Class 10-B<br><span class="text-[10px] font-normal text-slate-600">Opt. Math</span></td>
+                <td class="p-2 text-slate-400 italic text-[11px]">Free Period</td>
+                <td class="p-2 bg-orange-50/60 font-bold text-[#E8752F] rounded">Class 9-A<br><span class="text-[10px] font-normal text-slate-600">Comp. Math</span></td>
+                <td class="p-2 bg-purple-50/60 font-bold text-purple-700 rounded">Class 10-A<br><span class="text-[10px] font-normal text-slate-600">Opt. Math</span></td>
+                <td class="p-2 text-slate-400 italic text-[11px]">Planning</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'school',
+        activeNav: 'teachers',
+        pageTitle: 'Faculty Profile & Schedule',
+        breadcrumb: 'People',
+        rootPrefix: '../'
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-50">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanskaar ERP - Student & Parent Portal Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="h-full text-slate-800 antialiased font-['Plus_Jakarta_Sans',sans-serif] flex items-center justify-center p-4 relative overflow-hidden bg-gradient-to-br from-amber-50/40 via-orange-50/30 to-slate-100">
+  
+  <!-- Top bar actions -->
+  <div class="absolute top-6 left-6 right-6 flex items-center justify-between text-xs text-slate-500">
+    <a href="../index.html" class="flex items-center gap-2 hover:text-slate-900 transition-colors">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i>
+      <span>Back to Portal Launcher</span>
+    </a>
+    <div class="flex items-center gap-3">
+      <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-orange-100 text-[#E8752F] text-[11px] font-bold">
+        <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> Student & Guardian Sign-in
+      </span>
+    </div>
+  </div>
+
+  <div class="w-full max-w-md space-y-6 relative z-10">
+    
+    <!-- Branding Header -->
+    <div class="text-center space-y-2">
+      <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#E8752F] text-white font-black text-2xl shadow-lg shadow-orange-500/20 mb-2">
+        <i data-lucide="graduation-cap" class="w-7 h-7"></i>
+      </div>
+      <h1 class="text-2xl font-bold tracking-tight text-slate-900">Student & Parent Portal</h1>
+      <p class="text-xs text-slate-500">Kathmandu Valley Secondary School • Academic Session 2083-84 B.S.</p>
+    </div>
+
+    <!-- Login Card -->
+    <div class="bg-white border border-slate-200/80 rounded-3xl p-8 shadow-xl space-y-6">
+      <form onsubmit="handleLogin(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-600 uppercase mb-1.5">Admission Number / Symbol No</label>
+          <div class="relative">
+            <i data-lucide="id-card" class="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5"></i>
+            <input type="text" id="adm-no" value="ADM-2078-1001" required class="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl text-sm font-mono text-slate-800 font-semibold focus:outline-none focus:ring-2 focus:ring-[#E8752F]/20 focus:border-[#E8752F]">
+          </div>
+          <span class="text-[11px] text-slate-400 mt-1 block">Found on student ID card or terminal fee receipt</span>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-600 uppercase mb-1.5">Date of Birth (Bikram Sambat / वि.सं.)</label>
+          <div class="relative">
+            <i data-lucide="calendar" class="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5"></i>
+            <input type="text" value="2067-01-12" required placeholder="YYYY-MM-DD" class="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#E8752F]/20 focus:border-[#E8752F]">
+          </div>
+        </div>
+
+        <div>
+          <div class="flex items-center justify-between mb-1.5">
+            <label class="text-xs font-semibold text-slate-600 uppercase">Student PIN / Password</label>
+            <a href="#" onclick="SanskaarToast.show('Contact class teacher or school front desk for PIN reset.', 'info')" class="text-xs text-[#E8752F] hover:underline">Forgot PIN?</a>
+          </div>
+          <div class="relative">
+            <i data-lucide="lock" class="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5"></i>
+            <input type="password" value="1001" required class="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#E8752F]/20 focus:border-[#E8752F]">
+          </div>
+        </div>
+
+        <button type="submit" class="w-full py-3 bg-[#E8752F] hover:bg-[#d66521] text-white font-bold rounded-xl text-sm shadow-md transition-all flex items-center justify-center gap-2">
+          <span>Sign In as Student / Parent</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+      </form>
+
+      <!-- 1-Click Demo Shortcut -->
+      <div class="pt-2 border-t border-slate-100 text-center">
+        <button onclick="demoLogin()" class="w-full py-2.5 bg-orange-50 hover:bg-orange-100 text-[#E8752F] rounded-xl text-xs font-bold transition-all border border-orange-200 flex items-center justify-center gap-2">
+          <i data-lucide="zap" class="w-4 h-4"></i>
+          <span>1-Click Demo Login (Aarav Shrestha, Class 10-A)</span>
+        </button>
+        <span class="text-[11px] text-slate-400 block mt-2">Instantly access student results, routines, fees, and homework</span>
+      </div>
+    </div>
+
+    <!-- Portal Switchers -->
+    <div class="flex items-center justify-center gap-4 text-xs font-medium text-slate-500">
+      <span>Switch Portal:</span>
+      <a href="school.html" class="text-slate-700 hover:text-slate-900 hover:underline flex items-center gap-1">
+        <i data-lucide="building" class="w-3.5 h-3.5"></i> School Panel
+      </a>
+      <span>•</span>
+      <a href="admin.html" class="text-slate-700 hover:text-slate-900 hover:underline flex items-center gap-1">
+        <i data-lucide="shield" class="w-3.5 h-3.5"></i> Admin SaaS
+      </a>
+    </div>
+
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script>
+    function handleLogin(e) {
+      e.preventDefault();
+      SanskaarToast.show('Logging in Aarav Shrestha...', 'info');
+      setTimeout(() => {
+        window.location.href = '../student/index.html';
+      }, 500);
+    }
+
+    function demoLogin() {
+      SanskaarToast.show('Signing in as Aarav Shrestha (Class 10-A)...', 'success');
+      setTimeout(() => {
+        window.location.href = '../student/index.html';
+      }, 400);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>

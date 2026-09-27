@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-50">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanskaar ERP - Student Assignments</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="h-full text-slate-800 antialiased font-['Plus_Jakarta_Sans',sans-serif]">
+  <div id="app-shell">
+    <div id="page-content" class="p-6 space-y-6">
+      
+      <!-- Page Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <h1 class="text-2xl font-bold text-slate-900" data-i18n="student_assignments">Assignments & Term Projects</h1>
+          <p class="text-sm text-slate-500 mt-1">Class 10 practical coursework, lab reports, and CDC continuous assessment projects.</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <button onclick="SanskaarModal.open('uploadModal')" class="inline-flex items-center gap-2 px-4 py-2 bg-[#E8752F] hover:bg-[#d66521] text-white rounded-xl text-sm font-semibold transition-all shadow-sm">
+            <i data-lucide="upload" class="w-4 h-4"></i>
+            <span>Submit Assignment</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Assignments List -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <!-- Left 2 Cols: Projects -->
+        <div class="lg:col-span-2 space-y-4">
+          
+          <!-- Project 1 -->
+          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 space-y-4">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-purple-50 text-purple-700">Computer Science & AI</span>
+                <h3 class="text-lg font-bold text-slate-900 mt-1.5">School Library Management System in Python & SQLite</h3>
+                <p class="text-xs text-slate-500 mt-1">CDC Practical Unit • 50 Marks (25 Project + 25 Viva Voce)</p>
+              </div>
+              <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 shrink-0">In Progress</span>
+            </div>
+
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Design a command-line and GUI database tool allowing librarians to register books, issue loans to students, and calculate overdue fines using Python sqlite3.
+            </p>
+
+            <div class="grid grid-cols-3 gap-3 p-3 bg-slate-50 rounded-xl text-xs">
+              <div>
+                <span class="text-slate-400 block">Supervisor</span>
+                <strong class="text-slate-700">Mr. Bikram Gurung</strong>
+              </div>
+              <div>
+                <span class="text-slate-400 block">Due Date</span>
+                <strong class="text-rose-600">10 Kartik 2083</strong>
+              </div>
+              <div>
+                <span class="text-slate-400 block">Max Marks</span>
+                <strong class="text-slate-700">50 Marks</strong>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between pt-2">
+              <span class="text-xs text-slate-400 font-medium">Progress: 65% completed</span>
+              <button onclick="SanskaarModal.open('uploadModal')" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-xl text-xs font-bold transition-colors">
+                Upload Draft Code (.zip)
+              </button>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 space-y-4">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700">Science & Technology</span>
+                <h3 class="text-lg font-bold text-slate-900 mt-1.5">Field Study: Chemical Pollution & Microplastics in Bagmati River</h3>
+                <p class="text-xs text-slate-500 mt-1">Term Practical Component • 25 Marks</p>
+              </div>
+              <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 shrink-0">Submitted (A+)</span>
+            </div>
+
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Water sample testing collected from Pashupati, Thapathali, and Chobhar gorges. Documented dissolved oxygen (DO), turbidity, and pH levels with photographic evidence.
+            </p>
+
+            <div class="grid grid-cols-3 gap-3 p-3 bg-slate-50 rounded-xl text-xs">
+              <div>
+                <span class="text-slate-400 block">Supervisor</span>
+                <strong class="text-slate-700">Prof. Dr. Ram Thapa</strong>
+              </div>
+              <div>
+                <span class="text-slate-400 block">Submitted On</span>
+                <strong class="text-slate-700">15 Bhadra 2083</strong>
+              </div>
+              <div>
+                <span class="text-slate-400 block">Awarded Score</span>
+                <strong class="text-emerald-600 font-black">24 / 25 Marks</strong>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between pt-2">
+              <span class="text-xs text-emerald-600 font-bold">Feedback: "Remarkable field rigor, thorough methodology."</span>
+              <button onclick="SanskaarToast.show('Downloading submitted report PDF...', 'info')" class="text-xs font-semibold text-[#E8752F] hover:underline">
+                View Submitted Report
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right 1 Col: Guidelines & Rubrics -->
+        <div class="space-y-6">
+          
+          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 space-y-4">
+            <h3 class="font-bold text-slate-900 text-base">Evaluation Rubrics</h3>
+            <p class="text-xs text-slate-500">CDC standard continuous assessment breakdown for Class 10 term projects:</p>
+
+            <div class="space-y-3 text-xs">
+              <div class="p-3 bg-slate-50 rounded-xl flex justify-between">
+                <div>
+                  <div class="font-bold text-slate-800">1. Originality & Methodology</div>
+                  <div class="text-slate-400">Authentic data collection</div>
+                </div>
+                <span class="font-black text-slate-900">40%</span>
+              </div>
+
+              <div class="p-3 bg-slate-50 rounded-xl flex justify-between">
+                <div>
+                  <div class="font-bold text-slate-800">2. Technical Report & Writing</div>
+                  <div class="text-slate-400">Structure, graphs, references</div>
+                </div>
+                <span class="font-black text-slate-900">30%</span>
+              </div>
+
+              <div class="p-3 bg-slate-50 rounded-xl flex justify-between">
+                <div>
+                  <div class="font-bold text-slate-800">3. Viva Voce & Defense</div>
+                  <div class="text-slate-400">Oral examination with teacher</div>
+                </div>
+                <span class="font-black text-slate-900">30%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-br from-orange-50 to-amber-50 border border-orange-200/60 rounded-2xl p-5 text-xs text-slate-700 space-y-2">
+            <div class="font-bold text-slate-900 flex items-center gap-1.5">
+              <i data-lucide="info" class="w-4 h-4 text-[#E8752F]"></i>
+              <span>Need Help with Project Research?</span>
+            </div>
+            <p>Visit the KVSS Digital Study Materials library or consult during Friday teacher office hours in Senior Wing 304.</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Upload Assignment Modal -->
+  <div id="uploadModal" class="hidden fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl border border-slate-200 shadow-xl w-full max-w-md overflow-hidden">
+      <div class="p-5 border-b border-slate-100 flex items-center justify-between">
+        <h3 class="font-bold text-slate-900">Submit Project Coursework</h3>
+        <button onclick="SanskaarModal.close('uploadModal')" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+      <form onsubmit="handleUploadSubmit(event)" class="p-5 space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-600 uppercase mb-1.5">Select Coursework / Unit</label>
+          <select class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8752F]/20">
+            <option>Computer Science: School Library Management System (.zip / .py)</option>
+            <option>Social Studies: Nepal's Constitutional History (.pdf)</option>
+          </select>
+        </div>
+
+        <div class="border-2 border-dashed border-slate-300 rounded-2xl p-6 text-center space-y-2 hover:border-[#E8752F] cursor-pointer">
+          <i data-lucide="upload-cloud" class="w-8 h-8 text-slate-400 mx-auto"></i>
+          <div class="text-xs font-semibold text-slate-700">Click to choose file or drag and drop</div>
+          <div class="text-[10px] text-slate-400">PDF, DOCX, or ZIP up to 25MB</div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-600 uppercase mb-1.5">Notes for Teacher</label>
+          <textarea rows="2" placeholder="Brief summary of what is submitted..." class="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-xs focus:outline-none"></textarea>
+        </div>
+
+        <div class="pt-2 flex items-center justify-end gap-3">
+          <button type="button" onclick="SanskaarModal.close('uploadModal')" class="px-4 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-100 rounded-xl">Cancel</button>
+          <button type="submit" class="px-5 py-2 bg-[#E8752F] hover:bg-[#d66521] text-white text-xs font-semibold rounded-xl">Submit File</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+  <script>
+    function handleUploadSubmit(e) {
+      e.preventDefault();
+      SanskaarModal.close('uploadModal');
+      SanskaarToast.show('Coursework submitted successfully to teacher for grading!', 'success');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'student',
+        activeNav: 'assignments',
+        pageTitle: 'Assignments',
+        breadcrumb: 'Student / Coursework',
+        rootPrefix: '../'
+      });
+    });
+  </script>
+</body>
+</html>

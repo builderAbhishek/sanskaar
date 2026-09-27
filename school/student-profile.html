@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student 360 Profile - Sanskaar ERP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <div id="app-shell">
+    <div id="page-content">
+      
+      <!-- Back Navigation & Top Actions -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div class="flex items-center gap-3">
+          <a href="students.html" class="p-2 rounded-xl bg-white border border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors shadow-2xs">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+          </a>
+          <div>
+            <div class="flex items-center gap-2">
+              <h1 class="text-xl font-black text-slate-900 tracking-tight" id="profile-name">Aarav Shrestha</h1>
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">Active Student</span>
+            </div>
+            <p class="text-xs text-slate-500 mt-0.5">NEB Symbol No: <strong class="text-slate-700 font-mono">27014001A</strong> • Roll #01 • Class 10 - Section A</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <a href="fee-receipt.html" class="px-3.5 py-2 text-xs font-bold bg-emerald-600 text-white rounded-xl hover:bg-emerald-700 transition-colors shadow-sm flex items-center gap-1.5">
+            <i data-lucide="receipt" class="w-4 h-4"></i>
+            <span>Fee Receipt (NPR)</span>
+          </a>
+          <a href="report-card.html" class="px-3.5 py-2 text-xs font-bold bg-[#E8752F] text-white rounded-xl hover:bg-[#D46320] transition-colors shadow-sm flex items-center gap-1.5">
+            <i data-lucide="file-check" class="w-4 h-4"></i>
+            <span>NEB Report Card</span>
+          </a>
+          <a href="id-cards.html" class="px-3 py-2 text-xs font-semibold bg-white border border-slate-200 text-slate-700 rounded-xl hover:bg-slate-50 transition-colors shadow-2xs flex items-center gap-1.5">
+            <i data-lucide="printer" class="w-4 h-4 text-slate-400"></i>
+            <span>ID Card</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Bio Header Banner -->
+      <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs mb-6 flex flex-col md:flex-row items-center gap-6">
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=200&auto=format&fit=crop&q=80" alt="Aarav" class="w-24 h-24 rounded-2xl object-cover ring-4 ring-orange-50 border border-slate-200 shadow-sm">
+          <span class="absolute -bottom-1 -right-1 p-1 rounded-lg bg-emerald-500 text-white shadow-2xs">
+            <i data-lucide="check" class="w-3 h-3"></i>
+          </span>
+        </div>
+        <div class="flex-1 grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs">
+          <div>
+            <span class="text-slate-400 block text-[11px]">Academic Wing</span>
+            <span class="font-bold text-slate-900 mt-0.5 block">Secondary Wing (SEE)</span>
+          </div>
+          <div>
+            <span class="text-slate-400 block text-[11px]">Date of Birth (BS / AD)</span>
+            <span class="font-bold text-slate-900 mt-0.5 block">2067-05-14 (2010 AD)</span>
+          </div>
+          <div>
+            <span class="text-slate-400 block text-[11px]">Blood Group & Rh</span>
+            <span class="font-bold text-rose-600 mt-0.5 block">B Positive (B+)</span>
+          </div>
+          <div>
+            <span class="text-slate-400 block text-[11px]">Attendance Rate</span>
+            <span class="font-bold text-emerald-600 mt-0.5 block">96.8% (182 / 188 days)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Profile Tabs Section -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <!-- Left 2 Columns: Academic History, Exam Results & Fee Ledger -->
+        <div class="lg:col-span-2 space-y-6">
+          
+          <!-- Exam Results (NEB SEE Format) -->
+          <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs">
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-2">
+                <i data-lucide="award" class="w-4 h-4 text-[#E8752F]"></i>
+                <h3 class="text-sm font-bold text-slate-900">Term 1 Terminal Examination Marks (NEB Standard)</h3>
+              </div>
+              <span class="text-xs font-black text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-lg border border-emerald-200">
+                GPA: 3.92 (Grade A+)
+              </span>
+            </div>
+
+            <div class="overflow-x-auto">
+              <table class="w-full text-left text-xs">
+                <thead class="bg-slate-50 text-slate-500 border-b border-slate-100">
+                  <tr>
+                    <th class="py-2.5 px-3">Subject Name</th>
+                    <th class="py-2.5 px-3">Credit Hr</th>
+                    <th class="py-2.5 px-3">Theory (75)</th>
+                    <th class="py-2.5 px-3">Practical (25)</th>
+                    <th class="py-2.5 px-3">Grade Point</th>
+                    <th class="py-2.5 px-3 text-right">Letter Grade</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                  <tr>
+                    <td class="py-2 px-3 font-semibold text-slate-900">Compulsory English</td>
+                    <td class="py-2 px-3 text-slate-600">4.0</td>
+                    <td class="py-2 px-3 font-mono font-bold text-slate-800">68</td>
+                    <td class="py-2 px-3 font-mono text-slate-600">24</td>
+                    <td class="py-2 px-3 font-bold text-slate-900">3.85</td>
+                    <td class="py-2 px-3 text-right font-black text-emerald-600">A+</td>
+                  </tr>
+                  <tr>
+                    <td class="py-2 px-3 font-semibold text-slate-900">Compulsory Nepali</td>
+                    <td class="py-2 px-3 text-slate-600">4.0</td>
+                    <td class="py-2 px-3 font-mono font-bold text-slate-800">64</td>
+                    <td class="py-2 px-3 font-mono text-slate-600">23</td>
+                    <td class="py-2 px-3 font-bold text-slate-900">3.60</td>
+                    <td class="py-2 px-3 text-right font-black text-emerald-600">A</td>
+                  </tr>
+                  <tr>
+                    <td class="py-2 px-3 font-semibold text-slate-900">Compulsory Mathematics</td>
+                    <td class="py-2 px-3 text-slate-600">4.0</td>
+                    <td class="py-2 px-3 font-mono font-bold text-slate-800">72</td>
+                    <td class="py-2 px-3 font-mono text-slate-600">25</td>
+                    <td class="py-2 px-3 font-bold text-slate-900">4.00</td>
+                    <td class="py-2 px-3 text-right font-black text-emerald-600">A+</td>
+                  </tr>
+                  <tr>
+                    <td class="py-2 px-3 font-semibold text-slate-900">Science & Technology</td>
+                    <td class="py-2 px-3 text-slate-600">4.0</td>
+                    <td class="py-2 px-3 font-mono font-bold text-slate-800">70</td>
+                    <td class="py-2 px-3 font-mono text-slate-600">25</td>
+                    <td class="py-2 px-3 font-bold text-slate-900">4.00</td>
+                    <td class="py-2 px-3 text-right font-black text-emerald-600">A+</td>
+                  </tr>
+                  <tr>
+                    <td class="py-2 px-3 font-semibold text-slate-900">Social Studies & Human Values</td>
+                    <td class="py-2 px-3 text-slate-600">4.0</td>
+                    <td class="py-2 px-3 font-mono font-bold text-slate-800">66</td>
+                    <td class="py-2 px-3 font-mono text-slate-600">24</td>
+                    <td class="py-2 px-3 font-bold text-slate-900">3.80</td>
+                    <td class="py-2 px-3 text-right font-black text-emerald-600">A+</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Fee History (NPR) -->
+          <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs">
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-2">
+                <i data-lucide="credit-card" class="w-4 h-4 text-emerald-600"></i>
+                <h3 class="text-sm font-bold text-slate-900">Fee Ledger & Payment Receipts (NPR)</h3>
+              </div>
+              <span class="text-xs text-emerald-700 font-bold bg-emerald-50 px-2.5 py-0.5 rounded-md">
+                Current Due: रू 0 (Cleared)
+              </span>
+            </div>
+
+            <div class="overflow-x-auto">
+              <table class="w-full text-left text-xs">
+                <thead class="bg-slate-50 text-slate-500 border-b border-slate-100">
+                  <tr>
+                    <th class="py-2 px-3">Receipt #</th>
+                    <th class="py-2 px-3">Fee Period</th>
+                    <th class="py-2 px-3">Amount (NPR)</th>
+                    <th class="py-2 px-3">Method</th>
+                    <th class="py-2 px-3">Date</th>
+                    <th class="py-2 px-3 text-right">Invoice</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                  <tr>
+                    <td class="py-2 px-3 font-mono font-bold text-slate-800">REC-2083-0941</td>
+                    <td class="py-2 px-3 font-medium text-slate-900">Quarter 2 (Ashwin-Mangsir)</td>
+                    <td class="py-2 px-3 font-bold text-slate-900">रू 25,000</td>
+                    <td class="py-2 px-3"><span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 font-semibold text-[10px]">eSewa Online</span></td>
+                    <td class="py-2 px-3 text-slate-500">2083-08-01</td>
+                    <td class="py-2 px-3 text-right"><a href="fee-receipt.html" class="text-xs text-[#E8752F] font-bold hover:underline">View Receipt</a></td>
+                  </tr>
+                  <tr>
+                    <td class="py-2 px-3 font-mono font-bold text-slate-800">REC-2083-0412</td>
+                    <td class="py-2 px-3 font-medium text-slate-900">Quarter 1 (Baisakh-Ashadh)</td>
+                    <td class="py-2 px-3 font-bold text-slate-900">रू 25,000</td>
+                    <td class="py-2 px-3"><span class="px-2 py-0.5 rounded bg-purple-50 text-purple-700 font-semibold text-[10px]">Khalti</span></td>
+                    <td class="py-2 px-3 text-slate-500">2083-04-15</td>
+                    <td class="py-2 px-3 text-right"><a href="fee-receipt.html" class="text-xs text-[#E8752F] font-bold hover:underline">View Receipt</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Col: Guardian & Contact Details -->
+        <div class="space-y-6">
+          <!-- Parent / Guardian Information -->
+          <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs text-xs">
+            <h4 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+              <i data-lucide="users" class="w-4 h-4 text-[#E8752F]"></i>
+              <span>Guardian & Family Information</span>
+            </h4>
+            
+            <div class="space-y-3">
+              <div>
+                <span class="text-slate-400 block text-[11px]">Father's Name</span>
+                <span class="font-bold text-slate-900 mt-0.5 block">Mr. Bikram Shrestha</span>
+                <span class="text-slate-500">Occupation: Civil Engineer</span>
+              </div>
+              <div class="pt-2 border-t border-slate-100">
+                <span class="text-slate-400 block text-[11px]">Mother's Name</span>
+                <span class="font-bold text-slate-900 mt-0.5 block">Mrs. Sunita Shrestha</span>
+                <span class="text-slate-500">Occupation: Senior Nursing Officer</span>
+              </div>
+              <div class="pt-2 border-t border-slate-100">
+                <span class="text-slate-400 block text-[11px]">Primary Contact Phone</span>
+                <span class="font-bold text-slate-900 mt-0.5 block">+977 9851048291</span>
+                <span class="text-slate-400">Registered for Sparrow SMS alerts</span>
+              </div>
+              <div class="pt-2 border-t border-slate-100">
+                <span class="text-slate-400 block text-[11px]">Permanent Address</span>
+                <span class="font-bold text-slate-800 mt-0.5 block">Ward No. 3, Maharajgunj, Kathmandu</span>
+                <span class="text-slate-400">Bagmati Province, Nepal</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Transportation & Health -->
+          <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs text-xs">
+            <h4 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+              <i data-lucide="bus" class="w-4 h-4 text-blue-600"></i>
+              <span>Transport & Emergency</span>
+            </h4>
+            <div class="space-y-2">
+              <div class="flex justify-between py-1 border-b border-slate-100">
+                <span class="text-slate-400">School Bus Route</span>
+                <span class="font-bold text-slate-800">Route #4 (Maharajgunj - Baluwatar)</span>
+              </div>
+              <div class="flex justify-between py-1 border-b border-slate-100">
+                <span class="text-slate-400">Bus Driver</span>
+                <span class="font-medium text-slate-800">Mr. Som Tamang (+977 9841223344)</span>
+              </div>
+              <div class="flex justify-between py-1">
+                <span class="text-slate-400">Known Allergies</span>
+                <span class="font-bold text-emerald-600">None Recorded</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'school',
+        activeNav: 'students',
+        pageTitle: 'Student 360 Profile',
+        breadcrumb: 'Students',
+        rootPrefix: '../'
+      });
+    });
+  </script>
+</body>
+</html>

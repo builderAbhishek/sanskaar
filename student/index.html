@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-50">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanskaar ERP - Student Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="h-full text-slate-800 antialiased font-['Plus_Jakarta_Sans',sans-serif]">
+  <div id="app-shell">
+    <div id="page-content" class="p-6 space-y-6">
+      
+      <!-- Student Hero Card -->
+      <div class="bg-gradient-to-r from-orange-500 via-amber-500 to-[#E8752F] text-white rounded-2xl p-6 shadow-md relative overflow-hidden">
+        <div class="absolute -right-8 -bottom-8 w-60 h-60 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
+          <div class="flex items-center gap-5">
+            <div class="relative">
+              <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=150&auto=format&fit=crop&q=80" alt="Aarav Shrestha" class="w-20 h-20 rounded-2xl object-cover border-4 border-white/40 shadow-lg">
+              <span class="absolute -bottom-1 -right-1 bg-emerald-500 border-2 border-white w-5 h-5 rounded-full flex items-center justify-center text-[10px]" title="Enrolled & Active">✓</span>
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight">Namaste, Aarav!</h1>
+                <span class="px-2.5 py-0.5 bg-white/20 text-xs font-semibold rounded-full">Class 10-A (SEE)</span>
+              </div>
+              <p class="text-orange-100 text-sm mt-0.5">Kathmandu Valley Secondary School • Roll No: 01 • NEB Symbol: 02701429A</p>
+              <div class="flex flex-wrap items-center gap-3 mt-2 text-xs font-medium text-orange-200">
+                <span>Sagarmatha House</span>
+                <span>•</span>
+                <span>Class Teacher: Mrs. Sunita Shrestha</span>
+                <span>•</span>
+                <span>Session: 2083-84 B.S.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-3 shrink-0">
+            <a href="fees.html" class="px-4 py-2.5 bg-white text-slate-900 hover:bg-orange-50 rounded-xl text-sm font-bold shadow-sm transition-all flex items-center gap-2">
+              <i data-lucide="wallet" class="w-4 h-4 text-[#E8752F]"></i>
+              <span>Pay Fees (eSewa)</span>
+            </a>
+            <a href="results.html" class="px-4 py-2.5 bg-black/20 hover:bg-black/30 border border-white/20 text-white rounded-xl text-sm font-semibold transition-all flex items-center gap-2">
+              <i data-lucide="award" class="w-4 h-4"></i>
+              <span>Report Card</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick KPI Stats -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        
+        <!-- Attendance Card -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex items-center justify-between">
+          <div>
+            <div class="text-xs font-semibold uppercase text-slate-400">Attendance</div>
+            <div class="text-2xl font-black text-slate-900 mt-1">96.8%</div>
+            <div class="text-xs text-emerald-600 font-semibold mt-1 flex items-center gap-1">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5"></i> NEB Board Eligible (>75%)
+            </div>
+          </div>
+          <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
+            <i data-lucide="calendar-check" class="w-6 h-6"></i>
+          </div>
+        </div>
+
+        <!-- Latest Terminal GPA -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex items-center justify-between">
+          <div>
+            <div class="text-xs font-semibold uppercase text-slate-400">Latest Term GPA</div>
+            <div class="text-2xl font-black text-slate-900 mt-1">3.92 <span class="text-sm font-bold text-[#E8752F]">A+</span></div>
+            <div class="text-xs text-slate-500 font-semibold mt-1 flex items-center gap-1">
+              <i data-lucide="trophy" class="w-3.5 h-3.5 text-amber-500"></i> Rank #1 in Class 10
+            </div>
+          </div>
+          <div class="w-12 h-12 rounded-xl bg-orange-50 text-[#E8752F] flex items-center justify-center">
+            <i data-lucide="award" class="w-6 h-6"></i>
+          </div>
+        </div>
+
+        <!-- Fee Ledger Status -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex items-center justify-between">
+          <div>
+            <div class="text-xs font-semibold uppercase text-slate-400">Fee Clearance</div>
+            <div class="text-2xl font-black text-slate-900 mt-1">रू 0 <span class="text-xs font-normal text-slate-400">Dues</span></div>
+            <div class="text-xs text-emerald-600 font-semibold mt-1 flex items-center gap-1">
+              <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> Quarter 2 Cleared
+            </div>
+          </div>
+          <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
+            <i data-lucide="receipt" class="w-6 h-6"></i>
+          </div>
+        </div>
+
+        <!-- Upcoming Exam Countdown -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex items-center justify-between">
+          <div>
+            <div class="text-xs font-semibold uppercase text-slate-400">Next Major Exam</div>
+            <div class="text-xl font-black text-slate-900 mt-1">SEE Pre-Board</div>
+            <div class="text-xs text-amber-600 font-semibold mt-1 flex items-center gap-1">
+              <i data-lucide="clock" class="w-3.5 h-3.5"></i> Magh 14, 2083
+            </div>
+          </div>
+          <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center">
+            <i data-lucide="calendar" class="w-6 h-6"></i>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Main Two Columns -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <!-- Left 2 Cols: Today's Routine & Active Homework -->
+        <div class="lg:col-span-2 space-y-6">
+          
+          <!-- Today's Schedule -->
+          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 space-y-4">
+            <div class="flex items-center justify-between">
+              <div>
+                <h3 class="font-bold text-slate-900 text-lg flex items-center gap-2">
+                  <i data-lucide="clock" class="w-5 h-5 text-[#E8752F]"></i>
+                  <span>Today's Class Schedule (Sunday)</span>
+                </h3>
+                <p class="text-xs text-slate-500 mt-0.5">Room 304, Senior Academic Wing • Class 10-A</p>
+              </div>
+              <a href="timetable.html" class="text-xs font-semibold text-[#E8752F] hover:underline flex items-center gap-1">
+                <span>Weekly Grid</span>
+                <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+
+            <div class="space-y-2.5">
+              <div class="p-3.5 rounded-xl border border-slate-200 hover:border-[#E8752F]/40 flex items-center justify-between transition-colors bg-slate-50/50">
+                <div class="flex items-center gap-3">
+                  <span class="w-12 text-xs font-bold text-slate-400">10:00 AM</span>
+                  <div class="w-1.5 h-8 bg-blue-500 rounded-full"></div>
+                  <div>
+                    <div class="font-bold text-slate-800 text-sm">Compulsory Mathematics</div>
+                    <div class="text-xs text-slate-500">Mrs. Sunita Shrestha • Quadratic Equations</div>
+                  </div>
+                </div>
+                <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700">Period 1</span>
+              </div>
+
+              <div class="p-3.5 rounded-xl border border-slate-200 hover:border-[#E8752F]/40 flex items-center justify-between transition-colors bg-slate-50/50">
+                <div class="flex items-center gap-3">
+                  <span class="w-12 text-xs font-bold text-slate-400">10:45 AM</span>
+                  <div class="w-1.5 h-8 bg-emerald-500 rounded-full"></div>
+                  <div>
+                    <div class="font-bold text-slate-800 text-sm">Physics (Science & Tech)</div>
+                    <div class="text-xs text-slate-500">Prof. Dr. Ram Thapa • Science Lab 1</div>
+                  </div>
+                </div>
+                <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700">Period 2</span>
+              </div>
+
+              <div class="p-3.5 rounded-xl border border-slate-200 hover:border-[#E8752F]/40 flex items-center justify-between transition-colors bg-slate-50/50">
+                <div class="flex items-center gap-3">
+                  <span class="w-12 text-xs font-bold text-slate-400">11:45 AM</span>
+                  <div class="w-1.5 h-8 bg-purple-500 rounded-full"></div>
+                  <div>
+                    <div class="font-bold text-slate-800 text-sm">Compulsory English</div>
+                    <div class="text-xs text-slate-500">Mrs. Ananya Bhattarai • Essay Writing Unit</div>
+                  </div>
+                </div>
+                <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-purple-50 text-purple-700">Period 3</span>
+              </div>
+
+              <div class="p-3.5 rounded-xl border border-slate-200 hover:border-[#E8752F]/40 flex items-center justify-between transition-colors bg-slate-50/50">
+                <div class="flex items-center gap-3">
+                  <span class="w-12 text-xs font-bold text-slate-400">01:50 PM</span>
+                  <div class="w-1.5 h-8 bg-[#E8752F] rounded-full"></div>
+                  <div>
+                    <div class="font-bold text-slate-800 text-sm">Computer Science & AI</div>
+                    <div class="text-xs text-slate-500">Mr. Bikram Gurung • Python Data Structures</div>
+                  </div>
+                </div>
+                <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-orange-50 text-[#E8752F]">Period 5</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pending Homework & Deliverables -->
+          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 space-y-4">
+            <div class="flex items-center justify-between">
+              <div>
+                <h3 class="font-bold text-slate-900 text-lg flex items-center gap-2">
+                  <i data-lucide="book-open" class="w-5 h-5 text-[#E8752F]"></i>
+                  <span>Active Homework & Project Tasks</span>
+                </h3>
+                <p class="text-xs text-slate-500 mt-0.5">Mark complete once verified in your school notebook</p>
+              </div>
+              <a href="homework.html" class="text-xs font-semibold text-[#E8752F] hover:underline flex items-center gap-1">
+                <span>View All (3)</span>
+                <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+
+            <div class="space-y-3">
+              <div class="p-4 rounded-xl border border-slate-200 hover:border-[#E8752F]/40 transition-colors flex items-start gap-4">
+                <input type="checkbox" onchange="toggleHomework(this, 'Math Exercises')" class="mt-1 w-4 h-4 rounded text-[#E8752F] border-slate-300 focus:ring-[#E8752F]">
+                <div class="flex-1">
+                  <div class="flex items-center justify-between">
+                    <h4 class="font-bold text-slate-800 text-sm">SEE Model Problems: Quadratic Equations</h4>
+                    <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-rose-50 text-rose-600">Due in 2 days</span>
+                  </div>
+                  <p class="text-xs text-slate-600 mt-1">Solve CDC Curriculum Chapter 4 Exercises 4.2 & 4.3 in math registers. Prepare for Friday mock quiz.</p>
+                  <div class="text-[11px] text-slate-400 mt-2 font-medium">Teacher: Mrs. Sunita Shrestha • Compulsory Mathematics</div>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-xl border border-slate-200 hover:border-[#E8752F]/40 transition-colors flex items-start gap-4">
+                <input type="checkbox" onchange="toggleHomework(this, 'Science Lab')" class="mt-1 w-4 h-4 rounded text-[#E8752F] border-slate-300 focus:ring-[#E8752F]">
+                <div class="flex-1">
+                  <div class="flex items-center justify-between">
+                    <h4 class="font-bold text-slate-800 text-sm">Lab Practical: Ohm's Law & Circuit Resistance</h4>
+                    <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-50 text-amber-600">Due Friday</span>
+                  </div>
+                  <p class="text-xs text-slate-600 mt-1">Plot V-I linear curve on graph sheet and determine circuit resistance with error analysis.</p>
+                  <div class="text-[11px] text-slate-400 mt-2 font-medium">Teacher: Prof. Dr. Ram Thapa • Science & Technology</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right 1 Col: Notices & Important Deadlines -->
+        <div class="space-y-6">
+          
+          <!-- Recent Notices Feed -->
+          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 space-y-4">
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-slate-900 text-base flex items-center gap-2">
+                <i data-lucide="bell" class="w-4 h-4 text-[#E8752F]"></i>
+                <span>Notice Board</span>
+              </h3>
+              <a href="notices.html" class="text-xs font-semibold text-[#E8752F] hover:underline">View All</a>
+            </div>
+
+            <div class="space-y-3.5">
+              <div class="border-l-2 border-[#E8752F] pl-3 py-1 space-y-1">
+                <div class="text-xs font-bold text-slate-800">SEE Model Examination Routine 2083</div>
+                <p class="text-[11px] text-slate-500 line-clamp-2">The SEE blueprint examination commences from Magh 14. Full syllabus 75 TH + 25 PR.</p>
+                <span class="text-[10px] text-slate-400">Exam Dept • 20 Bhadra</span>
+              </div>
+
+              <div class="border-l-2 border-emerald-500 pl-3 py-1 space-y-1">
+                <div class="text-xs font-bold text-slate-800">Inter-School Robotics Conclave 'Valley Innovate'</div>
+                <p class="text-[11px] text-slate-500 line-clamp-2">KVSS is hosting 28 schools for the Drone Simulator and AI Innovation Arena on 12th Ashwin.</p>
+                <span class="text-[10px] text-slate-400">IT Dept • 10 Bhadra</span>
+              </div>
+
+              <div class="border-l-2 border-blue-500 pl-3 py-1 space-y-1">
+                <div class="text-xs font-bold text-slate-800">Library Book Return Deadline</div>
+                <p class="text-[11px] text-slate-500 line-clamp-2">Students are advised to renew or return books before terminal exams.</p>
+                <span class="text-[10px] text-slate-400">Library • 05 Bhadra</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Download Admit Card Card -->
+          <div class="bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-2xl p-6 shadow-sm space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-amber-400">
+                <i data-lucide="file-check" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-sm">Terminal Examination Admit Card</h4>
+                <p class="text-[11px] text-slate-300">SEE Pre-Board 2083 B.S.</p>
+              </div>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed">Your attendance and fee clearance are verified. You can generate your official entrance slip with barcode.</p>
+            <button onclick="downloadAdmitCard()" class="w-full py-2.5 bg-[#E8752F] hover:bg-[#d66521] text-white font-bold rounded-xl text-xs flex items-center justify-center gap-2 transition-colors">
+              <i data-lucide="download" class="w-4 h-4"></i>
+              <span>Download Official Admit Card</span>
+            </button>
+          </div>
+
+          <!-- Emergency Contact / Helpdesk -->
+          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-5 space-y-2">
+            <div class="text-xs font-bold text-slate-700 uppercase">School Front Desk</div>
+            <p class="text-xs text-slate-500">Need academic guidance or fee invoice clarification?</p>
+            <div class="text-xs font-bold text-slate-800 flex items-center gap-2 pt-1">
+              <i data-lucide="phone" class="w-3.5 h-3.5 text-[#E8752F]"></i>
+              <span>+977-1-4720199 / 4720200</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+  <script>
+    function toggleHomework(checkbox, title) {
+      if (checkbox.checked) {
+        SanskaarToast.show(`Marked "${title}" as completed! Great job!`, 'success');
+      } else {
+        SanskaarToast.show(`Marked "${title}" as pending.`, 'info');
+      }
+    }
+
+    function downloadAdmitCard() {
+      SanskaarToast.show('Generating official SEE Examination Admit Card (PDF)...', 'info');
+      setTimeout(() => {
+        SanskaarToast.show('Admit card ready for print!', 'success');
+      }, 800);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'student',
+        activeNav: 'dashboard',
+        pageTitle: 'Student Portal',
+        breadcrumb: 'Student / Overview',
+        rootPrefix: '../'
+      });
+    });
+  </script>
+</body>
+</html>
