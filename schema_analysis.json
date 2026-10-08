@@ -1,0 +1,919 @@
+{
+  "index.html": {
+    "inputs": [],
+    "tables": []
+  },
+  "admin/activity-logs.html": {
+    "inputs": [],
+    "tables": [
+      [
+        "Timestamp (NPT)",
+        "Actor / User",
+        "Action Performed",
+        "Target Tenant",
+        "Client IP & ISP",
+        "Security State"
+      ]
+    ]
+  },
+  "admin/index.html": {
+    "inputs": [],
+    "tables": [
+      [
+        "School Name & Location",
+        "Students",
+        "Plan",
+        "Monthly (NPR)",
+        "Status",
+        "Action"
+      ]
+    ]
+  },
+  "admin/payments.html": {
+    "inputs": [],
+    "tables": [
+      [
+        "Txn Reference",
+        "School Name",
+        "Amount (NPR)",
+        "Method",
+        "Date & Time",
+        "Fiscal Status",
+        "Tax Invoice"
+      ]
+    ]
+  },
+  "admin/plans.html": {
+    "inputs": [],
+    "tables": []
+  },
+  "admin/reports.html": {
+    "inputs": [],
+    "tables": [
+      [
+        "Province",
+        "Active Schools",
+        "Total Students",
+        "Monthly Billing (NPR)",
+        "Growth Rate",
+        "Biometric Devices"
+      ]
+    ]
+  },
+  "admin/school-details.html": {
+    "inputs": [],
+    "tables": [
+      [
+        "Invoice #",
+        "Billing Period",
+        "Amount (NPR)",
+        "Payment Mode",
+        "Status",
+        "Receipt"
+      ]
+    ]
+  },
+  "admin/schools.html": {
+    "inputs": [
+      {
+        "tag": "input",
+        "name": "",
+        "id": "school-search-input",
+        "type": "text"
+      },
+      {
+        "tag": "select",
+        "name": "",
+        "id": "province-filter",
+        "type": "select"
+      },
+      {
+        "tag": "select",
+        "name": "",
+        "id": "plan-filter",
+        "type": "select"
+      }
+    ],
+    "tables": [
+      [
+        "School Name & Code",
+        "Location",
+        "Principal / Contact",
+        "Students",
+        "Teachers",
+        "Subscription Plan",
+        "Monthly (NPR)",
+        "Status",
+        "Actions"
+      ]
+    ]
+  },
+  "admin/subscriptions.html": {
+    "inputs": [],
+    "tables": [
+      [
+        "School Name",
+        "Tier",
+        "Monthly (NPR)",
+        "Billing Mode",
+        "Activation Date",
+        "Next Renewal",
+        "Auto-Debit",
+        "Actions"
+      ]
+    ]
+  },
+  "admin/support.html": {
+    "inputs": [],
+    "tables": []
+  },
+  "admin/system-settings.html": {
+    "inputs": [],
+    "tables": []
+  },
+  "admin/users.html": {
+    "inputs": [],
+    "tables": [
+      [
+        "User",
+        "Role",
+        "Organization / School",
+        "Phone",
+        "2FA Security",
+        "Last Active",
+        "Action"
+      ]
+    ]
+  },
+  "login/admin.html": {
+    "inputs": [
+      {
+        "tag": "input",
+        "name": "",
+        "id": "email",
+        "type": "email"
+      },
+      {
+        "tag": "input",
+        "name": "",
+        "id": "password",
+        "type": "password"
+      }
+    ],
+    "tables": []
+  },
+  "login/school.html": {
+    "inputs": [
+      {
+        "tag": "input",
+        "name": "",
+        "id": "staff-email",
+        "type": "email"
+      }
+    ],
+    "tables": []
+  },
+  "login/student.html": {
+    "inputs": [
+      {
+        "tag": "input",
+        "name": "",
+        "id": "adm-no",
+        "type": "text"
+      }
+    ],
+    "tables": []
+  },
+  "school/academic-session.html": {
+    "inputs": [],
+    "tables": [
+      [
+        "Academic Session (B.S.)",
+        "Gregorian Period",
+        "Enrolled Students",
+        "SEE Pass %",
+        "Status",
+        "Actions"
+      ]
+    ]
+  },
+  "school/accounting.html": {
+    "inputs": [],
+    "tables": [
+      [
+        "Entry Date",
+        "Transaction Particulars",
+        "Account Head",
+        "Voucher / Txn Ref",
+        "Debit (Income NPR)",
+        "Credit (Expense NPR)",
+        "Running Balance"
+      ]
+    ]
+  },
+  "school/admissions.html": {
+    "inputs": [],
+    "tables": []
+  },
+  "school/ai-insights.html": {
+    "inputs": [],
+    "tables": []
+  },
+  "school/ai-question-paper.html": {
+    "inputs": [],
+    "tables": []
+  },
+  "school/ai-study-assistant.html": {
+    "inputs": [
+      {
+        "tag": "input",
+        "name": "",
+        "id": "assistant-input",
+        "type": "text"
+      }
+    ],
+    "tables": []
+  },
+  "school/ai-worksheet.html": {
+    "inputs": [
+      {
+        "tag": "input",
+        "name": "q1",
+        "id": "",
+        "type": "radio"
+      },
+      {
+        "tag": "input",
+        "name": "q1",
+        "id": "",
+        "type": "radio"
+      },
+      {
+        "tag": "input",
+        "name": "q1",
+        "id": "",
+        "type": "radio"
+      },
+      {
+        "tag": "input",
+        "name": "q1",
+        "id": "",
+        "type": "radio"
+      },
+      {
+        "tag": "input",
+        "name": "q2",
+        "id": "",
+        "type": "radio"
+      },
+      {
+        "tag": "input",
+        "name": "q2",
+        "id": "",
+        "type": "radio"
+      },
+      {
+        "tag": "input",
+        "name": "q2",
+        "id": "",
+        "type": "radio"
+      },
+      {
+        "tag": "input",
+        "name": "q2",
+        "id": "",
+        "type": "radio"
+      }
+    ],
+    "tables": []
+  },
+  "school/assignments.html": {
+    "inputs": [],
+    "tables": [
+      [
+        "Project Title",
+        "Curriculum Subject",
+        "Target Cohort",
+        "Weightage",
+        "Submission Deadline",
+        "Turned In",
+        "Actions"
+      ]
+    ]
+  },
+  "school/attendance-analytics.html": {
+    "inputs": [],
+    "tables": [
+      [
+        "Student Name",
+        "Class & Sec",
+        "Current Attendance",
+        "Days Present / Total",
+        "Guardian Contact",
+        "NEB SEE Risk",
+        "Intervention"
+      ]
+    ]
+  },
+  "school/attendance.html": {
+    "inputs": [],
+    "tables": [
+      [
+        "Roll #",
+        "Student Information",
+        "NEB Symbol No.",
+        "Guardian Phone",
+        "Term Average",
+        "Attendance Status"
+      ]
+    ]
+  },
+  "school/automation.html": {
+    "inputs": [],
+    "tables": []
+  },
+  "school/certificates.html": {
+    "inputs": [],
+    "tables": []
+  },
+  "school/circulars.html": {
+    "inputs": [],
+    "tables": []
+  },
+  "school/classes.html": {
+    "inputs": [],
+    "tables": []
+  },
+  "school/documents.html": {
+    "inputs": [],
+    "tables": []
+  },
+  "school/exam-analytics.html": {
+    "inputs": [],
+    "tables": []
+  },
+  "school/exam-schedule.html": {
+    "inputs": [],
+    "tables": [
+      [
+        "Date & Day (B.S.)",
+        "Subject Code & Name",
+        "Time Slot",
+        "Full / Pass Marks",
+        "Examination Hall",
+        "Chief Invigilator",
+        "Question Paper"
+      ]
+    ]
+  },
+  "school/exams.html": {
+    "inputs": [],
+    "tables": [
+      [
+        "Percentage Interval",
+        "Letter Grade",
+        "Grade Point (GP)",
+        "Performance Description",
+        "Passing Standard"
+      ]
+    ]
+  },
+  "school/expenses.html": {
+    "inputs": [],
+    "tables": [
+      [
+        "Voucher No.",
+        "Category / Purpose",
+        "Vendor / Payee",
+        "Date (BS)",
+        "Amount (NPR)",
+        "Payment Mode",
+        "Invoice Slip"
+      ]
+    ]
+  },
+  "school/fee-collection.html": {
+    "inputs": [
+      {
+        "tag": "input",
+        "name": "",
+        "id": "pos-student-search",
+        "type": "text"
+      },
+      {
+        "tag": "input",
+        "name": "pay-mode",
+        "id": "",
+        "type": "radio"
+      },
+      {
+        "tag": "input",
+        "name": "pay-mode",
+        "id": "",
+        "type": "radio"
+      },
+      {
+        "tag": "input",
+        "name": "pay-mode",
+        "id": "",
+        "type": "radio"
+      },
+      {
+        "tag": "input",
+        "name": "pay-mode",
+        "id": "",
+        "type": "radio"
+      }
+    ],
+    "tables": []
+  },
+  "school/fee-receipt.html": {
+    "inputs": [],
+    "tables": [
+      [
+        "S.N.",
+        "Particulars / Fee Description",
+        "Term / Period",
+        "Amount (NPR)"
+      ]
+    ]
+  },
+  "school/fee-structure.html": {
+    "inputs": [],
+    "tables": [
+      [
+        "Grade Level / Cohort",
+        "Monthly Tuition",
+        "Quarterly Tuition",
+        "Science & Lab",
+        "Computer & IT",
+        "Exam & Test",
+        "Quarterly Total (NPR)"
+      ]
+    ]
+  },
+  "school/fees.html": {
+    "inputs": [],
+    "tables": [
+      [
+        "Student Name & Roll",
+        "Class & Sec",
+        "Quarter Period",
+        "Billed Amount (NPR)",
+        "Paid Amount",
+        "Payment Mode",
+        "Status",
+        "Receipt"
+      ]
+    ]
+  },
+  "school/financial-reports.html": {
+    "inputs": [],
+    "tables": [
+      [
+        "Accounting Particulars",
+        "Mangsir 2083",
+        "Year-to-Date (FY 2083/84)"
+      ]
+    ]
+  },
+  "school/homework.html": {
+    "inputs": [],
+    "tables": []
+  },
+  "school/id-cards.html": {
+    "inputs": [],
+    "tables": []
+  },
+  "school/index.html": {
+    "inputs": [],
+    "tables": []
+  },
+  "school/marks-entry.html": {
+    "inputs": [],
+    "tables": [
+      [
+        "Roll #",
+        "Student Name",
+        "NEB Symbol No.",
+        "Theory (Max 75)",
+        "Practical (Max 25)",
+        "Total (Max 100)",
+        "Grade Point",
+        "Grade"
+      ]
+    ]
+  },
+  "school/notices.html": {
+    "inputs": [],
+    "tables": []
+  },
+  "school/notifications.html": {
+    "inputs": [],
+    "tables": [
+      [
+        "Timestamp (NPT)",
+        "Recipient Mobile",
+        "Target Student",
+        "SMS Text Content",
+        "Type",
+        "Gateway Status"
+      ]
+    ]
+  },
+  "school/parents.html": {
+    "inputs": [],
+    "tables": [
+      [
+        "Guardian Name",
+        "Ward & Address",
+        "Enrolled Ward / Child",
+        "Class & Sec",
+        "Registered Phone",
+        "SMS Alert Status",
+        "Actions"
+      ]
+    ]
+  },
+  "school/report-card.html": {
+    "inputs": [],
+    "tables": [
+      [
+        "Code",
+        "Subject Name",
+        "Credit",
+        "Theory (TH)",
+        "Practical (PR)",
+        "Final Grade",
+        "Grade Point"
+      ]
+    ]
+  },
+  "school/reports.html": {
+    "inputs": [],
+    "tables": []
+  },
+  "school/results.html": {
+    "inputs": [],
+    "tables": [
+      [
+        "Rank",
+        "Student Name & Roll",
+        "NEB Symbol No.",
+        "English (001)",
+        "Nepali (002)",
+        "Math (003)",
+        "Science (004)",
+        "Social (005)",
+        "Overall GPA",
+        "Report Card"
+      ]
+    ]
+  },
+  "school/roles-permissions.html": {
+    "inputs": [],
+    "tables": [
+      [
+        "Module Name",
+        "View / Read",
+        "Create / Add",
+        "Edit / Update",
+        "Delete / Purge",
+        "Export / Print"
+      ]
+    ]
+  },
+  "school/salary.html": {
+    "inputs": [],
+    "tables": [
+      [
+        "Employee Name & Role",
+        "Basic Pay",
+        "Dearness & Allow.",
+        "PF (10%)",
+        "CIT & TDS",
+        "Net Payable (NPR)",
+        "Bank Account (Nabil)",
+        "Payslip"
+      ]
+    ]
+  },
+  "school/school-profile.html": {
+    "inputs": [],
+    "tables": []
+  },
+  "school/school-settings.html": {
+    "inputs": [],
+    "tables": [
+      [
+        "Percentage Range",
+        "Grade",
+        "Grade Point",
+        "Performance Description"
+      ]
+    ]
+  },
+  "school/sections.html": {
+    "inputs": [],
+    "tables": [
+      [
+        "Class & Section",
+        "Wing",
+        "Room No. & Block",
+        "Class Teacher",
+        "Enrolled / Capacity",
+        "Attendance Today",
+        "Actions"
+      ]
+    ]
+  },
+  "school/staff-attendance.html": {
+    "inputs": [],
+    "tables": [
+      [
+        "Staff Name",
+        "Department",
+        "Shift Schedule",
+        "In Time",
+        "Out Time",
+        "Biometric Status",
+        "Remarks"
+      ]
+    ]
+  },
+  "school/staff.html": {
+    "inputs": [],
+    "tables": [
+      [
+        "Staff Member",
+        "Department & Role",
+        "Contact Details",
+        "Employment Type",
+        "Biometric Status",
+        "Actions"
+      ]
+    ]
+  },
+  "school/student-profile.html": {
+    "inputs": [],
+    "tables": [
+      [
+        "Subject Name",
+        "Credit Hr",
+        "Theory (75)",
+        "Practical (25)",
+        "Grade Point",
+        "Letter Grade"
+      ],
+      [
+        "Receipt #",
+        "Fee Period",
+        "Amount (NPR)",
+        "Method",
+        "Date",
+        "Invoice"
+      ]
+    ]
+  },
+  "school/students.html": {
+    "inputs": [
+      {
+        "tag": "input",
+        "name": "",
+        "id": "student-search-input",
+        "type": "text"
+      },
+      {
+        "tag": "select",
+        "name": "",
+        "id": "class-filter",
+        "type": "select"
+      },
+      {
+        "tag": "select",
+        "name": "",
+        "id": "section-filter",
+        "type": "select"
+      },
+      {
+        "tag": "select",
+        "name": "",
+        "id": "gender-filter",
+        "type": "select"
+      }
+    ],
+    "tables": [
+      [
+        "Student Name & Roll",
+        "NEB Symbol No.",
+        "Class & Sec",
+        "Guardian & Phone",
+        "Attendance",
+        "Fee Status (NPR)",
+        "Actions"
+      ]
+    ]
+  },
+  "school/study-materials.html": {
+    "inputs": [],
+    "tables": []
+  },
+  "school/subjects.html": {
+    "inputs": [],
+    "tables": [
+      [
+        "Subject Code",
+        "Subject Name (Eng & Nep)",
+        "Classification",
+        "Credit Hours",
+        "Theory / Practical",
+        "Faculty Lead",
+        "Syllabus"
+      ]
+    ]
+  },
+  "school/teacher-attendance.html": {
+    "inputs": [],
+    "tables": [
+      [
+        "Teacher Name",
+        "Department",
+        "Punch In (NPT)",
+        "Punch Out",
+        "Device Terminal",
+        "Punctuality",
+        "Duty Class"
+      ]
+    ]
+  },
+  "school/teacher-profile.html": {
+    "inputs": [],
+    "tables": [
+      [
+        "Day",
+        "Period 109:00 - 09:45",
+        "Period 209:45 - 10:30",
+        "Period 310:45 - 11:30",
+        "Period 411:30 - 12:15",
+        "Period 501:00 - 01:45",
+        "Period 601:45 - 02:30"
+      ]
+    ]
+  },
+  "school/teachers.html": {
+    "inputs": [],
+    "tables": [
+      [
+        "Teacher Name & Designation",
+        "Department",
+        "Qualifications",
+        "Primary Subject",
+        "Weekly Load",
+        "Biometric Status",
+        "Actions"
+      ]
+    ]
+  },
+  "school/timetable.html": {
+    "inputs": [
+      {
+        "tag": "select",
+        "name": "",
+        "id": "routine-class-selector",
+        "type": "select"
+      }
+    ],
+    "tables": [
+      [
+        "Day",
+        "P109:00 - 09:45",
+        "P209:45 - 10:30",
+        "P310:45 - 11:30",
+        "P411:30 - 12:15",
+        "Tiffin Break12:15 - 01:00",
+        "P501:00 - 01:45",
+        "P601:45 - 02:30",
+        "P702:30 - 03:15"
+      ]
+    ]
+  },
+  "student/assignments.html": {
+    "inputs": [],
+    "tables": []
+  },
+  "student/attendance.html": {
+    "inputs": [],
+    "tables": []
+  },
+  "student/certificates.html": {
+    "inputs": [],
+    "tables": []
+  },
+  "student/exams.html": {
+    "inputs": [],
+    "tables": [
+      [
+        "Date (B.S.)",
+        "Day",
+        "Subject",
+        "Time",
+        "Marks Scheme",
+        "Syllabus"
+      ]
+    ]
+  },
+  "student/fee-receipts.html": {
+    "inputs": [],
+    "tables": [
+      [
+        "Receipt #",
+        "Billing Period",
+        "Payment Date",
+        "Payment Gateway",
+        "Amount (NPR)",
+        "Status",
+        "Actions"
+      ],
+      [
+        "#",
+        "Description",
+        "Amount (NPR)"
+      ]
+    ]
+  },
+  "student/fees.html": {
+    "inputs": [],
+    "tables": [
+      [
+        "Fee Particular / Component",
+        "Billing Frequency",
+        "Amount (NPR)"
+      ],
+      [
+        "Receipt No",
+        "Term Description",
+        "Payment Date",
+        "Gateway / Mode",
+        "Amount (NPR)",
+        "Status",
+        "Receipt"
+      ]
+    ]
+  },
+  "student/homework.html": {
+    "inputs": [],
+    "tables": []
+  },
+  "student/index.html": {
+    "inputs": [],
+    "tables": []
+  },
+  "student/notices.html": {
+    "inputs": [],
+    "tables": []
+  },
+  "student/notifications.html": {
+    "inputs": [],
+    "tables": []
+  },
+  "student/profile.html": {
+    "inputs": [],
+    "tables": []
+  },
+  "student/results.html": {
+    "inputs": [],
+    "tables": [
+      [
+        "Code",
+        "Subject Name",
+        "Credit Hr",
+        "Theory (75)",
+        "Practical (25)",
+        "Total (100)",
+        "Grade",
+        "Grade Point"
+      ]
+    ]
+  },
+  "student/study-materials.html": {
+    "inputs": [],
+    "tables": []
+  },
+  "student/timetable.html": {
+    "inputs": [],
+    "tables": [
+      [
+        "Day",
+        "P1 (10:00-10:45)",
+        "P2 (10:45-11:30)",
+        "Assembly",
+        "P3 (11:45-12:30)",
+        "P4 (12:30-01:15)",
+        "Lunch",
+        "P5 (01:50-02:35)",
+        "P6 (02:35-03:20)",
+        "P7 (03:20-04:00)"
+      ]
+    ]
+  }
+}
