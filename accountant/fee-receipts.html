@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Official Fee Receipt - Sanskaar ERP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <div id="app-shell">
+    <div id="page-content">
+      
+      <!-- Top Action Bar (Hidden when Printing) -->
+      <div class="flex items-center justify-between gap-4 mb-6 no-print">
+        <div class="flex items-center gap-3">
+          <a href="fee-records.html" class="p-2 rounded-xl bg-white border border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors shadow-2xs">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+          </a>
+          <div>
+            <h1 class="text-xl font-black text-slate-900 tracking-tight" data-i18n="nav_fee_receipt">Official Fee Receipt</h1>
+            <p class="text-xs text-slate-500">Receipt No: REC-2083-0941 • Aarav Shrestha (Class 10-A)</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button onclick="window.print()" class="px-4 py-2 text-xs font-bold bg-[#E8752F] text-white rounded-xl hover:bg-[#D46320] transition-colors shadow-sm flex items-center gap-2">
+            <i data-lucide="printer" class="w-4 h-4"></i>
+            <span>Print Receipt</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Printable Receipt Voucher Card -->
+      <div class="max-w-3xl mx-auto bg-white p-8 rounded-3xl border border-slate-200 shadow-lg text-slate-900 printable-area">
+        
+        <!-- School Header -->
+        <div class="flex items-start justify-between border-b-2 border-slate-900 pb-5 mb-6">
+          <div class="flex items-center gap-4">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-[#E8752F] to-[#F97316] text-white font-black text-2xl flex items-center justify-center shadow-md">
+              KV
+            </div>
+            <div>
+              <h2 class="text-xl font-black text-slate-900 tracking-tight">KATHMANDU VALLEY SECONDARY SCHOOL</h2>
+              <p class="text-xs font-semibold text-slate-600">काठमाडौं भ्याली माध्यमिक विद्यालय</p>
+              <p class="text-xs text-slate-500 mt-0.5">Maharajgunj-3, Kathmandu, Bagmati Province, Nepal</p>
+              <div class="flex items-center gap-3 text-[11px] text-slate-500 mt-1">
+                <span>NEB Code: <strong>27014</strong></span>
+                <span>•</span>
+                <span>PAN No: <strong>301928410</strong></span>
+                <span>•</span>
+                <span>Tel: +977 1 4720911</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-right">
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-black bg-emerald-50 text-emerald-700 border border-emerald-300">
+              ORIGINAL RECEIPT
+            </span>
+            <div class="mt-2 font-mono text-xs text-slate-700">
+              <div>Receipt #: <strong>REC-2083-0941</strong></div>
+              <div>Date (BS): <strong>2083-08-01</strong></div>
+              <div class="text-slate-400 text-[10px]">Date (AD): 16 Nov 2026</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Student Particulars Sub-header -->
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs mb-6">
+          <div>
+            <span class="text-slate-400 block text-[10px] font-bold uppercase">Student Name</span>
+            <span class="font-black text-slate-900 text-sm mt-0.5 block">Aarav Shrestha</span>
+          </div>
+          <div>
+            <span class="text-slate-400 block text-[10px] font-bold uppercase">Class & Roll</span>
+            <span class="font-bold text-slate-800 mt-0.5 block">Class 10 - Sec A (Roll: #01)</span>
+          </div>
+          <div>
+            <span class="text-slate-400 block text-[10px] font-bold uppercase">NEB Symbol No</span>
+            <span class="font-mono font-bold text-slate-800 mt-0.5 block">27014001A</span>
+          </div>
+          <div>
+            <span class="text-slate-400 block text-[10px] font-bold uppercase">Parent / Guardian</span>
+            <span class="font-bold text-slate-800 mt-0.5 block">Mr. Bikram Shrestha</span>
+          </div>
+        </div>
+
+        <!-- Billing Period -->
+        <div class="text-xs mb-4 text-slate-600 flex items-center justify-between">
+          <span>Fee Billing Period: <strong class="text-slate-900">Quarter 2 (Ashwin, Kartik, Mangsir 2083)</strong></span>
+          <span>Payment Gateway: <strong class="text-emerald-600">eSewa Mobile Wallet</strong></span>
+        </div>
+
+        <!-- Detailed Fee Heads Table -->
+        <div class="border border-slate-200 rounded-2xl overflow-hidden mb-6">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-slate-100 text-slate-700 font-bold border-b border-slate-200">
+              <tr>
+                <th class="py-2.5 px-4 w-12 text-center">S.N.</th>
+                <th class="py-2.5 px-4">Particulars / Fee Description</th>
+                <th class="py-2.5 px-4 text-center">Term / Period</th>
+                <th class="py-2.5 px-4 text-right">Amount (NPR)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+              <tr>
+                <td class="py-2.5 px-4 text-center font-mono text-slate-500">1</td>
+                <td class="py-2.5 px-4 font-semibold text-slate-900">Monthly Tuition Fee (Ashwin, Kartik, Mangsir @ रू 6,500/mo)</td>
+                <td class="py-2.5 px-4 text-center text-slate-600">3 Months</td>
+                <td class="py-2.5 px-4 text-right font-mono font-bold text-slate-900">रू 19,500.00</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 px-4 text-center font-mono text-slate-500">2</td>
+                <td class="py-2.5 px-4 font-semibold text-slate-900">Science Laboratory & Practical Consumables</td>
+                <td class="py-2.5 px-4 text-center text-slate-600">Quarter 2</td>
+                <td class="py-2.5 px-4 text-right font-mono font-bold text-slate-900">रू 2,400.00</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 px-4 text-center font-mono text-slate-500">3</td>
+                <td class="py-2.5 px-4 font-semibold text-slate-900">Computer Lab, Coding & Internet Subscription</td>
+                <td class="py-2.5 px-4 text-center text-slate-600">Quarter 2</td>
+                <td class="py-2.5 px-4 text-right font-mono font-bold text-slate-900">रू 1,600.00</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 px-4 text-center font-mono text-slate-500">4</td>
+                <td class="py-2.5 px-4 font-semibold text-slate-900">Terminal Pre-Board Examination Fee</td>
+                <td class="py-2.5 px-4 text-center text-slate-600">Term 1</td>
+                <td class="py-2.5 px-4 text-right font-mono font-bold text-slate-900">रू 1,500.00</td>
+              </tr>
+            </tbody>
+            <tfoot class="bg-slate-50 font-bold border-t-2 border-slate-300">
+              <tr>
+                <td colspan="3" class="py-3 px-4 text-right text-slate-900 font-black text-sm">TOTAL RECEIVED AMOUNT (NPR):</td>
+                <td class="py-3 px-4 text-right text-base text-emerald-600 font-black font-mono">रू 25,000.00</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <!-- Amount in Words -->
+        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs mb-8">
+          <span class="text-slate-400 uppercase font-bold text-[10px] block">Amount in Words</span>
+          <span class="font-bold text-slate-900">Twenty Five Thousand Nepalese Rupees Only (रू २५,००० मात्र)</span>
+        </div>
+
+        <!-- Electronic Payment Verification & Signatures -->
+        <div class="grid grid-cols-2 gap-8 items-end pt-4 border-t border-slate-200 text-xs">
+          <div>
+            <div class="text-[11px] text-slate-400 font-mono">
+              <div>Txn Ref: <strong>ESW-NP-2083-991827419</strong></div>
+              <div>Cleared via: <strong>eSewa Fonepay Direct</strong></div>
+              <div>System Timestamp: 2083-08-01 10:14:02 NPT</div>
+            </div>
+            <div class="mt-3 flex items-center gap-1.5 text-emerald-600 font-bold text-[11px]">
+              <i data-lucide="shield-check" class="w-4 h-4"></i>
+              <span>Digitally Authenticated by Sanskaar ERP</span>
+            </div>
+          </div>
+
+          <div class="text-right space-y-1">
+            <div class="h-12 flex items-center justify-end">
+              <span class="font-script text-slate-400 italic text-lg pr-4">Bishnu Sharma</span>
+            </div>
+            <div class="w-48 ml-auto border-b border-slate-900"></div>
+            <div class="font-bold text-slate-900">Authorized Bursar / Accountant</div>
+            <div class="text-[10px] text-slate-400">Kathmandu Valley Secondary School</div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'accountant',
+        activeNav: 'fee-receipt',
+        pageTitle: 'Official Fee Receipt',
+        breadcrumb: 'Finance',
+        rootPrefix: '../'
+      });
+    });
+  </script>
+</body>
+</html>

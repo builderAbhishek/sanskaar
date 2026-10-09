@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Directory - Sanskaar ERP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <div id="app-shell">
+    <div id="page-content">
+      
+      <!-- Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div>
+          <h1 class="text-2xl font-black text-slate-900 tracking-tight" data-i18n="nav_students">Student Directory</h1>
+          <p class="text-xs text-slate-500 mt-1">Kathmandu Valley Secondary School • 1,482 Active Students (NEB Affiliation)</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="#" style="display:none" class="px-3.5 py-2 text-xs font-bold bg-[#E8752F] text-white rounded-xl hover:bg-[#D46320] transition-colors shadow-sm flex items-center gap-2">
+            <i data-lucide="user-plus" class="w-4 h-4"></i>
+            <span data-i18n="btn_add_student">New Admission</span>
+          </a>
+          <button onclick="Toast.success('Exporting', 'Student database exported in Excel format (.xlsx)')" class="px-3 py-2 text-xs font-semibold bg-white border border-slate-200 text-slate-700 rounded-xl hover:bg-slate-50 transition-colors shadow-2xs flex items-center gap-1.5">
+            <i data-lucide="download" class="w-4 h-4 text-slate-400"></i>
+            <span data-i18n="export">Export</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Filters & Search Bar -->
+      <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs mb-6 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
+        <div class="flex-1 relative">
+          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+          <input 
+            type="text" 
+            id="student-search-input"
+            oninput="filterStudents()"
+            placeholder="Search by student name, roll number, or NEB symbol number..."
+            class="w-full pl-10 pr-4 py-2 text-xs bg-slate-50 rounded-xl border border-slate-200 focus:outline-none focus:border-[#E8752F] text-slate-900"
+          >
+        </div>
+        <div class="flex items-center gap-2">
+          <select id="class-filter" onchange="filterStudents()" class="px-3 py-2 text-xs bg-slate-50 rounded-xl border border-slate-200 text-slate-700 font-medium focus:outline-none">
+            <option value="ALL">All Classes</option>
+            <option value="10">Class 10 (SEE)</option>
+            <option value="9">Class 9</option>
+            <option value="8">Class 8 (BLE)</option>
+            <option value="7">Class 7</option>
+            <option value="11">Class 11 (+2)</option>
+            <option value="12">Class 12 (+2)</option>
+          </select>
+          <select id="section-filter" onchange="filterStudents()" class="px-3 py-2 text-xs bg-slate-50 rounded-xl border border-slate-200 text-slate-700 font-medium focus:outline-none">
+            <option value="ALL">All Sections</option>
+            <option value="A">Section A</option>
+            <option value="B">Section B</option>
+            <option value="C">Section C</option>
+          </select>
+          <select id="gender-filter" onchange="filterStudents()" class="px-3 py-2 text-xs bg-slate-50 rounded-xl border border-slate-200 text-slate-700 font-medium focus:outline-none">
+            <option value="ALL">All Genders</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Students Table -->
+      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-2xs overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-slate-50 text-slate-500 border-b border-slate-200/80">
+              <tr>
+                <th class="py-3.5 px-4 font-semibold">Student Name & Roll</th>
+                <th class="py-3.5 px-3 font-semibold">NEB Symbol No.</th>
+                <th class="py-3.5 px-3 font-semibold">Class & Sec</th>
+                <th class="py-3.5 px-3 font-semibold">Guardian & Phone</th>
+                <th class="py-3.5 px-3 font-semibold">Attendance</th>
+                <th class="py-3.5 px-3 font-semibold">Fee Status (NPR)</th>
+                <th class="py-3.5 px-4 font-semibold text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="students-table-body" class="divide-y divide-slate-100">
+              <!-- Dynamically populated from SANSKAAR_DATA.students -->
+            </tbody>
+          </table>
+        </div>
+        <div class="p-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+          <span id="students-count-label">Showing students</span>
+          <div class="flex gap-1" id="pagination-controls">
+            <button class="px-2.5 py-1 rounded border border-slate-200 hover:bg-slate-50 text-slate-600">Prev</button>
+            <button class="px-2.5 py-1 rounded bg-[#E8752F] text-white font-bold">1</button>
+            <button class="px-2.5 py-1 rounded border border-slate-200 hover:bg-slate-50 text-slate-600">2</button>
+            <button class="px-2.5 py-1 rounded border border-slate-200 hover:bg-slate-50 text-slate-600">Next</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+
+  <script>
+    let allStudents = [];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'teacher',
+        activeNav: 'students',
+        pageTitle: 'Student Directory',
+        breadcrumb: 'Academics',
+        rootPrefix: '../'
+      });
+
+      // Load students from mock data
+      allStudents = (window.SANSKAAR_DATA && SANSKAAR_DATA.students) ? SANSKAAR_DATA.students : [];
+      renderStudentsList(allStudents);
+    });
+
+    function renderStudentsList(students) {
+      const tbody = document.getElementById('students-table-body');
+      const countLabel = document.getElementById('students-count-label');
+      if (countLabel) countLabel.textContent = `Showing ${students.length} students`;
+      if (!tbody) return;
+
+      if (students.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="7" class="py-8 text-center text-slate-400">
+              No students found matching current filters.
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      tbody.innerHTML = students.slice(0, 50).map(s => {
+        const isPaid = (s.feeStatus || 'Paid') === 'Paid';
+        return `
+          <tr class="hover:bg-slate-50 transition-colors">
+            <td class="py-3 px-4">
+              <div class="flex items-center gap-2.5">
+                <img src="${s.photo || 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=100&auto=format&fit=crop&q=80'}" class="w-8 h-8 rounded-full object-cover shrink-0 border border-slate-200">
+                <div>
+                  <a href="#" class="font-bold text-slate-900 hover:text-[#E8752F] transition-colors">${s.name}</a>
+                  <div class="text-[11px] text-slate-400">Roll: #${s.rollNumber || '01'} • ID: ${s.id}</div>
+                </div>
+              </div>
+            </td>
+            <td class="py-3 px-3 font-mono font-bold text-slate-700">${s.symbolNumber || '27014001A'}</td>
+            <td class="py-3 px-3">
+              <span class="px-2 py-0.5 rounded-md bg-slate-100 font-bold text-slate-700 text-[11px]">
+                Class ${s.class}-${s.section}
+              </span>
+            </td>
+            <td class="py-3 px-3">
+              <div class="font-medium text-slate-800">${s.guardianName || s.fatherName || 'Parent'}</div>
+              <div class="text-[11px] text-slate-400">${s.phone || '+977 98XXXXXXXX'}</div>
+            </td>
+            <td class="py-3 px-3 font-semibold text-slate-800">
+              <span class="text-emerald-600">${s.attendanceRate || '96.8%'}</span>
+            </td>
+            <td class="py-3 px-3">
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-bold ${isPaid ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' : 'bg-rose-50 text-rose-700 border border-rose-200'}">
+                ${isPaid ? 'Cleared (रू 0 Due)' : 'Pending (रू 12,000)'}
+              </span>
+            </td>
+            <td class="py-3 px-4 text-right">
+              <div class="flex items-center justify-end gap-1.5">
+                <a href="#" class="p-1.5 rounded-lg text-slate-500 hover:text-[#E8752F] hover:bg-slate-100" title="360 Profile">
+                  <i data-lucide="eye" class="w-4 h-4"></i>
+                </a>
+                <a href="fee-collection.html?studentId=${s.id}" class="p-1.5 rounded-lg text-slate-500 hover:text-emerald-600 hover:bg-slate-100" title="Collect Fee">
+                  <i data-lucide="credit-card" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join('');
+
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function filterStudents() {
+      const q = document.getElementById('student-search-input').value.toLowerCase().trim();
+      const cls = document.getElementById('class-filter').value;
+      const sec = document.getElementById('section-filter').value;
+      const gen = document.getElementById('gender-filter').value;
+
+      const filtered = allStudents.filter(s => {
+        const matchesQuery = s.name.toLowerCase().includes(q) || (s.symbolNumber && s.symbolNumber.toLowerCase().includes(q)) || (s.rollNumber && s.rollNumber.toString().includes(q));
+        const matchesClass = cls === 'ALL' || s.class == cls;
+        const matchesSec = sec === 'ALL' || s.section === sec;
+        const matchesGen = gen === 'ALL' || s.gender === gen;
+        return matchesQuery && matchesClass && matchesSec && matchesGen;
+      });
+
+      renderStudentsList(filtered);
+    }
+  </script>
+</body>
+</html>

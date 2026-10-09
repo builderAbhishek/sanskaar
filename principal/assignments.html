@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignments & Projects - Sanskaar ERP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <div id="app-shell">
+    <div id="page-content">
+      
+      <!-- Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div>
+          <h1 class="text-2xl font-black text-slate-900 tracking-tight" data-i18n="nav_assignments">Projects & Practical Assignments</h1>
+          <p class="text-xs text-slate-500 mt-1">Kathmandu Valley Secondary School • 25-Mark NEB Practical Assessment Projects</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="Toast.info('New Project', 'Creating practical assignment rubric')" class="px-3.5 py-2 text-xs font-bold bg-[#E8752F] text-white rounded-xl hover:bg-[#D46320] transition-colors shadow-sm flex items-center gap-2">
+            <i data-lucide="plus-circle" class="w-4 h-4"></i>
+            <span>Create Assignment</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Assignments Table -->
+      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-2xs overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-slate-50 text-slate-500 border-b border-slate-200/80">
+              <tr>
+                <th class="py-3.5 px-4 font-semibold">Project Title</th>
+                <th class="py-3.5 px-3 font-semibold">Curriculum Subject</th>
+                <th class="py-3.5 px-3 font-semibold">Target Cohort</th>
+                <th class="py-3.5 px-3 font-semibold">Weightage</th>
+                <th class="py-3.5 px-3 font-semibold">Submission Deadline</th>
+                <th class="py-3.5 px-3 font-semibold">Turned In</th>
+                <th class="py-3.5 px-4 font-semibold text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4">
+                  <div class="font-bold text-slate-900">Hydraulic Crane / Pascal's Principle Working Model</div>
+                  <div class="text-[11px] text-slate-400">Physical prototype + 5-page writeup</div>
+                </td>
+                <td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-purple-50 text-purple-700 font-bold text-[10px]">Science & Tech</span></td>
+                <td class="py-3 px-3 font-medium text-slate-700">Class 10 (All Sections)</td>
+                <td class="py-3 px-3 font-mono font-bold text-slate-800">25 Practical Marks</td>
+                <td class="py-3 px-3 font-semibold text-rose-600">25 Mangsir 2083</td>
+                <td class="py-3 px-3"><span class="text-emerald-600 font-bold">118 / 128 (92%)</span></td>
+                <td class="py-3 px-4 text-right">
+                  <button onclick="Toast.info('Submissions', 'Reviewing student prototype files')" class="text-xs font-bold text-[#E8752F] hover:underline">Grade Files</button>
+                </td>
+              </tr>
+
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4">
+                  <div class="font-bold text-slate-900">Kathmandu UNESCO World Heritage Fieldwork Report</div>
+                  <div class="text-[11px] text-slate-400">Swyambhunath & Patan Durbar survey</div>
+                </td>
+                <td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-blue-50 text-blue-700 font-bold text-[10px]">Social Studies</span></td>
+                <td class="py-3 px-3 font-medium text-slate-700">Class 10 (All Sections)</td>
+                <td class="py-3 px-3 font-mono font-bold text-slate-800">25 Practical Marks</td>
+                <td class="py-3 px-3 font-semibold text-slate-600">28 Mangsir 2083</td>
+                <td class="py-3 px-3"><span class="text-blue-600 font-bold">95 / 128 (74%)</span></td>
+                <td class="py-3 px-4 text-right">
+                  <button onclick="Toast.info('Submissions', 'Reviewing student fieldwork PDFs')" class="text-xs font-bold text-[#E8752F] hover:underline">Grade Files</button>
+                </td>
+              </tr>
+
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4">
+                  <div class="font-bold text-slate-900">QBASIC Student Billing & Report Card Program</div>
+                  <div class="text-[11px] text-slate-400">Modular programming with SUB & FUNCTION</div>
+                </td>
+                <td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 font-bold text-[10px]">Computer Science</span></td>
+                <td class="py-3 px-3 font-medium text-slate-700">Class 10 (Elective II)</td>
+                <td class="py-3 px-3 font-mono font-bold text-slate-800">50 Practical Marks</td>
+                <td class="py-3 px-3 font-semibold text-slate-600">02 Poush 2083</td>
+                <td class="py-3 px-3"><span class="text-slate-500 font-bold">42 / 64 (65%)</span></td>
+                <td class="py-3 px-4 text-right">
+                  <button onclick="Toast.info('Submissions', 'Reviewing QBASIC source code files')" class="text-xs font-bold text-[#E8752F] hover:underline">Grade Files</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'principal',
+        activeNav: 'assignments',
+        pageTitle: 'Projects & Assignments',
+        breadcrumb: 'Academics',
+        rootPrefix: '../'
+      });
+    });
+  </script>
+</body>
+</html>

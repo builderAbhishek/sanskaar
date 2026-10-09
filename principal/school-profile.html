@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-50">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanskaar ERP - School Profile</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="h-full text-slate-800 antialiased font-['Plus_Jakarta_Sans',sans-serif]">
+  <div id="app-shell">
+    <div id="page-content" class="p-6 space-y-6">
+      
+      <!-- Page Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <h1 class="text-2xl font-bold text-slate-900" data-i18n="school_profile">School Profile</h1>
+          <p class="text-sm text-slate-500 mt-1">Official institutional credentials, NEB affiliation, tax IDs, and official letterhead branding.</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <button onclick="previewLetterhead()" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-sm font-semibold transition-all">
+            <i data-lucide="printer" class="w-4 h-4"></i>
+            <span>Preview Letterhead</span>
+          </button>
+          <button onclick="saveSchoolProfile()" class="inline-flex items-center gap-2 px-4 py-2 bg-[#E8752F] hover:bg-[#d66521] text-white rounded-xl text-sm font-semibold transition-all shadow-sm">
+            <i data-lucide="save" class="w-4 h-4"></i>
+            <span>Update Profile</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Institutional Identity Banner -->
+      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 relative overflow-hidden">
+        <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
+          <div class="relative group">
+            <div class="w-24 h-24 rounded-2xl bg-gradient-to-br from-orange-500 to-amber-600 text-white flex items-center justify-center font-black text-3xl shadow-md border-4 border-white">
+              KV
+            </div>
+            <button class="absolute -bottom-2 -right-2 bg-slate-900 text-white p-2 rounded-xl shadow-lg hover:bg-slate-800 transition-colors" title="Upload School Emblem">
+              <i data-lucide="camera" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+
+          <div class="flex-1 space-y-2">
+            <div class="flex flex-wrap items-center gap-3">
+              <h2 class="text-2xl font-bold text-slate-900">Kathmandu Valley Secondary School</h2>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> NEB Affiliated (Code: 27014)
+              </span>
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-700">
+                Estd. 2052 B.S. / 1995 A.D.
+              </span>
+            </div>
+            <p class="text-sm text-slate-500">Ward No. 4, Maharajgunj, Kathmandu, Bagmati Province, Nepal</p>
+            <div class="flex flex-wrap items-center gap-4 text-xs font-medium text-slate-600 pt-1">
+              <span class="flex items-center gap-1.5"><i data-lucide="phone" class="w-3.5 h-3.5 text-slate-400"></i> +977-1-4720199 / 4720200</span>
+              <span class="flex items-center gap-1.5"><i data-lucide="mail" class="w-3.5 h-3.5 text-slate-400"></i> info@kathmanduvalley.edu.np</span>
+              <span class="flex items-center gap-1.5"><i data-lucide="globe" class="w-3.5 h-3.5 text-slate-400"></i> www.kathmanduvalley.edu.np</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Profile Form Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <!-- Left 2 Cols: Form Sections -->
+        <div class="lg:col-span-2 space-y-6">
+          
+          <!-- General Institutional Details -->
+          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 space-y-5">
+            <h3 class="text-base font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center gap-2">
+              <i data-lucide="building" class="w-4 h-4 text-[#E8752F]"></i>
+              <span>General Institutional Information</span>
+            </h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 uppercase mb-1.5">School Name (English)</label>
+                <input type="text" value="Kathmandu Valley Secondary School" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8752F]/20 focus:border-[#E8752F]">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 uppercase mb-1.5">विद्यालयको नाम (नेपाली)</label>
+                <input type="text" value="काठमाडौँ भ्याली माध्यमिक विद्यालय" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8752F]/20 focus:border-[#E8752F]">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 uppercase mb-1.5">NEB School Code</label>
+                <input type="text" value="27014" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8752F]/20 focus:border-[#E8752F]">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 uppercase mb-1.5">Education Ministry Registration No.</label>
+                <input type="text" value="14208-BA/068" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8752F]/20 focus:border-[#E8752F]">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 uppercase mb-1.5">IRD PAN / VAT Number</label>
+                <input type="text" value="301298412" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8752F]/20 focus:border-[#E8752F]">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 uppercase mb-1.5">Established Year</label>
+                <div class="grid grid-cols-2 gap-2">
+                  <input type="text" value="2052 B.S." class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none">
+                  <input type="text" value="1995 A.D." class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none">
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-600 uppercase mb-1.5">School Motto / Tagline</label>
+              <input type="text" value="Discipline, Excellence & Holistic Character" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8752F]/20 focus:border-[#E8752F]">
+            </div>
+          </div>
+
+          <!-- Location & Administrative Division -->
+          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 space-y-5">
+            <h3 class="text-base font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center gap-2">
+              <i data-lucide="map-pin" class="w-4 h-4 text-[#E8752F]"></i>
+              <span>Location & Administrative Municipality</span>
+            </h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 uppercase mb-1.5">Province</label>
+                <select class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2">
+                  <option selected>Bagmati Province</option>
+                  <option>Koshi Province</option>
+                  <option>Gandaki Province</option>
+                  <option>Lumbini Province</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 uppercase mb-1.5">District</label>
+                <input type="text" value="Kathmandu" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 uppercase mb-1.5">Municipality / Metropolitan</label>
+                <input type="text" value="Kathmandu Metropolitan City" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 uppercase mb-1.5">Ward Number</label>
+                <input type="text" value="Ward No. 4" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 uppercase mb-1.5">Tole / Locality</label>
+                <input type="text" value="Maharajgunj (Opposite Teaching Hospital)" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm">
+              </div>
+            </div>
+          </div>
+
+          <!-- Financial Settlements & Payment Credentials -->
+          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 space-y-5">
+            <h3 class="text-base font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center gap-2">
+              <i data-lucide="credit-card" class="w-4 h-4 text-[#E8752F]"></i>
+              <span>Banking & Nepal Payment Gateways</span>
+            </h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 uppercase mb-1.5">Primary Bank</label>
+                <input type="text" value="Nabil Bank Ltd. - Maharajgunj Branch" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 uppercase mb-1.5">Current Account No. (NPR)</label>
+                <input type="text" value="0101017500124" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm font-mono">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 uppercase mb-1.5">eSewa Merchant Code</label>
+                <input type="text" value="ESW_KVSS_9812" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm font-mono">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 uppercase mb-1.5">Khalti Merchant Public Key</label>
+                <input type="text" value="test_public_key_77a9420b78" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm font-mono">
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right 1 Col: Authority & Stamps -->
+        <div class="space-y-6">
+          
+          <!-- Key Officials -->
+          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 space-y-4">
+            <h3 class="text-base font-bold text-slate-900 border-b border-slate-100 pb-3">School Leadership</h3>
+            
+            <div>
+              <label class="block text-xs font-semibold text-slate-600 uppercase mb-1.5">Principal / Campus Chief</label>
+              <input type="text" value="Prof. Dr. Birendra Karki" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm">
+              <span class="text-xs text-slate-400 mt-1 block">Appears on official character certificates and report cards</span>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-600 uppercase mb-1.5">Vice Principal / Academic Head</label>
+              <input type="text" value="Mrs. Shanti Pokhrel" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm">
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-600 uppercase mb-1.5">Examination Controller</label>
+              <input type="text" value="Mr. Keshav Nepal" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm">
+            </div>
+          </div>
+
+          <!-- Official Stamp & Seal -->
+          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 space-y-4">
+            <h3 class="text-base font-bold text-slate-900 border-b border-slate-100 pb-3">Official Seal & Digital Stamp</h3>
+            
+            <div class="border-2 border-dashed border-slate-200 rounded-xl p-4 text-center space-y-2">
+              <div class="w-20 h-20 mx-auto rounded-full border-2 border-red-600 text-red-600 flex flex-col items-center justify-center font-bold text-[10px] uppercase rotate-[-6deg]">
+                <span>KVSS</span>
+                <span class="text-[8px] font-normal">NEB 27014</span>
+                <span>SEAL</span>
+              </div>
+              <p class="text-xs text-slate-500">Official SVG seal rendered on fee receipts and certificates.</p>
+              <button class="text-xs text-[#E8752F] font-semibold hover:underline">Change Stamp File</button>
+            </div>
+          </div>
+
+          <!-- SMS Notification Gateway -->
+          <div class="bg-gradient-to-br from-amber-500 to-orange-600 text-white rounded-2xl p-6 shadow-sm space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase font-bold tracking-wider text-amber-200">Sparrow SMS Nepal</span>
+              <span class="px-2 py-0.5 bg-white/20 rounded-full text-xs font-bold">Active</span>
+            </div>
+            <div class="text-2xl font-black">28,450 SMS</div>
+            <p class="text-xs text-amber-100 leading-relaxed">Available Sparrow SMS credit balance for automated attendance alerts, fee receipts, and circulars.</p>
+            <button onclick="SanskaarToast.show('Sparrow SMS top-up portal opened.', 'info')" class="w-full py-2 bg-white text-slate-900 font-bold rounded-xl text-xs hover:bg-amber-50 transition-colors">
+              Recharge SMS Credits
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+  <script>
+    function saveSchoolProfile() {
+      SanskaarToast.show('Kathmandu Valley Secondary School profile updated successfully!', 'success');
+    }
+
+    function previewLetterhead() {
+      SanskaarToast.show('Letterhead print preview prepared.', 'info');
+      window.print();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'principal',
+        activeNav: 'settings',
+        pageTitle: 'School Profile',
+        breadcrumb: 'Settings / School Profile',
+        rootPrefix: '../'
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Admission - Sanskaar ERP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <div id="app-shell">
+    <div id="page-content">
+      
+      <!-- Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div>
+          <h1 class="text-2xl font-black text-slate-900 tracking-tight" data-i18n="nav_admissions">New Student Admission Form</h1>
+          <p class="text-xs text-slate-500 mt-1">Kathmandu Valley Secondary School • Academic Session 2083-84 BS (2026-27 AD)</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="students.html" class="px-3 py-2 text-xs font-semibold bg-white border border-slate-200 text-slate-700 rounded-xl hover:bg-slate-50 transition-colors">
+            Cancel & Return
+          </a>
+        </div>
+      </div>
+
+      <!-- Main Admission Form Card -->
+      <form onsubmit="handleAdmissionSubmit(event)" class="space-y-6">
+        
+        <!-- Section 1: Basic Student Particulars -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <h3 class="text-sm font-bold text-slate-900 mb-4 pb-2 border-b border-slate-100 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-orange-100 text-[#E8752F] flex items-center justify-center font-bold text-xs">1</span>
+            <span>Student Personal Details</span>
+          </h3>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Full Student Name (English) *</label>
+              <input type="text" required placeholder="e.g. Suman Bhattarai" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#E8752F]">
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">विद्यार्थीको पूरा नाम (नेपालीमा)</label>
+              <input type="text" placeholder="उदा. सुमन भट्टराई" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#E8752F]">
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Gender *</label>
+              <select class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#E8752F]">
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Date of Birth (Bikram Sambat BS) *</label>
+              <input type="text" required placeholder="YYYY-MM-DD (e.g. 2068-04-12)" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#E8752F]">
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Date of Birth (Gregorian AD)</label>
+              <input type="date" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#E8752F]">
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Blood Group</label>
+              <select class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#E8752F]">
+                <option>A Positive (A+)</option>
+                <option>B Positive (B+)</option>
+                <option>O Positive (O+)</option>
+                <option>AB Positive (AB+)</option>
+                <option>A Negative (A-)</option>
+                <option>B Negative (B-)</option>
+                <option>O Negative (O-)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Academic Enrollment Details -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <h3 class="text-sm font-bold text-slate-900 mb-4 pb-2 border-b border-slate-100 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-orange-100 text-[#E8752F] flex items-center justify-center font-bold text-xs">2</span>
+            <span>Admission Class & Academic Background</span>
+          </h3>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Admitting Class *</label>
+              <select class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#E8752F]">
+                <option>Class 10 (Secondary SEE)</option>
+                <option>Class 9 (Secondary)</option>
+                <option>Class 8 (Basic BLE)</option>
+                <option>Class 11 - Science (+2)</option>
+                <option>Class 11 - Management (+2)</option>
+                <option>Class 7</option>
+                <option>Class 6</option>
+              </select>
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Preferred Section</label>
+              <select class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#E8752F]">
+                <option>Section A (Morning Wing)</option>
+                <option>Section B (Day Wing)</option>
+                <option>Section C</option>
+              </select>
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Previous School Name</label>
+              <input type="text" placeholder="e.g. Siddhartha English Boarding School" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#E8752F]">
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Previous Class GPA</label>
+              <input type="text" placeholder="e.g. 3.80" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#E8752F]">
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Transfer Certificate (TC) No.</label>
+              <input type="text" placeholder="e.g. TC-9921/2082" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#E8752F]">
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">School Bus Facility</label>
+              <select class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#E8752F]">
+                <option>No Bus (Self Commute)</option>
+                <option>Route 1 - Chabahil / Gaushala</option>
+                <option>Route 2 - Kalanki / Balkhu</option>
+                <option>Route 3 - Koteshwor / Baneshwor</option>
+                <option>Route 4 - Maharajgunj / Baluwatar</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Guardian & Address Details -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <h3 class="text-sm font-bold text-slate-900 mb-4 pb-2 border-b border-slate-100 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-orange-100 text-[#E8752F] flex items-center justify-center font-bold text-xs">3</span>
+            <span>Parents, Guardian & Address</span>
+          </h3>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Father's Name *</label>
+              <input type="text" required placeholder="e.g. Madhav Bhattarai" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#E8752F]">
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Mother's Name *</label>
+              <input type="text" required placeholder="e.g. Sita Bhattarai" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#E8752F]">
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Guardian Mobile (for SMS Alerts) *</label>
+              <input type="tel" required placeholder="+977 98XXXXXXXX" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#E8752F]">
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Province *</label>
+              <select class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#E8752F]">
+                <option>Bagmati Province</option>
+                <option>Gandaki Province</option>
+                <option>Koshi Province</option>
+                <option>Lumbini Province</option>
+                <option>Madhesh Province</option>
+                <option>Karnali Province</option>
+                <option>Sudurpashchim Province</option>
+              </select>
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Municipality / Nagarpalika</label>
+              <input type="text" placeholder="e.g. Kathmandu Metropolitan City" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#E8752F]">
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Ward No. & Tole</label>
+              <input type="text" placeholder="e.g. Ward 4, Sukedhara" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#E8752F]">
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit Button Row -->
+        <div class="flex items-center justify-end gap-3 pt-2">
+          <button type="reset" class="px-4 py-2.5 rounded-xl border border-slate-200 text-xs font-semibold text-slate-600 hover:bg-slate-50">
+            Reset Form
+          </button>
+          <button type="submit" class="px-6 py-2.5 rounded-xl bg-[#E8752F] text-white text-xs font-bold hover:bg-[#D46320] transition-colors shadow-sm flex items-center gap-2">
+            <i data-lucide="check-circle" class="w-4 h-4"></i>
+            <span>Register & Generate Student ID</span>
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'principal',
+        activeNav: 'admissions',
+        pageTitle: 'New Admission',
+        breadcrumb: 'Academics',
+        rootPrefix: '../'
+      });
+    });
+
+    function handleAdmissionSubmit(e) {
+      e.preventDefault();
+      Toast.success('Admission Completed!', 'Assigned Roll #14 and NEB Symbol Number 27014014B. SMS sent to guardian.');
+      setTimeout(() => {
+        window.location.href = 'students.html';
+      }, 1500);
+    }
+  </script>
+</body>
+</html>

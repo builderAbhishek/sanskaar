@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Question Paper Studio - Sanskaar ERP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <div id="app-shell">
+    <div id="page-content">
+      
+      <!-- Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 no-print">
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-2xl font-black text-slate-900 tracking-tight" data-i18n="nav_ai_question_paper">AI Question Paper Studio</h1>
+            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-orange-50 text-[#E8752F] border border-orange-200 uppercase">
+              CDC Specification Grid
+            </span>
+          </div>
+          <p class="text-xs text-slate-500 mt-1">Autonomous test paper generator grounded in Nepal National Curriculum Framework</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="window.print()" class="px-4 py-2 text-xs font-bold bg-white border border-slate-200 text-slate-700 rounded-xl hover:bg-slate-50 transition-colors shadow-2xs flex items-center gap-2">
+            <i data-lucide="printer" class="w-4 h-4"></i>
+            <span>Print Test Paper</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Generator Settings Box (No Print) -->
+      <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs mb-6 no-print">
+        <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 text-xs">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Target Class</label>
+            <select class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl font-bold text-slate-800">
+              <option selected>Class 10 (SEE Board)</option>
+              <option>Class 9</option>
+              <option>Class 8 (BLE)</option>
+              <option>Class 11 (+2 Science)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Subject</label>
+            <select class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl font-bold text-[#E8752F]">
+              <option selected>Compulsory Mathematics (Code 003)</option>
+              <option>Science & Technology (Code 004)</option>
+              <option>Compulsory English (Code 001)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Total Marks</label>
+            <input type="text" value="75 Full Marks (3 Hours)" readonly class="w-full px-3 py-2 bg-slate-100 border border-slate-200 rounded-xl font-bold text-slate-700">
+          </div>
+          <div class="flex items-end">
+            <button onclick="generatePaper()" class="w-full py-2 px-4 rounded-xl bg-[#E8752F] text-white font-bold hover:bg-[#D46320] transition-colors shadow-sm flex items-center justify-center gap-2">
+              <i data-lucide="sparkles" class="w-4 h-4"></i>
+              <span>Regenerate Paper</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Generated Question Paper (Printable) -->
+      <div class="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-3xl border border-slate-200 shadow-xl printable-area text-slate-900">
+        
+        <!-- Header -->
+        <div class="text-center border-b-2 border-slate-900 pb-4 mb-6">
+          <h2 class="text-xl font-black text-slate-900">KATHMANDU VALLEY SECONDARY SCHOOL</h2>
+          <p class="text-xs font-bold text-slate-600">SEE Model Pre-Board Examination 2083</p>
+          <div class="flex items-center justify-between text-xs font-bold text-slate-800 mt-4 border-t border-slate-200 pt-2 font-mono">
+            <span>Subject: Compulsory Mathematics (Code: 003)</span>
+            <span>Time: 3:00 Hours</span>
+            <span>Full Marks: 75</span>
+          </div>
+          <p class="text-[11px] text-slate-500 italic mt-2 text-left">
+            Candidates are required to give their answers in their own words as far as practicable. The figures in the margin indicate full marks.
+          </p>
+        </div>
+
+        <!-- Question Sections -->
+        <div class="space-y-6 text-xs leading-relaxed">
+          
+          <!-- Group A -->
+          <div>
+            <div class="font-bold text-sm text-slate-900 mb-2 border-b border-slate-200 pb-1 flex justify-between">
+              <span>Group 'A' [Very Short Questions]</span>
+              <span class="font-mono text-slate-500">6 &times; 1 = 6 Marks</span>
+            </div>
+            <div class="space-y-2.5 pl-2">
+              <p><strong>1. (a)</strong> If the marked price of an article is \(MP\) and discount percent is \(d\%\), write down the formula for finding the selling price after discount.</p>
+              <p><strong>(b)</strong> What is the area of an equilateral triangle with side length '\(a\)' cm?</p>
+              <p><strong>2. (a)</strong> Define an arithmetic mean between two numbers \(a\) and \(b\).</p>
+              <p><strong>(b)</strong> If \(A\) and \(B\) are two mutually exclusive events, write down the formula to calculate \(P(A \cup B)\).</p>
+            </div>
+          </div>
+
+          <!-- Group B -->
+          <div>
+            <div class="font-bold text-sm text-slate-900 mb-2 border-b border-slate-200 pb-1 flex justify-between">
+              <span>Group 'B' [Short Analytical Questions]</span>
+              <span class="font-mono text-slate-500">17 &times; 2 = 34 Marks</span>
+            </div>
+            <div class="space-y-2.5 pl-2">
+              <p><strong>3. (a)</strong> A retailer sold a mobile phone for NPR 24,860 after levying 13% Value Added Tax (VAT). If a discount of 10% was allowed on the marked price, compute the marked price of the mobile phone.</p>
+              <p><strong>(b)</strong> The population of a municipality in Bagmati Province was 80,000 two years ago. If the annual population growth rate is 5%, calculate the current population.</p>
+              <p><strong>4. (a)</strong> The curved surface area of a cone is 550 cm\(^2\) and its slant height is 25 cm. Find the radius of its circular base.</p>
+              <p><strong>(b)</strong> Find the Highest Common Factor (H.C.F.) of: \(x^3 - 8\) and \(x^2 - 4\).</p>
+              <p><strong>(c)</strong> Solve the indices equation: \(3^{x+1} + 3^{x} = 36\).</p>
+            </div>
+          </div>
+
+          <!-- Group C -->
+          <div>
+            <div class="font-bold text-sm text-slate-900 mb-2 border-b border-slate-200 pb-1 flex justify-between">
+              <span>Group 'C' [Long Problem Solving]</span>
+              <span class="font-mono text-slate-500">10 &times; 4 = 40 Marks</span>
+            </div>
+            <div class="space-y-2.5 pl-2">
+              <p><strong>5.</strong> In a survey of 120 SEE students in Kathmandu, 65 preferred Online Learning, 75 preferred Physical Classroom, and 15 disliked both modes. Represent this information in a Venn diagram and calculate how many students favored both learning modalities.</p>
+              <p><strong>6.</strong> A solid metallic object is formed by surmounting a cone on a cylinder of identical base radius 6 cm. If the height of the cylinder is 14 cm and total height of the object is 22 cm, find the total cost of silver polishing at NPR 5 per cm\(^2\).</p>
+              <p><strong>7.</strong> Prove theoretically that the angle subtended by an arc at the center of a circle is double of the angle subtended by the same arc at the circumference.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="mt-8 pt-4 border-t-2 border-slate-900 text-center text-xs font-bold text-slate-600 font-mono">
+          *** ALL THE BEST - KATHMANDU VALLEY SECONDARY SCHOOL ***
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'teacher',
+        activeNav: 'ai-question-paper',
+        pageTitle: 'AI Question Paper Studio',
+        breadcrumb: 'Smart Innovation',
+        rootPrefix: '../'
+      });
+    });
+
+    function generatePaper() {
+      Toast.success('Synthesizing Question Paper', 'Compiled 75-mark SEE test paper adhering to CDC syllabus specification grid.');
+    }
+  </script>
+</body>
+</html>

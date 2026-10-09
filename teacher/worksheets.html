@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Worksheet Studio - Sanskaar ERP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <div id="app-shell">
+    <div id="page-content">
+      
+      <!-- Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 no-print">
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-2xl font-black text-slate-900 tracking-tight" data-i18n="nav_ai_worksheet">AI Classroom Worksheet Studio</h1>
+            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-purple-50 text-purple-700 border border-purple-200 uppercase">
+              Daily Practice Generator
+            </span>
+          </div>
+          <p class="text-xs text-slate-500 mt-1">Generate tailored concept drill sheets, multiple choice items & homework handouts</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="window.print()" class="px-4 py-2 text-xs font-bold bg-[#E8752F] text-white rounded-xl hover:bg-[#D46320] transition-colors shadow-sm flex items-center gap-2">
+            <i data-lucide="printer" class="w-4 h-4"></i>
+            <span>Print Student Handout</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Generated Worksheet (Printable) -->
+      <div class="max-w-3xl mx-auto bg-white p-8 md:p-10 rounded-3xl border border-slate-200 shadow-xl printable-area text-slate-900">
+        
+        <div class="border-b-2 border-slate-900 pb-4 mb-6">
+          <div class="flex items-center justify-between">
+            <div>
+              <h2 class="text-lg font-black text-slate-900">KATHMANDU VALLEY SECONDARY SCHOOL</h2>
+              <p class="text-xs font-bold text-slate-600">Daily Concept Drill Worksheet • Session 2083</p>
+            </div>
+            <div class="text-right text-xs">
+              <span class="font-bold text-[#E8752F]">Science & Technology</span>
+              <div class="text-slate-400 text-[10px]">Topic: Heredity & DNA Structure</div>
+            </div>
+          </div>
+
+          <div class="mt-4 pt-2 border-t border-slate-200 grid grid-cols-3 gap-2 text-xs font-mono">
+            <div>Student Name: _______________________</div>
+            <div>Class 10 - Sec: _____</div>
+            <div>Roll No: _______</div>
+          </div>
+        </div>
+
+        <div class="space-y-6 text-xs leading-relaxed">
+          <!-- Section 1: MCQs -->
+          <div>
+            <h4 class="font-bold text-slate-900 mb-2 uppercase tracking-wider text-[11px]">Part A: Multiple Choice Questions (Select the single best answer)</h4>
+            <div class="space-y-3 pl-2">
+              <div>
+                <p><strong>1.</strong> Which nitrogenous base is present in RNA but absent in DNA molecule?</p>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-1 text-slate-700 pl-3">
+                  <label class="flex items-center gap-1.5"><input type="radio" name="q1"> (A) Adenine</label>
+                  <label class="flex items-center gap-1.5"><input type="radio" name="q1"> (B) Thymine</label>
+                  <label class="flex items-center gap-1.5"><input type="radio" name="q1"> (C) Uracil</label>
+                  <label class="flex items-center gap-1.5"><input type="radio" name="q1"> (D) Guanine</label>
+                </div>
+              </div>
+
+              <div>
+                <p><strong>2.</strong> In a cross between pure tall pea plants (TT) and pure dwarf pea plants (tt), what will be the phenotypic ratio in the F2 generation?</p>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-1 text-slate-700 pl-3">
+                  <label class="flex items-center gap-1.5"><input type="radio" name="q2"> (A) 1:2:1</label>
+                  <label class="flex items-center gap-1.5"><input type="radio" name="q2"> (B) 3:1</label>
+                  <label class="flex items-center gap-1.5"><input type="radio" name="q2"> (C) 9:3:3:1</label>
+                  <label class="flex items-center gap-1.5"><input type="radio" name="q2"> (D) 2:1</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 2: Fill in the Blanks -->
+          <div>
+            <h4 class="font-bold text-slate-900 mb-2 uppercase tracking-wider text-[11px]">Part B: Fill in the Blanks with Appropriate Scientific Terms</h4>
+            <div class="space-y-2.5 pl-2">
+              <p><strong>3.</strong> Gregor Johann Mendel conducted his classical genetic hybridization experiments on the plant named _______________________________.</p>
+              <p><strong>4.</strong> In human somatic cells, there are exactly ____________ pairs of autosomes and ____________ pair of sex chromosomes.</p>
+              <p><strong>5.</strong> The functional segments of DNA that determine specific biological traits are termed as ______________________.</p>
+            </div>
+          </div>
+
+          <!-- Section 3: Short Diagram Question -->
+          <div>
+            <h4 class="font-bold text-slate-900 mb-2 uppercase tracking-wider text-[11px]">Part C: Conceptual Diagram & Cross</h4>
+            <p><strong>6.</strong> Construct a Punnett Square demonstrating the inheritance of sex in human offspring. What is the mathematical probability of having a female child?</p>
+            <div class="h-28 border border-dashed border-slate-300 rounded-xl my-2 flex items-center justify-center text-slate-400 italic">
+              [Work Area / Punnett Square Grid]
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'teacher',
+        activeNav: 'ai-worksheet',
+        pageTitle: 'AI Worksheet Studio',
+        breadcrumb: 'Smart Innovation',
+        rootPrefix: '../'
+      });
+    });
+  </script>
+</body>
+</html>

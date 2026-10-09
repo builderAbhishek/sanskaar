@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-50">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanskaar ERP - School Settings</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="h-full text-slate-800 antialiased font-['Plus_Jakarta_Sans',sans-serif]">
+  <div id="app-shell">
+    <div id="page-content" class="p-6 space-y-6">
+      
+      <!-- Page Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <h1 class="text-2xl font-bold text-slate-900" data-i18n="school_settings">School Settings</h1>
+          <p class="text-sm text-slate-500 mt-1">Configure KVSS grading scales, attendance threshold policies, SMS rules, and system backups.</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <button onclick="saveAllSettings()" class="inline-flex items-center gap-2 px-5 py-2.5 bg-[#E8752F] hover:bg-[#d66521] text-white rounded-xl text-sm font-semibold transition-all shadow-sm">
+            <i data-lucide="save" class="w-4 h-4"></i>
+            <span>Save Preferences</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Settings Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <!-- Left 2 Cols: Form Sections -->
+        <div class="lg:col-span-2 space-y-6">
+          
+          <!-- Localization & Calendar Defaults -->
+          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 space-y-5">
+            <h3 class="text-base font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center gap-2">
+              <i data-lucide="globe" class="w-4 h-4 text-[#E8752F]"></i>
+              <span>Localization & National Standards</span>
+            </h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 uppercase mb-1.5">Primary Academic Calendar</label>
+                <select class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#E8752F]/20">
+                  <option selected>Bikram Sambat (B.S.) / वि.सं.</option>
+                  <option>Gregorian Calendar (A.D.)</option>
+                  <option>Dual Calendar (B.S. Primary + A.D. Secondary)</option>
+                </select>
+                <span class="text-xs text-slate-400 mt-1 block">Term routines & date pickers will reflect this calendar</span>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 uppercase mb-1.5">System Default Currency</label>
+                <input type="text" value="NPR (रू) - Nepalese Rupee" readonly class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-sm font-semibold text-slate-700">
+                <span class="text-xs text-slate-400 mt-1 block">Strictly configured to Central Bank (NRB) standard</span>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 uppercase mb-1.5">Default Interface Language</label>
+                <select class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2">
+                  <option selected>English (Nepal)</option>
+                  <option>नेपाली (Nepali)</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 uppercase mb-1.5">Timezone</label>
+                <input type="text" value="Asia/Kathmandu (NPT GMT+5:45)" readonly class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-sm text-slate-700 font-mono">
+              </div>
+            </div>
+          </div>
+
+          <!-- Attendance & Regulatory Policies -->
+          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 space-y-5">
+            <h3 class="text-base font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center gap-2">
+              <i data-lucide="check-circle" class="w-4 h-4 text-[#E8752F]"></i>
+              <span>Attendance Thresholds & Sparrow SMS Triggers</span>
+            </h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 uppercase mb-1.5">NEB Mandatory Attendance Threshold</label>
+                <div class="relative">
+                  <input type="number" value="75" min="50" max="100" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none pr-10 font-bold">
+                  <span class="absolute right-3.5 top-2.5 text-sm font-bold text-slate-400">%</span>
+                </div>
+                <span class="text-xs text-slate-400 mt-1 block">Minimum required for SEE registration form submission</span>
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 uppercase mb-1.5">Daily Absence SMS Cutoff Time</label>
+                <input type="time" value="10:15" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm">
+                <span class="text-xs text-slate-400 mt-1 block">Sparrow SMS sent automatically to absent student's parents</span>
+              </div>
+            </div>
+
+            <div class="space-y-3 pt-2">
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input type="checkbox" checked class="w-4 h-4 rounded text-[#E8752F] border-slate-300 focus:ring-[#E8752F]">
+                <span class="text-sm font-medium text-slate-800">Send instant SMS upon fee receipt generation (eSewa / Cash)</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input type="checkbox" checked class="w-4 h-4 rounded text-[#E8752F] border-slate-300 focus:ring-[#E8752F]">
+                <span class="text-sm font-medium text-slate-800">Enable biometric hardware auto-sync on faculty clock-in</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input type="checkbox" checked class="w-4 h-4 rounded text-[#E8752F] border-slate-300 focus:ring-[#E8752F]">
+                <span class="text-sm font-medium text-slate-800">Flag chronic absentees (>3 consecutive absent days) to Academic Coordinator</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- CDC Grading Standards -->
+          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 space-y-5">
+            <h3 class="text-base font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center gap-2">
+              <i data-lucide="award" class="w-4 h-4 text-[#E8752F]"></i>
+              <span>National Examination Board (NEB / CDC) Grading Scale</span>
+            </h3>
+
+            <p class="text-xs text-slate-500">Official Curriculum Development Centre (CDC) letter grading standard active for all terminal and SEE mock report cards.</p>
+
+            <div class="overflow-x-auto">
+              <table class="w-full text-xs text-left">
+                <thead class="bg-slate-50 text-slate-500 font-semibold border-b border-slate-200">
+                  <tr>
+                    <th class="py-2.5 px-3">Percentage Range</th>
+                    <th class="py-2.5 px-3">Grade</th>
+                    <th class="py-2.5 px-3">Grade Point</th>
+                    <th class="py-2.5 px-3">Performance Description</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100 font-medium">
+                  <tr><td class="py-2 px-3">90% and above</td><td class="py-2 px-3 font-bold text-emerald-600">A+</td><td class="py-2 px-3 font-bold">4.0</td><td class="py-2 px-3 text-slate-600">Outstanding</td></tr>
+                  <tr><td class="py-2 px-3">80% to below 90%</td><td class="py-2 px-3 font-bold text-emerald-600">A</td><td class="py-2 px-3 font-bold">3.6</td><td class="py-2 px-3 text-slate-600">Excellent</td></tr>
+                  <tr><td class="py-2 px-3">70% to below 80%</td><td class="py-2 px-3 font-bold text-blue-600">B+</td><td class="py-2 px-3 font-bold">3.2</td><td class="py-2 px-3 text-slate-600">Very Good</td></tr>
+                  <tr><td class="py-2 px-3">60% to below 70%</td><td class="py-2 px-3 font-bold text-blue-600">B</td><td class="py-2 px-3 font-bold">2.8</td><td class="py-2 px-3 text-slate-600">Good</td></tr>
+                  <tr><td class="py-2 px-3">50% to below 60%</td><td class="py-2 px-3 font-bold text-amber-600">C+</td><td class="py-2 px-3 font-bold">2.4</td><td class="py-2 px-3 text-slate-600">Satisfactory</td></tr>
+                  <tr><td class="py-2 px-3">35% to below 50%</td><td class="py-2 px-3 font-bold text-amber-600">C</td><td class="py-2 px-3 font-bold">2.0</td><td class="py-2 px-3 text-slate-600">Acceptable</td></tr>
+                  <tr class="bg-red-50/40 text-red-700 font-semibold"><td class="py-2 px-3">Below 35% (Theory min: 27/75)</td><td class="py-2 px-3 font-bold">NG</td><td class="py-2 px-3 font-bold">—</td><td class="py-2 px-3">Non-Graded (Retake required)</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right 1 Col: Backup & Invoice Format -->
+        <div class="space-y-6">
+          
+          <!-- Invoice Numbering Sequence -->
+          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 space-y-4">
+            <h3 class="text-base font-bold text-slate-900 border-b border-slate-100 pb-3">Invoice & Receipt Sequence</h3>
+            
+            <div>
+              <label class="block text-xs font-semibold text-slate-600 uppercase mb-1.5">Fee Receipt Prefix</label>
+              <input type="text" value="KVSS-2083-REC-" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm font-mono">
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-600 uppercase mb-1.5">Next Receipt Sequence</label>
+              <input type="number" value="1084" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm font-mono">
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-600 uppercase mb-1.5">Student Admission ID Format</label>
+              <input type="text" value="KVSS-2083-[0-9]{4}" readonly class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-sm font-mono text-slate-600">
+            </div>
+          </div>
+
+          <!-- Data Backup & Disaster Recovery -->
+          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 space-y-4">
+            <h3 class="text-base font-bold text-slate-900 border-b border-slate-100 pb-3">Data Backup & Export</h3>
+            <p class="text-xs text-slate-500">Download complete encrypted snapshot of KVSS student roster, fee ledgers, and academic marks.</p>
+
+            <button onclick="downloadBackup('students')" class="w-full py-2.5 px-4 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-xl text-xs flex items-center justify-center gap-2 transition-colors">
+              <i data-lucide="download" class="w-4 h-4"></i>
+              <span>Export Students Registry (.CSV)</span>
+            </button>
+
+            <button onclick="downloadBackup('fees')" class="w-full py-2.5 px-4 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-xl text-xs flex items-center justify-center gap-2 transition-colors">
+              <i data-lucide="download" class="w-4 h-4"></i>
+              <span>Export Fee Ledger 2083 (.XLSX)</span>
+            </button>
+
+            <button onclick="downloadBackup('all')" class="w-full py-2.5 px-4 bg-[#E8752F]/10 hover:bg-[#E8752F]/20 text-[#E8752F] font-bold rounded-xl text-xs flex items-center justify-center gap-2 transition-colors">
+              <i data-lucide="database" class="w-4 h-4"></i>
+              <span>Full System Snapshot (.JSON)</span>
+            </button>
+            <span class="text-[11px] text-slate-400 text-center block">Last automatic cloud backup: Today at 02:00 AM NPT</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+  <script>
+    function saveAllSettings() {
+      SanskaarToast.show('School settings and CDC grading rules saved successfully!', 'success');
+    }
+
+    function downloadBackup(type) {
+      SanskaarToast.show(`Preparing ${type} export package. Download will start shortly.`, 'info');
+      setTimeout(() => {
+        SanskaarToast.show('Export complete!', 'success');
+      }, 1000);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'accountant',
+        activeNav: 'settings',
+        pageTitle: 'School Settings',
+        breadcrumb: 'Settings / General',
+        rootPrefix: '../'
+      });
+    });
+  </script>
+</body>
+</html>

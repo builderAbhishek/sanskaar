@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accountant Dashboard - Sanskaar ERP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <div id="app-shell">
+    <div id="page-content">
+      
+      <!-- Top Action Bar & Nepali Date Banner -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-2xl font-black text-slate-900 tracking-tight" data-i18n="dashboard_overview">Kathmandu Valley Secondary School</h1>
+            <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-orange-50 text-[#E8752F] border border-orange-200">
+              NEB: 27014
+            </span>
+          </div>
+          <p class="text-xs text-slate-500 mt-1">
+            <span>Today: </span>
+            <strong class="text-slate-700">Sombar, 15 Mangsir 2083</strong>
+            <span class="text-slate-400"> (Nov 30, 2026)</span>
+            <span> • Maharajgunj, Kathmandu</span>
+          </p>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <a href="#" style="display:none" class="px-3.5 py-2 text-xs font-bold bg-[#E8752F] text-white rounded-xl hover:bg-[#D46320] transition-colors shadow-sm flex items-center gap-2">
+            <i data-lucide="calendar-check" class="w-4 h-4"></i>
+            <span data-i18n="take_roll_call">Daily Roll Call</span>
+          </a>
+          <a href="fee-collection.html" class="px-3.5 py-2 text-xs font-bold bg-emerald-600 text-white rounded-xl hover:bg-emerald-700 transition-colors shadow-sm flex items-center gap-1.5">
+            <i data-lucide="wallet" class="w-4 h-4"></i>
+            <span data-i18n="fee_collection">Collect Fees</span>
+          </a>
+          <a href="#" style="display:none" class="px-3 py-2 text-xs font-semibold bg-white border border-slate-200 text-slate-700 rounded-xl hover:bg-slate-50 transition-colors shadow-2xs flex items-center gap-1.5">
+            <i data-lucide="user-plus" class="w-4 h-4 text-slate-400"></i>
+            <span data-i18n="btn_add_student">New Admission</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- KPI Metric Cards Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+        <!-- KPI 1: Enrolled Students -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-semibold text-slate-500" data-i18n="total_students">Total Students</span>
+            <span class="p-2 rounded-xl bg-blue-50 text-blue-600">
+              <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+            </span>
+          </div>
+          <div class="mt-3 flex items-baseline gap-2">
+            <span class="text-3xl font-black text-slate-900">1,482</span>
+            <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded-full border border-emerald-200">+12 this term</span>
+          </div>
+          <p class="text-[11px] text-slate-400 mt-1.5">Class Nursery to Class 12 (Science/Mgmt)</p>
+        </div>
+
+        <!-- KPI 2: Today's Attendance -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-semibold text-slate-500" data-i18n="attendance_rate">Attendance Today</span>
+            <span class="p-2 rounded-xl bg-orange-50 text-[#E8752F]">
+              <i data-lucide="user-check" class="w-5 h-5"></i>
+            </span>
+          </div>
+          <div class="mt-3 flex items-baseline gap-2">
+            <span class="text-3xl font-black text-slate-900">96.8%</span>
+            <span class="text-xs font-bold text-slate-600 bg-slate-100 px-1.5 py-0.5 rounded-full">1,435 / 1,482</span>
+          </div>
+          <p class="text-[11px] text-slate-400 mt-1.5">47 Absent • 12 On Leave • SMS Sent</p>
+        </div>
+
+        <!-- KPI 3: Monthly Fee Collection (NPR) -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-semibold text-slate-500" data-i18n="monthly_collection">Fee Collection (Mangsir)</span>
+            <span class="p-2 rounded-xl bg-emerald-50 text-emerald-600">
+              <i data-lucide="credit-card" class="w-5 h-5"></i>
+            </span>
+          </div>
+          <div class="mt-3 flex items-baseline gap-2">
+            <span class="text-3xl font-black text-emerald-600">रू 4,85,000</span>
+            <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded-full">eSewa/Khalti</span>
+          </div>
+          <p class="text-[11px] text-slate-400 mt-1.5">Target: रू 6,20,000 (78% Achieved)</p>
+        </div>
+
+        <!-- KPI 4: Faculty on Duty -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-semibold text-slate-500" data-i18n="teachers_on_duty">Faculty on Duty</span>
+            <span class="p-2 rounded-xl bg-purple-50 text-purple-600">
+              <i data-lucide="briefcase" class="w-5 h-5"></i>
+            </span>
+          </div>
+          <div class="mt-3 flex items-baseline gap-2">
+            <span class="text-3xl font-black text-slate-900">74 / 78</span>
+            <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded-full">Biometric Synced</span>
+          </div>
+          <p class="text-[11px] text-slate-400 mt-1.5">4 Faculty on Approved Leave</p>
+        </div>
+      </div>
+
+      <!-- Charts Row: Fee Collection Trend & Class-wise Attendance -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+        <!-- Monthly Revenue Collection Chart -->
+        <div class="lg:col-span-2 bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <h3 class="text-sm font-bold text-slate-900" data-i18n="fee_trend">Quarterly Fee Inflow (NPR)</h3>
+              <p class="text-xs text-slate-400">Tuition, lab, exam & transportation collections (eSewa + Khalti + Bank)</p>
+            </div>
+            <span class="text-xs font-bold text-[#E8752F] bg-orange-50 px-2.5 py-1 rounded-lg border border-orange-200/60">
+              Session 2083-84
+            </span>
+          </div>
+          <div class="h-64 relative">
+            <canvas id="schoolFeeChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Payment Mode Breakdown Donut -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-sm font-bold text-slate-900">Fee Payment Modes</h3>
+              <span class="text-xs text-slate-400">This Month</span>
+            </div>
+            <p class="text-xs text-slate-400 mb-4">Online digital channels vs counter cash</p>
+            <div class="h-44 relative flex items-center justify-center">
+              <canvas id="paymentModeDonut"></canvas>
+            </div>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 grid grid-cols-3 text-center gap-1 text-xs">
+            <div>
+              <div class="text-[10px] text-slate-400">eSewa</div>
+              <div class="font-bold text-emerald-600">52%</div>
+            </div>
+            <div>
+              <div class="text-[10px] text-slate-400">Khalti</div>
+              <div class="font-bold text-purple-600">28%</div>
+            </div>
+            <div>
+              <div class="text-[10px] text-slate-400">Cash/Bank</div>
+              <div class="font-bold text-slate-700">20%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Operational Sections -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <!-- Left 2 Cols: Academic Routine & Today's Schedule -->
+        <div class="lg:col-span-2 space-y-6">
+          
+          <!-- Upcoming Examination Routine Notice -->
+          <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs">
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-2">
+                <i data-lucide="award" class="w-5 h-5 text-[#E8752F]"></i>
+                <div>
+                  <h3 class="text-sm font-bold text-slate-900">NEB Class 10 (SEE) Pre-Board Examination Routine</h3>
+                  <p class="text-[11px] text-slate-400">Starts 22 Mangsir 2083 • 08:00 AM to 11:00 AM NPT</p>
+                </div>
+              </div>
+              <a href="#" style="display:none" class="text-xs font-semibold text-[#E8752F] hover:underline flex items-center gap-1">
+                <span>View Date Sheet</span>
+                <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+              <div class="p-3 rounded-xl bg-orange-50/60 border border-orange-200/60">
+                <div class="text-[10px] font-bold text-[#E8752F] uppercase">22 Mangsir (Sunday)</div>
+                <div class="font-bold text-slate-900 mt-1">Compulsory English</div>
+                <div class="text-slate-500 text-[11px]">Subject Code: 001 • 75 Full Marks</div>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80">
+                <div class="text-[10px] font-bold text-slate-500 uppercase">23 Mangsir (Monday)</div>
+                <div class="font-bold text-slate-900 mt-1">Compulsory Nepali</div>
+                <div class="text-slate-500 text-[11px]">Subject Code: 002 • 75 Full Marks</div>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80">
+                <div class="text-[10px] font-bold text-slate-500 uppercase">24 Mangsir (Tuesday)</div>
+                <div class="font-bold text-slate-900 mt-1">Compulsory Mathematics</div>
+                <div class="text-slate-500 text-[11px]">Subject Code: 003 • 75 Full Marks</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Actions Panel -->
+          <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs">
+            <h3 class="text-sm font-bold text-slate-900 mb-3" data-i18n="quick_actions">Daily School Operations</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <a href="#" style="display:none" class="p-3 rounded-xl bg-slate-50 hover:bg-orange-50 border border-slate-200/80 hover:border-orange-200 transition-all text-center group">
+                <i data-lucide="check-square" class="w-5 h-5 mx-auto text-[#E8752F] mb-1.5 group-hover:scale-110 transition-transform"></i>
+                <div class="text-xs font-bold text-slate-800">Roll Call</div>
+                <div class="text-[10px] text-slate-400">Class Attendance</div>
+              </a>
+              <a href="fee-collection.html" class="p-3 rounded-xl bg-slate-50 hover:bg-emerald-50 border border-slate-200/80 hover:border-emerald-200 transition-all text-center group">
+                <i data-lucide="receipt" class="w-5 h-5 mx-auto text-emerald-600 mb-1.5 group-hover:scale-110 transition-transform"></i>
+                <div class="text-xs font-bold text-slate-800">POS Fee Counter</div>
+                <div class="text-[10px] text-slate-400">Issue Receipt</div>
+              </a>
+              <a href="#" style="display:none" class="p-3 rounded-xl bg-slate-50 hover:bg-blue-50 border border-slate-200/80 hover:border-blue-200 transition-all text-center group">
+                <i data-lucide="file-edit" class="w-5 h-5 mx-auto text-blue-600 mb-1.5 group-hover:scale-110 transition-transform"></i>
+                <div class="text-xs font-bold text-slate-800">Marks Entry</div>
+                <div class="text-[10px] text-slate-400">NEB Term Grading</div>
+              </a>
+              <a href="#" style="display:none" class="p-3 rounded-xl bg-slate-50 hover:bg-purple-50 border border-slate-200/80 hover:border-purple-200 transition-all text-center group">
+                <i data-lucide="sparkles" class="w-5 h-5 mx-auto text-purple-600 mb-1.5 group-hover:scale-110 transition-transform"></i>
+                <div class="text-xs font-bold text-slate-800">AI Paper Studio</div>
+                <div class="text-[10px] text-slate-400">Instant Exam Paper</div>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Col: Notices & SMS Broadcast Widget -->
+        <div class="space-y-6">
+          
+          <!-- Recent Notices -->
+          <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs">
+            <div class="flex items-center justify-between mb-3">
+              <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+                <i data-lucide="bell" class="w-4 h-4 text-[#E8752F]"></i>
+                <span data-i18n="recent_notices">Notice Board</span>
+              </h4>
+              <a href="notices.html" class="text-xs text-[#E8752F] font-semibold hover:underline">All Notices</a>
+            </div>
+
+            <div class="space-y-3 text-xs">
+              <div class="p-3 rounded-xl bg-slate-50 border border-slate-100">
+                <div class="flex items-center justify-between text-[10px] text-slate-400">
+                  <span>Academic</span>
+                  <span>14 Mangsir</span>
+                </div>
+                <div class="font-bold text-slate-900 mt-1">SEE Practical Examination Schedule Published</div>
+                <p class="text-slate-500 text-[11px] mt-0.5">Physics and Chemistry lab sessions begin this Thursday.</p>
+              </div>
+
+              <div class="p-3 rounded-xl bg-slate-50 border border-slate-100">
+                <div class="flex items-center justify-between text-[10px] text-slate-400">
+                  <span>Administration</span>
+                  <span>12 Mangsir</span>
+                </div>
+                <div class="font-bold text-slate-900 mt-1">Parent-Teacher Meeting for Class 9 & 10</div>
+                <p class="text-slate-500 text-[11px] mt-0.5">Saturday 10:00 AM in School Auditorium.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- SMS Broadcast Status -->
+          <div class="p-5 rounded-2xl bg-gradient-to-br from-[#E8752F] to-[#D46320] text-white shadow-lg text-xs">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-orange-200">Sparrow SMS Nepal</span>
+              <span class="px-2 py-0.5 rounded-full bg-white/20 text-[10px] font-bold">Live API</span>
+            </div>
+            <h4 class="text-base font-bold">Daily Parent SMS Automated</h4>
+            <p class="text-orange-100 text-[11px] mt-1">47 absent notifications dispatched at 10:15 AM today via sender ID KVSS_EDU.</p>
+            <div class="mt-4 pt-3 border-t border-white/20 flex items-center justify-between text-[11px]">
+              <span>Credits Left: <strong>24,850 SMS</strong></span>
+              <a href="notices.html" class="font-bold underline hover:text-white">View SMS Log</a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/charts.js"></script>
+  <script src="../assets/js/components.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'accountant',
+        activeNav: 'dashboard',
+        pageTitle: 'School Operations',
+        breadcrumb: 'Overview',
+        rootPrefix: '../'
+      });
+
+      if (window.SanskaarCharts) {
+        // Fee trend chart
+        SanskaarCharts.createBarChart('schoolFeeChart',
+          ['Baisakh', 'Jestha', 'Ashadh', 'Shrawan', 'Bhadra', 'Ashwin', 'Kartik', 'Mangsir'],
+          [
+            {
+              label: 'eSewa & Khalti (Digital)',
+              data: [310000, 340000, 360000, 380000, 410000, 430000, 440000, 485000],
+              backgroundColor: '#E8752F',
+              borderRadius: 6
+            },
+            {
+              label: 'Cash Counter & Bank',
+              data: [150000, 140000, 130000, 125000, 120000, 110000, 105000, 95000],
+              backgroundColor: '#CBD5E1',
+              borderRadius: 6
+            }
+          ]
+        );
+
+        // Payment modes donut
+        SanskaarCharts.createDonutChart('paymentModeDonut',
+          ['eSewa', 'Khalti', 'Counter Cash'],
+          [52, 28, 20],
+          ['#10B981', '#8B5CF6', '#CBD5E1']
+        );
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fee Collection POS - Sanskaar ERP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <div id="app-shell">
+    <div id="page-content">
+      
+      <!-- Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div>
+          <h1 class="text-2xl font-black text-slate-900 tracking-tight" data-i18n="nav_fee_collection">Fee Collection POS Counter</h1>
+          <p class="text-xs text-slate-500 mt-1">Kathmandu Valley Secondary School • Instant Receipt & Payment Ledger (Amounts in NPR / रू)</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="fee-records.html" class="px-3 py-2 text-xs font-semibold bg-white border border-slate-200 text-slate-700 rounded-xl hover:bg-slate-50 transition-colors shadow-2xs">
+            Back to Fee Overview
+          </a>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <!-- Left 2 Cols: Student Search & Fee Heads Selection -->
+        <div class="lg:col-span-2 space-y-6">
+          
+          <!-- Student Search Card -->
+          <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs">
+            <h3 class="text-sm font-bold text-slate-900 mb-3 flex items-center gap-2">
+              <i data-lucide="search" class="w-4 h-4 text-[#E8752F]"></i>
+              <span>Select Student Account</span>
+            </h3>
+            
+            <div class="relative">
+              <i data-lucide="user" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+              <input 
+                type="text" 
+                id="pos-student-search"
+                value="Aarav Shrestha (Roll #01 - Class 10-A)" 
+                class="w-full pl-10 pr-4 py-2.5 text-xs bg-slate-50 border border-slate-200 rounded-xl font-bold text-slate-900 focus:outline-none focus:border-[#E8752F]"
+              >
+            </div>
+
+            <!-- Student Bio Snapshot -->
+            <div class="mt-4 p-3.5 rounded-xl bg-orange-50/50 border border-orange-200/60 flex items-center justify-between text-xs">
+              <div class="flex items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=100&auto=format&fit=crop&q=80" class="w-10 h-10 rounded-xl object-cover border border-orange-200">
+                <div>
+                  <div class="font-bold text-slate-900">Aarav Shrestha • NEB Symbol: 27014001A</div>
+                  <div class="text-[11px] text-slate-500">Class 10 - Section A • Guardian: Mr. Bikram Shrestha (+977 9851048291)</div>
+                </div>
+              </div>
+              <span class="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold">Good Standing</span>
+            </div>
+          </div>
+
+          <!-- Fee Particulars Checklist -->
+          <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+                <i data-lucide="check-square" class="w-4 h-4 text-emerald-600"></i>
+                <span>Fee Heads Breakdown for Quarter 2 (Ashwin - Mangsir 2083)</span>
+              </h3>
+              <span class="text-xs text-slate-400">Select items to invoice</span>
+            </div>
+
+            <div class="space-y-3 text-xs">
+              <label class="p-3 rounded-xl border border-slate-200 flex items-center justify-between hover:bg-slate-50 cursor-pointer">
+                <div class="flex items-center gap-3">
+                  <input type="checkbox" checked onchange="calculatePOSTotal()" class="fee-item rounded text-[#E8752F] focus:ring-[#E8752F]" data-amount="19500">
+                  <div>
+                    <span class="font-bold text-slate-900">Monthly Tuition Fee (3 Months @ रू 6,500/mo)</span>
+                    <span class="text-[11px] text-slate-400 block">Covers regular academic classroom instruction</span>
+                  </div>
+                </div>
+                <span class="font-mono font-bold text-slate-900">रू 19,500</span>
+              </label>
+
+              <label class="p-3 rounded-xl border border-slate-200 flex items-center justify-between hover:bg-slate-50 cursor-pointer">
+                <div class="flex items-center gap-3">
+                  <input type="checkbox" checked onchange="calculatePOSTotal()" class="fee-item rounded text-[#E8752F] focus:ring-[#E8752F]" data-amount="2400">
+                  <div>
+                    <span class="font-bold text-slate-900">Science Lab & Practical Consumables</span>
+                    <span class="text-[11px] text-slate-400 block">Physics & Chemistry practical classes</span>
+                  </div>
+                </div>
+                <span class="font-mono font-bold text-slate-900">रू 2,400</span>
+              </label>
+
+              <label class="p-3 rounded-xl border border-slate-200 flex items-center justify-between hover:bg-slate-50 cursor-pointer">
+                <div class="flex items-center gap-3">
+                  <input type="checkbox" checked onchange="calculatePOSTotal()" class="fee-item rounded text-[#E8752F] focus:ring-[#E8752F]" data-amount="1600">
+                  <div>
+                    <span class="font-bold text-slate-900">Computer Lab & Internet Access</span>
+                    <span class="text-[11px] text-slate-400 block">QBASIC programming & online portal</span>
+                  </div>
+                </div>
+                <span class="font-mono font-bold text-slate-900">रू 1,600</span>
+              </label>
+
+              <label class="p-3 rounded-xl border border-slate-200 flex items-center justify-between hover:bg-slate-50 cursor-pointer">
+                <div class="flex items-center gap-3">
+                  <input type="checkbox" checked onchange="calculatePOSTotal()" class="fee-item rounded text-[#E8752F] focus:ring-[#E8752F]" data-amount="1500">
+                  <div>
+                    <span class="font-bold text-slate-900">Terminal Examination Fee</span>
+                    <span class="text-[11px] text-slate-400 block">Pre-Board question paper & grade sheet print</span>
+                  </div>
+                </div>
+                <span class="font-mono font-bold text-slate-900">रू 1,500</span>
+              </label>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Col: Payment Summary & Gateway Selector -->
+        <div class="space-y-6">
+          <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs text-xs">
+            <h4 class="font-bold text-slate-900 mb-4 flex items-center gap-2">
+              <i data-lucide="wallet" class="w-4 h-4 text-[#E8752F]"></i>
+              <span>Payment Mode & POS Settlement</span>
+            </h4>
+
+            <!-- Payment Method Radios -->
+            <div class="space-y-2 mb-4">
+              <label class="p-2.5 rounded-xl border border-slate-200 flex items-center justify-between cursor-pointer hover:bg-slate-50">
+                <div class="flex items-center gap-2">
+                  <input type="radio" name="pay-mode" value="eSewa" checked class="text-[#E8752F] focus:ring-[#E8752F]">
+                  <span class="font-bold text-slate-800">eSewa Merchant QR</span>
+                </div>
+                <span class="font-mono text-[10px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded font-bold">Instant API</span>
+              </label>
+
+              <label class="p-2.5 rounded-xl border border-slate-200 flex items-center justify-between cursor-pointer hover:bg-slate-50">
+                <div class="flex items-center gap-2">
+                  <input type="radio" name="pay-mode" value="Khalti" class="text-[#E8752F] focus:ring-[#E8752F]">
+                  <span class="font-bold text-slate-800">Khalti Gateway</span>
+                </div>
+                <span class="font-mono text-[10px] text-purple-700 bg-purple-50 px-2 py-0.5 rounded font-bold">Wallet Pay</span>
+              </label>
+
+              <label class="p-2.5 rounded-xl border border-slate-200 flex items-center justify-between cursor-pointer hover:bg-slate-50">
+                <div class="flex items-center gap-2">
+                  <input type="radio" name="pay-mode" value="Cash" class="text-[#E8752F] focus:ring-[#E8752F]">
+                  <span class="font-bold text-slate-800">Counter Cash</span>
+                </div>
+                <span class="text-[10px] text-slate-500">Direct Deposit</span>
+              </label>
+
+              <label class="p-2.5 rounded-xl border border-slate-200 flex items-center justify-between cursor-pointer hover:bg-slate-50">
+                <div class="flex items-center gap-2">
+                  <input type="radio" name="pay-mode" value="Bank" class="text-[#E8752F] focus:ring-[#E8752F]">
+                  <span class="font-bold text-slate-800">ConnectIPS / Bank Slip</span>
+                </div>
+                <span class="text-[10px] text-slate-500">Nabil Bank</span>
+              </label>
+            </div>
+
+            <!-- Discount Voucher -->
+            <div class="mb-4">
+              <label class="block font-semibold text-slate-700 mb-1">Scholarship / Concession Code</label>
+              <div class="flex gap-2">
+                <input type="text" placeholder="e.g. MERIT10" class="flex-1 px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-mono">
+                <button onclick="Toast.info('Applied', '10% merit concession applied')" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-lg text-xs">Apply</button>
+              </div>
+            </div>
+
+            <!-- Total Amount Calculation Box -->
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80 space-y-2">
+              <div class="flex justify-between text-slate-500">
+                <span>Subtotal Particulars</span>
+                <span class="font-mono text-slate-800" id="pos-subtotal">रू 25,000</span>
+              </div>
+              <div class="flex justify-between text-emerald-600 font-medium">
+                <span>Scholarship Discount</span>
+                <span class="font-mono">- रू 0</span>
+              </div>
+              <div class="pt-2 border-t border-slate-200 flex justify-between items-baseline">
+                <span class="font-bold text-slate-900 text-sm">Total Payable</span>
+                <span class="font-black text-xl text-emerald-600" id="pos-total">रू 25,000</span>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="mt-5">
+              <button onclick="submitFeeCollection()" class="w-full py-3 px-4 rounded-xl bg-[#E8752F] hover:bg-[#D46320] text-white font-bold text-sm transition-colors shadow-sm flex items-center justify-center gap-2">
+                <i data-lucide="printer" class="w-4 h-4"></i>
+                <span>Confirm & Print Official Receipt</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'accountant',
+        activeNav: 'fee-collection',
+        pageTitle: 'Fee Collection Counter',
+        breadcrumb: 'Finance',
+        rootPrefix: '../'
+      });
+
+      calculatePOSTotal();
+    });
+
+    function calculatePOSTotal() {
+      const checkboxes = document.querySelectorAll('.fee-item:checked');
+      let total = 0;
+      checkboxes.forEach(cb => {
+        total += parseInt(cb.getAttribute('data-amount') || '0', 10);
+      });
+
+      const formatted = 'रू ' + total.toLocaleString('en-IN');
+      document.getElementById('pos-subtotal').textContent = formatted;
+      document.getElementById('pos-total').textContent = formatted;
+    }
+
+    function submitFeeCollection() {
+      Toast.success('Fee Collected!', 'Payment recorded in Nabil Bank account. Opening official receipt...');
+      setTimeout(() => {
+        window.location.href = 'fee-receipt.html';
+      }, 1000);
+    }
+  </script>
+</body>
+</html>

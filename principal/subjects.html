@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subjects & Curriculum - Sanskaar ERP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <div id="app-shell">
+    <div id="page-content">
+      
+      <!-- Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div>
+          <h1 class="text-2xl font-black text-slate-900 tracking-tight" data-i18n="nav_subjects">Curriculum Subjects & Course Codes</h1>
+          <p class="text-xs text-slate-500 mt-1">Nepal Curriculum Development Centre (CDC) & NEB Standards</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="Toast.info('Subject Added', 'New curriculum syllabus topic added')" class="px-3.5 py-2 text-xs font-bold bg-[#E8752F] text-white rounded-xl hover:bg-[#D46320] transition-colors shadow-sm flex items-center gap-2">
+            <i data-lucide="plus-circle" class="w-4 h-4"></i>
+            <span>Add Subject</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Class 10 SEE Curriculum Group -->
+      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-2xs overflow-hidden mb-6">
+        <div class="p-4 bg-orange-50/50 border-b border-orange-100 flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="w-7 h-7 rounded-lg bg-orange-100 text-[#E8752F] font-black flex items-center justify-center text-xs">10</span>
+            <div>
+              <h3 class="font-bold text-slate-900 text-sm">Class 10 (SEE) National Curriculum</h3>
+              <p class="text-[11px] text-slate-500">Compulsory & Optional Subjects prescribed by Ministry of Education, Nepal</p>
+            </div>
+          </div>
+          <span class="px-2.5 py-1 rounded-full bg-white text-[#E8752F] font-bold text-xs border border-orange-200 shadow-2xs">
+            75 Theory + 25 Practical
+          </span>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-slate-50 text-slate-500 border-b border-slate-200/80">
+              <tr>
+                <th class="py-3 px-4 font-semibold">Subject Code</th>
+                <th class="py-3 px-4 font-semibold">Subject Name (Eng & Nep)</th>
+                <th class="py-3 px-3 font-semibold">Classification</th>
+                <th class="py-3 px-3 font-semibold">Credit Hours</th>
+                <th class="py-3 px-3 font-semibold">Theory / Practical</th>
+                <th class="py-3 px-3 font-semibold">Faculty Lead</th>
+                <th class="py-3 px-4 font-semibold text-right">Syllabus</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4 font-mono font-bold text-slate-800">001</td>
+                <td class="py-3 px-4">
+                  <div class="font-bold text-slate-900">Compulsory English</div>
+                  <div class="text-[11px] text-slate-400">अनिवार्य अंग्रेजी</div>
+                </td>
+                <td class="py-3 px-3"><span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 text-slate-700">Compulsory</span></td>
+                <td class="py-3 px-3 font-semibold text-slate-800">4.0 CH</td>
+                <td class="py-3 px-3 font-mono text-slate-600">75 TH + 25 PR</td>
+                <td class="py-3 px-3 font-medium text-slate-800">Ms. Anjana Sharma</td>
+                <td class="py-3 px-4 text-right"><button onclick="Toast.info('Syllabus', 'Viewing CDC English syllabus')" class="text-xs text-[#E8752F] font-bold hover:underline">View</button></td>
+              </tr>
+
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4 font-mono font-bold text-slate-800">002</td>
+                <td class="py-3 px-4">
+                  <div class="font-bold text-slate-900">Compulsory Nepali</div>
+                  <div class="text-[11px] text-slate-400">अनिवार्य नेपाली</div>
+                </td>
+                <td class="py-3 px-3"><span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 text-slate-700">Compulsory</span></td>
+                <td class="py-3 px-3 font-semibold text-slate-800">4.0 CH</td>
+                <td class="py-3 px-3 font-mono text-slate-600">75 TH + 25 PR</td>
+                <td class="py-3 px-3 font-medium text-slate-800">Mr. Bhola Nath Dahal</td>
+                <td class="py-3 px-4 text-right"><button onclick="Toast.info('Syllabus', 'Viewing CDC Nepali syllabus')" class="text-xs text-[#E8752F] font-bold hover:underline">View</button></td>
+              </tr>
+
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4 font-mono font-bold text-slate-800">003</td>
+                <td class="py-3 px-4">
+                  <div class="font-bold text-slate-900">Compulsory Mathematics</div>
+                  <div class="text-[11px] text-slate-400">अनिवार्य गणित</div>
+                </td>
+                <td class="py-3 px-3"><span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 text-slate-700">Compulsory</span></td>
+                <td class="py-3 px-3 font-semibold text-slate-800">4.0 CH</td>
+                <td class="py-3 px-3 font-mono text-slate-600">75 TH + 25 PR</td>
+                <td class="py-3 px-3 font-medium text-slate-800">Mr. Keshav Nepal</td>
+                <td class="py-3 px-4 text-right"><button onclick="Toast.info('Syllabus', 'Viewing CDC Math syllabus')" class="text-xs text-[#E8752F] font-bold hover:underline">View</button></td>
+              </tr>
+
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4 font-mono font-bold text-slate-800">004</td>
+                <td class="py-3 px-4">
+                  <div class="font-bold text-slate-900">Science & Technology</div>
+                  <div class="text-[11px] text-slate-400">विज्ञान तथा प्रविधि</div>
+                </td>
+                <td class="py-3 px-3"><span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 text-slate-700">Compulsory</span></td>
+                <td class="py-3 px-3 font-semibold text-slate-800">4.0 CH</td>
+                <td class="py-3 px-3 font-mono text-slate-600">75 TH + 25 PR</td>
+                <td class="py-3 px-3 font-medium text-slate-800">Mr. Dipendra Khatiwada</td>
+                <td class="py-3 px-4 text-right"><button onclick="Toast.info('Syllabus', 'Viewing CDC Science syllabus')" class="text-xs text-[#E8752F] font-bold hover:underline">View</button></td>
+              </tr>
+
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4 font-mono font-bold text-slate-800">005</td>
+                <td class="py-3 px-4">
+                  <div class="font-bold text-slate-900">Social Studies & Human Values</div>
+                  <div class="text-[11px] text-slate-400">सामाजिक अध्ययन तथा मानव मूल्य शिक्षा</div>
+                </td>
+                <td class="py-3 px-3"><span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 text-slate-700">Compulsory</span></td>
+                <td class="py-3 px-3 font-semibold text-slate-800">4.0 CH</td>
+                <td class="py-3 px-3 font-mono text-slate-600">75 TH + 25 PR</td>
+                <td class="py-3 px-3 font-medium text-slate-800">Mrs. Shanti Pokharel</td>
+                <td class="py-3 px-4 text-right"><button onclick="Toast.info('Syllabus', 'Viewing CDC Social syllabus')" class="text-xs text-[#E8752F] font-bold hover:underline">View</button></td>
+              </tr>
+
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4 font-mono font-bold text-slate-800">101</td>
+                <td class="py-3 px-4">
+                  <div class="font-bold text-slate-900">Optional I: Additional Mathematics</div>
+                  <div class="text-[11px] text-slate-400">ऐच्छिक गणित</div>
+                </td>
+                <td class="py-3 px-3"><span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-purple-50 text-purple-700 border border-purple-200">Elective I</span></td>
+                <td class="py-3 px-3 font-semibold text-slate-800">4.0 CH</td>
+                <td class="py-3 px-3 font-mono text-slate-600">75 TH + 25 PR</td>
+                <td class="py-3 px-3 font-medium text-slate-800">Mr. Keshav Nepal</td>
+                <td class="py-3 px-4 text-right"><button onclick="Toast.info('Syllabus', 'Viewing Opt. Math syllabus')" class="text-xs text-[#E8752F] font-bold hover:underline">View</button></td>
+              </tr>
+
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4 font-mono font-bold text-slate-800">201</td>
+                <td class="py-3 px-4">
+                  <div class="font-bold text-slate-900">Optional II: Computer Science</div>
+                  <div class="text-[11px] text-slate-400">कम्प्युटर विज्ञान (QBASIC & HTML/C)</div>
+                </td>
+                <td class="py-3 px-3"><span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-blue-50 text-blue-700 border border-blue-200">Elective II</span></td>
+                <td class="py-3 px-3 font-semibold text-slate-800">4.0 CH</td>
+                <td class="py-3 px-3 font-mono text-slate-600">50 TH + 50 PR</td>
+                <td class="py-3 px-3 font-medium text-slate-800">Er. Bikash Maharjan</td>
+                <td class="py-3 px-4 text-right"><button onclick="Toast.info('Syllabus', 'Viewing Computer Science syllabus')" class="text-xs text-[#E8752F] font-bold hover:underline">View</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'principal',
+        activeNav: 'subjects',
+        pageTitle: 'Curriculum Subjects',
+        breadcrumb: 'Academics',
+        rootPrefix: '../'
+      });
+    });
+  </script>
+</body>
+</html>

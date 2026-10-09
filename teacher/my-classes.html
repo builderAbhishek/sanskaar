@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Classes & Wings - Sanskaar ERP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <div id="app-shell">
+    <div id="page-content">
+      
+      <!-- Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div>
+          <h1 class="text-2xl font-black text-slate-900 tracking-tight" data-i18n="nav_classes">Classes & Academic Wings</h1>
+          <p class="text-xs text-slate-500 mt-1">Kathmandu Valley Secondary School • 14 Grades from Pre-Primary to Class 12</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="Toast.info('Create Class', 'Adding academic grade level')" class="px-3.5 py-2 text-xs font-bold bg-[#E8752F] text-white rounded-xl hover:bg-[#D46320] transition-colors shadow-sm flex items-center gap-2">
+            <i data-lucide="plus-circle" class="w-4 h-4"></i>
+            <span>Add Class Grade</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Wings Overview -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <span class="text-xs font-semibold text-slate-400">Pre-Primary Wing</span>
+          <div class="text-xl font-bold text-slate-900 mt-1">Playgroup, Nursery, LKG, UKG</div>
+          <span class="text-[11px] text-slate-500">184 Students • 8 Teachers</span>
+        </div>
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <span class="text-xs font-semibold text-slate-400">Primary Wing</span>
+          <div class="text-xl font-bold text-slate-900 mt-1">Class 1 to Class 5</div>
+          <span class="text-[11px] text-slate-500">420 Students • 18 Teachers</span>
+        </div>
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <span class="text-xs font-semibold text-slate-400">Lower Secondary (BLE)</span>
+          <div class="text-xl font-bold text-slate-900 mt-1">Class 6 to Class 8</div>
+          <span class="text-[11px] text-slate-500">360 Students • 16 Teachers</span>
+        </div>
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <span class="text-xs font-semibold text-slate-400">Secondary & +2 Wing (NEB/SEE)</span>
+          <div class="text-xl font-bold text-slate-900 mt-1">Class 9, 10, 11, 12</div>
+          <span class="text-[11px] text-emerald-600 font-bold">518 Students • 36 Faculty</span>
+        </div>
+      </div>
+
+      <!-- Classes Grid Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        
+        <!-- Class 10 (SEE) -->
+        <div class="bg-white p-5 rounded-2xl border-2 border-orange-200 shadow-2xs relative">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+              <div class="w-10 h-10 rounded-xl bg-orange-100 text-[#E8752F] font-black flex items-center justify-center text-sm">10</div>
+              <div>
+                <h3 class="font-bold text-slate-900 text-sm">Class 10 (SEE Batch)</h3>
+                <span class="text-[11px] text-slate-400">Secondary Education Exam</span>
+              </div>
+            </div>
+            <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-orange-50 text-[#E8752F] border border-orange-200">Board Exam</span>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 grid grid-cols-3 gap-2 text-center text-xs">
+            <div>
+              <span class="text-[10px] text-slate-400">Sections</span>
+              <div class="font-bold text-slate-800">A, B, C (3)</div>
+            </div>
+            <div>
+              <span class="text-[10px] text-slate-400">Students</span>
+              <div class="font-bold text-slate-800">128 Enrolled</div>
+            </div>
+            <div>
+              <span class="text-[10px] text-slate-400">Avg Attendance</span>
+              <div class="font-bold text-emerald-600">97.4%</div>
+            </div>
+          </div>
+          <div class="mt-4 flex gap-2">
+            <a href="my-students.html" class="flex-1 py-1.5 text-center rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-700 font-semibold text-xs transition-colors">Students</a>
+            <a href="timetable.html?class=10" class="flex-1 py-1.5 text-center rounded-lg bg-orange-50 hover:bg-orange-100 text-[#E8752F] font-bold text-xs transition-colors">Routine</a>
+          </div>
+        </div>
+
+        <!-- Class 9 -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+              <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 font-black flex items-center justify-center text-sm">09</div>
+              <div>
+                <h3 class="font-bold text-slate-900 text-sm">Class 9</h3>
+                <span class="text-[11px] text-slate-400">Secondary Wing</span>
+              </div>
+            </div>
+            <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 text-slate-600">2 Sections</span>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 grid grid-cols-3 gap-2 text-center text-xs">
+            <div>
+              <span class="text-[10px] text-slate-400">Sections</span>
+              <div class="font-bold text-slate-800">A, B (2)</div>
+            </div>
+            <div>
+              <span class="text-[10px] text-slate-400">Students</span>
+              <div class="font-bold text-slate-800">92 Enrolled</div>
+            </div>
+            <div>
+              <span class="text-[10px] text-slate-400">Avg Attendance</span>
+              <div class="font-bold text-emerald-600">96.1%</div>
+            </div>
+          </div>
+          <div class="mt-4 flex gap-2">
+            <a href="my-students.html" class="flex-1 py-1.5 text-center rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-700 font-semibold text-xs transition-colors">Students</a>
+            <a href="timetable.html?class=9" class="flex-1 py-1.5 text-center rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-700 font-semibold text-xs transition-colors">Routine</a>
+          </div>
+        </div>
+
+        <!-- Class 8 (BLE) -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+              <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-600 font-black flex items-center justify-center text-sm">08</div>
+              <div>
+                <h3 class="font-bold text-slate-900 text-sm">Class 8 (BLE Level)</h3>
+                <span class="text-[11px] text-slate-400">Basic Level Examination</span>
+              </div>
+            </div>
+            <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-purple-50 text-purple-700 border border-purple-200">District BLE</span>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 grid grid-cols-3 gap-2 text-center text-xs">
+            <div>
+              <span class="text-[10px] text-slate-400">Sections</span>
+              <div class="font-bold text-slate-800">A, B, C (3)</div>
+            </div>
+            <div>
+              <span class="text-[10px] text-slate-400">Students</span>
+              <div class="font-bold text-slate-800">114 Enrolled</div>
+            </div>
+            <div>
+              <span class="text-[10px] text-slate-400">Avg Attendance</span>
+              <div class="font-bold text-emerald-600">95.8%</div>
+            </div>
+          </div>
+          <div class="mt-4 flex gap-2">
+            <a href="my-students.html" class="flex-1 py-1.5 text-center rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-700 font-semibold text-xs transition-colors">Students</a>
+            <a href="timetable.html?class=8" class="flex-1 py-1.5 text-center rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-700 font-semibold text-xs transition-colors">Routine</a>
+          </div>
+        </div>
+
+        <!-- Class 11 Science -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+              <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 font-black flex items-center justify-center text-sm">11</div>
+              <div>
+                <h3 class="font-bold text-slate-900 text-sm">Class 11 (+2 Science)</h3>
+                <span class="text-[11px] text-slate-400">NEB Higher Secondary</span>
+              </div>
+            </div>
+            <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">NEB +2</span>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 grid grid-cols-3 gap-2 text-center text-xs">
+            <div>
+              <span class="text-[10px] text-slate-400">Sections</span>
+              <div class="font-bold text-slate-800">Sci-A, Sci-B</div>
+            </div>
+            <div>
+              <span class="text-[10px] text-slate-400">Students</span>
+              <div class="font-bold text-slate-800">88 Enrolled</div>
+            </div>
+            <div>
+              <span class="text-[10px] text-slate-400">Avg Attendance</span>
+              <div class="font-bold text-emerald-600">98.2%</div>
+            </div>
+          </div>
+          <div class="mt-4 flex gap-2">
+            <a href="my-students.html" class="flex-1 py-1.5 text-center rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-700 font-semibold text-xs transition-colors">Students</a>
+            <a href="timetable.html?class=11" class="flex-1 py-1.5 text-center rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-700 font-semibold text-xs transition-colors">Routine</a>
+          </div>
+        </div>
+
+        <!-- Class 12 Science -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+              <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 font-black flex items-center justify-center text-sm">12</div>
+              <div>
+                <h3 class="font-bold text-slate-900 text-sm">Class 12 (+2 Science)</h3>
+                <span class="text-[11px] text-slate-400">NEB Board Final</span>
+              </div>
+            </div>
+            <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">NEB Board</span>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 grid grid-cols-3 gap-2 text-center text-xs">
+            <div>
+              <span class="text-[10px] text-slate-400">Sections</span>
+              <div class="font-bold text-slate-800">Sci-A, Sci-B</div>
+            </div>
+            <div>
+              <span class="text-[10px] text-slate-400">Students</span>
+              <div class="font-bold text-slate-800">84 Enrolled</div>
+            </div>
+            <div>
+              <span class="text-[10px] text-slate-400">Avg Attendance</span>
+              <div class="font-bold text-emerald-600">98.5%</div>
+            </div>
+          </div>
+          <div class="mt-4 flex gap-2">
+            <a href="my-students.html" class="flex-1 py-1.5 text-center rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-700 font-semibold text-xs transition-colors">Students</a>
+            <a href="timetable.html?class=12" class="flex-1 py-1.5 text-center rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-700 font-semibold text-xs transition-colors">Routine</a>
+          </div>
+        </div>
+
+        <!-- Class 7 -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+              <div class="w-10 h-10 rounded-xl bg-slate-100 text-slate-700 font-black flex items-center justify-center text-sm">07</div>
+              <div>
+                <h3 class="font-bold text-slate-900 text-sm">Class 7</h3>
+                <span class="text-[11px] text-slate-400">Lower Secondary</span>
+              </div>
+            </div>
+            <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 text-slate-600">3 Sections</span>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 grid grid-cols-3 gap-2 text-center text-xs">
+            <div>
+              <span class="text-[10px] text-slate-400">Sections</span>
+              <div class="font-bold text-slate-800">A, B, C (3)</div>
+            </div>
+            <div>
+              <span class="text-[10px] text-slate-400">Students</span>
+              <div class="font-bold text-slate-800">110 Enrolled</div>
+            </div>
+            <div>
+              <span class="text-[10px] text-slate-400">Avg Attendance</span>
+              <div class="font-bold text-emerald-600">95.4%</div>
+            </div>
+          </div>
+          <div class="mt-4 flex gap-2">
+            <a href="my-students.html" class="flex-1 py-1.5 text-center rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-700 font-semibold text-xs transition-colors">Students</a>
+            <a href="timetable.html?class=7" class="flex-1 py-1.5 text-center rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-700 font-semibold text-xs transition-colors">Routine</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'teacher',
+        activeNav: 'classes',
+        pageTitle: 'Classes & Wings',
+        breadcrumb: 'Academics',
+        rootPrefix: '../'
+      });
+    });
+  </script>
+</body>
+</html>

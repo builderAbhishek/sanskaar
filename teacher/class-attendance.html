@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Attendance - Sanskaar ERP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <div id="app-shell">
+    <div id="page-content">
+      
+      <!-- Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div>
+          <h1 class="text-2xl font-black text-slate-900 tracking-tight" data-i18n="nav_student_attendance">Daily Roll Call Attendance</h1>
+          <p class="text-xs text-slate-500 mt-1">Kathmandu Valley Secondary School • Class 10 Section A (SEE Candidate Batch)</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="markAllPresent()" class="px-3.5 py-2 text-xs font-bold bg-emerald-600 text-white rounded-xl hover:bg-emerald-700 transition-colors shadow-sm flex items-center gap-1.5">
+            <i data-lucide="check-check" class="w-4 h-4"></i>
+            <span data-i18n="mark_all_present">Mark All Present</span>
+          </button>
+          <button onclick="saveAttendance()" class="px-4 py-2 text-xs font-bold bg-[#E8752F] text-white rounded-xl hover:bg-[#D46320] transition-colors shadow-sm flex items-center gap-2">
+            <i data-lucide="save" class="w-4 h-4"></i>
+            <span data-i18n="save_attendance">Save & Send SMS</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Controls & KPI Ribbon -->
+      <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs mb-6 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
+        <div class="flex flex-wrap items-center gap-2 text-xs">
+          <div>
+            <label class="block text-[10px] font-bold text-slate-400 uppercase mb-0.5">Academic Grade</label>
+            <select class="px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-xl font-bold text-slate-800 focus:outline-none">
+              <option selected>Class 10 (SEE)</option>
+              <option>Class 9</option>
+              <option>Class 8 (BLE)</option>
+              <option>Class 11 (+2)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-[10px] font-bold text-slate-400 uppercase mb-0.5">Section</label>
+            <select class="px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-xl font-bold text-slate-800 focus:outline-none">
+              <option selected>Section A (Mr. Keshav Nepal)</option>
+              <option>Section B (Ms. Anjana Sharma)</option>
+              <option>Section C (Mr. Dipendra Khatiwada)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-[10px] font-bold text-slate-400 uppercase mb-0.5">Attendance Date (BS)</label>
+            <input type="text" value="2083-08-15 (Sombar)" class="px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-xl font-mono text-slate-800 text-xs">
+          </div>
+        </div>
+
+        <!-- Live Summary Numbers -->
+        <div class="flex items-center gap-3 text-xs bg-slate-50 p-2 rounded-xl border border-slate-200/80 self-start md:self-auto">
+          <div class="text-center px-2">
+            <span class="text-[10px] text-slate-400 block">Total</span>
+            <span class="font-black text-slate-900" id="total-count">42</span>
+          </div>
+          <div class="h-6 w-px bg-slate-200"></div>
+          <div class="text-center px-2">
+            <span class="text-[10px] text-emerald-600 font-bold block">Present</span>
+            <span class="font-black text-emerald-600" id="present-count">40</span>
+          </div>
+          <div class="h-6 w-px bg-slate-200"></div>
+          <div class="text-center px-2">
+            <span class="text-[10px] text-rose-600 font-bold block">Absent</span>
+            <span class="font-black text-rose-600" id="absent-count">2</span>
+          </div>
+          <div class="h-6 w-px bg-slate-200"></div>
+          <div class="text-center px-2">
+            <span class="text-[10px] text-blue-600 font-bold block">Leave</span>
+            <span class="font-black text-blue-600" id="leave-count">0</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Student Roll Call Sheet -->
+      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-2xs overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-slate-50 text-slate-500 border-b border-slate-200/80">
+              <tr>
+                <th class="py-3 px-4 font-semibold w-16">Roll #</th>
+                <th class="py-3 px-4 font-semibold">Student Information</th>
+                <th class="py-3 px-3 font-semibold">NEB Symbol No.</th>
+                <th class="py-3 px-3 font-semibold">Guardian Phone</th>
+                <th class="py-3 px-3 font-semibold">Term Average</th>
+                <th class="py-3 px-6 font-semibold text-center w-72">Attendance Status</th>
+              </tr>
+            </thead>
+            <tbody id="attendance-table-body" class="divide-y divide-slate-100">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+
+  <script>
+    let rollCallData = [];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'teacher',
+        activeNav: 'attendance',
+        pageTitle: 'Daily Roll Call',
+        breadcrumb: 'Attendance',
+        rootPrefix: '../'
+      });
+
+      // Sample class 10-A students
+      const rawStudents = (window.SANSKAAR_DATA && SANSKAAR_DATA.students) ? SANSKAAR_DATA.students.slice(0, 15) : [];
+      rollCallData = rawStudents.map((s, idx) => ({
+        id: s.id,
+        roll: s.rollNumber || (idx + 1 < 10 ? `0${idx + 1}` : `${idx + 1}`),
+        name: s.name,
+        symbol: s.symbolNumber || `270140${idx + 1}A`,
+        phone: s.phone || '+977 9851048291',
+        photo: s.photo,
+        rate: s.attendanceRate || '96.8%',
+        status: idx === 3 ? 'Absent' : idx === 7 ? 'Absent' : 'Present'
+      }));
+
+      renderRollCall();
+    });
+
+    function renderRollCall() {
+      const tbody = document.getElementById('attendance-table-body');
+      if (!tbody) return;
+
+      tbody.innerHTML = rollCallData.map(s => {
+        const isP = s.status === 'Present';
+        const isA = s.status === 'Absent';
+        const isL = s.status === 'Late';
+        const isLV = s.status === 'Leave';
+
+        return `
+          <tr class="hover:bg-slate-50 transition-colors">
+            <td class="py-3 px-4 font-mono font-bold text-slate-800">#${s.roll}</td>
+            <td class="py-3 px-4">
+              <div class="flex items-center gap-2.5">
+                <img src="${s.photo || 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=100&auto=format&fit=crop&q=80'}" class="w-8 h-8 rounded-full object-cover">
+                <div>
+                  <a href="#" class="font-bold text-slate-900 hover:text-[#E8752F]">${s.name}</a>
+                  <div class="text-[10px] text-slate-400">Class 10-A</div>
+                </div>
+              </div>
+            </td>
+            <td class="py-3 px-3 font-mono font-semibold text-slate-700">${s.symbol}</td>
+            <td class="py-3 px-3 font-mono text-slate-600">${s.phone}</td>
+            <td class="py-3 px-3 font-bold text-emerald-600">${s.rate}</td>
+            <td class="py-3 px-6 text-center">
+              <div class="inline-flex p-1 bg-slate-100 rounded-xl gap-1">
+                <button 
+                  onclick="setStatus('${s.id}', 'Present')"
+                  class="px-3 py-1 rounded-lg font-bold text-xs transition-all ${isP ? 'bg-emerald-600 text-white shadow-xs' : 'text-slate-600 hover:bg-slate-200/80'}"
+                >
+                  P
+                </button>
+                <button 
+                  onclick="setStatus('${s.id}', 'Absent')"
+                  class="px-3 py-1 rounded-lg font-bold text-xs transition-all ${isA ? 'bg-rose-600 text-white shadow-xs' : 'text-slate-600 hover:bg-slate-200/80'}"
+                >
+                  A
+                </button>
+                <button 
+                  onclick="setStatus('${s.id}', 'Late')"
+                  class="px-3 py-1 rounded-lg font-bold text-xs transition-all ${isL ? 'bg-amber-500 text-white shadow-xs' : 'text-slate-600 hover:bg-slate-200/80'}"
+                >
+                  L
+                </button>
+                <button 
+                  onclick="setStatus('${s.id}', 'Leave')"
+                  class="px-3 py-1 rounded-lg font-bold text-xs transition-all ${isLV ? 'bg-blue-600 text-white shadow-xs' : 'text-slate-600 hover:bg-slate-200/80'}"
+                >
+                  LV
+                </button>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join('');
+
+      updateCounts();
+    }
+
+    function setStatus(id, status) {
+      const student = rollCallData.find(s => s.id === id);
+      if (student) {
+        student.status = status;
+        renderRollCall();
+      }
+    }
+
+    function markAllPresent() {
+      rollCallData.forEach(s => s.status = 'Present');
+      renderRollCall();
+      Toast.success('Updated', 'All students marked Present.');
+    }
+
+    function updateCounts() {
+      const p = rollCallData.filter(s => s.status === 'Present').length;
+      const a = rollCallData.filter(s => s.status === 'Absent').length;
+      const lv = rollCallData.filter(s => s.status === 'Leave').length;
+
+      document.getElementById('total-count').textContent = rollCallData.length;
+      document.getElementById('present-count').textContent = p;
+      document.getElementById('absent-count').textContent = a;
+      document.getElementById('leave-count').textContent = lv;
+    }
+
+    function saveAttendance() {
+      const absentCount = rollCallData.filter(s => s.status === 'Absent').length;
+      Toast.success('Attendance Saved', `Saved roll call for Class 10-A. Dispatched ${absentCount} SMS notices to absentee guardians via Sparrow SMS.`);
+    }
+  </script>
+</body>
+</html>

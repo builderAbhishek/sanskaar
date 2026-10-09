@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fee Structure - Sanskaar ERP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <div id="app-shell">
+    <div id="page-content">
+      
+      <!-- Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div>
+          <h1 class="text-2xl font-black text-slate-900 tracking-tight" data-i18n="nav_fee_structure">Institutional Fee Structure</h1>
+          <p class="text-xs text-slate-500 mt-1">Kathmandu Valley Secondary School • Approved Tuition, Lab & Transportation Fees (NPR / रू)</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="Toast.info('Print Schedule', 'Opening fee schedule PDF')" class="px-3.5 py-2 text-xs font-bold bg-white border border-slate-200 text-slate-700 rounded-xl hover:bg-slate-50 transition-colors shadow-2xs flex items-center gap-1.5">
+            <i data-lucide="printer" class="w-4 h-4 text-slate-400"></i>
+            <span>Print Official Brochure</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Class-wise Fee Table -->
+      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-2xs overflow-hidden mb-6">
+        <div class="p-4 border-b border-slate-100 flex items-center justify-between">
+          <h3 class="font-bold text-slate-900 text-sm">Academic Monthly & Quarterly Fee Heads</h3>
+          <span class="text-xs text-[#E8752F] font-bold">Session 2083-84 BS</span>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-slate-50 text-slate-500 border-b border-slate-200/80">
+              <tr>
+                <th class="py-3 px-4 font-semibold">Grade Level / Cohort</th>
+                <th class="py-3 px-3 font-semibold">Monthly Tuition</th>
+                <th class="py-3 px-3 font-semibold">Quarterly Tuition</th>
+                <th class="py-3 px-3 font-semibold">Science & Lab</th>
+                <th class="py-3 px-3 font-semibold">Computer & IT</th>
+                <th class="py-3 px-3 font-semibold">Exam & Test</th>
+                <th class="py-3 px-4 font-semibold text-right">Quarterly Total (NPR)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 font-mono text-slate-700">
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4 font-sans font-bold text-slate-900">Pre-Primary (Nursery, LKG, UKG)</td>
+                <td class="py-3 px-3">रू 4,500</td>
+                <td class="py-3 px-3 font-bold text-slate-900">रू 13,500</td>
+                <td class="py-3 px-3 text-slate-400">--</td>
+                <td class="py-3 px-3">रू 600</td>
+                <td class="py-3 px-3">रू 800</td>
+                <td class="py-3 px-4 text-right font-bold text-slate-900 font-sans">रू 14,900</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4 font-sans font-bold text-slate-900">Primary Wing (Class 1 to 5)</td>
+                <td class="py-3 px-3">रू 5,200</td>
+                <td class="py-3 px-3 font-bold text-slate-900">रू 15,600</td>
+                <td class="py-3 px-3">रू 800</td>
+                <td class="py-3 px-3">रू 1,000</td>
+                <td class="py-3 px-3">रू 1,000</td>
+                <td class="py-3 px-4 text-right font-bold text-slate-900 font-sans">रू 18,400</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4 font-sans font-bold text-slate-900">Lower Secondary BLE (Class 6 to 8)</td>
+                <td class="py-3 px-3">रू 5,800</td>
+                <td class="py-3 px-3 font-bold text-slate-900">रू 17,400</td>
+                <td class="py-3 px-3">रू 1,500</td>
+                <td class="py-3 px-3">रू 1,200</td>
+                <td class="py-3 px-3">रू 1,200</td>
+                <td class="py-3 px-4 text-right font-bold text-slate-900 font-sans">रू 21,300</td>
+              </tr>
+              <tr class="hover:bg-slate-50 bg-orange-50/20">
+                <td class="py-3 px-4 font-sans font-bold text-slate-900">Secondary SEE (Class 9 & 10)</td>
+                <td class="py-3 px-3 font-bold text-slate-900">रू 6,500</td>
+                <td class="py-3 px-3 font-bold text-[#E8752F]">रू 19,500</td>
+                <td class="py-3 px-3 font-bold">रू 2,400</td>
+                <td class="py-3 px-3 font-bold">रू 1,600</td>
+                <td class="py-3 px-3 font-bold">रू 1,500</td>
+                <td class="py-3 px-4 text-right font-bold text-emerald-600 font-sans text-sm">रू 25,000</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4 font-sans font-bold text-slate-900">Higher Secondary (+2 Science)</td>
+                <td class="py-3 px-3">रू 8,500</td>
+                <td class="py-3 px-3 font-bold text-slate-900">रू 25,500</td>
+                <td class="py-3 px-3">रू 4,500</td>
+                <td class="py-3 px-3">रू 2,000</td>
+                <td class="py-3 px-3">रू 2,000</td>
+                <td class="py-3 px-4 text-right font-bold text-slate-900 font-sans">रू 34,000</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4 font-sans font-bold text-slate-900">Higher Secondary (+2 Management)</td>
+                <td class="py-3 px-3">रू 7,200</td>
+                <td class="py-3 px-3 font-bold text-slate-900">रू 21,600</td>
+                <td class="py-3 px-3 text-slate-400">--</td>
+                <td class="py-3 px-3">रू 2,500</td>
+                <td class="py-3 px-3">रू 1,800</td>
+                <td class="py-3 px-4 text-right font-bold text-slate-900 font-sans">रू 25,900</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Transportation & Policies Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- Transportation Routes -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs text-xs">
+          <h4 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+            <i data-lucide="bus" class="w-4 h-4 text-[#E8752F]"></i>
+            <span>School Bus Transportation Tiers (Monthly NPR)</span>
+          </h4>
+          <div class="space-y-2">
+            <div class="flex justify-between p-2.5 rounded-xl bg-slate-50">
+              <span class="font-medium text-slate-800">Route 1: Chabahil / Gaushala / Mitrapark</span>
+              <span class="font-mono font-bold text-slate-900">रू 2,200 / mo</span>
+            </div>
+            <div class="flex justify-between p-2.5 rounded-xl bg-slate-50">
+              <span class="font-medium text-slate-800">Route 2: Kalanki / Balkhu / Kuleshwor</span>
+              <span class="font-mono font-bold text-slate-900">रू 2,800 / mo</span>
+            </div>
+            <div class="flex justify-between p-2.5 rounded-xl bg-slate-50">
+              <span class="font-medium text-slate-800">Route 3: Koteshwor / Baneshwor / Tinkune</span>
+              <span class="font-mono font-bold text-slate-900">रू 2,600 / mo</span>
+            </div>
+            <div class="flex justify-between p-2.5 rounded-xl bg-orange-50 border border-orange-200/60">
+              <span class="font-bold text-slate-900">Route 4: Maharajgunj / Baluwatar / Lazimpat</span>
+              <span class="font-mono font-bold text-[#E8752F]">रू 2,500 / mo</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Payment Deadlines & Policies -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs text-xs">
+          <h4 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+            <i data-lucide="calendar" class="w-4 h-4 text-emerald-600"></i>
+            <span>Payment Schedule & Late Policies</span>
+          </h4>
+          <div class="space-y-3 text-slate-600">
+            <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
+              <span class="font-bold text-slate-800 block">Due Date: 15th of Every Nepali Month</span>
+              <span class="text-[11px] text-slate-500">Fees payable via eSewa, Khalti or school cash counter.</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
+              <span class="font-bold text-slate-800 block">Late Fee Fine: 5% Surcharge</span>
+              <span class="text-[11px] text-slate-500">Applied automatically if fee remains unsettled after 25th of the billing month.</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
+              <span class="font-bold text-slate-800 block">Sibling Concession: 15% on Tuition</span>
+              <span class="text-[11px] text-slate-500">Applicable to younger sibling enrolled simultaneously.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'accountant',
+        activeNav: 'fee-structure',
+        pageTitle: 'Fee Structure',
+        breadcrumb: 'Finance',
+        rootPrefix: '../'
+      });
+    });
+  </script>
+</body>
+</html>

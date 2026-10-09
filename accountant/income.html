@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cash Book & Accounting - Sanskaar ERP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <div id="app-shell">
+    <div id="page-content">
+      
+      <!-- Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div>
+          <h1 class="text-2xl font-black text-slate-900 tracking-tight" data-i18n="nav_accounting">Institutional Cash Book & Accounts</h1>
+          <p class="text-xs text-slate-500 mt-1">Kathmandu Valley Secondary School • Daily Cash Flow, Bank Reconciliation & Ledger (NPR / रू)</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="Toast.info('Reconcile', 'Auto-reconciled with Nabil Bank API')" class="px-3.5 py-2 text-xs font-bold bg-[#E8752F] text-white rounded-xl hover:bg-[#D46320] transition-colors shadow-sm flex items-center gap-2">
+            <i data-lucide="check-circle" class="w-4 h-4"></i>
+            <span>Bank Reconciliation</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Bank Balances Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+        <!-- Nabil Bank -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+              <div class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 font-black flex items-center justify-center text-xs">NB</div>
+              <div>
+                <h4 class="font-bold text-slate-900 text-sm">Nabil Bank Ltd.</h4>
+                <p class="text-[10px] text-slate-400">Current A/C: 01928410001</p>
+              </div>
+            </div>
+            <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700">Primary Operating</span>
+          </div>
+          <div class="mt-4 flex items-baseline justify-between">
+            <span class="text-2xl font-black text-slate-900">रू 1,42,80,000</span>
+            <span class="text-[11px] text-slate-500">Live API</span>
+          </div>
+        </div>
+
+        <!-- Siddhartha Bank -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+              <div class="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 font-black flex items-center justify-center text-xs">SB</div>
+              <div>
+                <h4 class="font-bold text-slate-900 text-sm">Siddhartha Bank Ltd.</h4>
+                <p class="text-[10px] text-slate-400">Escrow A/C: 00481920021</p>
+              </div>
+            </div>
+            <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-blue-50 text-blue-700">Fee Gateway</span>
+          </div>
+          <div class="mt-4 flex items-baseline justify-between">
+            <span class="text-2xl font-black text-slate-900">रू 68,50,000</span>
+            <span class="text-[11px] text-slate-500">eSewa / Khalti</span>
+          </div>
+        </div>
+
+        <!-- Cash Counter Drawer -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+              <div class="w-9 h-9 rounded-xl bg-orange-50 text-[#E8752F] font-black flex items-center justify-center text-xs">
+                <i data-lucide="wallet" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-slate-900 text-sm">Cash Counter Safe</h4>
+                <p class="text-[10px] text-slate-400">Front Desk Cashier Drawer</p>
+              </div>
+            </div>
+            <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-orange-50 text-[#E8752F]">Physical Cash</span>
+          </div>
+          <div class="mt-4 flex items-baseline justify-between">
+            <span class="text-2xl font-black text-slate-900">रू 1,25,400</span>
+            <span class="text-[11px] text-slate-500">Verified Today</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cash Book Transactions Table -->
+      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-2xs overflow-hidden">
+        <div class="p-4 border-b border-slate-100 flex items-center justify-between">
+          <h3 class="font-bold text-slate-900 text-sm">Double Entry Cash Book Journal</h3>
+          <span class="text-xs text-slate-400 font-medium">Session 2083-84</span>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-slate-50 text-slate-500 border-b border-slate-200/80">
+              <tr>
+                <th class="py-3 px-4 font-semibold">Entry Date</th>
+                <th class="py-3 px-4 font-semibold">Transaction Particulars</th>
+                <th class="py-3 px-3 font-semibold">Account Head</th>
+                <th class="py-3 px-3 font-semibold">Voucher / Txn Ref</th>
+                <th class="py-3 px-3 font-semibold text-right">Debit (Income NPR)</th>
+                <th class="py-3 px-3 font-semibold text-right">Credit (Expense NPR)</th>
+                <th class="py-3 px-4 font-semibold text-right">Running Balance</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 font-mono text-slate-700">
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4 font-sans text-slate-500">2083-08-15</td>
+                <td class="py-3 px-4 font-sans font-medium text-slate-900">Fee Collection Counter Batched Deposit</td>
+                <td class="py-3 px-3 font-sans"><span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 font-bold text-[10px]">Fee Revenue</span></td>
+                <td class="py-3 px-3 text-slate-500">DEP-2083-881</td>
+                <td class="py-3 px-3 text-right font-bold text-emerald-600 font-sans">+ रू 4,85,000</td>
+                <td class="py-3 px-3 text-right text-slate-400">--</td>
+                <td class="py-3 px-4 text-right font-bold text-slate-900 font-sans">रू 2,12,55,400</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4 font-sans text-slate-500">2083-08-10</td>
+                <td class="py-3 px-4 font-sans font-medium text-slate-900">Electricity Bill Payment to NEA</td>
+                <td class="py-3 px-3 font-sans"><span class="px-2 py-0.5 rounded bg-rose-50 text-rose-700 font-bold text-[10px]">Utilities Expense</span></td>
+                <td class="py-3 px-3 text-slate-500">VCH-2083-401</td>
+                <td class="py-3 px-3 text-right text-slate-400">--</td>
+                <td class="py-3 px-3 text-right font-bold text-rose-600 font-sans">- रू 78,400</td>
+                <td class="py-3 px-4 text-right font-bold text-slate-900 font-sans">रू 2,07,70,400</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4 font-sans text-slate-500">2083-08-05</td>
+                <td class="py-3 px-4 font-sans font-medium text-slate-900">WorldLink Fiber Leased Line Internet</td>
+                <td class="py-3 px-3 font-sans"><span class="px-2 py-0.5 rounded bg-rose-50 text-rose-700 font-bold text-[10px]">IT & Comms</span></td>
+                <td class="py-3 px-3 text-slate-500">VCH-2083-402</td>
+                <td class="py-3 px-3 text-right text-slate-400">--</td>
+                <td class="py-3 px-3 text-right font-bold text-rose-600 font-sans">- रू 28,500</td>
+                <td class="py-3 px-4 text-right font-bold text-slate-900 font-sans">रू 2,08,48,800</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'accountant',
+        activeNav: 'accounting',
+        pageTitle: 'Cash Book & Accounts',
+        breadcrumb: 'Finance',
+        rootPrefix: '../'
+      });
+    });
+  </script>
+</body>
+</html>

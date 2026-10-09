@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teacher Biometric Attendance - Sanskaar ERP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <div id="app-shell">
+    <div id="page-content">
+      
+      <!-- Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div>
+          <h1 class="text-2xl font-black text-slate-900 tracking-tight" data-i18n="nav_teacher_attendance">Faculty Biometric Attendance</h1>
+          <p class="text-xs text-slate-500 mt-1">Kathmandu Valley Secondary School • Live Biometric Device Sync (Terminal: BIO-KVSS-GATE1)</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="Toast.success('Synced', 'Biometric log synchronized from facial recognition terminal')" class="px-3.5 py-2 text-xs font-bold bg-[#E8752F] text-white rounded-xl hover:bg-[#D46320] transition-colors shadow-sm flex items-center gap-2">
+            <i data-lucide="refresh-cw" class="w-4 h-4"></i>
+            <span>Sync Hardware Logs</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Biometric Stats -->
+      <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 mb-6">
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <span class="text-xs font-semibold text-slate-400">Faculty Total</span>
+          <div class="text-2xl font-black text-slate-900 mt-1">78 Teachers</div>
+          <span class="text-[11px] text-slate-500">All registered on terminal</span>
+        </div>
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <span class="text-xs font-semibold text-slate-400">Punched In Today</span>
+          <div class="text-2xl font-black text-emerald-600 mt-1">74 Present</div>
+          <span class="text-[11px] text-emerald-600 font-bold">94.8% Attendance</span>
+        </div>
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <span class="text-xs font-semibold text-slate-400">Late Punches (&gt; 09:00 AM)</span>
+          <div class="text-2xl font-black text-amber-500 mt-1">2 Faculty</div>
+          <span class="text-[11px] text-slate-500">Automatic delay recorded</span>
+        </div>
+        <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
+          <span class="text-xs font-semibold text-slate-400">Approved Casual Leave</span>
+          <div class="text-2xl font-black text-blue-600 mt-1">4 On Leave</div>
+          <span class="text-[11px] text-slate-500">Substitute classes assigned</span>
+        </div>
+      </div>
+
+      <!-- Biometric Logs Table -->
+      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-2xs overflow-hidden">
+        <div class="p-4 border-b border-slate-100 flex items-center justify-between">
+          <h3 class="font-bold text-slate-900 text-sm">Today's Punch Log (15 Mangsir 2083)</h3>
+          <span class="text-xs font-mono text-slate-500">Standard Shift: 08:30 AM - 03:30 PM NPT</span>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-slate-50 text-slate-500 border-b border-slate-200/80">
+              <tr>
+                <th class="py-3 px-4 font-semibold">Teacher Name</th>
+                <th class="py-3 px-3 font-semibold">Department</th>
+                <th class="py-3 px-3 font-semibold">Punch In (NPT)</th>
+                <th class="py-3 px-3 font-semibold">Punch Out</th>
+                <th class="py-3 px-3 font-semibold">Device Terminal</th>
+                <th class="py-3 px-3 font-semibold">Punctuality</th>
+                <th class="py-3 px-4 font-semibold text-right">Duty Class</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4">
+                  <div class="font-bold text-slate-900">Mr. Keshav Nepal</div>
+                  <div class="text-[11px] text-slate-400">TCH-KVSS-012</div>
+                </td>
+                <td class="py-3 px-3 font-medium text-slate-800">Mathematics</td>
+                <td class="py-3 px-3 font-mono font-bold text-emerald-600">08:42:10 AM</td>
+                <td class="py-3 px-3 font-mono text-slate-400">-- : -- : --</td>
+                <td class="py-3 px-3 text-slate-600 font-mono">BIO-GATE-01 (Face)</td>
+                <td class="py-3 px-3"><span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700">On Time</span></td>
+                <td class="py-3 px-4 text-right font-bold text-slate-800">Class 10-A</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4">
+                  <div class="font-bold text-slate-900">Ms. Anjana Sharma</div>
+                  <div class="text-[11px] text-slate-400">TCH-KVSS-008</div>
+                </td>
+                <td class="py-3 px-3 font-medium text-slate-800">English</td>
+                <td class="py-3 px-3 font-mono font-bold text-emerald-600">08:35:45 AM</td>
+                <td class="py-3 px-3 font-mono text-slate-400">-- : -- : --</td>
+                <td class="py-3 px-3 text-slate-600 font-mono">BIO-GATE-01 (Face)</td>
+                <td class="py-3 px-3"><span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700">On Time</span></td>
+                <td class="py-3 px-4 text-right font-bold text-slate-800">Class 10-B</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4">
+                  <div class="font-bold text-slate-900">Mr. Dipendra Khatiwada</div>
+                  <div class="text-[11px] text-slate-400">TCH-KVSS-019</div>
+                </td>
+                <td class="py-3 px-3 font-medium text-slate-800">Science</td>
+                <td class="py-3 px-3 font-mono font-bold text-emerald-600">08:48:20 AM</td>
+                <td class="py-3 px-3 font-mono text-slate-400">-- : -- : --</td>
+                <td class="py-3 px-3 text-slate-600 font-mono">BIO-GATE-02 (Thumb)</td>
+                <td class="py-3 px-3"><span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700">On Time</span></td>
+                <td class="py-3 px-4 text-right font-bold text-slate-800">Class 10-C</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4">
+                  <div class="font-bold text-slate-900">Mr. Bhola Nath Dahal</div>
+                  <div class="text-[11px] text-slate-400">TCH-KVSS-003</div>
+                </td>
+                <td class="py-3 px-3 font-medium text-slate-800">Nepali</td>
+                <td class="py-3 px-3 font-mono font-bold text-amber-600">09:04:12 AM</td>
+                <td class="py-3 px-3 font-mono text-slate-400">-- : -- : --</td>
+                <td class="py-3 px-3 text-slate-600 font-mono">BIO-GATE-01 (Face)</td>
+                <td class="py-3 px-3"><span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-50 text-amber-700">Late (14m)</span></td>
+                <td class="py-3 px-4 text-right font-bold text-slate-800">Class 9-A</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'teacher',
+        activeNav: 'teacher-attendance',
+        pageTitle: 'Teacher Biometric Attendance',
+        breadcrumb: 'Attendance',
+        rootPrefix: '../'
+      });
+    });
+  </script>
+</body>
+</html>

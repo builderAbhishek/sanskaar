@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exam Routine & Schedules - Sanskaar ERP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <div id="app-shell">
+    <div id="page-content">
+      
+      <!-- Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div>
+          <h1 class="text-2xl font-black text-slate-900 tracking-tight" data-i18n="nav_exam_schedule">Examination Timetable & Routine</h1>
+          <p class="text-xs text-slate-500 mt-1">Kathmandu Valley Secondary School • Class 10 (SEE) Model Pre-Board Date Sheet 2083</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="window.print()" class="px-3.5 py-2 text-xs font-bold bg-white border border-slate-200 text-slate-700 rounded-xl hover:bg-slate-50 transition-colors shadow-2xs flex items-center gap-1.5">
+            <i data-lucide="printer" class="w-4 h-4 text-slate-400"></i>
+            <span>Print Date Sheet</span>
+          </button>
+          <a href="marks-entry.html" class="px-3.5 py-2 text-xs font-bold bg-[#E8752F] text-white rounded-xl hover:bg-[#D46320] transition-colors shadow-sm flex items-center gap-1.5">
+            <i data-lucide="edit-3" class="w-4 h-4"></i>
+            <span data-i18n="nav_marks_entry">Enter Marks</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Exam Banner Info -->
+      <div class="p-5 rounded-2xl bg-gradient-to-r from-orange-500 to-amber-600 text-white shadow-md mb-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>
+          <span class="text-[10px] font-black uppercase tracking-wider bg-white/20 px-2.5 py-0.5 rounded-full">Official Board Routine</span>
+          <h2 class="text-xl font-black mt-1">Secondary Education Examination (SEE) Model Pre-Board 2083</h2>
+          <p class="text-xs text-orange-100 mt-0.5">Examination Time: <strong>08:00 AM to 11:00 AM (3 Hours)</strong> • Center: Main Academic Hall</p>
+        </div>
+        <div class="text-right shrink-0">
+          <span class="text-2xl font-black block">22 Mangsir 2083</span>
+          <span class="text-[11px] text-orange-100">Sunday Commencing Date</span>
+        </div>
+      </div>
+
+      <!-- Routine Table -->
+      <div class="bg-white rounded-2xl border border-slate-200/80 shadow-2xs overflow-hidden mb-6">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-slate-50 text-slate-500 border-b border-slate-200/80">
+              <tr>
+                <th class="py-3 px-4 font-semibold">Date & Day (B.S.)</th>
+                <th class="py-3 px-4 font-semibold">Subject Code & Name</th>
+                <th class="py-3 px-3 font-semibold">Time Slot</th>
+                <th class="py-3 px-3 font-semibold">Full / Pass Marks</th>
+                <th class="py-3 px-3 font-semibold">Examination Hall</th>
+                <th class="py-3 px-3 font-semibold">Chief Invigilator</th>
+                <th class="py-3 px-4 font-semibold text-right">Question Paper</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4">
+                  <div class="font-bold text-slate-900">22 Mangsir 2083 (Sunday)</div>
+                  <div class="text-[10px] text-slate-400">Day 1 of SEE Routine</div>
+                </td>
+                <td class="py-3 px-4">
+                  <div class="font-bold text-slate-900">Compulsory English (001)</div>
+                  <div class="text-[11px] text-slate-400">अनिवार्य अंग्रेजी</div>
+                </td>
+                <td class="py-3 px-3 font-mono font-medium text-slate-700">08:00 AM - 11:00 AM</td>
+                <td class="py-3 px-3 font-mono text-slate-700">FM: 75 / PM: 27</td>
+                <td class="py-3 px-3 font-medium text-slate-800">Hall A (Rooms 301, 302)</td>
+                <td class="py-3 px-3 text-slate-600">Mr. Bhola Nath Dahal</td>
+                <td class="py-3 px-4 text-right">
+                  <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700">Ready</span>
+                </td>
+              </tr>
+
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4">
+                  <div class="font-bold text-slate-900">23 Mangsir 2083 (Monday)</div>
+                  <div class="text-[10px] text-slate-400">Day 2 of SEE Routine</div>
+                </td>
+                <td class="py-3 px-4">
+                  <div class="font-bold text-slate-900">Compulsory Nepali (002)</div>
+                  <div class="text-[11px] text-slate-400">अनिवार्य नेपाली</div>
+                </td>
+                <td class="py-3 px-3 font-mono font-medium text-slate-700">08:00 AM - 11:00 AM</td>
+                <td class="py-3 px-3 font-mono text-slate-700">FM: 75 / PM: 27</td>
+                <td class="py-3 px-3 font-medium text-slate-800">Hall A (Rooms 301, 302)</td>
+                <td class="py-3 px-3 text-slate-600">Ms. Anjana Sharma</td>
+                <td class="py-3 px-4 text-right">
+                  <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700">Ready</span>
+                </td>
+              </tr>
+
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4">
+                  <div class="font-bold text-slate-900">24 Mangsir 2083 (Tuesday)</div>
+                  <div class="text-[10px] text-slate-400">Day 3 of SEE Routine</div>
+                </td>
+                <td class="py-3 px-4">
+                  <div class="font-bold text-slate-900">Compulsory Mathematics (003)</div>
+                  <div class="text-[11px] text-slate-400">अनिवार्य गणित</div>
+                </td>
+                <td class="py-3 px-3 font-mono font-medium text-slate-700">08:00 AM - 11:00 AM</td>
+                <td class="py-3 px-3 font-mono text-slate-700">FM: 75 / PM: 27</td>
+                <td class="py-3 px-3 font-medium text-slate-800">Hall A (Rooms 301, 302)</td>
+                <td class="py-3 px-3 text-slate-600">Mr. Dipendra Khatiwada</td>
+                <td class="py-3 px-4 text-right">
+                  <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700">Ready</span>
+                </td>
+              </tr>
+
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4">
+                  <div class="font-bold text-slate-900">25 Mangsir 2083 (Wednesday)</div>
+                  <div class="text-[10px] text-slate-400">Day 4 of SEE Routine</div>
+                </td>
+                <td class="py-3 px-4">
+                  <div class="font-bold text-slate-900">Science & Technology (004)</div>
+                  <div class="text-[11px] text-slate-400">विज्ञान तथा प्रविधि</div>
+                </td>
+                <td class="py-3 px-3 font-mono font-medium text-slate-700">08:00 AM - 11:00 AM</td>
+                <td class="py-3 px-3 font-mono text-slate-700">FM: 75 / PM: 27</td>
+                <td class="py-3 px-3 font-medium text-slate-800">Hall A (Rooms 301, 302)</td>
+                <td class="py-3 px-3 text-slate-600">Mr. Keshav Nepal</td>
+                <td class="py-3 px-4 text-right">
+                  <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700">Ready</span>
+                </td>
+              </tr>
+
+              <tr class="hover:bg-slate-50">
+                <td class="py-3 px-4">
+                  <div class="font-bold text-slate-900">26 Mangsir 2083 (Thursday)</div>
+                  <div class="text-[10px] text-slate-400">Day 5 of SEE Routine</div>
+                </td>
+                <td class="py-3 px-4">
+                  <div class="font-bold text-slate-900">Social Studies & Values (005)</div>
+                  <div class="text-[11px] text-slate-400">सामाजिक अध्ययन</div>
+                </td>
+                <td class="py-3 px-3 font-mono font-medium text-slate-700">08:00 AM - 11:00 AM</td>
+                <td class="py-3 px-3 font-mono text-slate-700">FM: 75 / PM: 27</td>
+                <td class="py-3 px-3 font-medium text-slate-800">Hall A (Rooms 301, 302)</td>
+                <td class="py-3 px-3 text-slate-600">Mrs. Shanti Pokharel</td>
+                <td class="py-3 px-4 text-right">
+                  <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700">Ready</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../data/translations.js"></script>
+  <script src="../data/mock-data.js"></script>
+  <script src="../assets/js/language.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/components.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Sanskaar.renderShell({
+        panel: 'principal',
+        activeNav: 'exam-schedule',
+        pageTitle: 'Exam Timetable',
+        breadcrumb: 'Examination',
+        rootPrefix: '../'
+      });
+    });
+  </script>
+</body>
+</html>

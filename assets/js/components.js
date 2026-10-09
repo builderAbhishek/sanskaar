@@ -210,7 +210,223 @@ window.Sanskaar = (function() {
     }
   ];
 
+
+  // Navigation structure for Principal Panel
+  const principalNav = [
+    {
+      titleKey: "nav_overview",
+      items: [
+        { id: "dashboard", labelKey: "nav_dashboard", icon: "layout-dashboard", href: "index.html" }
+      ]
+    },
+    {
+      titleKey: "nav_academics",
+      items: [
+        { id: "students", labelKey: "nav_students", icon: "graduation-cap", href: "students.html" },
+        { id: "classes", labelKey: "nav_classes", icon: "layers", href: "classes.html" },
+        { id: "sections", labelKey: "nav_sections", icon: "grid", href: "sections.html" },
+        { id: "subjects", labelKey: "nav_subjects", icon: "book", href: "subjects.html" },
+        { id: "timetable", labelKey: "nav_timetable", icon: "clock", href: "timetable.html" },
+        { id: "homework", labelKey: "nav_homework", icon: "book-open", href: "homework.html" },
+        { id: "assignments", labelKey: "nav_assignments", icon: "clipboard-list", href: "assignments.html" },
+        { id: "study-materials", labelKey: "nav_study_materials", icon: "folder", href: "study-materials.html" }
+      ]
+    },
+    {
+      titleKey: "nav_attendance",
+      items: [
+        { id: "attendance", labelKey: "nav_student_attendance", icon: "calendar-check", href: "attendance.html" },
+        { id: "staff-attendance", labelKey: "nav_staff_attendance", icon: "check-circle", href: "staff-attendance.html" }
+      ]
+    },
+    {
+      titleKey: "nav_examination",
+      items: [
+        { id: "exams", labelKey: "nav_exams", icon: "file-spreadsheet", href: "exams.html" },
+        { id: "exam-schedule", labelKey: "nav_exam_schedule", icon: "calendar", href: "exam-schedule.html" },
+        { id: "marks-entry", labelKey: "nav_marks_entry", icon: "edit-3", href: "marks-entry.html" },
+        { id: "results", labelKey: "nav_results", icon: "award", href: "results.html" },
+        { id: "report-card", labelKey: "nav_report_cards", icon: "file-check", href: "report-card.html" }
+      ]
+    },
+    {
+      titleKey: "nav_people",
+      items: [
+        { id: "teachers", labelKey: "nav_teachers", icon: "briefcase", href: "teachers.html" },
+        { id: "parent-communication", labelKey: "nav_parents", icon: "contact", href: "parent-communication.html" }
+      ]
+    },
+    {
+      titleKey: "nav_communication",
+      items: [
+        { id: "notices", labelKey: "nav_notices", icon: "bell", href: "notices.html" },
+        { id: "circulars", labelKey: "nav_circulars", icon: "mail", href: "circulars.html" }
+      ]
+    },
+    {
+      titleKey: "nav_reports",
+      items: [
+        { id: "academic-reports", labelKey: "nav_general_reports", icon: "bar-chart-3", href: "academic-reports.html" }
+      ]
+    },
+    {
+      titleKey: "nav_smart",
+      items: [
+        { id: "ai-insights", labelKey: "nav_ai_insights", icon: "sparkles", href: "ai-insights.html", badge: "AI", badgeColor: "orange" }
+      ]
+    },
+    {
+      titleKey: "nav_administration",
+      items: [
+        { id: "school-profile", labelKey: "nav_school_profile", icon: "building", href: "school-profile.html" },
+        { id: "academic-session", labelKey: "nav_academic_session", icon: "calendar-days", href: "academic-session.html" },
+        { id: "admissions", labelKey: "nav_admissions", icon: "user-plus", href: "admissions.html" },
+        { id: "promotions", labelKey: "nav_promotions", icon: "trending-up", href: "promotions.html" },
+        { id: "certificates", labelKey: "nav_certificates", icon: "award", href: "certificates.html" }
+      ]
+    }
+  ];
+
+  // Navigation structure for Accountant Panel
+  const accountantNav = [
+    {
+      titleKey: "nav_overview",
+      items: [
+        { id: "dashboard", labelKey: "nav_dashboard", icon: "layout-dashboard", href: "index.html" }
+      ]
+    },
+    {
+      titleKey: "nav_fee_collection",
+      items: [
+        { id: "fee-collection", labelKey: "nav_fee_collection", icon: "wallet", href: "fee-collection.html" },
+        { id: "daily-collection", labelKey: "nav_daily_collection", icon: "calendar", href: "daily-collection.html" },
+        { id: "fee-receipts", labelKey: "nav_fee_receipt", icon: "printer", href: "fee-receipts.html" },
+        { id: "pending-fees", labelKey: "nav_pending_fees", icon: "alert-circle", href: "pending-fees.html" }
+      ]
+    },
+    {
+      titleKey: "nav_fee_management",
+      items: [
+        { id: "fee-structure", labelKey: "nav_fee_structure", icon: "list", href: "fee-structure.html" },
+        { id: "fee-records", labelKey: "nav_fee_records", icon: "file-text", href: "fee-records.html" },
+        { id: "discounts", labelKey: "nav_discounts", icon: "percent", href: "discounts.html" },
+        { id: "fines", labelKey: "nav_fines", icon: "alert-triangle", href: "fines.html" }
+      ]
+    },
+    {
+      titleKey: "nav_accounting",
+      items: [
+        { id: "accounting", labelKey: "nav_accounting", icon: "pie-chart", href: "accounting.html" },
+        { id: "income", labelKey: "nav_income", icon: "trending-up", href: "income.html" },
+        { id: "expenses", labelKey: "nav_expenses", icon: "arrow-up-right", href: "expenses.html" },
+        { id: "ledger", labelKey: "nav_ledger", icon: "book", href: "ledger.html" },
+        { id: "journal-entries", labelKey: "nav_journal", icon: "file-edit", href: "journal-entries.html" },
+        { id: "vouchers", labelKey: "nav_vouchers", icon: "file", href: "vouchers.html" }
+      ]
+    },
+    {
+      titleKey: "nav_banking",
+      items: [
+        { id: "bank-transactions", labelKey: "nav_bank_transactions", icon: "landmark", href: "bank-transactions.html" },
+        { id: "bank-reconciliation", labelKey: "nav_reconciliation", icon: "refresh-cw", href: "bank-reconciliation.html" }
+      ]
+    },
+    {
+      titleKey: "nav_payroll",
+      items: [
+        { id: "salary", labelKey: "nav_salary", icon: "banknote", href: "salary.html" },
+        { id: "payroll", labelKey: "nav_payroll", icon: "users", href: "payroll.html" }
+      ]
+    },
+    {
+      titleKey: "nav_reports",
+      items: [
+        { id: "financial-reports", labelKey: "nav_financial_reports", icon: "bar-chart-3", href: "financial-reports.html" },
+        { id: "audit-reports", labelKey: "nav_audit_reports", icon: "shield-check", href: "audit-reports.html" }
+      ]
+    },
+    {
+      titleKey: "nav_administration",
+      items: [
+        { id: "notices", labelKey: "nav_notices", icon: "bell", href: "notices.html" },
+        { id: "profile", labelKey: "nav_profile", icon: "user", href: "profile.html" },
+        { id: "settings", labelKey: "nav_settings", icon: "settings", href: "settings.html" }
+      ]
+    }
+  ];
+
+  // Navigation structure for Teacher Panel
+  const teacherNav = [
+    {
+      titleKey: "nav_overview",
+      items: [
+        { id: "dashboard", labelKey: "nav_dashboard", icon: "layout-dashboard", href: "index.html" },
+        { id: "my-profile", labelKey: "nav_my_profile", icon: "user", href: "my-profile.html" }
+      ]
+    },
+    {
+      titleKey: "nav_academics",
+      items: [
+        { id: "my-classes", labelKey: "nav_my_classes", icon: "layers", href: "my-classes.html" },
+        { id: "my-subjects", labelKey: "nav_my_subjects", icon: "book", href: "my-subjects.html" },
+        { id: "my-students", labelKey: "nav_my_students", icon: "users", href: "my-students.html" },
+        { id: "timetable", labelKey: "nav_timetable", icon: "clock", href: "timetable.html" }
+      ]
+    },
+    {
+      titleKey: "nav_attendance",
+      items: [
+        { id: "class-attendance", labelKey: "nav_student_attendance", icon: "calendar-check", href: "class-attendance.html" },
+        { id: "attendance-history", labelKey: "nav_attendance_history", icon: "history", href: "attendance-history.html" }
+      ]
+    },
+    {
+      titleKey: "nav_assignments",
+      items: [
+        { id: "assignments", labelKey: "nav_assignments", icon: "clipboard-list", href: "assignments.html" },
+        { id: "create-assignment", labelKey: "nav_create_assignment", icon: "plus-circle", href: "create-assignment.html" },
+        { id: "homework", labelKey: "nav_homework", icon: "book-open", href: "homework.html" },
+        { id: "create-homework", labelKey: "nav_create_homework", icon: "plus-square", href: "create-homework.html" }
+      ]
+    },
+    {
+      titleKey: "nav_examination",
+      items: [
+        { id: "exams", labelKey: "nav_exams", icon: "file-spreadsheet", href: "exams.html" },
+        { id: "exam-schedule", labelKey: "nav_exam_schedule", icon: "calendar", href: "exam-schedule.html" },
+        { id: "marks-entry", labelKey: "nav_marks_entry", icon: "edit-3", href: "marks-entry.html" },
+        { id: "results", labelKey: "nav_results", icon: "award", href: "results.html" },
+        { id: "report-cards", labelKey: "nav_report_cards", icon: "file-check", href: "report-cards.html" }
+      ]
+    },
+    {
+      titleKey: "nav_resources",
+      items: [
+        { id: "study-materials", labelKey: "nav_study_materials", icon: "folder", href: "study-materials.html" },
+        { id: "lesson-plans", labelKey: "nav_lesson_plans", icon: "file-text", href: "lesson-plans.html" },
+        { id: "question-papers", labelKey: "nav_question_papers", icon: "file-question", href: "question-papers.html" },
+        { id: "worksheets", labelKey: "nav_worksheets", icon: "layout", href: "worksheets.html" }
+      ]
+    },
+    {
+      titleKey: "nav_communication",
+      items: [
+        { id: "notices", labelKey: "nav_notices", icon: "bell", href: "notices.html" },
+        { id: "notifications", labelKey: "nav_notifications", icon: "message-square", href: "notifications.html" },
+        { id: "parent-communication", labelKey: "nav_parents", icon: "contact", href: "parent-communication.html" }
+      ]
+    },
+    {
+      titleKey: "nav_administration",
+      items: [
+        { id: "leave-application", labelKey: "nav_leave_application", icon: "calendar-minus", href: "leave-application.html" },
+        { id: "certificates", labelKey: "nav_certificates", icon: "award", href: "certificates.html" }
+      ]
+    }
+  ];
+
   function renderShell(options) {
+
     const panel = options.panel || 'school'; // 'admin' | 'school' | 'student'
     const activeNav = options.activeNav || 'dashboard';
     const pageTitle = options.pageTitle || 'Dashboard';
@@ -222,10 +438,10 @@ window.Sanskaar = (function() {
     if (!shellContainer || !pageContent) return;
 
     // Pick appropriate nav groups
-    const navGroups = panel === 'admin' ? adminNav : panel === 'student' ? studentNav : schoolNav;
-    const portalNameKey = panel === 'admin' ? 'portal_admin' : panel === 'student' ? 'portal_student' : 'portal_school';
-    const userRole = panel === 'admin' ? 'SaaS Super Admin' : panel === 'student' ? 'Aarav Shrestha (Class 10-A)' : 'Prof. Dr. Ram Bahadur Thapa';
-    const userSub = panel === 'admin' ? 'Platform Administrator' : panel === 'student' ? 'Student & Guardian View' : 'Principal & Head of School';
+    const navGroups = panel === 'admin' ? adminNav : panel === 'student' ? studentNav : panel === 'principal' ? principalNav : panel === 'accountant' ? accountantNav : panel === 'teacher' ? teacherNav : schoolNav;
+    const portalNameKey = panel === 'admin' ? 'portal_admin' : panel === 'student' ? 'portal_student' : panel === 'principal' ? 'portal_principal' : panel === 'accountant' ? 'portal_accountant' : panel === 'teacher' ? 'portal_teacher' : 'portal_school';
+    const userRole = panel === 'admin' ? 'SaaS Super Admin' : panel === 'student' ? 'Aarav Shrestha (Class 10-A)' : panel === 'principal' ? 'Dr. Ram Bahadur Thapa' : panel === 'accountant' ? 'Hari Prasad Sharma' : panel === 'teacher' ? 'Sita Sharma (Maths)' : 'Prof. Dr. Ram Bahadur Thapa';
+    const userSub = panel === 'admin' ? 'Platform Administrator' : panel === 'student' ? 'Student & Guardian View' : panel === 'principal' ? 'Principal' : panel === 'accountant' ? 'Chief Accountant' : panel === 'teacher' ? 'Senior Teacher' : 'School Administrator';
     const userAvatar = panel === 'admin'
       ? 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80'
       : panel === 'student'
@@ -449,6 +665,33 @@ window.Sanskaar = (function() {
                       <div class="text-[10px] text-slate-400">Mobile-first parent experience</div>
                     </div>
                   </a>
+                  <a href="${rootPrefix}principal/index.html" class="px-4 py-2.5 flex items-center gap-3 hover:bg-orange-50 transition-colors ${panel === 'principal' ? 'bg-orange-50/60 font-bold text-[#E8752F]' : 'text-slate-700'}">
+                    <div class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                      <i data-lucide="crown" class="w-4 h-4"></i>
+                    </div>
+                    <div>
+                      <div class="text-xs font-bold leading-tight">Principal Portal</div>
+                      <div class="text-[10px] text-slate-400">Academic Overview</div>
+                    </div>
+                  </a>
+                  <a href="${rootPrefix}accountant/index.html" class="px-4 py-2.5 flex items-center gap-3 hover:bg-orange-50 transition-colors ${panel === 'accountant' ? 'bg-orange-50/60 font-bold text-[#E8752F]' : 'text-slate-700'}">
+                    <div class="w-8 h-8 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center shrink-0">
+                      <i data-lucide="calculator" class="w-4 h-4"></i>
+                    </div>
+                    <div>
+                      <div class="text-xs font-bold leading-tight">Accountant Portal</div>
+                      <div class="text-[10px] text-slate-400">Finance & Fee Management</div>
+                    </div>
+                  </a>
+                  <a href="${rootPrefix}teacher/index.html" class="px-4 py-2.5 flex items-center gap-3 hover:bg-orange-50 transition-colors ${panel === 'teacher' ? 'bg-orange-50/60 font-bold text-[#E8752F]' : 'text-slate-700'}">
+                    <div class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0">
+                      <i data-lucide="book-open" class="w-4 h-4"></i>
+                    </div>
+                    <div>
+                      <div class="text-xs font-bold leading-tight">Teacher Portal</div>
+                      <div class="text-[10px] text-slate-400">Academics & Evaluation</div>
+                    </div>
+                  </a>
                 </div>
               </div>
 
@@ -517,13 +760,9 @@ window.Sanskaar = (function() {
                     <span class="inline-block mt-1.5 px-2 py-0.5 rounded bg-emerald-50 border border-emerald-200 text-emerald-700 text-[10px] font-bold">Session Active</span>
                   </div>
                   <div class="py-1">
-                    <a href="${rootPrefix}school/school-profile.html" class="w-full px-4 py-2 text-left text-xs text-slate-700 hover:bg-slate-50 flex items-center gap-2.5">
-                      <i data-lucide="building" class="w-4 h-4 text-slate-400"></i>
-                      <span data-i18n="nav_school_profile">School Profile</span>
-                    </a>
-                    <a href="${rootPrefix}school/roles-permissions.html" class="w-full px-4 py-2 text-left text-xs text-slate-700 hover:bg-slate-50 flex items-center gap-2.5">
-                      <i data-lucide="lock" class="w-4 h-4 text-slate-400"></i>
-                      <span data-i18n="nav_roles_permissions">Roles & Permissions</span>
+                    <a href="${rootPrefix}${panel === 'admin' ? 'admin/school-details.html' : panel === 'teacher' ? 'teacher/my-profile.html' : panel === 'accountant' ? 'accountant/profile.html' : panel === 'principal' ? 'principal/school-profile.html' : panel === 'student' ? 'student/profile.html' : 'school/school-profile.html'}" class="w-full px-4 py-2 text-left text-xs text-slate-700 hover:bg-slate-50 flex items-center gap-2.5">
+                      <i data-lucide="user" class="w-4 h-4 text-slate-400"></i>
+                      <span>My Profile</span>
                     </a>
                   </div>
                   <div class="border-t border-slate-100 pt-1">
